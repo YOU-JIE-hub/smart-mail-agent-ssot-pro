@@ -1,0 +1,53 @@
+from __future__ import annotations
+import json, time
+from pathlib import Path
+from collections import Counter, defaultdict
+
+FX = Path("fixtures/eval_set.jsonl")
+OUT_DIR = Path(f"reports_auto/eval/{time.strftime('%Y%m%dT%H%M%S')}")
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+def _load_fx():
+    if not FX.exists(): raise SystemExit("[TRI] fixtures/eval_set.jsonl missing")
+    return [json.loads(l) for l in FX.read_text(encoding="utf-8").splitlines() if l.strip()]
+
+def _eval(which:str):
+    if which=="rule":
+        from tools.e2e_route_actions import _call_rule as caller
+    elif which=="ml":
+        from tools.e2e_route_actions import _call_ml as caller
+    elif which=="boosted":
+        from tools.e2e_route_actions import _call_boosted as caller
+    else:
+        raise ValueError(which)
+    y_true=[]; y_pred=[]; cm=defaultdict(Counter)
+    for s in _load_fx():
+        gt=s["intent"]; email=s["email"]
+        r=caller(email); pred=r.get("intent") or ""
+        y_true.append(gt); y_pred.append(pred); cm[gt][pred]+=1
+    acc=sum(1 for a,b in zip(y_true,y_pred) if a==b)/len(y_true)
+    return {"n":len(y_true),"acc":acc,"confusion":{k:dict(cm[k]) for k in cm}}
+
+def _maybe_spam():
+    md=Path("reports_auto/prod_quick_report.md")
+    if not md.exists(): return None
+    try:
+        lines=md.read_text(encoding="utf-8").splitlines()[1:4]
+        return {"TEXT_F1": float(lines[0].split(":")[1]),
+                "RULE_F1": float(lines[1].split(":")[1]),
+                "ENS_F1" : float(lines[2].split(":")[1])}
+    except Exception:
+        return None
+
+def main():
+    out={"ts": OUT_DIR.name}
+    spam=_maybe_spam()
+    if spam: out["spam"]=spam
+    out["intent_rule"]=_eval("rule")
+    out["intent_ml"]=_eval("ml")
+    out["intent_boosted"]=_eval("boosted")
+    (OUT_DIR/"tri_suite.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[TRI] wrote {OUT_DIR/'tri_suite.json'}")
+
+if __name__=="__main__":
+    main()

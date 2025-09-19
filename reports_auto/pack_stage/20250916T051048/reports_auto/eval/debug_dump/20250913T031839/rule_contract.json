@@ -1,0 +1,5 @@
+{
+  "have_fn": true,
+  "signature": "(email: 'Dict[str, Any]', contract: 'Dict[str, Any]') -> 'str'",
+  "takes_contract": true
+}

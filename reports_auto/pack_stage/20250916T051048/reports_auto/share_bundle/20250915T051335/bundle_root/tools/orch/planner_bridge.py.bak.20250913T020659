@@ -1,0 +1,47 @@
+from __future__ import annotations
+import os
+from typing import Dict, Any
+
+def _fallback_plan_action(intent: str, confidence: float, email: dict, slots: dict | None=None) -> Dict[str, Any]:
+    slots = slots or {}
+    dry = bool(os.environ.get("SMA_DRY_RUN"))
+    def hitl(reason:str):
+        return {"action":"hitl_queue","ok":False,"route":{"channel":"hitl","dry_run":dry},"required":[],
+                "template":"hitl_v1","params":{"reason":reason,"intent":intent,"confidence":confidence}}
+    thr = {"報價":0.70,"投訴":0.55,"一般回覆":0.50,"規則詢問":0.55,"資料異動":0.65,"技術支援":0.55}
+    if confidence < thr.get(intent,0.60): return hitl("low_confidence")
+    if intent == "報價":
+        req = ["price","qty"]; miss=[k for k in req if slots.get(k) in (None,"")]
+        if miss: return hitl(f"missing_slots:{','.join(miss)}")
+        subtotal=float(slots.get("price",0))*float(slots.get("qty",1)); tax=round(subtotal*0.05,2); total=round(subtotal+tax,2)
+        return {"action":"quote_reply","ok":True,"route":{"channel":"email","dry_run":dry},"required":[],
+                "template":"quote_email.md","params":{
+                    "item":slots.get("item","N/A"),"unit_price":float(slots.get("price",0)),"qty":int(slots.get("qty",1)),
+                    "subtotal":subtotal,"tax":tax,"total":total,"currency":slots.get("currency","TWD"),
+                    "valid_until":os.environ.get("QUOTE_VALID_UNTIL","2025-12-31"),
+                    "subject":"[報價] 自動回覆","body":f"報價總額：{total}"
+                }}
+    if intent == "投訴":
+        sev = "P2" if any(k in (email.get("subject","")+email.get("body","")) for k in ["down","宕機","無法使用"]) else "P3"
+        return {"action":"create_ticket","ok":True,"route":{"channel":"ticket","dry_run":dry},"required":[],
+                "template":"ts_v1","params":{"severity":sev,"tags":["complaint"],"summary":email.get("subject","(no subject)")}}
+    if intent == "技術支援":
+        return {"action":"create_ticket","ok":True,"route":{"channel":"ticket","dry_run":dry},"required":[],
+                "template":"ts_v1","params":{"severity":"P3","tags":["tech_support"],"summary":email.get("subject","(no subject)")}}
+    if intent == "規則詢問":
+        return {"action":"policy_reply","ok":True,"route":{"channel":"email","dry_run":dry},"required":[],
+                "template":"reply_generic.md","params":{"subject":"[回覆] 政策條款","body":"依據公司政策第 X 條，回覆如下…"}}
+    if intent == "資料異動":
+        return {"action":"change_request","ok":True,"route":{"channel":"crm","dry_run":dry},"required":[],
+                "template":"cr_v1","params":{"fields":slots or {}, "requester":email.get("from","noreply@example.com")}}
+    return {"action":"reply_email","ok":True,"route":{"channel":"email","dry_run":dry},"required":[],
+            "template":"reply_generic.md","params":{"subject":"[自動回覆] 已收到您的來信","body":"我們已收到您的來信，將盡快處理。"}}
+
+def plan_action(intent: str, confidence: float, email: dict, slots: dict | None=None) -> Dict[str, Any]:
+    try:
+        from tools.orch.policy_engine import plan_action as _pe
+        return _pe(intent, confidence, email, slots or {})
+    except Exception:
+        return _fallback_plan_action(intent, confidence, email, slots or {})
+
+__all__ = ["plan_action"]

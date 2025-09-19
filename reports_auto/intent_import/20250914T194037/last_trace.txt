@@ -1,0 +1,205 @@
+Traceback (most recent call last):
+  File "<stdin>", line 40, in <module>
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/usr/lib/python3.10/pickle.py", line 1582, in find_class
+    return _getattribute(sys.modules[module], name)[0]
+  File "/usr/lib/python3.10/pickle.py", line 331, in _getattribute
+    raise AttributeError("Can't get attribute {!r} on {!r}"
+AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>
+=== TRAP ===
+TIME: 2025-09-14T19:40:38+08:00
+BASH_COMMAND: python - <<'PY'
+from __future__ import annotations
+import os, sys, json, time, types, inspect, traceback, importlib, joblib
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+
+LOGDIR = Path(os.environ.get("R", "")) if os.environ.get("R") else Path("reports_auto/intent_import")/time.strftime("%Y%m%dT%H%M%S")
+LOGDIR.mkdir(parents=True, exist_ok=True)
+def log(*a): print(*a, flush=True)
+
+# ---- 1) 找 pkl 與 code root（你的截圖是 intent/intent）----
+cand = [
+    Path("intent/intent/artifacts/intent_pro_cal.pkl"),
+    Path("intent/artifacts/intent_pro_cal.pkl"),
+    Path("intent/intent/artifacts/intent_pipeline_fixed.pkl"),
+    Path("intent/artifacts/intent_pipeline_fixed.pkl"),
+]
+pkl = next((p for p in cand if p.exists()), None)
+if not pkl:
+    log("[FATAL] 找不到 intent/**/artifacts/*.pkl；請確認解壓位置")
+    (LOGDIR/"root_cause.json").write_text(json.dumps({"code":"no_pkl","msg":"intent/**/artifacts 無 pkl"},ensure_ascii=False,indent=2),encoding="utf-8")
+    sys.exit(2)
+
+code_root = pkl.parent.parent  # .../intent/intent
+sys.path.insert(0, str(code_root))  # 讓 .sma_tools 可被 import
+sys.path.insert(0, "vendor")        # 讓 vendor/sma_tools 可被 import
+log("[PKL]", str(pkl))
+log("[CODE_ROOT]", str(code_root))
+
+# ---- 2) 載入 + unwrap ----
+def unwrap(obj):
+    if hasattr(obj, "predict"): return obj, None
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            if k in obj and hasattr(obj[k], "predict"):
+                return obj[k], obj
+    return obj, None
+
+try:
+    obj = joblib.load(pkl)
+except Exception as e:
+    (LOGDIR/"last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    raise
+
+est, meta = unwrap(obj)
+if not hasattr(est, "predict"):
+    (LOGDIR/"root_cause.json").write_text(json.dumps({"code":"not_estimator","msg":"無 predict"},ensure_ascii=False),encoding="utf-8")
+    raise SystemExit("[FATAL] 不是 estimator")
+
+# ---- 3) 取 features/union 與 classifier 的期望維度 ----
+if hasattr(est, "steps"):
+    steps = [(n, t.__class__.__name__) for n,t in est.steps]
+    log("steps:", steps)
+    clf = est.steps[-1][1]
+else:
+    steps = []
+    clf = est
+
+def expected_dim(clf):
+    if hasattr(clf,"base_estimator") and hasattr(clf.base_estimator,"n_features_in_"):
+        return int(clf.base_estimator.n_features_in_)
+    if hasattr(clf,"n_features_in_"):
+        return int(clf.n_features_in_)
+    return None
+
+need = expected_dim(clf)
+
+# 找 union
+pre = None
+if hasattr(est,"steps"):
+    for n,t in est.steps:
+        if n in ("features","pre","union"):
+            pre = t; break
+else:
+    pre = getattr(est,"features", None)
+
+# ---- 4) 估各分支維度（只做 shape）----
+def as_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X,np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(type(X).__name__)
+
+dims = {}
+samples = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+if pre is not None and hasattr(pre,"transformer_list"):
+    for name, sub in pre.transformer_list:
+        try:
+            Y = sub.transform(samples)
+            Y = as_csr(Y)
+            dims[name] = int(Y.shape[1])
+        except Exception as e:
+            # 非數值分支（例如 rules 直接回 list）暫不計入
+            dims[name] = f"NONNUM:{e.__class__.__name__}"
+else:
+    dims = {}
+
+num_sum = sum(v for v in dims.values() if isinstance(v,int))
+log("[BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False))
+log("[SUM_BEFORE]", num_sum)
+log("[EXPECTED]", need)
+
+# ---- 5) 若有缺口 → 調整 ZeroPad.width 補齊 ----
+delta = None if (need is None or not num_sum) else (need - num_sum)
+if delta and hasattr(pre,"transformer_list"):
+    for i,(name,sub) in enumerate(pre.transformer_list):
+        if hasattr(sub,"width") and any(k in name.lower() for k in ("pad","zero")):
+            try:
+                old = int(getattr(sub,"width",1) or 1)
+                new = old + int(delta)
+                setattr(sub,"width", new)
+                pre.transformer_list[i] = (name, sub)
+                log(f"[PAD_FIX] {name}: {old} -> {new}")
+                break
+            except Exception as e:
+                log("[PAD_FIX_FAIL]", name, type(e).__name__, e)
+
+# ---- 6) 釘死 rules_feat：把 bundle 的 .sma_tools/runtime_threshold_router.py 寫成 vendor 模組 ----
+from importlib.machinery import SourceFileLoader
+rt_src = Path(code_root)/".sma_tools"/"runtime_threshold_router.py"
+vend_py = Path("vendor/sma_tools/threshold_router.py")
+
+def write_vendor_from_source(src_path:Path):
+    code = src_path.read_text(encoding="utf-8")
+    # 確保匯出名稱
+    if "def rules_feat" not in code:
+        return False
+    vend_py.write_text(code+"\n", encoding="utf-8")
+    return True
+
+ok_vendor = False
+if rt_src.exists():
+    ok_vendor = write_vendor_from_source(rt_src)
+
+# 若拿不到原檔，退而求其次：寫一個委派到專案現有 rules_feat 的 shim
+if not ok_vendor:
+    shim = """# auto-generated shim
+from scripts.sma_eval_intent_with_rules import rules_feat as _rf
+def rules_feat(xs):
+    return _rf(xs)
+"""
+    vend_py.write_text(shim, encoding="utf-8")
+    ok_vendor = True
+
+# 將 union 裡 FunctionTransformer 的 func 指到 vendor 版本，避免再出現動態模組名
+try:
+    if pre is not None and hasattr(pre,"transformer_list"):
+        tr_list = list(pre.transformer_list)
+        import importlib
+        thr = importlib.import_module("sma_tools.threshold_router")
+        for i,(name,sub) in enumerate(tr_list):
+            func = getattr(sub, "func", None)
+            if callable(func) and getattr(func,"__name__","")=="rules_feat":
+                sub.func = getattr(thr,"rules_feat")
+                tr_list[i] = (name,sub)
+        pre.transformer_list = tuple(tr_list)
+except Exception as e:
+    log("[rules_feat_rebind_skip]", type(e).__name__, e)
+
+# ---- 7) 存檔，確保可重新載入 ----
+OUT = Path("artifacts/intent_pipeline_aligned.pkl")
+try:
+    joblib.dump(est, OUT)
+    log("[SAVED]", str(OUT))
+except Exception as e:
+    (LOGDIR/"last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    log("[SAVE_FAIL]", type(e).__name__, e)
+
+# ---- 8) 煙囪測（中文） & 粗驗 ---> 全寫報告 ----
+tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    yp = est.predict(tests)
+    to_zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+    for s,y in zip(tests,yp):
+        print("  ", s, "->", f"{y} / {to_zh.get(str(y),str(y))}")
+    (LOGDIR/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in yp]},ensure_ascii=False,indent=2),encoding="utf-8")
+except Exception as e:
+    (LOGDIR/"last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    log("[PRED_FAIL]", type(e).__name__, e)
+
+# 記錄診斷
+diag = {"expected_dim": need, "branch_dims": {k:int(v) if isinstance(v,int) else str(v) for k,v in dims.items()}}
+(Path(LOGDIR/"diagnostics.json")).write_text(json.dumps(diag,ensure_ascii=False,indent=2),encoding="utf-8")
+
+log("[DONE] see:", str(LOGDIR))
+PY
+
+EXIT_CODE: 1

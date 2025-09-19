@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/spam/spam_filter_orchestrator.py
+# 模組用途: 規則分數 + ML 分數的綜合判斷與 CLI。
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+from typing import Any, Dict
+
+from .ml_spam_filter import MLSpamFilter
+from .spam_filter_pipeline import extract_signals, rule_score
+
+
+def predict_score(text: str, sender: str | None = None) -> float:
+    """
+    參數:
+        text: 郵件本文
+        sender: 寄件人（可選）
+    回傳:
+        float: 0~1 綜合分數（越大越像 spam）
+    """
+    sig = extract_signals(text or "", sender=sender)
+    r = rule_score(sig)
+    ml = MLSpamFilter().score(text or "")
+    w_rule = float(os.environ.get("SMA_SPAM_W_RULE", "0.6"))
+    w_ml = float(os.environ.get("SMA_SPAM_W_ML", "0.4"))
+    s = max(0.0, min(1.0, w_rule * r + w_ml * ml))
+    return s
+
+def is_spam(text: str, sender: str | None = None, threshold: float | None = None) -> bool:
+    """
+    參數:
+        text: 郵件本文
+        sender: 寄件人
+        threshold: 門檻（預設 0.6）
+    回傳:
+        bool: 是否為 spam
+    """
+    thr = 0.6 if threshold is None else float(threshold)
+    return predict_score(text, sender) >= thr
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description="Spam orchestrator (rules + ML)")
+    p.add_argument("--text", help="直接傳入的文字（若未提供則讀 stdin）")
+    p.add_argument("--sender", default=None, help="寄件人（可選）")
+    p.add_argument("--threshold", type=float, default=0.6)
+    args = p.parse_args(argv)
+
+    body = args.text
+    if body is None:
+        body = sys.stdin.read()
+
+    score = predict_score(body, sender=args.sender)
+    flag = score >= float(args.threshold)
+    print(f"score={score:.4f} spam={str(flag).lower()}")
+    return 0
+
+if __name__ == "__main__":  # pragma: no cover
+    raise SystemExit(main())

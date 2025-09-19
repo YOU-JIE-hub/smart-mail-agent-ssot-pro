@@ -1,0 +1,15 @@
+When   : 20250917T045922
+CWD    : /home/youjie/projects/smart-mail-agent-ssot-pro
+CMD    : python -S -u scripts/safelaunch_api.py (entry=tools.api_server)
+PID    : 32
+
+== api.out (tail) ==
+
+== api.err (tail) ==
+nohup: ignoring input
+
+== api.trace (tail) ==
+
+== ports(ss) ==
+State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          

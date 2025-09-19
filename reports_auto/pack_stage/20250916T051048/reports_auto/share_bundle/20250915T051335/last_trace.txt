@@ -1,0 +1,4 @@
+=== BASH_TRAP(ERR) ===
+TIME: 2025-09-15T05:50:22+08:00
+BASH_COMMAND: scripts/sma_probe_all.sh
+EXIT_CODE: 1

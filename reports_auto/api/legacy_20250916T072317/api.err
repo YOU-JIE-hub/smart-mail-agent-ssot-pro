@@ -1,0 +1,6 @@
+127.0.0.1 - - [16/Sep/2025 07:23:18] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 07:23:18] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 07:23:18] "POST /extract HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 07:23:18] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 07:23:18] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 07:23:18] "POST /extract HTTP/1.1" 200 -

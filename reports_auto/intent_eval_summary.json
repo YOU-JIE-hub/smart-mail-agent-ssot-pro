@@ -1,0 +1,129 @@
+{
+  "pipeline": "artifacts/intent_pro_cal.pkl",
+  "names_len": 6,
+  "classes_head": null,
+  "test": {
+    "n": 330,
+    "by_id": {
+      "labeled": 0,
+      "ok": 0,
+      "acc": 0.0
+    },
+    "by_name": {
+      "labeled": 330,
+      "ok": 0,
+      "acc": 0.0
+    },
+    "pred_id_top": [
+      [
+        0,
+        330
+      ]
+    ],
+    "pred_name_top": [
+      [
+        "一般回覆",
+        330
+      ]
+    ],
+    "mismatch_sample": [
+      {
+        "i": 0,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "ham"
+      },
+      {
+        "i": 1,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "ham"
+      },
+      {
+        "i": 2,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "spam"
+      },
+      {
+        "i": 3,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "ham"
+      },
+      {
+        "i": 4,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "ham"
+      }
+    ]
+  },
+  "val": {
+    "n": 570,
+    "by_id": {
+      "labeled": 0,
+      "ok": 0,
+      "acc": 0.0
+    },
+    "by_name": {
+      "labeled": 570,
+      "ok": 0,
+      "acc": 0.0
+    },
+    "pred_id_top": [
+      [
+        0,
+        570
+      ]
+    ],
+    "pred_name_top": [
+      [
+        "一般回覆",
+        570
+      ]
+    ],
+    "mismatch_sample": [
+      {
+        "i": 0,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "投訴"
+      },
+      {
+        "i": 1,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "報價"
+      },
+      {
+        "i": 2,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "報價"
+      },
+      {
+        "i": 3,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "技術支援"
+      },
+      {
+        "i": 4,
+        "pred_id": 0,
+        "gold_id": null,
+        "pred_name": "一般回覆",
+        "gold_name": "報價"
+      }
+    ]
+  }
+}

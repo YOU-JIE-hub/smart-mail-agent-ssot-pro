@@ -1,0 +1,31 @@
+from __future__ import annotations
+from typing import Dict
+
+CANON = ("biz_quote","tech_support","complaint","policy_qa","profile_update","other")
+
+# 關鍵詞 → 目標類別（以 substring 比對，全部小寫）
+RULES: Dict[str,str] = {
+    # 業務/報價
+    "biz_quote":"biz_quote", "quote":"biz_quote", "rfq":"biz_quote", "pricing":"biz_quote",
+    "sales":"biz_quote", "purchase":"biz_quote", "quote_ticket":"biz_quote",
+    # 技術支援
+    "tech_support":"tech_support", "support":"tech_support","bug":"tech_support","issue":"tech_support",
+    "error":"tech_support","incident":"tech_support","outage":"tech_support","ticket":"tech_support",
+    # 投訴/退款
+    "complaint":"complaint","refund":"complaint","return":"complaint","chargeback":"complaint",
+    # 條款/政策問答
+    "policy_qa":"policy_qa","policy":"policy_qa","terms":"policy_qa","faq":"policy_qa","doc":"policy_qa","docs":"policy_qa","question":"policy_qa",
+    # 資料異動
+    "profile_update":"profile_update","update_profile":"profile_update","profile":"profile_update","account_update":"profile_update",
+    "address_change":"profile_update","email_change":"profile_update","name_change":"profile_update",
+}
+
+def to_canonical(raw: str) -> str:
+    x = (raw or "").strip().lower().replace(" ","_")
+    if x in CANON: return x
+    # 直接規則命中
+    if x in RULES: return RULES[x]
+    # 子字串規則（例如 "sales_quote"、"tech_support_l2"）
+    for key, cat in RULES.items():
+        if key in x: return cat
+    return "other"

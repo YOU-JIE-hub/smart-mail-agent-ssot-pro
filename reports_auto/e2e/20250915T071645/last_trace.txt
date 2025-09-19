@@ -1,0 +1,5 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T07:16:47+08:00
+CWD:/home/youjie/projects/smart-mail-agent-ssot-pro
+LAST:echo "LAST:${BASH_COMMAND:-<none>}"
+CODE:10

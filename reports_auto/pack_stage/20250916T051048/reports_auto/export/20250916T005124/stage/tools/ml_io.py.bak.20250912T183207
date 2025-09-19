@@ -1,0 +1,97 @@
+from __future__ import annotations
+import os, sys, json, types
+from pathlib import Path
+
+DEFAULT_ML_PKL = Path(os.environ.get("SMA_INTENT_ML_PKL") or "artifacts/intent_pro_cal.pkl")
+LABEL_MAP      = Path("artifacts_prod/intent_label_map.json")
+
+def _alias_main_to_sma_features():
+    import importlib
+    # 確保可以 import sma_features；並把 __main__ 指到 sma_features 以滿足舊 pickle 綁定
+    src = Path("src").resolve()
+    if str(src) not in sys.path:
+        sys.path.insert(0, str(src))
+    try:
+        sf = importlib.import_module("sma_features")
+    except Exception:
+        sf = types.ModuleType("sma_features")
+    sys.modules["sma_features"] = sf
+    sys.modules["__main__"]     = sf
+
+def _load_joblib(p):
+    import joblib
+    return joblib.load(p)
+
+def _unwrap_pipeline(obj):
+    """把 joblib.load 回來的東西（可能是 dict / tuple / list / 直接 Pipeline）解出 sklearn.Pipeline"""
+    try:
+        from sklearn.pipeline import Pipeline
+    except Exception:
+        Pipeline = object  # 靜態型別保險
+    # 1) 直接是 Pipeline
+    if hasattr(obj, "steps"):  # 比 isinstance(obj, Pipeline) 更寬鬆
+        return obj
+    # 2) dict 變體：常見 keys: pipeline / model / estimator / pipe / clf
+    if isinstance(obj, dict):
+        for k in ("pipeline", "model", "estimator", "pipe", "clf"):
+            if k in obj:
+                return _unwrap_pipeline(obj[k])
+    # 3) list / tuple：挑第一個像 Pipeline 的；或只有單一元素
+    if isinstance(obj, (list, tuple)):
+        for el in obj:
+            if hasattr(el, "steps"):
+                return el
+        if len(obj)==1:
+            return _unwrap_pipeline(obj[0])
+    # 4) CalibratedClassifierCV/estimator 直接回，讓後面 predict 走通（最後一招）
+    if hasattr(obj, "predict"):
+        return obj
+    raise TypeError(f"無法從 {type(obj).__name__} 解出 sklearn Pipeline；內容特徵："
+                    f"{list(obj.keys()) if isinstance(obj, dict) else 'n/a'}")
+
+def _email_to_text(x):
+    # 一律文本化，避免 tuple/obj.lower 錯
+    if isinstance(x, str):
+        return x
+    if isinstance(x, dict):
+        return f"{x.get('subject','')} {x.get('body','')} {x.get('text','')}".strip()
+    if isinstance(x, (list, tuple)):
+        return " ".join(map(str, x))
+    return str(x)
+
+def predict(email: dict, pkl: Path = DEFAULT_ML_PKL) -> dict:
+    if not Path(pkl).exists():
+        raise FileNotFoundError(f"找不到模型：{pkl}")
+    _alias_main_to_sma_features()
+    obj  = _load_joblib(pkl)
+    pipe = _unwrap_pipeline(obj)
+
+    X = [_email_to_text(email)]
+
+    # 先試 predict_proba → 再退 predict
+    try:
+        try:
+            probs = pipe.predict_proba(X)[0]
+            classes = getattr(pipe, "classes_", None)
+            if classes is None and hasattr(pipe, "named_steps") and "clf" in pipe.named_steps:
+                classes = getattr(pipe.named_steps["clf"], "classes_", None)
+            if classes is None:
+                raise AttributeError("classes_ missing")
+            import numpy as np
+            i = int(np.argmax(probs))
+            raw, conf = str(classes[i]), float(probs[i])
+        except Exception:
+            pred = pipe.predict(X)[0]
+            raw, conf = str(pred), 1.0
+    except Exception as e:
+        raise RuntimeError(f"predict 失敗：{e}")
+
+    # label_map（可選）
+    name = raw
+    try:
+        lm = json.loads(LABEL_MAP.read_text(encoding="utf-8"))
+        name = lm.get(raw, raw)
+    except Exception:
+        pass
+
+    return {"intent_raw": raw, "intent_name": name, "confidence": conf}

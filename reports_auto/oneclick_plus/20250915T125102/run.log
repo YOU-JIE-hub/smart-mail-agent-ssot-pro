@@ -1,0 +1,7 @@
+[OK] wrote: reports_auto/eval_fix/20250915T125102/tri_results_fixed.json
+  File "<stdin>", line 9
+    (rule.get(latency_ms,-))
+                          ^
+SyntaxError: f-string: invalid syntax
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick_plus/20250915T125102/oneclick.err
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick_plus/20250915T125102

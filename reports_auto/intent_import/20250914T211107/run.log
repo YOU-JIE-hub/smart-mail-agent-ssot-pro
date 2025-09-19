@@ -1,0 +1,14 @@
+[*] LOGDIR = reports_auto/intent_import/20250914T211107
+[PKL] intent/intent/artifacts/intent_pro_cal.pkl
+[*] 掃描 intent/** 下的 rules/threshold 資產…
+[*] JSON候選數: 1
+[*]  PY候選數 : 4
+[inject_skip] smart_mail_agent.intent.rules ModuleNotFoundError No module named 'smart_mail_agent.intent.rules'
+[inject_skip] smart_mail_agent.intent.features ModuleNotFoundError No module named 'smart_mail_agent.intent.features'
+[inject_skip] smart_mail_agent.intent.feats ModuleNotFoundError No module named 'smart_mail_agent.intent.feats'
+[inject_skip] smart_mail_agent.intent.utils ModuleNotFoundError No module named 'smart_mail_agent.intent.utils'
+Traceback (most recent call last):
+  File "<stdin>", line 45, in <module>
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 735, in load
+    with open(filename, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: "'''$PKL'''"

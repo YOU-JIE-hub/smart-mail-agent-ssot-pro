@@ -1,0 +1,10 @@
+{
+  "cwd": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+  "python": "3.10.12",
+  "PYTHONPATH": "src:",
+  "SMA_EML_DIR": "",
+  "numpy": "1.26.4",
+  "scipy": "1.10.1",
+  "sklearn": "1.7.1",
+  "joblib": "1.5.2"
+}

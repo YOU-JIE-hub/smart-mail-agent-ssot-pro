@@ -1,0 +1,44 @@
+from __future__ import annotations
+import sqlite3, os, json, time
+from pathlib import Path
+
+def _root()->Path:
+    return Path(os.environ.get("SMA_ROOT", Path(__file__).resolve().parents[3]))
+
+def _db()->Path:
+    p=os.environ.get("SMA_DB_PATH")
+    return Path(p) if p else _root()/ "reports_auto"/"audit.sqlite3"
+
+def _exec(conn:sqlite3.Connection, sql:str)->None:
+    conn.execute(sql)
+
+def _col_missing(conn, table, col)->bool:
+    cur=conn.execute(f"PRAGMA table_info({table})")
+    return col not in {r[1] for r in cur.fetchall()}
+
+def _index_missing(conn, name)->bool:
+    cur=conn.execute("SELECT name FROM sqlite_master WHERE type='index' AND name=?", (name,))
+    return cur.fetchone() is None
+
+def migrate():
+    db=_db(); db.parent.mkdir(parents=True, exist_ok=True)
+    conn=sqlite3.connect(db); conn.execute("PRAGMA journal_mode=WAL")
+    # ensure base tables
+    _exec(conn, "CREATE TABLE IF NOT EXISTS actions(ts INTEGER, mail_id TEXT, intent TEXT, action TEXT, idempotency_key TEXT, priority TEXT, queue TEXT, status TEXT DEFAULT 'queued', payload TEXT)")
+    # add indexes / unique
+    if _index_missing(conn, "ux_actions_idem"): _exec(conn, "CREATE UNIQUE INDEX ux_actions_idem ON actions(idempotency_key)")
+    if _index_missing(conn, "idx_actions_mail"): _exec(conn, "CREATE INDEX idx_actions_mail ON actions(mail_id)")
+    if _index_missing(conn, "idx_actions_ts"): _exec(conn, "CREATE INDEX idx_actions_ts ON actions(ts)")
+    # ensure auxiliary tables (idempotent)
+    _exec(conn, "CREATE TABLE IF NOT EXISTS tickets(id INTEGER PRIMARY KEY, ts INTEGER, mail_id TEXT, title TEXT, severity TEXT, status TEXT, extra TEXT, idempotency_key TEXT UNIQUE)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS changes(id INTEGER PRIMARY KEY, ts INTEGER, mail_id TEXT, before TEXT, after TEXT, diff TEXT, status TEXT, idempotency_key TEXT UNIQUE)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS answers(id INTEGER PRIMARY KEY, ts INTEGER, mail_id TEXT, intent TEXT, answer TEXT, status TEXT, idempotency_key TEXT UNIQUE)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS quotes(id INTEGER PRIMARY KEY, ts INTEGER, mail_id TEXT, pdf_path TEXT, amount REAL, currency TEXT, status TEXT, idempotency_key TEXT UNIQUE)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS alerts(id INTEGER PRIMARY KEY, ts INTEGER, mail_id TEXT, channel TEXT, message TEXT, status TEXT, idempotency_key TEXT UNIQUE)")
+    # mails / metrics / errors / triage 由既有檔建立，若缺則補
+    _exec(conn, "CREATE TABLE IF NOT EXISTS mails(mail_id TEXT PRIMARY KEY, subject TEXT, ts INTEGER)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS metrics(id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER, stage TEXT, duration_ms INTEGER, ok INTEGER, extra TEXT)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS errors(ts INTEGER, stage TEXT, mail_id TEXT, type TEXT, message TEXT, traceback TEXT, extra TEXT)")
+    _exec(conn, "CREATE TABLE IF NOT EXISTS triage(id INTEGER PRIMARY KEY, ts INTEGER, mail_id TEXT, reason TEXT)")
+    conn.commit(); conn.close()
+    return str(db)

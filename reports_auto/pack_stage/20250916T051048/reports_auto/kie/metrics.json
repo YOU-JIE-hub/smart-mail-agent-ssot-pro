@@ -1,0 +1,118 @@
+{
+  "source": {
+    "gold": "data/kie/test.jsonl",
+    "pred": "reports_auto/kie/pred_20250913T221827.jsonl"
+  },
+  "exact": {
+    "labels": [
+      "amount",
+      "date_time",
+      "env"
+    ],
+    "per_label": {
+      "amount": {
+        "tp": 0,
+        "fp": 6,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "date_time": {
+        "tp": 1,
+        "fp": 13,
+        "fn": 29,
+        "precision": 0.07142857142857142,
+        "recall": 0.03333333333333333,
+        "f1": 0.045454545454545456
+      },
+      "env": {
+        "tp": 1,
+        "fp": 4,
+        "fn": 9,
+        "precision": 0.2,
+        "recall": 0.1,
+        "f1": 0.13333333333333333
+      },
+      "sla": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "macro": {
+      "precision": 0.06785714285714287,
+      "recall": 0.03333333333333333,
+      "f1": 0.04469696969696969
+    },
+    "micro": {
+      "precision": 0.06666666666666667,
+      "recall": 0.04,
+      "f1": 0.05
+    },
+    "support": {
+      "tp": 2,
+      "fp": 28,
+      "fn": 48
+    }
+  },
+  "overlap": {
+    "labels": [
+      "amount",
+      "date_time",
+      "env"
+    ],
+    "per_label": {
+      "amount": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 7,
+        "precision": 0.5,
+        "recall": 0.3,
+        "f1": 0.37499999999999994
+      },
+      "date_time": {
+        "tp": 13,
+        "fp": 1,
+        "fn": 17,
+        "precision": 0.9285714285714286,
+        "recall": 0.43333333333333335,
+        "f1": 0.5909090909090909
+      },
+      "env": {
+        "tp": 4,
+        "fp": 1,
+        "fn": 6,
+        "precision": 0.8,
+        "recall": 0.4,
+        "f1": 0.5333333333333333
+      },
+      "sla": {
+        "tp": 0,
+        "fp": 5,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "macro": {
+      "precision": 0.5571428571428572,
+      "recall": 0.2833333333333333,
+      "f1": 0.374810606060606
+    },
+    "micro": {
+      "precision": 0.6666666666666666,
+      "recall": 0.4,
+      "f1": 0.5
+    },
+    "support": {
+      "tp": 20,
+      "fp": 10,
+      "fn": 30
+    }
+  }
+}

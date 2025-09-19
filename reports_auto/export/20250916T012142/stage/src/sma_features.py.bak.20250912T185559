@@ -1,0 +1,29 @@
+from __future__ import annotations
+from pathlib import Path
+import json
+from typing import Any, List
+import numpy as np
+from scipy.sparse import csr_matrix
+
+_SPEC = Path("artifacts_prod/intent_feature_spec.json")
+
+def _dims():
+    try:
+        return json.loads(_SPEC.read_text(encoding="utf-8"))["dims"]
+    except Exception:
+        return {"rules":7,"prio":0,"bias":0}
+
+def _ensure_list(X: Any)->List[Any]:
+    try:
+        import numpy as _np
+        if isinstance(X, _np.ndarray): X = X.tolist()
+    except Exception: pass
+    if isinstance(X, (str, bytes, dict, tuple)): return [X]
+    try: iter(X); return list(X)
+    except Exception: return [X]
+
+def _zeros(n:int, d:int): return csr_matrix((n, max(0,int(d))), dtype=np.float64)
+
+def rules_feat(X,*a,**k): return _zeros(len(_ensure_list(X)), _dims().get("rules",7))
+def prio_feat (X,*a,**k): return _zeros(len(_ensure_list(X)), _dims().get("prio",0))
+def bias_feat (X,*a,**k): return _zeros(len(_ensure_list(X)), _dims().get("bias",0))

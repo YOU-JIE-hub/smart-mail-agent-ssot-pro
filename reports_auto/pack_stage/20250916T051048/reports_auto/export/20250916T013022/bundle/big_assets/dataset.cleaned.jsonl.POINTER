@@ -1,0 +1,5 @@
+# POINTER (not included)
+ORIGIN_ABS: /home/youjie/projects/smart-mail-agent-ssot-pro/data/intent_eval/dataset.cleaned.jsonl
+SIZE_BYTES: 125879
+SHA256: a58332d2d4ef7f2514bc30b01c86c868f9eb099590638ff1afe9fd2c359c3d7b
+HINT: 檔案過大或不需上傳，請於本機保留該路徑；新對話時上傳本指示檔即可。

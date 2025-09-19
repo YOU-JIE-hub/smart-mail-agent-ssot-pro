@@ -1,0 +1,21 @@
+[RUN] scripts/sma_eval_intent_with_rules.py
+[TEST] n=330 gold=330 acc=0.0 top5_pred=[(np.int64(0), 330)]
+[VAL] n=570 gold=570 acc=0.0 top5_pred=[(np.int64(0), 456), (np.int64(1), 114)]
+{
+  "test": {
+    "n": 330,
+    "acc": 0.0
+  },
+  "val": {
+    "n": 570,
+    "acc": 0.0
+  },
+  "rules_loaded": true,
+  "thr_keys": [
+    "bias",
+    "min_keep",
+    "prio",
+    "一般回覆",
+    "報價"
+  ]
+}

@@ -1,0 +1,4 @@
+aligned_rows=24
+strict_span_P=0.9667
+strict_span_R=0.6744
+strict_span_F1=0.7945

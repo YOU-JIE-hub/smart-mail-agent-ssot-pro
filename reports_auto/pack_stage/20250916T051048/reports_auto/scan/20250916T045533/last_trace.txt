@@ -1,0 +1,8 @@
+=== BASH_TRAP(tree_now) ===
+TIME: 2025-09-16T04:55:33+08:00
+LAST: find . -type f -path './.git/*' -prune -o -path './.venv/*' -prune -o -path './venv/*' -prune -o -path './node_modules/*' -prune -o -path './__pycache__/*' -prune -o -path './.mypy_cache/*' -prune -o -path './.pytest_cache/*' -prune -o -path './.ipynb_checkpoints/*' -prune -o -path './reports_auto/*' -prune -o -type f -printf '%p\0%z\0%T@\0'
+CODE: 141
+=== BASH_TRAP(tree_now) ===
+TIME: 2025-09-16T04:55:33+08:00
+LAST: sort -nr > "$HUGE_TXT"
+CODE: 4

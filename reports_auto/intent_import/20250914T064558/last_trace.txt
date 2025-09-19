@@ -1,0 +1,133 @@
+LOAD_FAIL: AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>
+=== TRAP ===
+TIME: 2025-09-14T06:45:59+08:00
+BASH_COMMAND: python - <<'PY'
+import os, sys, json, time, joblib, types, importlib
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+LOGDIR = Path("reports_auto/intent_import")/os.environ.get("TS",""); 
+# 兼容上面的 tee；此處用當前最新資料夾
+LOGDIR = sorted(Path("reports_auto/intent_import").glob("*"))[-1]
+
+def log(*a): print(*a, flush=True)
+
+# 1) 遞迴尋找 ./intent/**/artifacts/*.pkl（優先 intent_pro_cal.pkl → intent_pipeline_fixed.pkl → 其他）
+intent_root = Path("intent")
+cands = []
+for pat in ["**/artifacts/intent_pro_cal.pkl","**/artifacts/intent_pipeline_fixed.pkl","**/artifacts/*.pkl"]:
+    cands += list(intent_root.glob(pat))
+if not cands:
+    log("[FATAL] 找不到 intent/**/artifacts/*.pkl；請確認 zip 有解到 intent/ 下。")
+    (LOGDIR/"last_trace.txt").write_text("missing PKL under intent/**/artifacts", encoding="utf-8")
+    sys.exit(2)
+
+def score(p:Path):
+    base = p.name
+    w = 1
+    if base=="intent_pro_cal.pkl": w = 3
+    elif base=="intent_pipeline_fixed.pkl": w = 2
+    return (w, p.stat().st_size)
+cands = sorted(set(cands), key=score, reverse=True)
+PKL = cands[0]
+log("[PKL]", PKL)
+
+# 2) 嘗試載入（必要時 unwrap dict）
+def unwrap(obj):
+    if hasattr(obj, "predict"): return obj, None
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v=obj.get(k)
+            if hasattr(v,"predict"): return v, obj
+    return obj, None
+
+try:
+    obj = joblib.load(PKL)
+except Exception as e:
+    (LOGDIR/"last_trace.txt").write_text(f"LOAD_FAIL: {type(e).__name__}: {e}\n", encoding="utf-8")
+    raise
+
+est, meta = unwrap(obj)
+if not hasattr(est,"predict"):
+    (LOGDIR/"last_trace.txt").write_text("UNWRAP_FAIL: object has no predict()", encoding="utf-8")
+    sys.exit(3)
+
+log("[UNWRAP]", est.__class__.__name__)
+
+# 3) 找到 features union 與最末分類器
+def get_union(e):
+    if hasattr(e,"steps"):
+        d=dict(e.steps)
+        return d.get("features") or d.get("pre") or d.get("union")
+    return getattr(e,"features", None)
+
+def get_clf(e):
+    if hasattr(e,"steps"): return e.steps[-1][1]
+    return e
+
+pre = get_union(est)
+clf = get_clf(est)
+
+def expected_dim(clf):
+    if hasattr(clf,"n_features_in_"): return int(clf.n_features_in_)
+    if hasattr(clf,"base_estimator") and hasattr(clf.base_estimator,"n_features_in_"):
+        return int(clf.base_estimator.n_features_in_)
+    return None
+
+E = expected_dim(clf)
+log("[EXPECTED_N_FEATURES]", E)
+
+# 4) 量測各分支輸出維度
+xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+dims = {}
+if pre is not None and hasattr(pre,"transformer_list"):
+    for name, sub in pre.transformer_list:
+        try:
+            Y = sub.transform(xs)
+            if sp.issparse(Y): m = Y.shape[1]
+            elif isinstance(Y, np.ndarray): m = (Y if Y.ndim==2 else Y.reshape(1,-1)).shape[1]
+            else: raise TypeError(f"{type(Y).__name__}")
+            dims[name]=m
+        except Exception as e:
+            dims[name]=f"ERR:{type(e).__name__}"
+else:
+    log("[WARN] 找不到 features union；略過維度檢查")
+
+num_sum = sum(v for v in dims.values() if isinstance(v,int))
+log("[BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False))
+log("[SUM_BEFORE]", num_sum)
+
+# 5) 若有缺口只調整 ZeroPad 的 width
+fixed=False
+if E and num_sum and hasattr(pre,"transformer_list"):
+    delta = E - num_sum
+    if delta!=0:
+        for i,(name, sub) in enumerate(pre.transformer_list):
+            if hasattr(sub,"width"):   # 找 ZeroPad 類
+                old = int(getattr(sub,"width",1) or 1)
+                new = old + delta
+                setattr(sub,"width",int(new))
+                pre.transformer_list[i]=(name, sub)
+                fixed=True
+                log(f"[PAD_FIX] {name}: {old} -> {new}")
+                break
+
+# 6) 存 aligned 版
+OUT = Path("artifacts/intent_pipeline_aligned.pkl")
+joblib.dump(est, OUT)
+log("[SAVED]", OUT)
+
+# 7) 煙囪測
+TO_ZH = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    pred = est.predict(tests)
+    for s,y in zip(tests,pred):
+        print("  ", s, "->", f"{y} / {TO_ZH.get(str(y),str(y))}")
+    (LOGDIR/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in pred]}, ensure_ascii=False, indent=2), encoding="utf-8")
+except Exception as e:
+    (LOGDIR/"last_trace.txt").write_text(f"PRED_FAIL: {type(e).__name__}: {e}\n", encoding="utf-8")
+    raise
+PY
+
+EXIT_CODE: 1

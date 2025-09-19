@@ -1,0 +1,554 @@
+{
+  "tar": {
+    "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz",
+    "size": 910627738,
+    "sha256": "6bda5b1db4bebafdeeb23a99588603dbcb4cf07ae8df1ce84cd222c74b137b09"
+  },
+  "parts": [
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.000",
+      "size": 8388608,
+      "sha256": "56c172cf89706dd1a2970bb149c9cf262c77442228eadccc3935635b833b4f10"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.001",
+      "size": 8388608,
+      "sha256": "949185962c66ec0e47cff369bbc526d303dc971510502594669deecca2302a4e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.002",
+      "size": 8388608,
+      "sha256": "22d92522af25289eda5767c845e1bc5623e68027030be19904b7e296245ab361"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.003",
+      "size": 8388608,
+      "sha256": "6d604d2e1abf1512c2cc6e7f573f315b6c7970df30dc08ff1b93f55b54571615"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.004",
+      "size": 8388608,
+      "sha256": "d4b43886526d1a4b4bd57087e4f7765c84d59ef3c6fa88313dbbcff0854279f6"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.005",
+      "size": 8388608,
+      "sha256": "80e0a59e716731fee6a9c1602f5d3b015bf6be2b07e8eebf82cb59b41848093e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.006",
+      "size": 8388608,
+      "sha256": "5f027d0db69dc314cd2bd00f52817d5b5f0426b1bbbf8f33383d19670fca2333"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.007",
+      "size": 8388608,
+      "sha256": "89ef5b68b2efa3353abf517401e37d3d7e8541c89626e5ab9e7e99c22bd7f09d"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.008",
+      "size": 8388608,
+      "sha256": "c71aae125f473a37a4cfb5c2d22c1132bd3a9012b57b4771250e9bb0852d68c4"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.009",
+      "size": 8388608,
+      "sha256": "d0d321bb569f9ca66aa826e7cdeeecfa8e4029b797fcb303681adfbfe95d0752"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.010",
+      "size": 8388608,
+      "sha256": "3c65f6f4f420edba13171e6083a6b1654fde031359407d92e4d47bbc87c4f570"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.011",
+      "size": 8388608,
+      "sha256": "9c8ef7964a542bee6cedae57ef18e1a4587b6922872ed79038e47575bfc83a3c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.012",
+      "size": 8388608,
+      "sha256": "7e1948c519390752b6f2b43a822561645385f75e31d96b54ebf050ffa8b5b92e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.013",
+      "size": 8388608,
+      "sha256": "e2fa4b1c7df493cb0217cf40cbc76a17e10f4326fdf88c636abd5d38521a812c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.014",
+      "size": 8388608,
+      "sha256": "ad3df635c00cb101de378e7019ab75e278acb47daef0d8cacde7e72cb73c5073"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.015",
+      "size": 8388608,
+      "sha256": "203bf714b7dc9451bfebf8c73362989e01903bd34754dedc512b131035de98d5"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.016",
+      "size": 8388608,
+      "sha256": "9899a1aca901fd78a5259be72dd37925338ed652a7cb97334ef4478ed1e63607"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.017",
+      "size": 8388608,
+      "sha256": "662c3c7224fdcf8e0b35d6f539f67588c9f914f9524147283f962ff74acfc6bf"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.018",
+      "size": 8388608,
+      "sha256": "5c6bb0821a3e7296633b0cd4f17aa16387f91ca8ddbc70d3857ead64a1c38edf"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.019",
+      "size": 8388608,
+      "sha256": "d7e7c7aa992f0626a440e30c48edb6e4efd341e4c7f505efb72c88370ad4ac74"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.020",
+      "size": 8388608,
+      "sha256": "6b128bb4e75afe06a9abaa18786ba15c4156bfc849add48a31190ff3c8e85096"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.021",
+      "size": 8388608,
+      "sha256": "cdb31479114422d3d42a4e6191d145dee4ad76637e618941301213e5dffc7e16"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.022",
+      "size": 8388608,
+      "sha256": "0c534d5f821071d17646c104093f4601ecb50f1766c97d1ad0c194d92d647727"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.023",
+      "size": 8388608,
+      "sha256": "ce83825e51b6ab6505dfde3974522984d39bc52ba34fe83eab499c442f53ad6b"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.024",
+      "size": 8388608,
+      "sha256": "728e6ddd2eecf7ae4e2565aabbaa3d3b014345be37634d5ec9c937d3192b5c97"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.025",
+      "size": 8388608,
+      "sha256": "10a9b1f2a21345962293cca96b77cc3d7a4eaeabc12bed53bb6d4c05aeadc772"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.026",
+      "size": 8388608,
+      "sha256": "ca874b8ed9931ffee8d5a35f7e143a8086d6e6fe92ecb6ad3e7856dd15994616"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.027",
+      "size": 8388608,
+      "sha256": "607ecf35b0eb7299079ab8e730e3bcf539a18dc86c26b696d0c73bec889a18b7"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.028",
+      "size": 8388608,
+      "sha256": "34ced4c3a7004ffce7d17bc81674ae07c99eb476581464ecffa7c13ecf8feb15"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.029",
+      "size": 8388608,
+      "sha256": "8ab0f5edcae996487fe4a90a718bd8497f3dae3f57710a95044ffc5b8e5f169d"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.030",
+      "size": 8388608,
+      "sha256": "228896b01c03b9f1767c6e69a5e4d3532e622df0abf838fc9987247d161ea0ab"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.031",
+      "size": 8388608,
+      "sha256": "0adf906690377fae367c21958d1404e8a9b2dd5e66aba6d964c530cd01d8efee"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.032",
+      "size": 8388608,
+      "sha256": "232709091165c6a5614b41103a762c069f01eb47cd1f71d3cbdab8f4c97e7683"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.033",
+      "size": 8388608,
+      "sha256": "259fcf2848ce817bccfa3e04c0e21c155f3ca2d324013e6d8036fa5492b542a9"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.034",
+      "size": 8388608,
+      "sha256": "e41391c44be22d27c2eb26f9b9ff594b8600751e5ce62e36c87278b859714577"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.035",
+      "size": 8388608,
+      "sha256": "944f245e733cef479e8f2c0d7d0cfa5b51d1a38414c186bd47f9a7642d089bcf"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.036",
+      "size": 8388608,
+      "sha256": "610e03f63baa0d853491c7c4d74706348b9cd74eb7bc5c866cd14e68716c0e0e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.037",
+      "size": 8388608,
+      "sha256": "9bad4fc44bfbbac9afbc0ac5c2899ab58787406e26733ce418c3782474f38529"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.038",
+      "size": 8388608,
+      "sha256": "89bceaae057c115db3bcd6fcce722236e0a139de8044818e4316c958ee8ce84a"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.039",
+      "size": 8388608,
+      "sha256": "ad1e1493116f9f91120ad48cd5ea29713fecbed2d32d0074ebf7112674df3c09"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.040",
+      "size": 8388608,
+      "sha256": "9ff22d469155e54b48de35cca395952122ce3c4d1671b5feedf1378e044b8586"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.041",
+      "size": 8388608,
+      "sha256": "cd48176da54218fdc74647d339446c05ece8a0e5191f645c88456f4b9b4e8523"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.042",
+      "size": 8388608,
+      "sha256": "a0914cdc51819f6ffb50fca95549b75f54b1f7330e6db07b147dcad23c06acd6"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.043",
+      "size": 8388608,
+      "sha256": "c6700f448f8187697e9767b9c09e7bfa2cfd3a4fd48048838e22b48df5ea4826"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.044",
+      "size": 8388608,
+      "sha256": "daa7841fece7bea7e4239ead323c5e47fda4c7feb2a74a4d88222e21dde1a67d"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.045",
+      "size": 8388608,
+      "sha256": "014727720f4a07582a9710b80f482bbfac5b8d8531b589c85bd113f94d50cb79"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.046",
+      "size": 8388608,
+      "sha256": "a4c5b1bb6af8d7be8fcfef6e8ae482127e8e9a8d908a7b1be072e5c106b8a59c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.047",
+      "size": 8388608,
+      "sha256": "45b72d6821bbc9cff8955ae0093c7f91b98635ea63b62b01c41539101570dbe8"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.048",
+      "size": 8388608,
+      "sha256": "017b37db29a8dfc40e63fdc3cf710334b12f5efb9c43fd6a7de6d7a46aca08f0"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.049",
+      "size": 8388608,
+      "sha256": "fe81e4dc436b5769a0c1ccc047abef6f60593b90530a49600f3267a7da769573"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.050",
+      "size": 8388608,
+      "sha256": "f6d5a06a0139d86836a4b7fafefcb33389b0a862c690a917b007e909df9cc946"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.051",
+      "size": 8388608,
+      "sha256": "21fa451226882d3ae8504a0e7de23b809e755187d0428b914e6bb8af725bf28f"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.052",
+      "size": 8388608,
+      "sha256": "88a9a3bc785a9dd5dfc58e9fe5d024b3088621ca38c45a2029a90425bf0f9d0d"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.053",
+      "size": 8388608,
+      "sha256": "4d81f4c539fb90d84bdd23b3a5eeee4f59cf1e4affd9a6afb56b658a7433ca3e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.054",
+      "size": 8388608,
+      "sha256": "f13aeddf5e1b142fa68439fb4b2849f6c20a77965a2679c02ac49373f9d61dd1"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.055",
+      "size": 8388608,
+      "sha256": "36027e98058701da9c78d03406e7a7c800e5223748edb0933216116d43cf0840"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.056",
+      "size": 8388608,
+      "sha256": "24d244e43f4e7b6e2f5963cb2cb2c95ab1622738ae3e304e981385bdca37a861"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.057",
+      "size": 8388608,
+      "sha256": "0d5a35ff909b3a806ed9c492fbdd0ce8c246fafee748000f5b375364ac36578f"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.058",
+      "size": 8388608,
+      "sha256": "61c87bde2aa75e2c4ecd222f2507a07b5221eec817c1fc3c2d471a7e1495b586"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.059",
+      "size": 8388608,
+      "sha256": "71646674895cf63c11bc98d5755f6f5feaf84939fdf43d03916a0ff15afb2f7c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.060",
+      "size": 8388608,
+      "sha256": "141fb5f8dbc748f0e82cc2176e6d155f2d822882c2966a96cb7bfd43b7dcffae"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.061",
+      "size": 8388608,
+      "sha256": "adbed8aa572972244f36404bd30889d84c9a066582b89b34fd1fd0000feed46e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.062",
+      "size": 8388608,
+      "sha256": "9d2cda6a867735d05e07d16646fe35a066ce55e0cc8401348136cea1d616a98c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.063",
+      "size": 8388608,
+      "sha256": "57418b47940c39268af67f0f601971443c1a043cb2bdf74ec4f91f08024fee2b"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.064",
+      "size": 8388608,
+      "sha256": "abb24ba345a563f319b4e0a5ed20c440ad20318d661adc276f256541c2f7e09a"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.065",
+      "size": 8388608,
+      "sha256": "503dfd7ea687ba4c30274acd51c33c1d8675ed152ea684c7a7e2b4981ffae5e2"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.066",
+      "size": 8388608,
+      "sha256": "befa516ef5dc489b7c8370afc7bf536f65b25e9aa8334953bb1bc0be620f49fc"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.067",
+      "size": 8388608,
+      "sha256": "490c7dd7c25c18976dd69d03efbbb00f59c36f6a0f03b7d33e1d338fb2001f82"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.068",
+      "size": 8388608,
+      "sha256": "42f248f599c9387c6f33454e340c1170ea64c12c2adc7d5e5480b5582668ec17"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.069",
+      "size": 8388608,
+      "sha256": "bb99eb01acd9c9e6d4ab5432a6d75ce9633bcba3739334411dad85e13a7b4b4d"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.070",
+      "size": 8388608,
+      "sha256": "4830ffc85cf0b852943d106745db645e956948d8a9251b7043e182b9c8dd63e0"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.071",
+      "size": 8388608,
+      "sha256": "475d7ac4a4cb6a353712e0919264f74f494450fcfc54059e8ae6e889046a4cfb"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.072",
+      "size": 8388608,
+      "sha256": "81e9d11465c8178e641e9ba3d3e5835d111ed5b7157ac60aab673877bec0e92b"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.073",
+      "size": 8388608,
+      "sha256": "48955d1fc212ac2b44f576a8dc82c8e5538930bba631c334afa034464ba888d2"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.074",
+      "size": 8388608,
+      "sha256": "089c9664874d3299e2304d71b28d36d2beec19836c7e44754ef84ff37999568d"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.075",
+      "size": 8388608,
+      "sha256": "8686faf5f55f25c7f8420c228d692ce97a5baa34b2f2cdb95c49bcb2f7e5a0df"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.076",
+      "size": 8388608,
+      "sha256": "53188ff89cfa5290afd914799d2191299218b91b5ae5cc927678f0a940b27c74"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.077",
+      "size": 8388608,
+      "sha256": "70055dfa2dd2b7b516ef4bb03ff7040d65f16a75d83adba6a1bb4c89f51d600e"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.078",
+      "size": 8388608,
+      "sha256": "71a1ee2fdf264e2f90ad8fb578b4d48bc7f90bc066fa693c086f890a4bd47a42"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.079",
+      "size": 8388608,
+      "sha256": "025c66a5241cc8f846023941d6be3c0f0f38d2a34166244f66cd1b57c5883224"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.080",
+      "size": 8388608,
+      "sha256": "613ca106066eab7617eb61146ea28568a523f980c3d77fe01ea809095cf913fa"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.081",
+      "size": 8388608,
+      "sha256": "158f6c656b29f88c7018df12677c9eadeb4358a09911b11a6104466eb40af984"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.082",
+      "size": 8388608,
+      "sha256": "3d79dfae849c0294f5227d055724df460a04450cff22108bb98d4178ab7db4ad"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.083",
+      "size": 8388608,
+      "sha256": "628442156ee945aa8191c7641060cb23ad2882b0ceccee693aea1d042459ad5c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.084",
+      "size": 8388608,
+      "sha256": "d1f60e903aa4fc87353e60a64578cb5609f49652055cbc81f2e266263ef3032c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.085",
+      "size": 8388608,
+      "sha256": "b102762402ebca7ff958e37b6e62c20952f1ce72b769fb6310d234bb694be2a7"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.086",
+      "size": 8388608,
+      "sha256": "a76fcdd59bbe7f72d71e6226dab705b9459a79ff8e19ea64375c217e0de90baf"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.087",
+      "size": 8388608,
+      "sha256": "790a645bd4330abbe2a07c8a6101f3a8e4d58720481ebf9d9826dd9f90790a83"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.088",
+      "size": 8388608,
+      "sha256": "266421fd2f3ee0fe92a12caa438783dbd0861bb9ce3c13a031f6f7898d20f995"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.089",
+      "size": 8388608,
+      "sha256": "e222b4a66cab8c639573339d3d79ee5583312f299b8e184a742db1d9843e18da"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.090",
+      "size": 8388608,
+      "sha256": "182ade434136fdcb8cd12f65c7f99f009253998558f8738837796e408729e785"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.091",
+      "size": 8388608,
+      "sha256": "09f873781470544fa9395c7e98791ab708dc65aa79dbbc4d60cabfeb8e4996b5"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.092",
+      "size": 8388608,
+      "sha256": "3f938ee0d86cd6b75741b645674b957a766fe2df3dcdcdbea7890d0d296c934f"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.093",
+      "size": 8388608,
+      "sha256": "6363f6c85753d6694e16da056ef2c4df772afca965c27a11e4231a7579190085"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.094",
+      "size": 8388608,
+      "sha256": "458fa04aecc1d75f4c49e0c36da7746d8199fa98efa9009cfbce0f171da9b1c7"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.095",
+      "size": 8388608,
+      "sha256": "bfd6ae9c3a679af91df1b416ae2cb7d74799603b6bec94e7c69057b7a06cecc2"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.096",
+      "size": 8388608,
+      "sha256": "f84a97795ecd896ed64322af7bfd178db4643361a4ded9ec4b2013d071729a13"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.097",
+      "size": 8388608,
+      "sha256": "7edc7f514443c61242657c540b91052d4f4fd95deb1f6264a54a1fe81008fe32"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.098",
+      "size": 8388608,
+      "sha256": "024c7eb2552be6594d6920868a230bc64169fb28bb9c6dce5c14b1e380b5cd95"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.099",
+      "size": 8388608,
+      "sha256": "69c3c917804ac52adef5bf4631d8e52d0bf506f6675528b1c388a4fd052d4c92"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.100",
+      "size": 8388608,
+      "sha256": "0f7414b6eef9b6bd5e3251b389dd07824d80b3012981382ad2a917b591751e6a"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.101",
+      "size": 8388608,
+      "sha256": "71a239b3daf58fd3c1ca8de58698e0696305aaf43407a80cdb70edf47da3f769"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.102",
+      "size": 8388608,
+      "sha256": "ba23cd32ba6d4554f92f7d7a16ec1d68d9751771acb4ef96461c303df1d0554b"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.103",
+      "size": 8388608,
+      "sha256": "f8442917efd46cf3b429101eeb22345439ea7e1aa67cc93e117e40111466c0d5"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.104",
+      "size": 8388608,
+      "sha256": "eca8c40ea3388f7fa538147e3371806e7f9ecfdde89dfa2063e3f48abde71a20"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.105",
+      "size": 8388608,
+      "sha256": "60bbe29fb06f9a1ede894176b216093d38bdde43f50965ccf0c75237f38cb12c"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.106",
+      "size": 8388608,
+      "sha256": "a4bd209428d3ff9ef153fcc5dd5b572b2516d69c406fba7cdb654e159699fca8"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.107",
+      "size": 8388608,
+      "sha256": "71f772ce031bcd0b43ba54373b579c38ad35acc2f9b554956327f6e742459d14"
+    },
+    {
+      "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz.part.108",
+      "size": 4658074,
+      "sha256": "d866a1a723722469752c45da28820169f87c6e9c689a0edfe35a514af7364096"
+    }
+  ]
+}

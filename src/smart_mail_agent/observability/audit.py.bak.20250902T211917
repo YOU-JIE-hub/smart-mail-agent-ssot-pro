@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/observability/audit.py
+# 模組用途: 簡易審計：SQLite 與 NDJSON 併寫。
+
+from __future__ import annotations
+
+import json
+import sqlite3
+import time
+from pathlib import Path
+from typing import Any, Dict
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS runs     (ts INTEGER PRIMARY KEY, note TEXT);
+CREATE TABLE IF NOT EXISTS mails    (mail_id TEXT PRIMARY KEY, subject TEXT, ts INTEGER);
+CREATE TABLE IF NOT EXISTS intents  (mail_id TEXT, label TEXT, score REAL, ts INTEGER);
+CREATE TABLE IF NOT EXISTS spam     (mail_id TEXT, proba REAL, ts INTEGER);
+CREATE TABLE IF NOT EXISTS actions  (mail_id TEXT, action TEXT, ts INTEGER);
+CREATE TABLE IF NOT EXISTS err_log  (ts INTEGER, stage TEXT, level TEXT, detail TEXT);
+"""
+
+
+class Audit:
+    def __init__(self, project_root: Path) -> None:
+        self.root = Path(project_root)
+        self.db = self.root / "db" / "sma.sqlite"
+        self.nd = self.root / "reports_auto" / "logs" / "pipeline.ndjson"
+        self.db.parent.mkdir(parents=True, exist_ok=True)
+        self.nd.parent.mkdir(parents=True, exist_ok=True)
+        con = sqlite3.connect(self.db)
+        con.executescript(SCHEMA)
+        con.commit()
+        con.close()
+
+    def log(self, stage: str, level: str, meta: Dict[str, Any]) -> None:
+        rec = {"ts": int(time.time()), "stage": stage, "level": level, **meta}
+        with self.nd.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        try:
+            con = sqlite3.connect(self.db)
+            cur = con.cursor()
+            if stage == "ingest" and "mail_id" in meta:
+                cur.execute(
+                    "INSERT OR IGNORE INTO mails(mail_id,subject,ts) VALUES(?,?,?)",
+                    (meta.get("mail_id"), meta.get("subject", ""), rec["ts"]),
+                )
+            con.commit()
+        except Exception:
+            pass
+        finally:
+            try:
+                con.close()
+            except Exception:
+                pass

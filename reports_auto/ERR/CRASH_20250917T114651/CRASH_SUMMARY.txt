@@ -1,0 +1,16 @@
+When   : 20250917T114651
+CWD    : /home/youjie/projects/smart-mail-agent-ssot-pro
+PID    : 666
+
+== api.out (tail) ==
+
+== api.err (tail) ==
+nohup: ignoring input
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/run_with_override.py", line 14
+    if hasattr(m, "predict"): return lambda t:(u.predict([t]) or ["other"])[1])
+                                                                              ^
+SyntaxError: unmatched ')'
+
+== ports(ss) ==
+State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          

@@ -1,0 +1,28 @@
+$ python tools/_intent_eval_entry.py
+[EVAL] acc=1.000 -> reports_auto/eval/20250912T201346/summary.md
+[EVAL-ML] acc=0.333 -> reports_auto/eval/20250912T201346/summary_ml.md
+[EVAL-ML+] n=6 acc_ml=0.333 acc_boosted=0.833 -> reports_auto/eval/20250912T201348
+[INTENT] done
+
+
+$ python tools/spam_eval.py
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/spam_eval.py", line 106, in <module>
+    rep={"test":eval_split(TEST),"val":eval_split(VAL)}
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/spam_eval.py", line 83, in eval_split
+    data=_load_jsonl(p)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/spam_eval.py", line 74, in _load_jsonl
+    obj=json.loads(line)
+  File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.10/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 127 (char 126)
+
+$ python tools/kie_eval.py
+{"test": {"n": 60, "acc_exact": 0.0, "mode": "rule", "by_key": {"price": {"ok": 0, "tot": 0}, "qty": {"ok": 0, "tot": 0}, "id": {"ok": 0, "tot": 0}}}, "val": {"n": 35, "acc_exact": 0.0, "mode": "rule", "by_key": {"price": {"ok": 0, "tot": 0}, "qty": {"ok": 0, "tot": 0}, "id": {"ok": 0, "tot": 0}}}}
+
+

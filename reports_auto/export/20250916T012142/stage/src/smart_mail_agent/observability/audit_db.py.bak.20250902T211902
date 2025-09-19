@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/observability/audit_db.py
+# 模組用途: 集中管理 SQLite 資料表建置與錯誤寫入。
+from __future__ import annotations
+
+import json
+import sqlite3
+import time
+from pathlib import Path
+from typing import Any, Dict, Optional
+
+DEFAULT_DB = "reports_auto/audit.sqlite3"
+
+_SCHEMA_SQL = [
+    """
+    CREATE TABLE IF NOT EXISTS mail_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL,
+        message_id TEXT,
+        subject TEXT,
+        sender TEXT,
+        recipient TEXT,
+        meta_json TEXT
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS action_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL,
+        action TEXT NOT NULL,
+        ref_id TEXT,
+        status TEXT,
+        meta_json TEXT
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS rpa_artifact (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL,
+        kind TEXT NOT NULL,
+        path TEXT NOT NULL,
+        sha256 TEXT,
+        meta_json TEXT
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS model_eval (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL,
+        model TEXT NOT NULL,
+        dataset TEXT,
+        metrics_json TEXT
+    );
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS err_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL,
+        where_ TEXT NOT NULL,
+        message TEXT NOT NULL,
+        meta_json TEXT
+    );
+    """,
+]
+
+def _conn(db_path: Optional[str] = None) -> sqlite3.Connection:
+    p = Path(db_path or DEFAULT_DB)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    return sqlite3.connect(str(p))
+
+def ensure_schema(db_path: Optional[str] = None) -> None:
+    with _conn(db_path) as cx:
+        for sql in _SCHEMA_SQL:
+            cx.execute(sql)
+        cx.commit()
+
+def write_err_log(where: str, message: str, meta: Optional[Dict[str, Any]] = None, db_path: Optional[str] = None) -> None:
+    ensure_schema(db_path)
+    ts = time.strftime("%Y-%m-%dT%H:%M:%S")
+    with _conn(db_path) as cx:
+        cx.execute(
+            "INSERT INTO err_log(ts, where_, message, meta_json) VALUES(?,?,?,?)",
+            (ts, where, message, json.dumps(meta or {}, ensure_ascii=False)),
+        )
+        cx.commit()

@@ -1,0 +1,11 @@
+=== TRAP ===
+TIME: 2025-09-14T22:44:05+08:00
+BASH_COMMAND: python - <<'PY'
+import os, joblib, json
+to_zh={"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+pipe=joblib.load(os.environ["SMA_INTENT_ML_PKL"])
+xs=["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+print([f"{s} -> {to_zh.get(str(y),str(y))}" for s,y in zip(xs, pipe.predict(xs))])
+PY
+
+EXIT_CODE: 1

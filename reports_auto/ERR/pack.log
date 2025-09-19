@@ -1,0 +1,4 @@
+[*] PACK start @ 20250916T050438
+[*] OUT_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438
+[*] ERR_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[*] LIMITS  = part<=256MB, parts<=10, pointer>10MB

@@ -1,0 +1,65 @@
+{
+  "ts": "20250913T190656",
+  "classes_raw": [
+    "biz_quote",
+    "complaint",
+    "other",
+    "policy_qa",
+    "profile_update",
+    "tech_support"
+  ],
+  "classes_zh": [
+    "報價",
+    "投訴",
+    "一般回覆",
+    "規則詢問",
+    "資料異動",
+    "技術支援"
+  ],
+  "label_map": {
+    "biz_quote": "報價",
+    "complaint": "投訴",
+    "other": "一般回覆",
+    "policy_qa": "規則詢問",
+    "profile_update": "資料異動",
+    "tech_support": "技術支援"
+  },
+  "preds": [
+    {
+      "gold": "一般回覆",
+      "pred_raw": "biz_quote",
+      "pred_zh": "報價",
+      "conf": 0.24248894058028134
+    },
+    {
+      "gold": "報價",
+      "pred_raw": "tech_support",
+      "pred_zh": "技術支援",
+      "conf": 0.47354852102260264
+    },
+    {
+      "gold": "投訴",
+      "pred_raw": "policy_qa",
+      "pred_zh": "規則詢問",
+      "conf": 0.468093936517914
+    },
+    {
+      "gold": "技術支援",
+      "pred_raw": "complaint",
+      "pred_zh": "投訴",
+      "conf": 0.47041036175913603
+    },
+    {
+      "gold": "規則詢問",
+      "pred_raw": "biz_quote",
+      "pred_zh": "報價",
+      "conf": 0.9171683505473065
+    },
+    {
+      "gold": "資料異動",
+      "pred_raw": "complaint",
+      "pred_zh": "投訴",
+      "conf": 0.47380625651217256
+    }
+  ]
+}

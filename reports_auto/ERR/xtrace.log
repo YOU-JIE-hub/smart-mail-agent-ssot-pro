@@ -1,0 +1,2 @@
++ 2025-09-18T06:13:19+0800 [run_with_err.sh:53] command -v stdbuf
++ 2025-09-18T06:13:19+0800 [run_with_err.sh:53] stdbuf -oL -eL bash -lc scripts/pack_project.sh

@@ -1,0 +1,56 @@
+from __future__ import annotations
+from sqlalchemy import text
+from tools.db_models import init_db, engine
+
+def run():
+    init_db()
+    dialect = engine.dialect.name  # 'sqlite' | 'postgresql' | ...
+    with engine.begin() as conn:
+        conn.execute(text("CREATE TABLE IF NOT EXISTS _meta_kv (k TEXT PRIMARY KEY, v TEXT)"))
+
+        if dialect == "sqlite":
+            v7 = "datetime('now','-7 day')"
+        else:
+            v7 = "(now() - interval '7 days')"
+
+        # actions 近 7 日
+        try:
+            conn.execute(text(f"""
+            CREATE VIEW v_actions_last7 AS
+            SELECT * FROM actions
+            WHERE ts >= {v7}
+            ORDER BY ts DESC;
+            """))
+        except Exception:
+            pass
+
+        # 各意圖 HITL 率
+        try:
+            conn.execute(text("""
+            CREATE VIEW v_hitl_rate AS
+            SELECT intent,
+                   COUNT(*) AS total,
+                   SUM(CASE WHEN action='hitl_queue' THEN 1 ELSE 0 END) AS hitl,
+                   ROUND(1.0*SUM(CASE WHEN action='hitl_queue' THEN 1 ELSE 0 END)/NULLIF(COUNT(*),0), 4) AS hitl_rate
+            FROM actions
+            GROUP BY intent
+            ORDER BY hitl_rate DESC, total DESC;
+            """))
+        except Exception:
+            pass
+
+        # 每日意圖量
+        try:
+            conn.execute(text("""
+            CREATE VIEW v_intent_daily AS
+            SELECT DATE(ts) AS d, intent, COUNT(*) AS n
+            FROM actions
+            GROUP BY DATE(ts), intent
+            ORDER BY d DESC, n DESC;
+            """))
+        except Exception:
+            pass
+    print("[DB] migrate/views OK")
+
+if __name__=="__main__":
+    run()

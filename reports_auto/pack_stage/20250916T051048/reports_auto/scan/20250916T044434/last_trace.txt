@@ -1,0 +1,4 @@
+=== BASH_TRAP(tree_now) ===
+TIME: 2025-09-16T04:53:50+08:00
+LAST: head -n 50 > "$TOPN_TXT"
+CODE: 141

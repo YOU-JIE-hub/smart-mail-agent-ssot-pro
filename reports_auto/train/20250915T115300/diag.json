@@ -1,0 +1,13 @@
+{
+  "dim_diag": {
+    "expected_dim": 52301,
+    "branch_dims": {
+      "word": 6020,
+      "char": 46274,
+      "rules": 7
+    }
+  },
+  "data_n": 570,
+  "labels_n": 6,
+  "rules_src": null
+}

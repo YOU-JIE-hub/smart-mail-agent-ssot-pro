@@ -1,0 +1,11 @@
+{
+  "bind": "ok",
+  "ml_pkl": "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl",
+  "expected_dim": 29233,
+  "sum_branch": 29233,
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": 7
+  }
+}

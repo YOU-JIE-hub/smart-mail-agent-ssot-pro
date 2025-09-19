@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 7, in <module>
+    import joblib
+ModuleNotFoundError: No module named 'joblib'
+[*] PID=68
+curl: (7) Failed to connect to 127.0.0.1 port 8000 after 0 ms: Connection refused
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T092746
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T092746/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T092746/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T092746/py_last_trace.txt
+[*] REPORT DIR ready

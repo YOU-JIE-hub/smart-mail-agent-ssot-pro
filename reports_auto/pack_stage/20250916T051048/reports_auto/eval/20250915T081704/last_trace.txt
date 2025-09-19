@@ -1,0 +1,8 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T08:17:10+08:00
+LAST: echo "LAST: ${BASH_COMMAND:-<none>}"
+CODE: 10
+=== BASH_TRAP ===
+TIME: 2025-09-15T08:17:10+08:00
+LAST: /usr/bin/clear_console -q
+CODE: 1

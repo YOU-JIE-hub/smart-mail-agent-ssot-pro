@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Smart Mail Agent One-Click Daily
+
+[Timer]
+OnCalendar=*-*-* 07:00:00
+Persistent=true
+Unit=sma-oneclick.service
+
+[Install]
+WantedBy=timers.target

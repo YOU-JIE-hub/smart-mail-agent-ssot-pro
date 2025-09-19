@@ -1,0 +1,42 @@
+[*] ONECLICK TS=20250915T105354
+wal
+[OK] DB migrate -> reports_auto/audit.sqlite3
+[OK] EML ready (2 files) at /home/youjie/projects/smart-mail-agent-ssot-pro/sample_eml
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/seed/20250915T105357
+[*] tri-eval TS=20250915T105357
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/py_last_trace.txt
+OK
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+Traceback (most recent call last):
+  File "<stdin>", line 47, in <module>
+  File "<stdin>", line 28, in ml_predict
+  File "<frozen importlib._bootstrap>", line 568, in module_from_spec
+AttributeError: 'NoneType' object has no attribute 'loader'
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/py_last_trace.txt
+[FATAL] tri-eval failed (code=0) — see files above
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/py_last_trace.txt
+[*] REPORT DIR ready
+[*] stopped PID=137 (reports_auto/api/20250915T103233/api.pid)
+OK
+[*] DRY_RUN=1  PORT=8000
+[OK] API ready
+RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T105400
+LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T105400/run.log
+ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T105400/api.err
+PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T105400/py_last_trace.txt
+[*] smoke @ :8000
+scripts/sma_healthcheck.sh: line 9: RUNDIRS: bad array subscript
+[OK] GC done
+[OK] oneclick done → /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick/20250915T105354

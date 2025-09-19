@@ -1,0 +1,49 @@
+from __future__ import annotations
+from pathlib import Path
+from typing import Any, List
+import json
+
+_SPEC = Path("artifacts_prod/intent_feature_spec.json")
+
+def _spec():
+    if _SPEC.exists():
+        try:
+            return json.loads(_SPEC.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {"dims":{"rules":0,"prio":0,"bias":0}}
+
+def _ensure_list(X: Any) -> List[Any]:
+    try:
+        import numpy as _np
+        if isinstance(X, _np.ndarray): X = X.tolist()
+    except Exception:
+        pass
+    if isinstance(X, (str, bytes, dict, tuple)): return [X]
+    try:
+        iter(X)
+        return list(X)
+    except Exception:
+        return [X]
+
+def _zeros_sparse(n: int, d: int):
+    try:
+        import numpy as np
+        from scipy.sparse import csr_matrix
+        if d <= 0: return csr_matrix((n, 0), dtype=np.float64)
+        return csr_matrix((n, d), dtype=np.float64)
+    except Exception:
+        # 退路：純 Python 結構（不建議，但保底）
+        return [[0.0]*max(d,0) for _ in range(n)]
+
+def rules_feat(X, *a, **k):
+    n=len(_ensure_list(X)); d=_spec()["dims"].get("rules", 0)
+    return _zeros_sparse(n, d)
+
+def prio_feat(X, *a, **k):
+    n=len(_ensure_list(X)); d=_spec()["dims"].get("prio", 0)
+    return _zeros_sparse(n, d)
+
+def bias_feat(X, *a, **k):
+    n=len(_ensure_list(X)); d=_spec()["dims"].get("bias", 0)
+    return _zeros_sparse(n, d)

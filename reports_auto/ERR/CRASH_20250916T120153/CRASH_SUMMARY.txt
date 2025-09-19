@@ -1,0 +1,25 @@
+===== CRASH SUMMARY =====
+When   : 20250916T120153
+Cmd    : python -u tools/api_server_v2.py
+Exit   : 1
+OutDir : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/CRASH_20250916T120153
+----- tail run.err -----
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/api_server_v2.py", line 76, in <module>
+    HTTPServer(("127.0.0.1", port), H).serve_forever()
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+----- TAIL manual.err -----
+nohup: ignoring input
+127.0.0.1 - - [16/Sep/2025 09:45:51] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 09:45:52] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 09:45:52] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 09:45:52] "POST /extract HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 12:01:53] "POST /classify HTTP/1.1" 200 -
+----- tail run.out -----
+[API] http://127.0.0.1:8088

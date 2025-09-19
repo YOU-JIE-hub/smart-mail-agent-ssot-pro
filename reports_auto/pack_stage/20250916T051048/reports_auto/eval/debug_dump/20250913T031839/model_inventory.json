@@ -1,0 +1,77 @@
+[
+  {
+    "path": "artifacts/intent_pro_cal.pkl",
+    "exists": true,
+    "load_ok": true,
+    "error": null,
+    "classes": null,
+    "probes": [
+      {
+        "text": "[一般回覆] 測試\nhello",
+        "error": "AttributeError: 'dict' object has no attribute 'predict'"
+      },
+      {
+        "text": "報價 請提供 單價:100 數量:2",
+        "error": "AttributeError: 'dict' object has no attribute 'predict'"
+      },
+      {
+        "text": "投訴\n客訴",
+        "error": "AttributeError: 'dict' object has no attribute 'predict'"
+      },
+      {
+        "text": "技術支援 ticket:TS-1234",
+        "error": "AttributeError: 'dict' object has no attribute 'predict'"
+      },
+      {
+        "text": "請問規則\n這是規則詢問",
+        "error": "AttributeError: 'dict' object has no attribute 'predict'"
+      },
+      {
+        "text": "請協助資料異動 order:ORD-9",
+        "error": "AttributeError: 'dict' object has no attribute 'predict'"
+      }
+    ]
+  },
+  {
+    "path": "artifacts_prod/model_pipeline.pkl",
+    "exists": true,
+    "load_ok": true,
+    "error": null,
+    "classes": [
+      0,
+      1
+    ],
+    "probes": [
+      {
+        "text": "[一般回覆] 測試\nhello",
+        "pred": 0,
+        "conf": 0.6862832163787922
+      },
+      {
+        "text": "報價 請提供 單價:100 數量:2",
+        "pred": 1,
+        "conf": 0.7078363236964246
+      },
+      {
+        "text": "投訴\n客訴",
+        "pred": 0,
+        "conf": 0.6748245285088795
+      },
+      {
+        "text": "技術支援 ticket:TS-1234",
+        "pred": 0,
+        "conf": 0.8148763388632422
+      },
+      {
+        "text": "請問規則\n這是規則詢問",
+        "pred": 0,
+        "conf": 0.6748245285088795
+      },
+      {
+        "text": "請協助資料異動 order:ORD-9",
+        "pred": 1,
+        "conf": 0.6629308895282632
+      }
+    ]
+  }
+]

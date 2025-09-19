@@ -1,0 +1,20 @@
+{
+  "steps": [
+    [
+      "features",
+      "FeatureUnion"
+    ],
+    [
+      "clf",
+      "CalibratedClassifierCV"
+    ]
+  ],
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": "ERR:NameError"
+  },
+  "expected_dim": 29233,
+  "sum_before": 29226,
+  "pad_fixed": null
+}

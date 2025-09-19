@@ -1,0 +1,4 @@
+[RUN:intent1] /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python scripts/sma_eval_intent_with_rules.py --test data/intent/test.jsonl --val data/intent/val.jsonl --rules artifacts_prod/intent_rules_calib.json --thresholds reports_auto/intent_thresholds.json
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/sma_eval_intent_with_rules.py", line 31
+    "投訴": re.compile(r"(投訴|客訴|申訴|抱怨|不滿|退款|退費|賠償|投訴單|complain|refund|chargeback|延遲|慢|退單|毀損|缺件|少寄|寄錯|沒收到|沒出貨|無回覆|拖延|體驗差|服務差|品質差)", re.I)|延遲|慢|退單|毀損|缺件|少寄|寄錯|沒收到|沒出貨|無回覆|拖延|體驗差|服務差|品質差", re.I),
+IndentationError: unexpected indent

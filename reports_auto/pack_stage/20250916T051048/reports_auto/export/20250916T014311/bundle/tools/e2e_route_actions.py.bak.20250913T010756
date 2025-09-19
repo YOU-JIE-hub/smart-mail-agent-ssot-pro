@@ -1,0 +1,54 @@
+from __future__ import annotations
+import os, sys, json, time
+from pathlib import Path
+from tools.orch.planner_bridge import get_plan_action
+
+def _classify(email: dict, backend: str):
+    backend = (backend or "rule").lower()
+    if backend == "rule":
+        from tools.pipeline_baseline import classify as rule_cls
+        r = rule_cls(email)
+    elif backend == "ml":
+        from tools.pipeline_ml import classify_ml as ml_cls
+        r = ml_cls(email)
+    elif backend == "boosted":
+        from tools.pipeline_ml_boosted import classify_boosted
+        r = classify_boosted(email)
+    else:
+        raise ValueError(f"unknown backend: {backend}")
+
+    if isinstance(r, tuple):
+        if len(r)==3: intent, conf, slots = r
+        elif len(r)==2: intent, conf = r; slots = {}
+        else: raise TypeError(f"classifier returned tuple len={len(r)}")
+        return str(intent), float(conf), (slots or {})
+    if isinstance(r, dict):
+        intent = r.get("intent_name") or r.get("intent")
+        conf   = float(r.get("confidence",1.0))
+        slots  = r.get("slots") or {}
+        return str(intent), conf, slots
+    raise TypeError(f"unsupported classifier return type: {type(r)}")
+
+def main():
+    backend = sys.argv[1] if len(sys.argv)>1 else "rule"
+    fx = Path("fixtures/eval_set.jsonl")
+    if not fx.exists():
+        raise SystemExit("[E2E] fixtures/eval_set.jsonl missing")
+
+    plan_action = get_plan_action()
+
+    # 動作匯流排
+    from tools.actions.action_bus import ActionBus
+    bus = ActionBus(dry_run=bool(os.environ.get("SMA_DRY_RUN")))
+
+    for line in fx.read_text(encoding="utf-8").splitlines():
+        if not line.strip(): continue
+        s = json.loads(line); email = s["email"]
+        intent, conf, slots = _classify(email, backend)
+        plan = plan_action(intent=intent, confidence=conf, email=email, slots=slots)
+        mail_id = time.strftime("%Y%m%dT%H%M%S")
+        res = bus.execute(mail_id, intent, plan)
+        print(json.dumps({"intent":intent,"conf":conf,"plan":plan,"result":res}, ensure_ascii=False))
+
+if __name__ == "__main__":
+    main()

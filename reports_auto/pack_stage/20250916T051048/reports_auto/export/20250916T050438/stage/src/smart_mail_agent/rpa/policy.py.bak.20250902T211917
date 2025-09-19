@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/rpa/policy.py
+# 模組用途: FAQ/政策回應骨架；可接規則或 RAG。
+
+from __future__ import annotations
+
+from typing import Dict
+
+
+def answer_policy_question(query: str, kb: Dict[str, str] | None = None) -> str:
+    """
+    參數:
+        query: 問題
+        kb: 簡單知識庫（可選）
+    回傳:
+        str: 回覆文字
+    """
+    kb = kb or {"refund": "退款政策請參考 /policy/refund", "sla": "SLA 說明 /policy/sla"}
+    q = (query or "").lower()
+    for k, v in kb.items():
+        if k in q:
+            return v
+    return "我們已收到您的問題，將盡快回覆。"

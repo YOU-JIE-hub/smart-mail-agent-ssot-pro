@@ -1,0 +1,151 @@
+from __future__ import annotations
+import os, time, json, sqlite3
+from pathlib import Path
+from typing import Dict, Any, Optional
+
+DB_PATH = Path("db/sma.sqlite")
+ART_ROOT = Path("reports_auto/actions")
+
+def _ensure_db():
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    con = sqlite3.connect(DB_PATH)
+    cur = con.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS actions(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT, intent TEXT, action TEXT, status TEXT,
+        artifact_path TEXT, ext TEXT, message TEXT
+    )""")
+    cur.execute("""CREATE TABLE IF NOT EXISTS dead_letters(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT, intent TEXT, action TEXT,
+        reason TEXT, payload TEXT
+    )""")
+    con.commit(); con.close()
+
+def _s(x: Any) -> Optional[str]:
+    if x is None: return None
+    try:
+        return str(x)
+    except Exception:
+        return json.dumps(x, ensure_ascii=False)
+
+class ActionBus:
+    def __init__(self) -> None:
+        _ensure_db()
+        ART_ROOT.mkdir(parents=True, exist_ok=True)
+        self.dry = os.environ.get("SMA_DRY_RUN", "1") != "0"
+
+    # ---- adapters (依賴你現有的工具；缺就用最小後備) ----
+    def _send_email(self, subject: str, body: str) -> str:
+        try:
+            from tools.adapters.email_smtp import send_email
+            send_email(subject, body, to="demo-recipient@example.com", out_dir=str(ART_ROOT / "email"))
+            # adapter 已落地 .eml，這裡回傳最新檔名
+            return max((ART_ROOT / "email").glob("*.eml"), key=lambda p: p.stat().st_mtime).as_posix()
+        except Exception:
+            # 後備：直接寫 txt
+            (ART_ROOT / "email").mkdir(parents=True, exist_ok=True)
+            fn = ART_ROOT / "email" / f"{time.strftime('%Y%m%dT%H%M%S')}.eml"
+            fn.write_text(f"Subject: {subject}\n\n{body}", encoding="utf-8")
+            return fn.as_posix()
+
+    def _create_ticket(self, subject: str, body: str, severity: str = "P3", tags=None) -> (str, str):
+        try:
+            from tools.adapters.ticket_stub import create_ticket
+            res = create_ticket(subject, body, tags=tags or [], severity=severity, out_dir=str(ART_ROOT / "tickets"))
+            # stub 會回傳 (path, id)；若不確定則兜底為 (path, stem)
+            path = res if isinstance(res, str) else (res[0] if isinstance(res, (list, tuple)) else None)
+            if not path:
+                raise RuntimeError("ticket_stub returned empty")
+            p = Path(path)
+            return p.as_posix(), p.stem
+        except Exception:
+            (ART_ROOT / "tickets").mkdir(parents=True, exist_ok=True)
+            stem = f"{time.strftime('%Y%m%dT%H%M%S')}_P3"
+            fn = ART_ROOT / "tickets" / f"{stem}.json"
+            payload = {"subject": subject, "body": body, "severity": severity, "tags": tags or []}
+            fn.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            return fn.as_posix(), stem
+
+    def _change_request(self, payload: Dict[str, Any]) -> str:
+        (ART_ROOT / "change_requests").mkdir(parents=True, exist_ok=True)
+        fn = ART_ROOT / "change_requests" / f"{time.strftime('%Y%m%dT%H%M%S')}.json"
+        fn.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        return fn.as_posix()
+
+    def _quote_pdf(self, params: Dict[str, Any]) -> str:
+        # 有 reportlab 就產 PDF；否則寫純文字 stub
+        try:
+            from reportlab.lib.pagesizes import A4
+            from reportlab.pdfgen import canvas
+            (ART_ROOT / "quotes").mkdir(parents=True, exist_ok=True)
+            fn = ART_ROOT / "quotes" / f"{time.strftime('%Y%m%dT%H%M%S')}.pdf"
+            c = canvas.Canvas(str(fn), pagesize=A4)
+            y = 800
+            for k in ("subject","item","unit_price","qty","subtotal","tax","total","currency","valid_until"):
+                v = params.get(k)
+                c.drawString(64, y, f"{k}: {v}")
+                y -= 18
+            c.showPage(); c.save()
+            return fn.as_posix()
+        except Exception:
+            try:
+                from tools.adapters.pdf_placeholder import write_quote_txt
+                return write_quote_txt(summary=json.dumps(params, ensure_ascii=False))
+            except Exception:
+                (ART_ROOT / "quotes").mkdir(parents=True, exist_ok=True)
+                fn = ART_ROOT / "quotes" / f"{time.strftime('%Y%m%dT%H%M%S')}.txt"
+                fn.write_text(json.dumps(params, ensure_ascii=False, indent=2), encoding="utf-8")
+                return fn.as_posix()
+
+    # ---- audit ----
+    def _log_ok(self, ts: str, intent: str, action: str, artifact: Optional[str], ext: Optional[str]) -> None:
+        con = sqlite3.connect(DB_PATH); cur = con.cursor()
+        cur.execute(
+            "INSERT INTO actions(ts,intent,action,status,artifact_path,ext,message) VALUES(?,?,?,?,?,?,?)",
+            (_s(ts), _s(intent), _s(action), "ok", _s(artifact), _s(ext), None),
+        )
+        con.commit(); con.close()
+
+    def _log_dead(self, ts: str, intent: str, action: str, reason: str, payload: Dict[str, Any]) -> None:
+        con = sqlite3.connect(DB_PATH); cur = con.cursor()
+        cur.execute(
+            "INSERT INTO dead_letters(ts,intent,action,reason,payload) VALUES(?,?,?,?,?)",
+            (_s(ts), _s(intent), _s(action), _s(reason), json.dumps(payload or {}, ensure_ascii=False)),
+        )
+        con.commit(); con.close()
+
+    # ---- public API ----
+    def execute(self, mail_id: str, intent: str, plan: Dict[str, Any]) -> Dict[str, Any]:
+        ts = time.strftime("%Y-%m-%dT%H%M%S")
+        try:
+            action = plan.get("action") or "hitl_queue"
+            params = plan.get("params") or {}
+            artifact, ext = None, None
+
+            if action == "reply_email":
+                artifact = self._send_email(params.get("subject","[自動回覆]"), params.get("body",""))
+            elif action == "policy_reply":
+                artifact = self._send_email(params.get("subject","[回覆] 政策"), params.get("body",""))
+            elif action == "create_ticket":
+                artifact, ext = self._create_ticket(params.get("summary","ticket"), params.get("body",""),
+                                                    severity=params.get("severity","P3"), tags=params.get("tags",[]))
+            elif action == "change_request":
+                artifact = self._change_request({"requester": params.get("requester","noreply@example.com"),
+                                                 "fields": params.get("fields",{}), "intent": intent})
+            elif action == "quote_reply":
+                artifact = self._quote_pdf(params)
+            elif action == "hitl_queue":
+                # 不做外部動作；僅審計
+                artifact = None
+            else:
+                raise ValueError(f"unknown action: {action}")
+
+            self._log_ok(ts, intent, action, artifact, ext)
+            return {"status":"ok","artifact":artifact,"ext":ext}
+        except Exception as e:
+            self._log_dead(ts, intent or "", (plan or {}).get("action",""), type(e).__name__, {"error":str(e),"plan":plan})
+            return {"status":"error","error":f"{type(e).__name__}: {e}"}
+
+# 模組載入即確保 DB schema
+_ensure_db()

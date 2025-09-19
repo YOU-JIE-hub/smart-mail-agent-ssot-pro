@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 98, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 90, in main
+    result["intent_rule"]    = _eval_backend(rows, "rule",     _classify_rule)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 69, in _eval_backend
+    pred, _ = caller(r.get("email") or {})
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 27, in _classify_rule
+    from tools import pipeline_baseline as base
+ModuleNotFoundError: No module named 'tools'

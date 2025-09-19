@@ -1,0 +1,13 @@
+[05:50:37] [0/4] DB migrate
+[MIGRATE] llm_calls schema OK -> db/sma.sqlite
+[05:50:37] [1/4] v4 fix
+[05:50:37] [0] 寫入 6 意圖白名單
+[05:50:37] [1/5] 產生 names.json（以白名單為準）
+[ERR] line:31 cmd:python - <<'PY'
+from pathlib import Path, json
+names = [l for l in Path("configs/intent_names_override.txt").read_text(encoding="utf-8").splitlines() if l.strip()]
+Path("artifacts_prod/intent_names.json").write_text(json.dumps({"names":names}, ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"[OK] names -> artifacts_prod/intent_names.json  N={len(names)}")
+PY
+
+[ERR] line:11 cmd:bash one_click_intents_contract_v4_fix.sh

@@ -1,0 +1,8 @@
+pred_rows=240
+gold_rows=240
+aligned_rows=240
+miss_from_pred=0  # gold多出、pred缺少的出現次數
+miss_from_gold=0  # pred多出、gold缺少的出現次數
+strict_span_P=0.8629
+strict_span_R=0.4084
+strict_span_F1=0.5544

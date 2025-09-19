@@ -1,0 +1,5 @@
+=== BASH_TRAP(ERR) ===
+TIME: 2025-09-15T06:17:31+08:00
+CWD : /home/youjie/projects/smart-mail-agent-ssot-pro
+LAST: /usr/bin/clear_console -q
+CODE: 1

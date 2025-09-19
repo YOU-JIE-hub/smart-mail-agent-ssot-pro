@@ -1,0 +1,15 @@
+{
+  "type":"object",
+  "required":["mail_id","intent","action","hash","status","ts"],
+  "properties":{
+    "mail_id":{"type":"string"},
+    "intent":{"type":"string"},
+    "action":{"type":"string"},
+    "hash":{"type":"string"},
+    "status":{"enum":["ok","retry","dead"]},
+    "artifact_path":{"type":"string"},
+    "external_ref":{"type":"string"},
+    "latency_ms":{"type":"number"},
+    "error":{"type":"string"}
+  }
+}

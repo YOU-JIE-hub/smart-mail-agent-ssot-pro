@@ -1,0 +1,8 @@
+{
+  "mail_id": "m1",
+  "action": "noop",
+  "fields": {
+    "phone": "",
+    "amount": ""
+  }
+}

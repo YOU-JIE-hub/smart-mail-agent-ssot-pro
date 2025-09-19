@@ -1,0 +1,29 @@
+from __future__ import annotations
+import json, joblib, numpy as np
+from pathlib import Path
+from typing import List, Tuple
+from .shim import ensure_joblib_main_shims
+CATS = ["biz_quote","tech_support","complaint","policy_qa","profile_update","other"]
+def _probas(est, text: str) -> Tuple[List[str], np.ndarray]:
+    if hasattr(est, "predict_proba"):
+        p = np.asarray(est.predict_proba([text])[0], dtype=float)
+    else:
+        p = np.zeros((len(CATS),), dtype=float); p[-1]=1.0
+    labels = getattr(est, "classes_", np.array(CATS, dtype=object)).tolist()
+    return labels, p
+class IntentRouter:
+    def __init__(self, root: Path):
+        root=Path(root)
+        ensure_joblib_main_shims()
+        self.model = joblib.load(root/"artifacts/intent_pro_cal.pkl")
+        th_path = root/"reports_auto/intent_thresholds.json"
+        self.th = json.loads(th_path.read_text(encoding="utf-8")) if th_path.exists() else {}
+        self.cut = float(self.th.get("min_conf", 0.50))
+    def predict(self, text: str) -> str:
+        labels, p = _probas(self.model, text)
+        order = {lbl:i for i,lbl in enumerate(labels)}
+        vec = np.zeros((len(CATS),), dtype=float)
+        for i,lbl in enumerate(CATS):
+            if lbl in order: vec[i] = p[order[lbl]]
+        k=int(np.argmax(vec)); p1=float(vec[k]); lbl=CATS[k]
+        return lbl if p1>=self.cut else "other"

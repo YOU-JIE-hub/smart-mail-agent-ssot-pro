@@ -1,0 +1,7 @@
+[*] fix_and_seed_eml TS=20250915T062912
+[*] ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] SMA_EML_DIR set to: ./sample_eml
+[OK] EML source ready (1 files)
+chmod: cannot access 'scripts/sma_oneclick_strict.sh': No such file or directory
+[FAIL] reports_auto/seed/20250915T062912/seed.err
+[*] REPORT: reports_auto/seed/20250915T062912

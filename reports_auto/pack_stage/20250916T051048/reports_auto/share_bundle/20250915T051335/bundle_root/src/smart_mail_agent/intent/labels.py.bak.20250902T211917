@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/intent/labels.py
+# 模組用途: 意圖標籤標準化。
+
+from __future__ import annotations
+
+from typing import Dict
+
+CANON = ("biz_quote", "tech_support", "complaint", "policy_qa", "profile_update", "other")
+
+RULES: Dict[str, str] = {
+    "quote": "biz_quote",
+    "quotation": "biz_quote",
+    "support": "tech_support",
+    "policy": "policy_qa",
+}
+
+
+def to_canonical(raw: str) -> str:
+    """
+    參數:
+        raw: 原始標籤字串
+    回傳:
+        str: 標準化後的標籤
+    """
+    x = (raw or "").strip().lower().replace(" ", "_")
+    if x in CANON:
+        return x
+    if x in RULES:
+        return RULES[x]
+    for key, cat in RULES.items():
+        if key in x:
+            return cat
+    return "other"

@@ -1,0 +1,38 @@
+from __future__ import annotations
+from pathlib import Path
+from collections import Counter
+from smart_mail_agent.spam.ens import SpamEnsemble
+from smart_mail_agent.intent.infer import IntentRouter
+from smart_mail_agent.kie.infer import KIE
+from .action_handler import plan_actions
+def run_e2e_mail(eml_dir: Path, out_root: Path) -> str:
+    project_root = Path(__file__).resolve().parents[3]
+    outdir = out_root / __import__("time").strftime("%Y%m%dT%H%M%S")
+    outdir.mkdir(parents=True, exist_ok=True)
+    cases=[]
+    for p in sorted(Path(eml_dir).glob("*.eml")):
+        t=p.read_text(encoding="utf-8", errors="ignore"); subj=""; body=t
+        if "\n\n" in t:
+            hdr, body = t.split("\n\n",1)
+            for line in hdr.splitlines():
+                if line.lower().startswith("subject:"): subj=line.split(":",1)[1].strip(); break
+        cases.append({"id":p.stem, "subject":subj, "body":body})
+    clf_spam=SpamEnsemble(project_root); clf_intent=IntentRouter(project_root); kie=KIE(project_root)
+    ens1=ens0=0; final=[]
+    for c in cases:
+        text=(c["subject"] or "")+"\n"+(c["body"] or "")
+        if clf_spam.predict(text)==1:
+            ens1+=1; final.append({"id":c["id"],"intent":"quarantine","fields":{}}); continue
+        ens0+=1
+        intent = clf_intent.predict(text)
+        spans = kie.extract(text)
+        final.append({"id":c["id"],"intent":intent,"fields":{"spans":spans}})
+    (outdir/"cases.jsonl").write_text("\n".join(__import__("json").dumps(x,ensure_ascii=False) for x in final),encoding="utf-8")
+    plan_actions(final, outdir/"rpa_out")
+    cnt=Counter([x["intent"] for x in final])
+    lines=["# SUMMARY",f"- Spam ENS=1: {ens1} / ENS=0: {ens0}","- Intent:"]
+    for k in ["biz_quote","tech_support","complaint","policy_qa","profile_update","other"]:
+        lines.append(f"  - {k}: {cnt.get(k,0)}")
+    lines+=["- Actions:",f"  - manual_triage: {cnt.get('other',0)}",f"  - quarantine: {ens1}"]
+    (outdir/"SUMMARY.md").write_text("\n".join(lines),encoding="utf-8")
+    return "\n".join(lines)

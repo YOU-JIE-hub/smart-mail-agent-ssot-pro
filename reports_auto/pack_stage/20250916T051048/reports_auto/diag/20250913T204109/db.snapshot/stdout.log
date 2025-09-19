@@ -1,0 +1,2 @@
+[RUN] db.snapshot :: python tools/db_migrate.py snapshot
+[DB] snapshot ok -> reports_auto/db_reports

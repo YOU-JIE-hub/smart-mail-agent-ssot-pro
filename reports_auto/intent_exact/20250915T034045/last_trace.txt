@@ -1,0 +1,155 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T03:40:45+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, glob, json, re, types, importlib, traceback
+from pathlib import Path
+import joblib, numpy as np
+from scipy import sparse as sp
+
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+def dump(name, data):
+    p = R/name
+    if isinstance(data, str):
+        p.write_text(data, encoding='utf-8')
+    else:
+        p.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+    return str(p)
+
+def pick_pkl():
+    cands=[]
+    for pat in ["intent/**/artifacts/intent_pro_cal.pkl",
+                "intent/**/artifacts/intent_pipeline*.pkl",
+                "intent/artifacts/*.pkl"]:
+        cands += [Path(p) for p in glob.glob(pat, recursive=True)]
+    cands = [p for p in cands if p.is_file()]
+    cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return cands[0] if cands else None
+
+def load_rules_module(code_root: Path):
+    src = code_root/".sma_tools"/"runtime_threshold_router.py"
+    if not src.exists(): 
+        raise FileNotFoundError(f"缺: {src}")
+    code = src.read_text(encoding="utf-8")
+    # 註冊多個訓練期可能用過的模組名，確保 unpickle 成功
+    aliases = [
+        "train_pro_fresh",
+        "train_pro",
+        "intent_bundle_intent__sma_tools_runtime_threshold_router_py",
+        "sma_tools.runtime_threshold_router",
+        "runtime_threshold_router",
+        "rules_features",
+        "vendor.rules_features",  # 穩定名
+    ]
+    for name in aliases:
+        mod = types.ModuleType(name)
+        sys.modules[name] = mod
+        exec(compile(code, str(src), "exec"), mod.__dict__, mod.__dict__)
+    return src
+
+def to_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X, np.ndarray): 
+        return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(f"非數值輸出: {type(X)}")
+
+def feature_dims(feat, xs):
+    dims={}
+    if hasattr(feat, "transformer_list"):
+        for name, sub in feat.transformer_list:
+            try:
+                Y = to_csr(sub.transform(xs))
+                dims[name] = int(Y.shape[1])
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}"
+    return dims
+
+try:
+    pkl = pick_pkl()
+    if not pkl:
+        dump("py_last_trace.txt", "找不到 intent/**/artifacts/*.pkl")
+        print("[FATAL] no PKL"); sys.exit(2)
+    print("[PKL]", pkl)
+    code_root = pkl.parent.parent
+    src_rules = load_rules_module(code_root)
+    print("[RULES_SRC]", src_rules)
+
+    obj = joblib.load(pkl)
+    est = obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            if k in obj and hasattr(obj[k], "predict"): est = obj[k]
+
+    # 拿 features 與最後分類器
+    pre = None; clf = est
+    if hasattr(est, "steps"):
+        steps = dict(est.steps)
+        pre = steps.get("features") or steps.get("pre") or steps.get("union")
+        clf = est.steps[-1][1]
+
+    # 期望特徵數
+    expected = getattr(clf, "n_features_in_", None)
+    if expected is None and hasattr(clf,"base_estimator"):
+        expected = getattr(clf.base_estimator, "n_features_in_", None)
+    expected = int(expected) if expected is not None else None
+
+    xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+    dims = feature_dims(pre, xs) if pre is not None else {}
+    sum_before = sum(v for v in dims.values() if isinstance(v,int))
+
+    diag = {"pkl": str(pkl), "expected_dim": expected, "branch_dims": dims, "sum_before": sum_before}
+    dump("diagnostics.json", diag)
+    print("[EXPECTED]", expected)
+    print("[BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False))
+    print("[SUM_BEFORE]", sum_before)
+
+    # 嚴格比對（不再 pad）：不合 → 直接 fail，留下診斷
+    if expected is None or sum_before != expected:
+        msg = f"特徵維度不一致：sum_before={sum_before} vs expected={expected}"
+        dump("py_last_trace.txt", msg)
+        print("[MISMATCH]", msg)
+        sys.exit(90)
+
+    # 對齊成功 → 重存一顆環境獨立的
+    OUT = Path("artifacts")/"intent_pipeline_exact.pkl"
+    joblib.dump(est, OUT)
+    print("[SAVED]", OUT)
+
+    # 煙囪 +（可選）驗證
+    zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    try:
+        yp = est.predict(tests)
+        dump("sample_pred.json", {"samples":tests,"pred":[str(y) for y in yp],"pred_zh":[zh.get(str(y),str(y)) for y in yp]})
+        print("\nSAMPLE:")
+        for s,y in zip(tests, yp): print(" ", s, "->", f"{y} / {zh.get(str(y),str(y))}")
+    except Exception:
+        dump("py_last_trace.txt", traceback.format_exc())
+
+    DS = Path("data/intent_eval/dataset.cleaned.jsonl")
+    if DS.exists():
+        xs, ys = [], []
+        with DS.open("r",encoding="utf-8") as f:
+            for l in f:
+                l=l.strip()
+                if not l: continue
+                try:
+                    import json
+                    d=json.loads(l)
+                    xs.append(d.get("text") or d.get("content") or d.get("utterance") or "")
+                    ys.append(str(d.get("label") or d.get("intent") or ""))
+                except: pass
+        try:
+            yp = est.predict(xs)
+            pred_zh = [zh.get(str(y),str(y)) for y in yp]
+            acc = sum(int(a==b) for a,b in zip(pred_zh,ys))/len(ys) if ys else 0.0
+            dump("val_summary.json", {"n":len(ys),"acc_zh":acc})
+            print(f"[VAL] n={len(ys)}  acc_zh={acc:.4f}")
+        except Exception:
+            dump("py_last_trace.txt", traceback.format_exc())
+
+except Exception:
+    dump("py_last_trace.txt", traceback.format_exc())
+    raise
+PY
+
+EXIT_CODE: 1

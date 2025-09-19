@@ -1,0 +1,38 @@
+[
+  {
+    "intent": "報價",
+    "email": {
+      "subject": "報價 試算 單價:100 數量:2",
+      "body": ""
+    },
+    "slots": {
+      "price": null,
+      "qty": 2,
+      "ticket": null
+    }
+  },
+  {
+    "intent": "報價",
+    "email": {
+      "subject": "請問報價",
+      "body": "單價NT$1,250、QTY=3"
+    },
+    "slots": {
+      "price": 1250,
+      "qty": 3,
+      "ticket": null
+    }
+  },
+  {
+    "intent": "技術支援",
+    "email": {
+      "subject": "技術支援 ticket:TS-7788",
+      "body": "描述如下..."
+    },
+    "slots": {
+      "price": null,
+      "qty": null,
+      "ticket": "TS-7788"
+    }
+  }
+]

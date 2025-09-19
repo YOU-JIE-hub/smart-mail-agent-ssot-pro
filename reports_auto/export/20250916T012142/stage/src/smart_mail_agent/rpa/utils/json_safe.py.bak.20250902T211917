@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/rpa/utils/json_safe.py
+# 模組用途: 檢查物件是否可 JSON 序列化。
+
+from __future__ import annotations
+
+import json
+from typing import Any
+
+
+def jsonable(obj: Any) -> bool:
+    """
+    參數: 任意物件
+    回傳: bool 是否可被 json.dumps 序列化
+    """
+    try:
+        json.dumps(obj)
+        return True
+    except Exception:  # noqa: BLE001
+        return False

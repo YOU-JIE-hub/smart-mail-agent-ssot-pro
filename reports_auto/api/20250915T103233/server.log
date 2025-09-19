@@ -1,0 +1,7 @@
+[*] API on :8000 (DRY_RUN=True)
+127.0.0.1 - - [15/Sep/2025 10:32:34] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 10:32:34] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 10:32:35] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 10:32:35] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 10:32:35] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 10:32:54] "POST /tri-eval HTTP/1.1" 200 -

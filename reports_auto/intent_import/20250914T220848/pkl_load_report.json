@@ -1,0 +1,6 @@
+{
+  "path": "intent/intent/artifacts/intent_pro_cal.pkl",
+  "ok": false,
+  "err": "AttributeError: Can't get attribute 'rules_feat' on <module '__main__' from '/home/youjie/projects/smart-mail-agent-ssot-pro/tools/intent_import_and_align.py'>",
+  "alias": null
+}

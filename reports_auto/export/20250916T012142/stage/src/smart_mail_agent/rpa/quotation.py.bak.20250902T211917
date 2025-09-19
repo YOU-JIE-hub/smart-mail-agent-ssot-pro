@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/rpa/quotation.py
+# 模組用途: 產生報價單/回覆，透過 utils/pdf_safe 安全輸出檔案。
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Dict
+
+from smart_mail_agent.utils.config import load_env
+from smart_mail_agent.utils.logger import get_logger
+from smart_mail_agent.utils.pdf_safe import write_pdf_or_txt
+
+log = get_logger("RPA/Quotation")
+
+
+def generate_quote(out_dir: Path, payload: Dict[str, object]) -> Path:
+    """
+    參數:
+        out_dir: 輸出目錄
+        payload: 報價內容
+    回傳:
+        Path: 輸出檔路徑
+    """
+    out_dir.mkdir(parents=True, exist_ok=True)
+    env = load_env()
+    font = env.get("SMA_FONT_TTF")
+    content = "Quote\n" + str(payload)
+    out = out_dir / "quote.pdf"
+    path = write_pdf_or_txt(str(out), content, font_path=font)  # 會自動降級為 .txt
+    log.info("[RPA/Quotation] 產生輸出: %s", path)
+    return Path(path)

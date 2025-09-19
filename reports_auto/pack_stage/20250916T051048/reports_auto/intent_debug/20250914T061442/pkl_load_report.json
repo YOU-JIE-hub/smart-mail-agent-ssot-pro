@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pro_cal_fixed.pkl",
+    "ok": false,
+    "error": "AttributeError: Can't get attribute 'rules_feat' on <module '__main__' from '/home/youjie/projects/smart-mail-agent-ssot-pro/tools/intent_crash_dump.py'>"
+  },
+  {
+    "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_clf.pkl",
+    "ok": false,
+    "error": "AttributeError: Can't get attribute 'ZeroPad' on <module '__main__' from '/home/youjie/projects/smart-mail-agent-ssot-pro/tools/intent_crash_dump.py'>"
+  },
+  {
+    "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pro_cal.pkl",
+    "ok": false,
+    "error": "AttributeError: Can't get attribute 'rules_feat' on <module '__main__' from '/home/youjie/projects/smart-mail-agent-ssot-pro/tools/intent_crash_dump.py'>"
+  },
+  {
+    "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl",
+    "ok": true,
+    "error": null
+  }
+]

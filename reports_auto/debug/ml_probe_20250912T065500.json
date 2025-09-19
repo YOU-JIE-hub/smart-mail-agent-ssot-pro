@@ -1,0 +1,29 @@
+{
+  "model": "artifacts/intent_pro_cal.pkl",
+  "meta": {
+    "top_type": "dict",
+    "unwrapped": true,
+    "unwrap_key": "pipeline",
+    "top_keys": [
+      "pipeline"
+    ]
+  },
+  "results": [
+    {
+      "variant": "dict+text",
+      "ok": false,
+      "err": "TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given"
+    },
+    {
+      "variant": "string",
+      "ok": false,
+      "err": "TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given"
+    },
+    {
+      "variant": "tuple",
+      "ok": false,
+      "err": "TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given"
+    }
+  ],
+  "nodes": []
+}

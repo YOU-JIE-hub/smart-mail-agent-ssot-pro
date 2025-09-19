@@ -1,0 +1,3 @@
+[*] REPORT = reports_auto/intent_audit/20250914T225225
+[*] PKL_A  = /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl
+[FATAL] load A failed: ModuleNotFoundError: No module named 'train_pro_fresh'

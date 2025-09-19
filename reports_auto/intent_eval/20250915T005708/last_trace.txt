@@ -1,0 +1,129 @@
+=== BASH_TRAP(ERR) ===
+TIME: 2025-09-15T00:57:09+08:00
+BASH_COMMAND: python - "$SMA_INTENT_ML_PKL" "$DS" "$R" <<'PY'
+import os, sys, json, traceback, faulthandler, math
+from pathlib import Path
+import numpy as np, joblib
+from scipy import sparse as sp
+
+PKL, DS, R = sys.argv[1], Path(sys.argv[2]), Path(sys.argv[3])
+pylog = (R/"py_run.log").open("w", encoding="utf-8")
+faulthandler.enable(pylog)
+
+def log(*a): print(*a, file=pylog, flush=True); print(*a, flush=True)
+TO_ZH = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴",
+         "policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+ZH2EN = {v:k for k,v in TO_ZH.items()}
+
+def unwrap(obj):
+    if hasattr(obj,"predict"): return obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v = obj.get(k)
+            if hasattr(v,"predict"): return v
+    return obj
+
+def jload_lines(p):
+    xs=[]
+    with open(p,'r',encoding='utf-8') as f:
+        for l in f:
+            l=l.strip()
+            if not l: continue
+            try: xs.append(json.loads(l))
+            except: pass
+    return xs
+
+try:
+    if not Path(PKL).exists():
+        raise FileNotFoundError(PKL)
+    if not DS.exists():
+        raise FileNotFoundError(f"驗證集不存在: {DS}")
+
+    est_raw = joblib.load(PKL)
+    est = unwrap(est_raw)
+    if not hasattr(est, "predict"):
+        raise RuntimeError("unwrapped object is not an estimator")
+
+    data = jload_lines(DS)
+    xs = [(d.get("text") or d.get("content") or d.get("utterance") or "") for d in data]
+    gold_zh = [str(d.get("label") or d.get("intent") or "") for d in data]
+
+    # 預測（英文類別）
+    pred_en = est.predict(xs)
+    # 機率（能拿就拿 Calibrated 的）
+    topk = []
+    if hasattr(est, "predict_proba"):
+        proba = est.predict_proba(xs)
+        classes = [str(c) for c in getattr(est, "classes_", [])] \
+               or [str(c) for c in getattr(getattr(est,"base_estimator",None),"classes_",[])]
+        for p in proba:
+            idx = np.argsort(p)[::-1][:3]
+            topk.append([(classes[i], float(p[i])) for i in idx])
+    else:
+        topk = [[(str(pred_en[i]), 1.0)] for i in range(len(xs))]
+
+    # 轉中文比對
+    pred_zh = [TO_ZH.get(str(y), str(y)) for y in pred_en]
+
+    # 整體 acc（中文對中文）
+    n = len(gold_zh)
+    acc = sum(int(a==b) for a,b in zip(pred_zh, gold_zh)) / n if n else 0.0
+
+    # 逐類統計
+    from collections import Counter, defaultdict
+    labels = sorted(set(gold_zh + pred_zh))
+    conf = {g:{p:0 for p in labels} for g in labels}
+    for g,p in zip(gold_zh, pred_zh):
+        conf[g][p]+=1
+
+    per_label = {}
+    for lab in labels:
+        tp = conf[lab][lab]
+        fp = sum(conf[g][lab] for g in labels if g!=lab)
+        fn = sum(conf[lab][p] for p in labels if p!=lab)
+        prec = tp/(tp+fp) if (tp+fp)>0 else 0.0
+        rec  = tp/(tp+fn) if (tp+fn)>0 else 0.0
+        f1   = 2*prec*rec/(prec+rec) if (prec+rec)>0 else 0.0
+        per_label[lab] = {"support": sum(conf[lab].values()),
+                          "precision": round(prec,4),
+                          "recall": round(rec,4),
+                          "f1": round(f1,4)}
+
+    # 前 50 筆誤判（含 top-k）
+    wrong = []
+    for i,(x,g,p,tk) in enumerate(zip(xs,gold_zh,pred_zh,topk)):
+        if g!=p:
+            wrong.append({
+              "i": i, "text": x[:300], "gold": g, "pred": p,
+              "topk": [(TO_ZH.get(c,c), float(s)) for c,s in tk]
+            })
+            if len(wrong)>=50: break
+
+    # 落地
+    (R/"summary.json").write_text(json.dumps({
+        "n": n,
+        "acc_zh": round(acc,4),
+        "label_metrics": per_label,
+        "pred_top": Counter(pred_zh).most_common(),
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    (R/"confusion.json").write_text(json.dumps(conf, ensure_ascii=False, indent=2), encoding="utf-8")
+    (R/"misclassified_top50.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in wrong), encoding="utf-8")
+
+    # 小樣本煙囪
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    yp = est.predict(tests)
+    (R/"sample_pred.json").write_text(json.dumps({
+        "samples": tests,
+        "pred": [TO_ZH.get(str(y),str(y)) for y in yp]
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print("[VAL_DONE]", f"n={n} acc={round(acc,4)}")
+    print("[REPORT]", str(R))
+
+except Exception:
+    (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    raise
+PY
+
+EXIT_CODE: 1

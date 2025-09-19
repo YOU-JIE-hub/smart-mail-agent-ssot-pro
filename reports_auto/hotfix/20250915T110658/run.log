@@ -1,0 +1,10 @@
+[OK] env.default pinned:
+- SMA_DRY_RUN=1
+- SMA_LLM_PROVIDER=none
+- SMA_EML_DIR=fixtures/eml
+- SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+- SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+- PORT=8000
+sed: -e expression #1, char 82: unknown option to `s'
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/hotfix/20250915T110658/hotfix.err
+[*] HOTFIX REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/hotfix/20250915T110658

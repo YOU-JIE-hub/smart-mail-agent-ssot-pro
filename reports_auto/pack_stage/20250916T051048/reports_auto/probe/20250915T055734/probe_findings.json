@@ -1,0 +1,254 @@
+{
+  "intent": {
+    "rules_module": "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py",
+    "candidates": [
+      "artifacts/intent_clf.pkl",
+      "artifacts/intent_pipeline_aligned.pkl",
+      "artifacts/intent_pipeline_fixed.pkl",
+      "artifacts/intent_pipeline_fixed_wide.pkl",
+      "artifacts/intent_pro_cal.pkl",
+      "artifacts/intent_pro_cal_fixed.pkl",
+      "intent/intent/artifacts/intent_pro_cal.pkl"
+    ],
+    "probes": [
+      {
+        "path": "artifacts/intent_clf.pkl",
+        "load_ok": false,
+        "n_features_in": null,
+        "branch_dims": {},
+        "sum_branch": null,
+        "steps": [],
+        "msg": "AttributeError: Can't get attribute 'ZeroPad' on <module '__main__' (built-in)>"
+      },
+      {
+        "path": "artifacts/intent_pipeline_aligned.pkl",
+        "load_ok": true,
+        "n_features_in": 29233,
+        "branch_dims": {
+          "word": 3834,
+          "char": 25392,
+          "rules": 1
+        },
+        "sum_branch": 29227,
+        "steps": [
+          [
+            "features",
+            "FeatureUnion"
+          ],
+          [
+            "clf",
+            "CalibratedClassifierCV"
+          ]
+        ],
+        "msg": ""
+      },
+      {
+        "path": "artifacts/intent_pipeline_fixed.pkl",
+        "load_ok": false,
+        "n_features_in": null,
+        "branch_dims": {},
+        "sum_branch": null,
+        "steps": [],
+        "msg": "ModuleNotFoundError: No module named 'sma_tools'"
+      },
+      {
+        "path": "artifacts/intent_pipeline_fixed_wide.pkl",
+        "load_ok": false,
+        "n_features_in": null,
+        "branch_dims": {},
+        "sum_branch": null,
+        "steps": [],
+        "msg": "AttributeError: Can't get attribute 'ZeroPad' on <module '__main__' (built-in)>"
+      },
+      {
+        "path": "artifacts/intent_pro_cal.pkl",
+        "load_ok": true,
+        "n_features_in": 29233,
+        "branch_dims": {
+          "word": 3834,
+          "char": 25392,
+          "rules": 1
+        },
+        "sum_branch": 29227,
+        "steps": [
+          [
+            "features",
+            "FeatureUnion"
+          ],
+          [
+            "clf",
+            "CalibratedClassifierCV"
+          ]
+        ],
+        "msg": ""
+      },
+      {
+        "path": "artifacts/intent_pro_cal_fixed.pkl",
+        "load_ok": true,
+        "n_features_in": 29233,
+        "branch_dims": {},
+        "sum_branch": null,
+        "steps": [
+          [
+            "pre",
+            "Pipeline"
+          ],
+          [
+            "cal",
+            "CalibratedClassifierCV"
+          ]
+        ],
+        "msg": ""
+      },
+      {
+        "path": "intent/intent/artifacts/intent_pro_cal.pkl",
+        "load_ok": true,
+        "n_features_in": 29233,
+        "branch_dims": {
+          "word": 3834,
+          "char": 25392,
+          "rules": 1
+        },
+        "sum_branch": 29227,
+        "steps": [
+          [
+            "features",
+            "FeatureUnion"
+          ],
+          [
+            "clf",
+            "CalibratedClassifierCV"
+          ]
+        ],
+        "msg": ""
+      }
+    ],
+    "dataset": {
+      "path": "data/intent_eval/dataset.cleaned.jsonl",
+      "n": 570,
+      "labels": [
+        "其他",
+        "報價",
+        "技術支援",
+        "投訴",
+        "規則詢問",
+        "資料異動"
+      ]
+    }
+  },
+  "spam": {
+    "candidates": [],
+    "ens_thresholds.json": {
+      "spam": 0.405
+    }
+  },
+  "kie": {
+    "model_dirs": [],
+    "gold_merged_lines": 258
+  },
+  "configs": {
+    "paths": {
+      "intent_rules_calib": [
+        "artifacts_prod/intent_rules_calib.json",
+        "artifacts_prod/intent_rules_calib_v11c.json"
+      ],
+      "kie_runtime_config": [
+        "artifacts_prod/kie_runtime_config.json"
+      ],
+      "intent_contract": [
+        "artifacts_prod/intent_contract.json"
+      ]
+    },
+    "intent_rules_calib": {
+      "bias": {
+        "報價": 0.4,
+        "技術支援": 0.1,
+        "投訴": 0.30000000000000004,
+        "規則詢問": 0.0,
+        "資料異動": 0.1,
+        "其他": 0.0
+      },
+      "min_keep": {
+        "報價": 0.55,
+        "技術支援": 0.45,
+        "投訴": 0.35,
+        "規則詢問": 0.45,
+        "資料異動": 0.4,
+        "其他": 1000000000.0
+      },
+      "prio": {
+        "報價": 6,
+        "技術支援": 5,
+        "投訴": 4,
+        "資料異動": 3,
+        "規則詢問": 2,
+        "其他": 1
+      }
+    },
+    "kie_runtime_config": {
+      "kie_mode": "hybrid_v4",
+      "labels": {
+        "amount": true,
+        "date_time": true,
+        "env": true,
+        "sla": false
+      }
+    },
+    "intent_contract": {
+      "intents": [
+        {
+          "name": "一般回覆",
+          "subject_tag": "[一般回覆]",
+          "attachments": [],
+          "inline": null
+        },
+        {
+          "name": "報價",
+          "subject_tag": "[報價]",
+          "attachments": [],
+          "inline": null
+        },
+        {
+          "name": "投訴",
+          "subject_tag": "[投訴]",
+          "attachments": [],
+          "inline": null
+        },
+        {
+          "name": "技術支援",
+          "subject_tag": "[技術支援]",
+          "attachments": [],
+          "inline": null
+        },
+        {
+          "name": "規則詢問",
+          "subject_tag": "[規則詢問]",
+          "attachments": [],
+          "inline": null
+        },
+        {
+          "name": "資料異動",
+          "subject_tag": "[資料異動]",
+          "attachments": [],
+          "inline": null
+        }
+      ]
+    }
+  },
+  "db": {},
+  "gates": {
+    "bad_import": 1,
+    "tri_entry": 10,
+    "safe_entry": 0,
+    "adapters_dir": 6,
+    "tri_stack_dir": 0,
+    "literal_RUN_DIR": 10,
+    "tickets_md": 0,
+    "set_eepipefail": 75,
+    "faulthandler": 17757,
+    "SMA_EML_DIR": 13
+  },
+  "alerts": [
+    "KIE for_eval 測資未見（可選）"
+  ]
+}

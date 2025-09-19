@@ -1,0 +1,112 @@
+from __future__ import annotations
+from pathlib import Path
+from collections import Counter
+import json, time, traceback
+
+from smart_mail_agent.spam.ens import SpamEnsemble
+from smart_mail_agent.intent.classifier import IntentRouter
+from smart_mail_agent.kie.infer import KIE
+from smart_mail_agent.observability.audit_db import ensure_schema, insert_row, write_err_log
+from .action_handler import plan_actions
+
+def _now() -> int:
+    return int(time.time())
+
+def _safe(callable_, stage: str, mail_id: str, meta: dict | None = None):
+    """執行任務並把成功/失敗寫入 metrics 與 pipeline.ndjson（透過 write_err_log）。"""
+    t0 = time.perf_counter()
+    try:
+        out = callable_()
+        dt = int(1000 * (time.perf_counter() - t0))
+        insert_row("metrics", {
+            "ts": _now(), "stage": stage, "duration_ms": dt, "ok": 1,
+            "extra": json.dumps(meta or {}, ensure_ascii=False),
+        })
+        return out, None
+    except Exception as e:
+        tb = traceback.format_exc()
+        insert_row("metrics", {
+            "ts": _now(), "stage": stage, "duration_ms": 0, "ok": 0,
+            "extra": json.dumps({"err": str(e), **(meta or {})}, ensure_ascii=False),
+        })
+        write_err_log(stage, "ERROR", str(e), {"mail_id": mail_id, "traceback": tb})
+        return None, e
+
+def run_e2e_mail(eml_dir: Path, out_root: Path) -> str:
+    project_root = Path(__file__).resolve().parents[3]
+    ensure_schema()  # 確保 DB 表與 NDJSON 存在
+    out_root.mkdir(parents=True, exist_ok=True)
+
+    # 初始化模型（失敗不終止，後續走回退路徑）
+    clf_spam, _ = _safe(lambda: SpamEnsemble(project_root), "model/spam", "bootstrap")
+    clf_intent, _ = _safe(lambda: IntentRouter(project_root), "model/intent", "bootstrap")
+    kie, _       = _safe(lambda: KIE(project_root),          "model/kie",    "bootstrap")
+
+    # 讀入郵件
+    cases: list[dict] = []
+    for p in sorted(Path(eml_dir).glob("*.eml")):
+        mail_id = p.stem
+        try:
+            t = p.read_text(encoding="utf-8", errors="ignore")
+            subj, body = "", t
+            if "\n\n" in t:
+                hdr, body = t.split("\n\n", 1)
+                for line in hdr.splitlines():
+                    if line.lower().startswith("subject:"):
+                        subj = line.split(":", 1)[1].strip()
+                        break
+            cases.append({"id": mail_id, "subject": subj, "body": body})
+            insert_row("mails", {"mail_id": mail_id, "subject": subj, "ts": _now()})
+        except Exception as e:
+            write_err_log("ingest", "ERROR", f"read {p}: {e}", {"mail_id": mail_id})
+
+    # 推論與行為規劃（單封錯誤不會讓整批失敗）
+    final: list[dict] = []
+    cnt: Counter[str] = Counter()
+    for c in cases:
+        mail_id = c["id"]
+        text = (c.get("subject") or "") + "\n" + (c.get("body") or "")
+
+        # Spam → 命中則直接 quarantine
+        y_spam = 0
+        if clf_spam:
+            y, err = _safe(lambda: clf_spam.predict(text), "spam/predict", mail_id)
+            y_spam = int(y == 1) if err is None else 0
+        if y_spam == 1:
+            cnt["spam"] += 1
+            final.append({"id": mail_id, "intent": "quarantine", "fields": {}})
+            insert_row("actions", {
+                "ts": _now(), "mail_id": mail_id, "intent": "quarantine",
+                "action": "do_quarantine", "idempotency_key": f"{mail_id}:quarantine",
+                "priority": "P1/Sec", "queue": "P1/Sec", "status": "queued"
+            })
+            continue
+
+        # Intent
+        intent = "other"
+        if clf_intent:
+            lbl, err = _safe(lambda: clf_intent.predict(text), "intent/predict", mail_id)
+            intent = (lbl or "other") if err is None else "other"
+        cnt[intent] += 1
+
+        # KIE（可選，錯誤不阻斷）
+        fields = {}
+        if kie:
+            spans, _ = _safe(lambda: kie.extract(text), "kie/extract", mail_id)
+            if spans:
+                fields["spans"] = spans
+
+        final.append({"id": mail_id, "intent": intent, "fields": fields})
+
+    # 規劃動作到 out_root
+    _, err = _safe(lambda: plan_actions(final, out_root), "plan/actions", "batch", {"count": len(final)})
+    if err is not None:
+        write_err_log("plan/actions", "ERROR", "plan_actions failed", {"count": len(final)})
+
+    # 摘要
+    lines = ["# E2E SUMMARY", "", "Counts:"]
+    for k, v in cnt.items():
+        lines.append(f"- {k}: {v}")
+    summary = "\n".join(lines) or "ok"
+    (out_root / "LATEST_SUMMARY.md").write_text(summary, encoding="utf-8")
+    return summary

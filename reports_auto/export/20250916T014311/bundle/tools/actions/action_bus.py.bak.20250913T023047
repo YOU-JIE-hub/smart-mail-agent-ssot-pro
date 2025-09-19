@@ -1,0 +1,120 @@
+from __future__ import annotations
+import os, time, json, sqlite3
+from pathlib import Path
+from typing import Dict, Any, Optional
+
+DB_PATH = Path("db/sma.sqlite")
+ART = Path("reports_auto/actions")
+ART.mkdir(parents=True, exist_ok=True)
+
+def _migrate():
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    con=sqlite3.connect(DB_PATH); cur=con.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS actions(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT, intent TEXT, action TEXT, status TEXT,
+        artifact_path TEXT
+    )""")
+    cur.execute("""CREATE TABLE IF NOT EXISTS dead_letters(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT, intent TEXT, action TEXT, payload TEXT
+    )""")
+    # 補欄位
+    def has(tbl,col):
+        cur.execute(f"PRAGMA table_info({tbl})"); return any(r[1]==col for r in cur.fetchall())
+    if not has("actions","ext"):     cur.execute("ALTER TABLE actions ADD COLUMN ext TEXT")
+    if not has("actions","message"): cur.execute("ALTER TABLE actions ADD COLUMN message TEXT")
+    if not has("dead_letters","reason"): cur.execute("ALTER TABLE dead_letters ADD COLUMN reason TEXT")
+    con.commit(); con.close()
+
+class ActionBus:
+    def __init__(self): _migrate()
+
+    # adapters
+    def _email(self, subject:str, body:str) -> str:
+        from tools.adapters.email_smtp import send_email
+        return send_email(subject, body, os.environ.get("DEMO_TO","demo@example.com"))
+
+    def _policy(self, subject:str, body:str) -> str:
+        # 可追加政策 footer
+        try:
+            foot=Path("configs/templates/policy_footer.md").read_text(encoding="utf-8")
+        except Exception: foot=""
+        return self._email(subject, body + ("\n\n"+foot if foot else ""))
+
+    def _ticket(self, summary:str, severity:str, tags:list[str]) -> str:
+        from tools.adapters.ticket_stub import create_ticket
+        return create_ticket(summary, summary, tags=tags, severity=severity)
+
+    def _change(self, payload:dict) -> str:
+        out = ART/"change_requests"/f"{time.strftime('%Y-%m-%dT%H%M%S')}.json"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        return str(out)
+
+    def _quote(self, params:dict) -> str:
+        # 優先 PDF，否則降級 TXT
+        try:
+            from tools.adapters.pdf_quote import write_pdf_quote
+            return write_pdf_quote(params)
+        except Exception:
+            from tools.adapters.pdf_placeholder import write_quote_txt
+            return write_quote_txt(f"QUOTE: {params}")
+
+    def _slack(self, text:str) -> str:
+        from tools.adapters.slack import notify
+        return notify("alerts", text)
+
+    # logging
+    def _log_ok(self, ts, intent, action, artifact, ext):
+    import sqlite3, json
+    ts = str(ts or "")
+    intent = str(intent or "")
+    action = str(action or "")
+    status = "ok"
+    artifact = (str(artifact) if artifact else None)
+    ext = (str(ext) if ext else None)
+    con=sqlite3.connect(DB_PATH); cur=con.cursor()
+    ",
+                (ts,intent,action,status,artifact,ext,None))
+    con.commit(); con.close()
+
+def _log_dead(self, ts, intent, action, reason, payload):
+    import sqlite3, json
+    ts = str(ts or "")
+    intent = str(intent or "")
+    action = str(action or "")
+    reason = str(reason or "")
+    payload_json = json.dumps(payload or {}, ensure_ascii=False)
+    con=sqlite3.connect(DB_PATH); cur=con.cursor()
+    ",
+                (ts,intent,action,reason,payload_json))
+    con.commit(); con.close()
+
+def execute(self, mail_id:str, intent:str, plan:Dict[str,Any]) -> Dict[str,Any]:
+        ts=time.strftime("%Y-%m-%dT%H%M%S")
+        action=plan.get("action")
+        try:
+            artifact=None; ext=None
+            if action=="reply_email":
+                p=plan["params"]; artifact=self._email(p["subject"], p["body"])
+            elif action=="policy_reply":
+                p=plan["params"]; artifact=self._policy(p["subject"], p["body"])
+            elif action=="create_ticket":
+                p=plan["params"]; artifact=self._ticket(p.get("summary",""), p.get("severity","P3"), p.get("tags",[]))
+                # P1/P2 告警
+                if p.get("severity") in ("P1","P2"):
+                    self._slack(f"[{p.get('severity')}] {intent} - {p.get('summary')}")
+            elif action=="change_request":
+                artifact=self._change({"mail_id":mail_id,"intent":intent,"plan":plan})
+            elif action=="quote_reply":
+                artifact=self._quote(plan.get("params",{}))
+            elif action=="hitl_queue":
+                artifact=None
+            else:
+                raise ValueError(f"unknown action: {action}")
+            self._log_ok(ts,intent,action,artifact,ext)
+            return {"status":"ok","artifact":artifact,"ext":ext}
+        except Exception as e:
+            self._log_dead(ts,intent,action,f"{type(e).__name__}: {e}", {"plan":plan})
+            return {"status":"error","error":str(e)}

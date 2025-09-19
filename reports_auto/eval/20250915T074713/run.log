@@ -1,0 +1,7 @@
+[*] tri-eval TS=20250915T074713
+OK
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+ModuleNotFoundError: No module named 'numpy'
+logout
+[*] REPORT DIR: reports_auto/eval/20250915T074713

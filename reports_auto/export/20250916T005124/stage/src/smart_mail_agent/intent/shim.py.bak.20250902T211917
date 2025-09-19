@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/intent/shim.py
+# 模組用途: 提供少量 sklearn pipeline 兼容的虛擬元件與 __main__ shim。
+
+from __future__ import annotations
+
+import sys
+import types
+from typing import Any
+
+import numpy as np
+from scipy import sparse
+
+
+def _width(x: Any) -> int:
+    """參數: 任意；回傳: 合理寬度(>=1)。"""
+    import numpy as _np
+
+    if x is None:
+        return 1
+    for t in (int, float):
+        if isinstance(x, t):
+            return max(int(x), 1)
+    if isinstance(x, _np.generic):
+        try:
+            return max(int(x), 1)
+        except Exception:  # noqa: BLE001
+            return 1
+    if isinstance(x, (list, tuple, dict, set, _np.ndarray)):
+        try:
+            return max(int(len(x)), 1)
+        except Exception:  # noqa: BLE001
+            return 1
+    return 1
+
+
+def _zeros2d(n: int, k: int) -> sparse.csr_matrix:
+    return sparse.csr_matrix((n, max(k, 1)), dtype=np.float32)
+
+
+class rules_feat:
+    def __init__(self, n_features: int = 1, **kw: Any) -> None:  # noqa: ARG002
+        self.n_features = _width(n_features)
+
+    def fit(self, X, y=None):  # noqa: N803, ANN001, ANN202
+        self._out = self.n_features
+        return self
+
+    def transform(self, X):  # noqa: N803, ANN001, ANN201
+        X = list(X)
+        return _zeros2d(len(X), getattr(self, "_out", self.n_features))
+
+    def get_feature_names_out(self, input_features=None):  # noqa: ANN001, D401
+        """回傳輸出欄位名稱。"""
+        k = getattr(self, "_out", self.n_features)
+        return np.array([f"rule_{i}" for i in range(k)], dtype=object)
+
+
+class ZeroPad:
+    def __init__(self, width: int = 1, **kw: Any) -> None:  # noqa: ARG002
+        self.width = _width(width)
+
+    def fit(self, X, y=None):  # noqa: N803, ANN001, ANN202
+        self._out = self.width
+        return self
+
+    def transform(self, X):  # noqa: N803, ANN001, ANN201
+        X = list(X)
+        return _zeros2d(len(X), getattr(self, "_out", self.width))
+
+    def get_feature_names_out(self, input_features=None):  # noqa: ANN001, D401
+        """回傳輸出欄位名稱。"""
+        k = getattr(self, "_out", self.width)
+        return np.array([f"zeropad_{i}" for i in range(k)], dtype=object)
+
+
+class DictFeaturizer:
+    def __init__(self, keys=None, **kw: Any) -> None:  # noqa: ANN001, ARG002
+        self.keys = list(keys) if keys else []
+
+    def fit(self, X, y=None):  # noqa: N803, ANN001, ANN202
+        self._out = max(len(self.keys), 1)
+        return self
+
+    def transform(self, X):  # noqa: N803, ANN001, ANN201
+        X = list(X)
+        return _zeros2d(len(X), getattr(self, "_out", max(len(self.keys), 1)))
+
+    def get_feature_names_out(self, input_features=None):  # noqa: ANN001, D401
+        """回傳輸出欄位名稱。"""
+        k = getattr(self, "_out", max(len(self.keys), 1))
+        return np.array([f"dict_{i}" for i in range(k)], dtype=object)
+
+
+def _ensure(mod: types.ModuleType) -> None:
+    for n, o in {"rules_feat": rules_feat, "ZeroPad": ZeroPad, "DictFeaturizer": DictFeaturizer}.items():
+        if not hasattr(mod, n):
+            setattr(mod, n, o)
+
+
+def ensure_joblib_main_shims() -> None:
+    """
+    參數: 無
+    回傳: None
+    """
+    m = sys.modules.get("__main__") or types.ModuleType("__main__")
+    sys.modules["__main__"] = m
+    _ensure(m)
+
+    t = sys.modules.get("smart_mail_agent.cli.e2e") or types.ModuleType("smart_mail_agent.cli.e2e")
+    sys.modules["smart_mail_agent.cli.e2e"] = t
+    _ensure(t)

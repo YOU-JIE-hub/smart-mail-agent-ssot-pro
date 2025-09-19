@@ -1,0 +1,21 @@
+{
+  "steps": [
+    [
+      "features",
+      "FeatureUnion"
+    ],
+    [
+      "clf",
+      "CalibratedClassifierCV"
+    ]
+  ],
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": 7
+  },
+  "expected_dim": 29233,
+  "sum_before": 29233,
+  "pad_fixed": null,
+  "rules_feat_src": "intent/intent/.sma_tools/runtime_threshold_router.py"
+}

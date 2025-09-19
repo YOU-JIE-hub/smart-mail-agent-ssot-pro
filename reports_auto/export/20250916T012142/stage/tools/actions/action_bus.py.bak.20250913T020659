@@ -1,0 +1,106 @@
+from __future__ import annotations
+import os, time, json, sqlite3
+from pathlib import Path
+from typing import Dict, Any, Optional
+
+DB_PATH = Path("db/sma.sqlite")
+ART = Path("reports_auto/actions")
+ART.mkdir(parents=True, exist_ok=True)
+
+def _ensure_db():
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    con = sqlite3.connect(DB_PATH); cur = con.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS actions(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT, intent TEXT, action TEXT, status TEXT,
+        artifact_path TEXT, ext TEXT, message TEXT
+    )""")
+    cur.execute("""CREATE TABLE IF NOT EXISTS dead_letters(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT, intent TEXT, action TEXT, payload TEXT, reason TEXT
+    )""")
+    con.commit(); con.close()
+
+class ActionBus:
+    def __init__(self, dry_run: bool=True):
+        self.dry = bool(dry_run)
+        _ensure_db()
+
+    # --- optional adapters ---
+    def _maybe(self, mod, cls, **kw):
+        try:
+            m=__import__(mod, fromlist=[cls]); C=getattr(m, cls); return C(**kw)
+        except Exception:
+            return None
+    def _email(self): return self._maybe("tools.adapters.email_smtp", "EmailClient", dry_run=self.dry)
+    def _slack(self): return self._maybe("tools.adapters.slack", "SlackClient", dry_run=self.dry)
+    def _ticket(self):return self._maybe("tools.adapters.ticket_stub", "TicketClient", dry_run=self.dry)
+    def _crm(self):   return self._maybe("tools.adapters.crm_stub", "CRMClient", dry_run=self.dry)
+    def _pdf(self):   return self._maybe("tools.adapters.pdf_placeholder", "PDFMaker")
+
+    # --- file writers ---
+    def _eml(self, ts: str, subject: str, body: str)->str:
+        p=ART/"email"/f"{ts}.eml"; p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(f"Subject: {subject}\n\n{body}\n", encoding="utf-8"); return str(p)
+    def _ticket_json(self, ts:str, payload:Dict[str,Any])->str:
+        sev = payload.get("severity","P3")
+        p=ART/"tickets"/f"{ts}_{sev}.json"; p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"); return str(p)
+    def _slack_json(self, ts:str, payload:Dict[str,Any])->str:
+        p=ART/"slack"/f"{ts}.json"; p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"); return str(p)
+    def _cr_json(self, ts:str, payload:Dict[str,Any])->str:
+        p=ART/"change_requests"/f"{ts}.json"; p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"); return str(p)
+
+    # --- audit ---
+    def _log_ok(self, ts, intent, action, artifact, ext="", message=""):
+        con=sqlite3.connect(DB_PATH); cur=con.cursor()
+        cur.execute("INSERT INTO actions(ts,intent,action,status,artifact_path,ext,message) VALUES(?,?,?,?,?,?,?)",
+                    (ts,intent,action,"ok",artifact or "",ext or "",message or ""))
+        con.commit(); con.close()
+    def _log_dead(self, ts, intent, action, reason, payload):
+        con=sqlite3.connect(DB_PATH); cur=con.cursor()
+        cur.execute("INSERT INTO dead_letters(ts,intent,action,payload,reason) VALUES(?,?,?,?,?)",
+                    (ts,intent,action,json.dumps(payload, ensure_ascii=False),reason))
+        con.commit(); con.close()
+
+    # --- main ---
+    def execute(self, mail_id: str, intent: str, plan: Dict[str, Any]) -> Dict[str,Any]:
+        t0=time.time(); ts=time.strftime("%Y-%m-%dT%H:%M:%S")
+        action=plan.get("action","reply_email"); params=plan.get("params") or {}
+        artifact=None; ext=None
+        try:
+            if action in ("reply_email","policy_reply","quote_reply"):
+                subj=params.get("subject") or f"[{intent}] 自動回覆"
+                body=params.get("body") or json.dumps(params, ensure_ascii=False)
+                em=self._email()
+                artifact = em.send_draft(subject=subj, body=body) if em and hasattr(em,"send_draft") else self._eml(ts.replace(":",""), subj, body)
+            elif action=="create_ticket":
+                tk=self._ticket()
+                if tk and hasattr(tk,"create"):
+                    ext,artifact=tk.create(**params)
+                else:
+                    artifact=self._ticket_json(ts.replace(":",""), params); ext=Path(artifact).stem
+            elif action=="change_request":
+                crm=self._crm()
+                if crm and hasattr(crm,"submit_change"):
+                    ext,artifact=crm.submit_change(**params)
+                else:
+                    artifact=self._cr_json(ts.replace(":",""), params); ext=Path(artifact).stem
+            elif action=="notify_slack":
+                sk=self._slack()
+                artifact = sk.send_json(params) if sk and hasattr(sk,"send_json") else self._slack_json(ts.replace(":",""), params)
+            elif action=="generate_pdf":
+                pdf=self._pdf()
+                artifact = pdf.make(params) if pdf and hasattr(pdf,"make") else self._cr_json(ts.replace(":",""), {"pdf_params":params})
+            elif action=="hitl_queue":
+                pass
+            else:
+                action="hitl_queue"  # fallback
+            lat=(time.time()-t0)*1000.0
+            self._log_ok(ts,intent,action,artifact,ext)
+            return {"status":"ok","artifact":artifact,"ext":ext,"latency_ms":lat}
+        except Exception as e:
+            self._log_dead(ts,intent,action,f"{type(e).__name__}: {e}", {"plan":plan})
+            return {"status":"error","artifact":artifact,"ext":ext,"error":str(e),"latency_ms":(time.time()-t0)*1000.0}

@@ -1,0 +1,36 @@
+[*] pack_diag start @ 20250916T015043
+[*] PWD=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] whoami=youjie
+[*] uname=Linux DESKTOP-MP3QVS6 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+[*] df -h (top 10 lines):
+Filesystem      Size  Used Avail Use% Mounted on
+none            7.8G     0  7.8G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            7.8G  4.0K  7.8G   1% /mnt/wsl
+drivers         477G  365G  113G  77% /usr/lib/wsl/drivers
+/dev/sdd       1007G   41G  915G   5% /
+none            7.8G   76K  7.8G   1% /mnt/wslg
+none            7.8G     0  7.8G   0% /usr/lib/wsl/lib
+rootfs          7.8G  2.7M  7.8G   1% /init
+none            7.8G     0  7.8G   0% /run
+none            7.8G     0  7.8G   0% /run/lock
+[*] ulimit -a:
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) 0
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 63481
+max locked memory           (kbytes, -l) 65536
+max memory size             (kbytes, -m) unlimited
+open files                          (-n) 10240
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) 8192
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) 63481
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+[*] env (key vars):
+PATH=/home/youjie/.local/bin:/home/youjie/bin:/home/youjie/projects/smart-mail-agent/bin:/home/youjie/.local/bin:/home/youjie/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/libnvvp:/mnt/c/Windows/System32:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/hurry/OneDrive/桌面/cudnn-windows-x86_64-8.9.6.50_cuda11-archive/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2022.3.0/:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.2/bin:/mnt/c/Users/hurry/OneDrive/桌面/ffmpeg-7.1.1-essentials_build/bin:/mnt/c/Users/hurry/TikTokDownload-1.4.2.2/TikTokTool.exe:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/hurry/anaconda3:/mnt/c/Users/hurry/anaconda3/Library/mingw-w64/bin:/mnt/c/Users/hurry/anaconda3/Library/usr/bin:/mnt/c/Users/hurry/anaconda3/Library/bin:/mnt/c/Users/hurry/anaconda3/Scripts:/mnt/c/Users/hurry/.cargo/bin:/mnt/c/Users/hurry/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/hurry/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Anaconda (anaconda3):/mnt/c/Users/hurry/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Anaconda3 (64-bit):/mnt/c/Users/hurry/AppData/Local/Programs/Eclipse Adoptium/jdk-17.0.8.101-hotspot/bin:/mnt/c/Users/hurry/AppData/Local/Muse Hub/lib:/mnt/c/Users/hurry/OneDrive/桌面/cudnn-windows-x86_64-9.5.0.50_cuda12-archive/bin:/mnt/c/users/hurry/.local/bin:/mnt/c/Users/hurry/AppData/Local/Microsoft/WindowsApps:/snap/bin
+[FATAL] 找不到 scripts/pack_project.sh

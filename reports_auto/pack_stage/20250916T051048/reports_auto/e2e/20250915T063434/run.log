@@ -1,0 +1,16 @@
+[*] OneClick v3 TS=20250915T063434
+[*] ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] LOG=reports_auto/e2e/20250915T063434/run.log
+[*] ERR=reports_auto/e2e/20250915T063434/oneclick.err
+[*] SMA_DRY_RUN=1
+[*] Gate scan…
+./scripts/sma_probe_all.sh:86:# ---------- Python 盤點主程式（嚴禁「from pathlib import Path, json」） ----------
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py", line 5, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+[FATAL] code=1 (see reports_auto/e2e/20250915T063434/oneclick.err reports_auto/e2e/20250915T063434/last_trace.txt)
+[*] REPORT DIR: reports_auto/e2e/20250915T063434

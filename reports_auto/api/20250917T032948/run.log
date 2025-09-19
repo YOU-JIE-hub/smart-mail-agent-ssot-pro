@@ -1,0 +1,2 @@
+[*] api_down done
+scripts/api_up.sh: line 13: SMA_DRY_RUN: unbound variable

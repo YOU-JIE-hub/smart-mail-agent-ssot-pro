@@ -1,0 +1,18 @@
+When : 20250917T032948
+CWD  : /home/youjie/projects/smart-mail-agent-ssot-pro
+RC   : 1
+Cmd  : source scripts/env.default; python -m tools.api_server
+Msg  : trap EXIT non-zero
+
+== tail run.out ==
+[RUN] source scripts/env.default; python -m tools.api_server
+[API] http://127.0.0.1:8088
+
+== tail run.err ==
+
+== ss -ltnp ==
+State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+
+== ps -ef | python ==
+youjie    1556  1506  0 03:29 pts/0    00:00:00 bash scripts/crash_guard.sh --cmd source scripts/env.default; python -m tools.api_server

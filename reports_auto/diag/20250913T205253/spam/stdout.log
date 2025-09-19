@@ -1,0 +1,2 @@
+[RUN] spam :: python tools/spam_report.py || true
+[SPAM] metrics -> metrics/spam_metrics.json

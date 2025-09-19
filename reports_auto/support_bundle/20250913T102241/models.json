@@ -1,0 +1,10 @@
+[
+  {
+    "path": "artifacts/intent_pro_cal.pkl",
+    "exists": true
+  },
+  {
+    "path": "artifacts_prod/model_pipeline.pkl",
+    "exists": true
+  }
+]

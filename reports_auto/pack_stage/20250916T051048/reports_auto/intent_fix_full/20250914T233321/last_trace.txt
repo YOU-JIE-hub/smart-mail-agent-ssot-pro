@@ -1,0 +1,138 @@
+=== BASH_TRAP ===
+TIME: 2025-09-14T23:33:21+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, json, glob, traceback, importlib.util, types, faulthandler
+from pathlib import Path
+import joblib, numpy as np
+from scipy import sparse as sp
+
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+pylog = (R/"py_run.log").open("w", encoding="utf-8")
+faulthandler.enable(pylog)
+
+def log(*a): print(*a, file=pylog, flush=True); print(*a, flush=True)
+
+def pick_pkl():
+    cands = []
+    for pat in ["intent/**/artifacts/intent_pro_cal.pkl",
+                "intent/**/artifacts/intent_pipeline*.pkl",
+                "intent/artifacts/*.pkl"]:
+        cands += [Path(p) for p in glob.glob(pat, recursive=True)]
+    cands = [p for p in cands if p.is_file()]
+    cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return cands[0] if cands else None
+
+def unwrap(obj):
+    if hasattr(obj, "predict"): return obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v = obj.get(k); 
+            if hasattr(v, "predict"): return v
+    return obj
+
+def to_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(f"non-numeric branch output: {type(X)}")
+
+def feature_dims(feat, xs):
+    dims={}
+    if hasattr(feat,"transformer_list"):
+        for name, sub in feat.transformer_list:
+            try: dims[name] = to_csr(sub.transform(xs)).shape[1]
+            except Exception as e: dims[name] = f"ERR:{type(e).__name__}"
+    return dims
+
+def expected_n(clf):
+    if hasattr(clf,"n_features_in_"): return int(clf.n_features_in_)
+    if hasattr(clf,"base_estimator") and hasattr(clf.base_estimator,"n_features_in_"):
+        return int(clf.base_estimator.n_features_in_)
+    return None
+
+# 1) 選 PKL
+pkl = pick_pkl()
+if not pkl:
+    (R/"py_last_trace.txt").write_text("No PKL under intent/**/artifacts\n", encoding="utf-8")
+    print("[FATAL] no PKL"); sys.exit(2)
+print("[PKL]", pkl)
+
+# 2) 先載一次、量出 word/char 維度與 expected
+obj = joblib.load(pkl)
+est = unwrap(obj)
+if hasattr(est,"steps"):
+    steps = dict(est.steps)
+    pre = steps.get("features") or steps.get("pre") or steps.get("union")
+    clf = est.steps[-1][1]
+else:
+    pre = getattr(est,"features", None); clf = est
+
+xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+dims = feature_dims(pre, xs) if pre is not None else {}
+expect = expected_n(clf)
+sum_before = sum(v for v in dims.values() if isinstance(v,int))
+print("[EXPECTED]", expect, " [BRANCH_DIMS]", json.dumps(dims,ensure_ascii=False))
+
+# 3) 用「期望總維度 - word - char」推 rules 寬度，寫一個乾淨的 shim 檔
+word = next((v for k,v in dims.items() if k.lower()=="word" and isinstance(v,int)), 0)
+char = next((v for k,v in dims.items() if k.lower()=="char" and isinstance(v,int)), 0)
+rules_width = max(1, (expect or 0) - word - char) if (expect and word and char) else 1
+shim = f"""from __future__ import annotations
+import numpy as _np
+from scipy import sparse as _sp
+
+def rules_feat(texts):
+    n = len(texts)
+    return _sp.csr_matrix((n, {rules_width}), dtype=_np.float64)
+"""
+Path("vendor/rules_features.py").write_text(shim, encoding="utf-8")
+print("[rules_feat] shim_written width=", rules_width)
+
+# 4) 讓 unpickle 找得到同名模組與符號
+spec = importlib.util.spec_from_file_location("vendor.rules_features", "vendor/rules_features.py")
+mod = importlib.util.module_from_spec(spec); sys.modules["vendor.rules_features"] = mod; spec.loader.exec_module(mod)
+import __main__ as M
+M.rules_feat = getattr(mod, "rules_feat")
+
+# 5) 重新載入一次（保險），再量一次維度；如果需要 pad，就補
+obj2 = joblib.load(pkl); est2 = unwrap(obj2)
+if hasattr(est2,"steps"):
+    steps2 = dict(est2.steps); pre2 = steps2.get("features") or steps2.get("pre") or steps2.get("union")
+    clf2 = est2.steps[-1][1]
+else:
+    pre2 = getattr(est2,"features", None); clf2 = est2
+
+dims2 = feature_dims(pre2, xs) if pre2 is not None else {}
+sum2 = sum(v for v in dims2.values() if isinstance(v,int))
+exp2 = expected_n(clf2)
+print("[AFTER] expected=", exp2, " dims=", json.dumps(dims2,ensure_ascii=False), " sum=", sum2)
+
+if exp2 and sum2 and exp2!=sum2 and hasattr(pre2,"transformer_list"):
+    delta = exp2 - sum2
+    for i,(name, sub) in enumerate(pre2.transformer_list):
+        if any(k in name.lower() for k in ("pad","zero")) and hasattr(sub,"width"):
+            old = int(getattr(sub,"width",1) or 1)
+            setattr(sub,"width", old+delta)
+            pre2.transformer_list[i] = (name, sub)
+            print("[PAD_ADD]", name, f"+{delta}")
+            break
+
+# 6) 落地 + 煙囪測 + 診斷
+out = Path("artifacts/intent_pipeline_aligned.pkl")
+joblib.dump(est2, out)
+print("[SAVED]", out)
+
+zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    yp = est2.predict(tests)
+    for s,y in zip(tests,yp):
+        print("   ", s, "->", f"{y} / {zh.get(str(y), str(y))}")
+    (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in yp]}, ensure_ascii=False, indent=2), encoding="utf-8")
+except Exception:
+    (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+
+diag = {"expected_dim":exp2, "branch_dims":dims2}
+(R/"diagnostics.json").write_text(json.dumps(diag, ensure_ascii=False, indent=2), encoding="utf-8")
+PY
+
+EXIT_CODE: 1

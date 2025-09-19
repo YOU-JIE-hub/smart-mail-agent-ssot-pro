@@ -1,0 +1,11 @@
+{
+  "pkl_path": "intent/intent/artifacts/intent_pro_cal.pkl",
+  "code_root": "intent/intent",
+  "expected_dim": 29233,
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": 1
+  },
+  "sum_before": 29227
+}

@@ -1,0 +1,37 @@
+SHELL := /bin/bash
+PY := python
+
+.PHONY: run.tri run.kie db.migrate db.views db.snapshot bundle.support health
+
+run.tri:
+	$(PY) tools/tri_suite.py || true
+	@ls -t reports_auto/eval/*/tri_suite.json 2>/dev/null | head -n1 | xargs -r -I{} sh -c 'echo "TRI -> {}"; sed -n "1,120p" "{}"'
+
+run.kie:
+	IN=""; \
+	if [ -s data/kie/test_real.jsonl ]; then IN=data/kie/test_real.jsonl; elif [ -s data/kie/test.jsonl ]; then IN=data/kie/test.jsonl; elif [ -s fixtures/eval_set.jsonl ]; then \
+	  mkdir -p reports_auto/kie; \
+	  $(PY) - <<'PYX' < fixtures/eval_set.jsonl > reports_auto/kie/_from_fixtures.jsonl ; \
+import sys, json
+for ln in sys.stdin:
+    o=json.loads(ln); e=o.get('email',{})
+    t=(e.get('subject','') + '\n' + e.get('body','')).strip()
+    print(json.dumps({'text': t}, ensure_ascii=False))
+PYX
+	  IN=reports_auto/kie/_from_fixtures.jsonl; fi; \
+	if [ -n "$$IN" ]; then echo "[KIE] input: $$IN"; $(PY) tools/kie/eval.py "$$IN" "reports_auto/kie/pred.jsonl" || true; echo "[KIE] head:"; head -n 10 reports_auto/kie/pred.jsonl || true; else echo "[KIE] no input file found"; fi
+
+db.migrate:
+	$(PY) tools/db_migrate.py migrate
+
+db.views:
+	$(PY) tools/db_migrate.py views
+
+db.snapshot:
+	$(PY) tools/db_migrate.py snapshot
+
+bundle.support:
+	$(PY) tools/support_bundle.py
+
+health: run.tri run.kie
+	@echo "[SPAM]"; if [ -f reports_auto/prod_quick_report.md ]; then sed -n '1,20p' reports_auto/prod_quick_report.md; else echo "no spam report"; fi

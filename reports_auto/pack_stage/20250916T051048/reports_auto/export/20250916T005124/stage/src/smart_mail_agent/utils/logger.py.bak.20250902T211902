@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/utils/logger.py
+# 模組用途: 提供統一樣式的 logger，所有輸出以 [模組名稱] 前綴顯示。
+from __future__ import annotations
+
+import logging
+import os
+import sys
+
+
+def get_logger(name: str) -> logging.Logger:
+    """
+    參數:
+        name: 模組名稱（會出現在前綴中）
+    回傳:
+        logging.Logger 物件（level 依 SMA_LOG_LEVEL 或 INFO）
+    """
+    lvl = os.environ.get("SMA_LOG_LEVEL", "INFO").upper()
+    level = getattr(logging, lvl, logging.INFO)
+    logger = logging.getLogger(name)
+    if logger.handlers:
+        logger.setLevel(level)
+        return logger
+    h = logging.StreamHandler(stream=sys.stdout)
+    fmt = logging.Formatter("[%(name)s] %(asctime)s %(levelname)s - %(message)s")
+    h.setFormatter(fmt)
+    logger.addHandler(h)
+    logger.setLevel(level)
+    return logger

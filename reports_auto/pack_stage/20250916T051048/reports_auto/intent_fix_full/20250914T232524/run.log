@@ -1,0 +1,16 @@
+[*] LOGDIR = reports_auto/intent_fix_full/20250914T232524
+[ENV] PYTHONPATH=src:vendor:
+Python 3.10.12
+[PKL] intent/intent/artifacts/intent_pro_cal.pkl
+[CODE_ROOT] intent/intent
+Traceback (most recent call last):
+  File "<stdin>", line 83, in <module>
+  File "<stdin>", line 44, in bind_rules_feat
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/vendor/rules_features.py", line 1
+    def rules_feat(texts): return _sp.csr_matrix(_np.zeros((len(texts),1), dtype='float64'))
+IndentationError: unexpected indent
+[OPEN] reports_auto/intent_fix_full/20250914T232524

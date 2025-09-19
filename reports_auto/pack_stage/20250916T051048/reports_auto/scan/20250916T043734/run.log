@@ -1,0 +1,35 @@
+[*] tree_now start @ 20250916T043734
+[*] PWD=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] whoami=youjie
+[*] uname=Linux DESKTOP-MP3QVS6 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+[*] df -h | head
+Filesystem      Size  Used Avail Use% Mounted on
+none            7.8G     0  7.8G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            7.8G  4.0K  7.8G   1% /mnt/wsl
+drivers         477G  366G  112G  77% /usr/lib/wsl/drivers
+/dev/sdd       1007G   42G  915G   5% /
+none            7.8G   84K  7.8G   1% /mnt/wslg
+none            7.8G     0  7.8G   0% /usr/lib/wsl/lib
+rootfs          7.8G  2.7M  7.8G   1% /init
+none            7.8G     0  7.8G   0% /run
+none            7.8G     0  7.8G   0% /run/lock
+[*] ulimit -a
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) 0
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 63481
+max locked memory           (kbytes, -l) 65536
+max memory size             (kbytes, -m) unlimited
+open files                          (-n) 10240
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) 8192
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) 63481
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+[*] build tree.txt
+[*] build manifest.jsonl

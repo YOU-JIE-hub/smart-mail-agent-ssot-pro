@@ -1,0 +1,46 @@
+
+import os, importlib.util, re
+try:
+    import tools.pipeline_baseline as P
+
+    # 保留原函式以便回退
+    if hasattr(P, "classify_rule") and not hasattr(P, "classify_rule_orig"):
+        P.classify_rule_orig = P.classify_rule
+
+    # 載入你回報過的 runtime 規則（predict_one / predict）
+    _predict = None
+    _path = os.environ.get("SMA_RULES_SRC", "")
+    if _path and os.path.isfile(_path):
+        try:
+            spec = importlib.util.spec_from_file_location("sma_runtime_rules", _path)
+            m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+            if hasattr(m, "predict_one"):
+                _predict = m.predict_one
+            elif hasattr(m, "predict"):
+                _predict = lambda t: (m.predict([t]) or ["other"])[0]
+        except Exception:
+            _predict = None
+
+    def _classify_rule(email=None, contract=None, **kw):
+        text = email.get("text","") if isinstance(email, dict) else (email or "")
+        if _predict:
+            return _predict(text) or "other"   # 例如 biz_quote
+        return P.classify_rule_orig(email=email, contract=contract, **kw)
+
+    def _extract_slots_rule(email=None, intent=None, **kw):
+        txt = email.get("text","") if isinstance(email, dict) else (email or "")
+        s = {"price": None, "qty": None, "id": None}
+        m = re.search(r'(?:NTD|NT\$|\$)?\s*([0-9][\d,\.]{2,})\s*(?:元)?', txt, re.I)
+        if m: s["price"] = m.group(1).replace(",", "")
+        m = re.search(r'(?:數量|各|共|x|×)\s*([0-9]+)', txt, re.I)
+        if m: s["qty"] = int(m.group(1))
+        m = re.search(r'\b([A-Z]{2,}-?\d{4,})\b', txt)
+        if m: s["id"] = m.group(1)
+        return s
+
+    P.classify_rule = _classify_rule
+    if hasattr(P, "extract_slots_rule"):
+        P.extract_slots_rule = _extract_slots_rule
+except Exception:
+    # 不阻擋啟動；詳細錯誤落在 api.err
+    pass

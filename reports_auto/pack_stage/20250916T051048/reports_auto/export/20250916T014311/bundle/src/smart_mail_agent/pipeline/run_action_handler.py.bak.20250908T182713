@@ -1,0 +1,372 @@
+from __future__ import annotations
+import os, re, json, sqlite3, time, inspect, shutil
+from email import policy
+from email.parser import BytesParser
+from pathlib import Path
+from typing import Dict, Any, List, Tuple
+
+# 若有外部 plan_actions 就盡量使用（簽名不一致會自動適配）
+try:
+    from .action_handler import plan_actions as _plan_actions_external  # type: ignore
+except Exception:
+    _plan_actions_external = None
+
+# 郵件傳輸層
+# 三模型（可降級）
+# FAQ/RAG（policy.py 有就用；否則走 provider）
+try:
+    from smart_mail_agent.rpa.policy import answer_policy_question  # type: ignore
+except Exception:
+    def answer_policy_question(q: str) -> Dict[str, Any]:
+# delayed: from smart_mail_agent.rpa.rag.provider import OpenAIRAGProvider
+        prov = OpenAIRAGProvider(Path(".").resolve())
+        res = prov.answer(q, top_k=3)
+        return {
+            "answer_md": res.answer_md,
+            "citations": [c.__dict__ for c in res.citations],
+            "confidence": res.confidence,
+            "model": res.model,
+            "latency_ms": res.latency_ms,
+        }
+
+INTENT_LABELS = ["報價", "技術支援", "投訴", "規則詢問", "資料異動", "其他"]
+
+
+# -- lazy import: heavy deps are loaded on first use --
+def _lazy_imports():
+    global send_smtp, SpamGuard, IntentRouter, KIEEngine
+# delayed: from smart_mail_agent.transport.mail import send_smtp
+# delayed: from smart_mail_agent.models.\1 import ...
+# delayed: from smart_mail_agent.models.\1 import ...
+# delayed: from smart_mail_agent.models.\1 import ...
+def _now_ts() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%S")
+
+def _ensure_dirs(out_dir: Path) -> None:
+    (out_dir / "rpa_out" / "email_outbox").mkdir(parents=True, exist_ok=True)
+    (out_dir / "rpa_out" / "tickets").mkdir(parents=True, exist_ok=True)
+    (out_dir / "rpa_out" / "diffs").mkdir(parents=True, exist_ok=True)
+    (out_dir / "rpa_out" / "faq_replies").mkdir(parents=True, exist_ok=True)
+    (out_dir / "rpa_out" / "quotes").mkdir(parents=True, exist_ok=True)
+    (out_dir / "rpa_out" / "quarantine").mkdir(parents=True, exist_ok=True)
+
+def _append_ndjson(ndjson_path: Path, obj: Dict[str, Any]) -> None:
+    ndjson_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(ndjson_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+def _connect_db(db_path: Path) -> sqlite3.Connection:
+    conn = sqlite3.connect(str(db_path))
+    conn.execute("PRAGMA journal_mode=WAL;")
+    conn.executescript("""
+    CREATE TABLE IF NOT EXISTS mails (
+      case_id TEXT, run_ts TEXT, subject TEXT, from_addr TEXT,
+      to_addr TEXT, received_at TEXT, summary_json TEXT
+    );
+    CREATE TABLE IF NOT EXISTS intent_preds (
+      case_id TEXT, label TEXT, score REAL, threshold REAL, run_ts TEXT
+    );
+    CREATE TABLE IF NOT EXISTS kie_spans (
+      case_id TEXT, field TEXT, value TEXT, start INT, end INT, engine TEXT, run_ts TEXT
+    );
+    CREATE TABLE IF NOT EXISTS actions (
+      case_id TEXT, intent TEXT, action_type TEXT, status TEXT, payload_ref TEXT,
+      idempotency_key TEXT, started_at TEXT, ended_at TEXT, decision_aid_json TEXT, run_ts TEXT
+    );
+    CREATE TABLE IF NOT EXISTS err_log (
+      case_id TEXT, stage TEXT, message TEXT, detail TEXT, run_ts TEXT
+    );
+    """)
+    conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_mails_case_id ON mails(case_id)")
+    conn.commit()
+    return conn
+
+def _parse_eml(p: Path) -> Tuple[str, str, str, str, str]:
+    with open(p, "rb") as f:
+        msg = BytesParser(policy=policy.default).parse(f)
+    subject = msg.get("subject", "") or ""
+    from_addr = msg.get("from", "") or ""
+    to_addr = msg.get("to", "") or ""
+    date = msg.get("date", "") or ""
+    body = ""
+    if msg.is_multipart():
+        for part in msg.walk():
+            if part.get_content_type() == "text/plain":
+                body = (part.get_content() or "").strip()
+                break
+    else:
+        if msg.get_content_type() == "text/plain":
+            body = (msg.get_content() or "").strip()
+        elif msg.get_content_type() == "text/html":
+            body = re.sub(r"<[^>]+>", "", msg.get_content()).strip()
+    return subject, from_addr, to_addr, date, body
+
+def _render_quote_html(case_id: str, subject: str, body: str, kie: Dict[str,str]) -> str:
+    amount = kie.get("amount","—")
+    ts = _now_ts()
+    return f"""<!doctype html><html><head><meta charset="utf-8"><title>Quote {case_id}</title></head>
+<body>
+<h2>報價單</h2>
+<p><b>案件：</b>{case_id}</p>
+<p><b>主旨：</b>{subject}</p>
+<p><b>金額：</b>{amount}</p>
+<p><b>產生時間：</b>{ts}</p>
+<hr/><pre style="white-space:pre-wrap">{body[:2000]}</pre>
+</body></html>"""
+
+def _create_ticket_json(case_id: str, intent: str, subject: str, from_addr: str, kie: Dict[str,str]) -> Dict[str, Any]:
+    return {
+        "ticket_id": case_id,
+        "intent": intent,
+        "title": subject[:140],
+        "requester": from_addr,
+        "priority": "high" if str(kie.get("sla","")).lower().startswith("p1") else "normal",
+        "fields": kie,
+        "created_at": _now_ts(),
+        "status": "new",
+    }
+
+def _diff_stub(body: str) -> Dict[str, Any]:
+    phone = None
+    m = re.search(r"(?:電話|phone)\s*[:：]?\s*([0-9\-+ ]{6,})", body, re.I)
+    if m: phone = m.group(1).strip()
+    addr = None
+    m = re.search(r"(?:地址|address)\s*[:：]?\s*(.+)", body, re.I)
+    if m: addr = m.group(1).strip()[:120]
+    changes = {}
+    if phone: changes["phone"] = {"old": None, "new": phone}
+    if addr: changes["address"] = {"old": None, "new": addr}
+    return {"changes": changes, "note": "示意 diff，供 HIL 審核"}
+
+def _plan_actions_default(intent: str) -> List[Dict[str, Any]]:
+    if intent == "技術支援":
+        return [{"action_type":"CreateTicket"}, {"action_type":"SendEmail"}]
+    if intent == "資料異動":
+        return [{"action_type":"GenerateDiff"}, {"action_type":"SendEmail"}]
+    if intent == "規則詢問":
+        return [{"action_type":"FAQReply"}, {"action_type":"SendEmail"}]
+    if intent == "投訴":
+        return [{"action_type":"SendEmail"}]
+    if intent == "報價":
+        return [{"action_type":"GenerateQuote"}, {"action_type":"SendEmail"}]
+    return [{"action_type":"SendEmail"}]
+
+def _normalize_plan(plan: Any, intent: str) -> List[Dict[str, Any]]:
+    if isinstance(plan, dict) and "plan" in plan:
+        plan = plan["plan"]
+    if not isinstance(plan, list):
+        return _plan_actions_default(intent)
+    norm: List[Dict[str, Any]] = []
+    for a in plan:
+        if isinstance(a, dict):
+            if "action_type" in a:
+                norm.append(a)
+            elif "type" in a:
+                b = dict(a); b["action_type"] = b.pop("type"); norm.append(b)
+        elif isinstance(a, str):
+            norm.append({"action_type": a})
+    return norm or _plan_actions_default(intent)
+
+def _safe_plan_actions(intent: str, case_id: str, subject: str, from_addr: str, to_addr: str, body: str) -> List[Dict[str, Any]]:
+    if _plan_actions_external is None:
+        return _plan_actions_default(intent)
+    fn = _plan_actions_external
+    meta = {"subject": subject, "from_addr": from_addr, "to_addr": to_addr}
+    try:
+        sig = inspect.signature(fn)
+        params = sig.parameters
+        # 優先 kwargs（只傳對方接受的鍵）
+        kw = {}
+        if "intent" in params: kw["intent"] = intent
+        if "case_id" in params: kw["case_id"] = case_id
+        if "metadata" in params: kw["metadata"] = meta
+        if "subject" in params: kw["subject"] = subject
+        if "from_addr" in params: kw["from_addr"] = from_addr
+        if "to_addr" in params: kw["to_addr"] = to_addr
+        if "body" in params: kw["body"] = body
+        plan = None
+        try:
+            required = [n for n,p in params.items() if p.default is inspect._empty and p.kind in (p.POSITIONAL_OR_KEYWORD, p.KEYWORD_ONLY)]
+            if all(k in kw for k in required):
+                plan = fn(**kw)
+        except TypeError:
+            plan = None
+        # 再試常見位置組合
+        if plan is None:
+            trials = [
+                (intent, case_id, meta),
+                (case_id, intent, meta),
+                (intent, case_id),
+                (intent,),
+                ({"intent": intent, "case_id": case_id, **meta},),
+            ]
+            for args in trials:
+                try:
+                    plan = fn(*args)
+                    break
+                except TypeError:
+                    continue
+        if plan is None:
+            return _plan_actions_default(intent)
+        return _normalize_plan(plan, intent)
+    except Exception:
+        return _plan_actions_default(intent)
+
+def _write_jsonl(path: Path, rows: List[Dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        for r in rows:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+def _execute_action(case_id: str, intent: str, act: Dict[str, Any],
+                    subject: str, from_addr: str, body: str,
+                    kie: Dict[str,str], out_dir: Path,
+                    conn: sqlite3.Connection, run_ts: str) -> Dict[str, Any]:
+    a_type = act["action_type"]
+    rpa_dir = out_dir / "rpa_out"
+    started = _now_ts()
+    idem = f"{run_ts}:{case_id}:{a_type}"
+    status = "succeeded"
+    payload_ref = None
+    detail: Dict[str, Any] = {}
+
+    try:
+        if a_type == "CreateTicket":
+            ticket = _create_ticket_json(case_id, intent, subject, from_addr, kie)
+            p = (rpa_dir / "tickets" / f"{case_id}.json")
+            p.write_text(json.dumps(ticket, ensure_ascii=False, indent=2), encoding="utf-8")
+            payload_ref = str(p)
+        elif a_type == "GenerateDiff":
+            diff = _diff_stub(body)
+            p = (rpa_dir / "diffs" / f"{case_id}.json")
+            p.write_text(json.dumps(diff, ensure_ascii=False, indent=2), encoding="utf-8")
+            payload_ref = str(p)
+        elif a_type == "GenerateQuote":
+            html = _render_quote_html(case_id, subject, body, kie)
+            p = (rpa_dir / "quotes" / f"{case_id}.html")
+            p.write_text(html, encoding="utf-8")
+            payload_ref = str(p)
+        elif a_type == "FAQReply":
+            q = subject if subject else body[:120]
+            rag = answer_policy_question(q)
+            p = (rpa_dir / "faq_replies" / f"{case_id}.md")
+            md = rag.get("answer_md","(no answer)") + "\n\n---\n參考：" + "\n".join(
+                f"- {c.get('doc_id')}" for c in rag.get("citations",[])
+            )
+            p.write_text(md, encoding="utf-8")
+            payload_ref = str(p)
+        elif a_type == "SendEmail":
+            reply_subj = f"Re: {subject}" if subject else "Re:"
+            reply_body = f"您好，我們已收到您的來信（分類：{intent}）。\n\n此信為系統自動回覆。"
+            res = send_smtp(to_addrs=from_addr or "test@example.com",
+                            subject=reply_subj, body_text=reply_body)
+            detail.update(res)
+            status = res.get("status","succeeded")
+            payload_ref = res.get("outbox_path") or res.get("message_id")
+        else:
+            status = "skipped_by_hil"
+    except Exception as e:
+        status = "failed"
+        detail["error"] = f"{type(e).__name__}: {e}"
+
+    ended = _now_ts()
+    conn.execute("""INSERT INTO actions(case_id,intent,action_type,status,payload_ref,
+                    idempotency_key,started_at,ended_at,decision_aid_json,run_ts)
+                    VALUES (?,?,?,?,?,?,?,?,?,?)""",
+                 (case_id,intent,a_type,status,payload_ref,idem,started,ended,None,run_ts))
+    conn.commit()
+    return {"action_type": a_type, "status": status, "payload_ref": payload_ref, **detail}
+
+def run_e2e_mail(input_dir: str, out_dir: str,
+                 db_path: str = "db/sma.sqlite",
+                 ndjson_path: str = "reports_auto/logs/pipeline.ndjson") -> None:
+    in_dir = Path(input_dir)
+    out_dir_p = Path(out_dir)
+    _ensure_dirs(out_dir_p)
+    nd_path = Path(ndjson_path)
+    run_ts = _now_ts()
+    db = _connect_db(Path(db_path))
+
+    spam_guard = SpamGuard()
+    intent_router = IntentRouter()
+    kie_engine = KIEEngine()
+
+    cases: List[Dict[str, Any]] = []
+    actions_rows: List[Dict[str, Any]] = []
+    actions_plan: List[Dict[str, Any]] = []
+
+    emls = sorted([p for p in in_dir.glob("**/*") if p.suffix.lower()==".eml"])
+    for p in emls:
+        case_id = p.stem[:64]
+        subject, from_addr, to_addr, received_at, body = _parse_eml(p)
+
+        # mails
+        db.execute("INSERT OR REPLACE INTO mails(case_id,run_ts,subject,from_addr,to_addr,received_at,summary_json) VALUES (?,?,?,?,?,?,?)",
+                   (case_id, run_ts, subject, from_addr, to_addr, received_at, None))
+        db.commit()
+
+        # Spam → Quarantine
+        text_all = f"{subject}\n{body}"
+        spam_flag, spam_p, spam_th = spam_guard.is_spam(text_all)
+        if spam_flag:
+            qpath = (out_dir_p / "rpa_out" / "quarantine" / f"{case_id}.eml")
+            try:
+                shutil.copy2(p, qpath)
+            except Exception:
+                pass
+            _append_ndjson(nd_path, {"ts": _now_ts(), "stage":"spam", "case_id":case_id, "score":spam_p, "threshold":spam_th, "decision":"quarantine"})
+            db.execute("INSERT INTO actions(case_id,intent,action_type,status,payload_ref,idempotency_key,started_at,ended_at,decision_aid_json,run_ts) VALUES (?,?,?,?,?,?,?,?,?,?)",
+                       (case_id, "Spam", "Quarantine", "succeeded", str(qpath), f"{run_ts}:{case_id}:Quarantine", _now_ts(), _now_ts(), None, run_ts))
+            db.commit()
+            cases.append({"case_id": case_id, "subject": subject, "from": from_addr, "intent": "Spam"})
+            continue
+
+        # Intent
+        label, score, ith = intent_router.predict(subject, body)
+        intent = label
+        db.execute("INSERT INTO intent_preds(case_id,label,score,threshold,run_ts) VALUES (?,?,?,?,?)",
+                   (case_id, intent, float(score), float(ith), run_ts))
+
+        # KIE
+        spans = kie_engine.extract(f"{subject}\n{body}")
+        kie = {k:v for k,v in spans}
+        for k,v in spans:
+            db.execute("INSERT INTO kie_spans(case_id,field,value,start,end,engine,run_ts) VALUES (?,?,?,?,?,?,?)",
+                       (case_id, k, v, None, None, "regex", run_ts))
+        db.commit()
+
+        # 計畫動作
+        plan = _safe_plan_actions(intent=intent, case_id=case_id, subject=subject,
+                                  from_addr=from_addr, to_addr=to_addr, body=body)
+        actions_plan.append({"case_id": case_id, "intent": intent, "plan": plan})
+
+        # 執行
+        for act in plan:
+            res = _execute_action(case_id, intent, act, subject, from_addr, body, kie, out_dir_p, db, run_ts)
+            actions_rows.append({"case_id": case_id, "intent": intent, **res})
+            _append_ndjson(nd_path, {"ts": _now_ts(), "stage":"action", "case_id":case_id, "intent":intent, **res})
+
+        cases.append({"case_id": case_id, "subject": subject, "from": from_addr, "intent": intent})
+
+    # 落盤
+    _write_jsonl(out_dir_p/"cases.jsonl", cases)
+    _write_jsonl(out_dir_p/"actions.jsonl", actions_rows)
+    _write_jsonl(out_dir_p/"actions_plan.ndjson", actions_plan)
+
+    # SUMMARY
+    succ = sum(1 for a in actions_rows if a.get("status")=="succeeded")
+    downgraded = sum(1 for a in actions_rows if a.get("status")=="downgraded")
+    failed = sum(1 for a in actions_rows if a.get("status")=="failed")
+    md = []
+    md.append(f"# SUMMARY @ {run_ts}\n")
+    md.append(f"- 來源：{input_dir}")
+    md.append(f"- 匯出：{out_dir}")
+    md.append(f"- 案件數：{len(cases)}")
+    md.append(f"- 動作：成功 {succ}、降級 {downgraded}、失敗 {failed}\n")
+    md.append("## 依意圖統計\n")
+    from collections import Counter
+    cnt = Counter([c["intent"] for c in cases])
+    for k in INTENT_LABELS:
+        if cnt.get(k):
+            md.append(f"- {k}: {cnt[k]}")
+    (out_dir_p/"SUMMARY.md").write_text("\n".join(md), encoding="utf-8")

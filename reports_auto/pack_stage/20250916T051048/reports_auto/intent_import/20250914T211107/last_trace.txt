@@ -1,0 +1,113 @@
+=== TRAP ===
+TIME: 2025-09-14T21:11:07+08:00
+BASH_COMMAND: python - <<'PY'
+import os, sys, json, types, importlib, joblib, traceback
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+
+R = Path("'''$R'''")
+PKL = "'''$PKL'''"
+
+# 讓 pickle 找得到專案內的自定函式
+import __main__ as M
+for mod in [
+    "smart_mail_agent.intent.rules",
+    "smart_mail_agent.intent.features",
+    "smart_mail_agent.intent.feats",
+    "smart_mail_agent.intent.utils",
+    "scripts.sma_eval_intent_with_rules",
+    "sma_tools.threshold_router",  # 新增：把 rules dict 變固定向量
+]:
+    try:
+        m = importlib.import_module(mod)
+        for k,v in vars(m).items():
+            if k.startswith("__"): continue
+            if isinstance(v, types.ModuleType): continue
+            if not hasattr(M,k): setattr(M,k,v)
+    except Exception as e:
+        print("[inject_skip]", mod, type(e).__name__, e)
+
+def as_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    import numpy as np
+    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    if isinstance(X, (list,tuple)):
+        # 嘗試轉成列向量
+        try: return sp.csr_matrix(np.asarray(X).reshape(1,-1))
+        except: pass
+    raise TypeError(f"non-numeric output: {type(X).__name__}")
+
+def unwrap(obj):
+    if hasattr(obj, "predict"): return obj, None
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            if k in obj and hasattr(obj[k],"predict"): return obj[k], obj
+    return obj, None
+
+est0 = joblib.load(PKL)
+est, meta = unwrap(est0)
+print("steps:", getattr(est,"steps",None))
+
+# 找 features union
+pre = None
+if hasattr(est,"steps"):
+    d=dict(est.steps)
+    pre = d.get("features") or d.get("pre") or d.get("union")
+
+# 替換 rules 分支：如果它不是 numeric，就換成 ThresholdRouter() 產固定長向量
+from sma_tools.threshold_router import ThresholdRouter
+if pre and hasattr(pre, "transformer_list"):
+    new_list=[]
+    for name, sub in pre.transformer_list:
+        low=name.lower()
+        if ("rule" in low or "router" in low) and not hasattr(sub, "n_features_out_"):
+            # 包掉成 ColumnTransformer/FeatureUnion 可接受的 estimator
+            new_list.append((name, ThresholdRouter()))
+            print(f"[rules_fix] {name} -> ThresholdRouter()")
+        else:
+            new_list.append((name, sub))
+    pre.transformer_list = new_list
+
+# 估算各分支輸出維度與 expected
+xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+dims={}
+if pre and hasattr(pre,"transformer_list"):
+    for name, sub in pre.transformer_list:
+        try:
+            Y=as_csr(sub.transform(xs))
+            dims[name]=int(Y.shape[1])
+        except Exception as e:
+            dims[name]=f"ERR:{type(e).__name__}:{e}"
+print("[DIMS]", json.dumps(dims, ensure_ascii=False))
+
+# expected from clf
+clf = est.steps[-1][1] if hasattr(est,"steps") else est
+expected = getattr(clf, "n_features_in_", None) or getattr(getattr(clf,"base_estimator",None),"n_features_in_", None)
+print("[EXPECTED]", expected)
+
+# 如果還有差距，用 ZeroPad 的分支補足（不動 word/char）
+sum_num = sum(v for v in dims.values() if isinstance(v,int))
+delta = (expected - sum_num) if (expected and sum_num) else 0
+if delta and hasattr(pre,"transformer_list"):
+    pre.transformer_list.append(("pad_auto", __import__("sma_tools.sk_zero_pad",fromlist=["ZeroPad"]).sk_zero_pad.ZeroPad(width=delta)))
+    print("[PAD_ADD] +", delta)
+
+OUT = Path("artifacts/intent_pipeline_realigned.pkl")
+joblib.dump(est, OUT)
+print("[SAVED]", str(OUT))
+
+# 煙囪測
+to_zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    pred = est.predict(tests)
+    for s,y in zip(tests,pred):
+        print("   ", s, "->", f"{y} / {to_zh.get(str(y), str(y))}")
+    (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in pred]}, ensure_ascii=False, indent=2), encoding="utf-8")
+except Exception:
+    (R/"last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    raise
+PY
+
+EXIT_CODE: 1

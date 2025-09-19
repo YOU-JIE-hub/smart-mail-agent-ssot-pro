@@ -1,0 +1,200 @@
+[    0.165845] NET: Registered PF_XDP protocol family
+[    0.165850] PCI: CLS 0 bytes, default 64
+[    0.165898] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+[    0.165899] software IO TLB: mapped [mem 0x00000000f4000000-0x00000000f8000000] (64MB)
+[    0.166007] Trying to unpack rootfs image as initramfs...
+[    0.168037] Freeing initrd memory: 2664K
+[    0.168858] RAPL PMU: API unit is 2^-32 Joules, 0 fixed counters, 10737418240 ms ovfl timer
+[    0.168869] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x2135ff989ae, max_idle_ns: 440795290363 ns
+[    0.169743] clocksource: Switched to clocksource tsc
+[    0.170645] Initialise system trusted keyrings
+[    0.170654] Key type blacklist registered
+[    0.170802] workingset: timestamp_bits=36 max_order=22 bucket_order=0
+[    0.171076] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.171085] fuse: init (API version 7.39)
+[    0.171219] SGI XFS with ACLs, security attributes, realtime, verbose warnings, quota, no debug enabled
+[    0.171603] 9p: Installing v9fs 9p2000 file system support
+[    0.178624] Key type asymmetric registered
+[    0.178634] Asymmetric key parser 'x509' registered
+[    0.178752] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+[    0.179074] io scheduler mq-deadline registered
+[    0.179077] io scheduler kyber registered
+[    0.182165] hv_vmbus: registering driver hv_pci
+[    0.182577] hv_pci c4b741f5-5582-4c98-8f8b-2e082933c396: PCI VMBus probing: Using version 0x10004
+[    0.183429] hv_pci c4b741f5-5582-4c98-8f8b-2e082933c396: PCI host bridge to bus 5582:00
+[    0.183431] pci_bus 5582:00: root bus resource [mem 0x9ffe00000-0x9ffe02fff window]
+[    0.183434] pci_bus 5582:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.184190] pci 5582:00:00.0: [1af4:1043] type 00 class 0x010000
+[    0.184885] pci 5582:00:00.0: reg 0x10: [mem 0x9ffe00000-0x9ffe00fff 64bit]
+[    0.185294] pci 5582:00:00.0: reg 0x18: [mem 0x9ffe01000-0x9ffe01fff 64bit]
+[    0.185730] pci 5582:00:00.0: reg 0x20: [mem 0x9ffe02000-0x9ffe02fff 64bit]
+[    0.188190] pci_bus 5582:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.188196] pci 5582:00:00.0: BAR 0: assigned [mem 0x9ffe00000-0x9ffe00fff 64bit]
+[    0.188448] pci 5582:00:00.0: BAR 2: assigned [mem 0x9ffe01000-0x9ffe01fff 64bit]
+[    0.188694] pci 5582:00:00.0: BAR 4: assigned [mem 0x9ffe02000-0x9ffe02fff 64bit]
+[    0.189514] hv_pci ad74c5ea-0347-4284-80c2-c807a0e1e49f: PCI VMBus probing: Using version 0x10004
+[    0.190116] hv_pci ad74c5ea-0347-4284-80c2-c807a0e1e49f: PCI host bridge to bus 0347:00
+[    0.190117] pci_bus 0347:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.190382] pci 0347:00:00.0: [1414:008e] type 00 class 0x030200
+[    0.193531] pci_bus 0347:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.193965] hv_pci d12f348f-a9df-47f2-80c2-9eed2b1fb5a2: PCI VMBus probing: Using version 0x10004
+[    0.194459] hv_pci d12f348f-a9df-47f2-80c2-9eed2b1fb5a2: PCI host bridge to bus a9df:00
+[    0.194460] pci_bus a9df:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.194723] pci a9df:00:00.0: [1414:008e] type 00 class 0x030200
+[    0.198013] pci_bus a9df:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.198707] ioatdma: Intel(R) QuickData Technology Driver 5.00
+[    0.198843] virtio-pci 5582:00:00.0: enabling device (0000 -> 0002)
+[    0.201717] Serial: 8250/16550 driver, 8 ports, IRQ sharing enabled
+[    0.231325] Linux agpgart interface v0.103
+[    0.231348] AMD-Vi: AMD IOMMUv2 functionality not available on this system - This is not a bug.
+[    0.231356] ACPI: bus type drm_connector registered
+[    0.233170] printk: console [hvc0] enabled
+[    0.236709] brd: module loaded
+[    0.238796] loop: module loaded
+[    0.239428] Loading iSCSI transport class v2.0-870.
+[    0.240171] rdac: device handler registered
+[    0.240583] Microchip SmartPQI Driver (v2.1.24-046)
+[    0.240885] VMware PVSCSI driver - version 1.0.7.0-k
+[    0.241065] hv_vmbus: registering driver hv_storvsc
+[    0.242068] PPP generic driver version 2.4.2
+[    0.242515] VMware vmxnet3 virtual NIC driver - version 1.7.0.0-k-NAPI
+[    0.242760] hv_vmbus: registering driver hv_netvsc
+[    0.242791] scsi host0: storvsc_host_t
+[    0.242952] Fusion MPT base driver 3.04.20
+[    0.243251] Copyright (c) 1999-2008 LSI Corporation
+[    0.243502] Fusion MPT SPI Host driver 3.04.20
+[    0.243713] Fusion MPT SAS Host driver 3.04.20
+[    0.243924] Fusion MPT misc device (ioctl) driver 3.04.20
+[    0.244152] mptctl: Registered with Fusion MPT base driver
+[    0.244322] mptctl: /dev/mptctl @ (major,minor=10,220)
+[    0.244508] i8042: PNP: No PS/2 controller found.
+[    0.244703] hv_vmbus: registering driver hyperv_keyboard
+[    0.244889] rtc_cmos 00:00: RTC can wake from S4
+[    0.246530] rtc_cmos 00:00: registered as rtc0
+[    0.247020] rtc_cmos 00:00: setting system clock to 2025-09-16T00:27:14 UTC (1757982434)
+[    0.247468] rtc_cmos 00:00: alarms up to one month, 114 bytes nvram
+[    0.247724] device-mapper: core: CONFIG_IMA_DISABLE_HTABLE is disabled. Duplicate IMA measurements will not be recorded in the IMA log.
+[    0.248112] device-mapper: uevent: version 1.0.3
+[    0.248408] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[    0.248828] intel_pstate: CPU model not supported
+[    0.249126] hv_utils: Registering HyperV Utility Driver
+[    0.249303] hv_vmbus: registering driver hv_utils
+[    0.249497] hv_vmbus: registering driver hv_balloon
+[    0.249798] hv_vmbus: registering driver dxgkrnl
+[    0.249912] hv_utils: TimeSync IC version 4.0
+[    0.251016] hv_balloon: Using Dynamic Memory protocol version 2.0
+[    0.252151] Free page reporting enabled
+[    0.252369] hv_balloon: Cold memory discard hint enabled with order 9
+[    0.253527] drop_monitor: Initializing network drop monitor service
+[    0.265875] NET: Registered PF_INET6 protocol family
+[    0.266698] Segment Routing with IPv6
+[    0.266926] In-situ OAM (IOAM) with IPv6
+[    0.267092] NET: Registered PF_PACKET protocol family
+[    0.267468] 9pnet: Installing 9P2000 support
+[    0.267809] NET: Registered PF_VSOCK protocol family
+[    0.267988] hv_vmbus: registering driver hv_sock
+[    0.269441] IPI shorthand broadcast: enabled
+[    0.269705] AVX2 version of gcm_enc/dec engaged.
+[    0.270629] AES CTR mode by8 optimization enabled
+[    0.272281] sched_clock: Marking stable (268004727, 3637481)->(297821611, -26179403)
+[    0.272996] registered taskstats version 1
+[    0.273210] Loading compiled-in X.509 certificates
+[    0.275254] ima: No TPM chip found, activating TPM-bypass!
+[    0.275951] ima: Allocated hash algorithm: sha256
+[    0.276563] ima: No architecture policies found
+[    0.332483] RAS: Correctable Errors collector initialized.
+[    0.333645] clk: Disabling unused clocks
+[    0.339245] Freeing unused decrypted memory: 2028K
+[    0.341026] Freeing unused kernel image (initmem) memory: 4492K
+[    0.341344] Write protecting the kernel read-only data: 34816k
+[    0.342100] Freeing unused kernel image (rodata/data gap) memory: 840K
+[    0.342329] Run /init as init process
+[    0.342454]   with arguments:
+[    0.342580]     /init
+[    0.342685]   with environment:
+[    0.342842]     HOME=/
+[    0.342961]     TERM=linux
+[    0.343047]     WSL_ROOT_INIT=1
+[    0.343172]     WSL_ENABLE_CRASH_DUMP=1
+[    0.347634] scsi 0:0:0:0: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[    0.349897] scsi 0:0:0:1: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[    0.355238] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[    0.355575] sd 0:0:0:0: [sda] 795536 512-byte logical blocks: (407 MB/388 MiB)
+[    0.355765] sd 0:0:0:1: Attached scsi generic sg1 type 0
+[    0.356002] sd 0:0:0:1: [sdb] 381016 512-byte logical blocks: (195 MB/186 MiB)
+[    0.356091] sd 0:0:0:1: [sdb] Write Protect is on
+[    0.356378] sd 0:0:0:0: [sda] Write Protect is on
+[    0.356747] sd 0:0:0:1: [sdb] Mode Sense: 0f 00 80 00
+[    0.356969] sd 0:0:0:0: [sda] Mode Sense: 0f 00 80 00
+[    0.357365] sd 0:0:0:1: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    0.357643] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    0.359153] sd 0:0:0:1: [sdb] Attached SCSI disk
+[    0.360116] sd 0:0:0:0: [sda] Attached SCSI disk
+[    0.366641] scsi 0:0:0:2: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[    0.370826] sd 0:0:0:2: Attached scsi generic sg2 type 0
+[    0.371010] sd 0:0:0:2: [sdc] 8388616 512-byte logical blocks: (4.29 GB/4.00 GiB)
+[    0.371491] sd 0:0:0:2: [sdc] 4096-byte physical blocks
+[    0.371820] sd 0:0:0:2: [sdc] Write Protect is off
+[    0.372086] sd 0:0:0:2: [sdc] Mode Sense: 0f 00 00 00
+[    0.372490] sd 0:0:0:2: [sdc] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    0.374167] sd 0:0:0:2: [sdc] Attached SCSI disk
+[    0.427629] EXT4-fs (sda): mounted filesystem 00000000-0000-0000-0000-000000000000 ro without journal. Quota mode: none.
+[    0.430906] EXT4-fs (sdb): mounted filesystem 00000000-0000-0000-0000-000000000000 ro without journal. Quota mode: none.
+[    0.468118] tun: Universal TUN/TAP device driver, 1.6
+[    0.476541] Adding 4194304k swap on /dev/sdc.  Priority:-2 extents:1 across:4194304k 
+[    0.497931] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    0.500576] Bridge firewalling registered
+[    0.634901] hv_pci 5082ca98-ee19-48fb-8c73-dfe122e9ce24: PCI VMBus probing: Using version 0x10004
+[    0.636007] hv_pci 5082ca98-ee19-48fb-8c73-dfe122e9ce24: PCI host bridge to bus ee19:00
+[    0.636470] pci_bus ee19:00: root bus resource [mem 0xc00000000-0xe00001fff window]
+[    0.636896] pci_bus ee19:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.637912] pci ee19:00:00.0: [1af4:105a] type 00 class 0x088000
+[    0.638673] pci ee19:00:00.0: reg 0x10: [mem 0xe00000000-0xe00000fff 64bit]
+[    0.639252] pci ee19:00:00.0: reg 0x18: [mem 0xe00001000-0xe00001fff 64bit]
+[    0.639980] pci ee19:00:00.0: reg 0x20: [mem 0xc00000000-0xdffffffff 64bit]
+[    0.642879] pci_bus ee19:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.643239] pci ee19:00:00.0: BAR 4: assigned [mem 0xc00000000-0xdffffffff 64bit]
+[    0.643995] pci ee19:00:00.0: BAR 0: assigned [mem 0xe00000000-0xe00000fff 64bit]
+[    0.644652] pci ee19:00:00.0: BAR 2: assigned [mem 0xe00001000-0xe00001fff 64bit]
+[    0.645344] virtio-pci ee19:00:00.0: enabling device (0000 -> 0002)
+[    0.656566] virtiofs virtio1: Cache len: 0x200000000 @ 0xc00000000
+[    0.765685] scsi 0:0:0:3: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[    0.771125] sd 0:0:0:3: Attached scsi generic sg3 type 0
+[    0.771548] sd 0:0:0:3: [sdd] 2147483648 512-byte logical blocks: (1.10 TB/1.00 TiB)
+[    0.771942] sd 0:0:0:3: [sdd] 4096-byte physical blocks
+[    0.772235] sd 0:0:0:3: [sdd] Write Protect is off
+[    0.772533] sd 0:0:0:3: [sdd] Mode Sense: 0f 00 00 00
+[    0.772870] sd 0:0:0:3: [sdd] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    0.774645] sd 0:0:0:3: [sdd] Attached SCSI disk
+[    0.788637] EXT4-fs (sdd): mounted filesystem c2e5e2dd-b6e6-44dc-b891-3753167ea5d3 r/w with ordered data mode. Quota mode: none.
+[    0.882728] /sbin/ldconfig: 
+[    0.882733] /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link
+
+[    1.147835] /sbin/ldconfig.real: 
+[    1.147839] /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link
+
+[    1.192374] pulseaudio[304]: memfd_create() called without MFD_EXEC or MFD_NOEXEC_SEAL set
+[    1.270841] misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+[    1.272748] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[    1.273205] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[    1.273730] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[    1.274406] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[    1.277047] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[    1.277478] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[    1.277881] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[    1.278329] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[    1.513358] misc dxg: dxgk: dxgkio_reserve_gpu_va: Ioctl failed: -75
+[    5.682655] WSL (269) ERROR: CheckConnection: getaddrinfo() failed: -5
+[   48.364768] hv_balloon: Max. dynamic memory size: 16272 MB
+[  600.443987] mini_init (252): drop_caches: 1
+[ 6571.089080] mini_init (252): drop_caches: 1
+[ 7140.793670] mini_init (252): drop_caches: 1
+[ 7530.697454] mini_init (252): drop_caches: 1
+[ 8580.549287] mini_init (252): drop_caches: 1
+[ 9210.938219] mini_init (252): drop_caches: 1
+[10230.868053] mini_init (252): drop_caches: 1
+[12654.231265] TCP: eth0: Driver has suspect GRO implementation, TCP performance may be compromised.
+[12690.577347] mini_init (252): drop_caches: 1
+[14357.675528] hv_utils: TimeSync IC version 4.0
+[14365.526959] WSL (269) ERROR: CheckConnection: getaddrinfo() failed: -5
+[21024.344448] hv_utils: TimeSync IC version 4.0

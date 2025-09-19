@@ -1,0 +1,29 @@
+{
+  "intents": null,
+  "kie": {
+    "n": 258,
+    "latency_ms": 2,
+    "model_dir": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model",
+    "fields": [
+      {
+        "field": "spans",
+        "n": 258,
+        "tp": 0,
+        "fp": 0,
+        "fn": 258,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "macro_f1": 0.0
+  },
+  "planact": null,
+  "ts": "20250915T091825",
+  "health": {
+    "names": null,
+    "seeds": 258,
+    "sent": null,
+    "equal": null
+  }
+}

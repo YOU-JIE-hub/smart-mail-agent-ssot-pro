@@ -1,0 +1,17 @@
+[MODEL] artifacts/intent_pro_cal.pkl | classes=6
+[Sniff] data/intent/test_labeled.fixed.jsonl | spam_like=False names=5 ids=0 n=189
+[Sniff] data/intent/test.jsonl | spam_like=True names=2 ids=0 n=300
+[Sniff] data/intent/test_labeled.jsonl | spam_like=True names=2 ids=0 n=300
+[Sniff] data/prod_merged/test.jsonl | spam_like=True names=2 ids=0 n=300
+[Sniff] reports_auto/intent/test.jsonl | spam_like=True names=2 ids=0 n=300
+[Sniff] data/intent/val.jsonl | spam_like=False names=6 ids=0 n=300
+[Sniff] data/intent_eval/dataset.cleaned.jsonl | spam_like=False names=6 ids=0 n=300
+[Sniff] reports_auto/intent/val.jsonl | spam_like=False names=6 ids=0 n=300
+[DATA] test=data/intent/test_labeled.fixed.jsonl
+[DATA] val =reports_auto/intent/val.jsonl
+PIPELINE PROBE:
+ - features FeatureUnion union_out=(8, 29227) dtype=float64
+    * word TfidfVectorizer -> ConstantZeros(3834)
+    * char TfidfVectorizer -> ConstantZeros(25392)
+    * rules FunctionTransformer -> ConstantZeros(1)
+ - clf CalibratedClassifierCV 

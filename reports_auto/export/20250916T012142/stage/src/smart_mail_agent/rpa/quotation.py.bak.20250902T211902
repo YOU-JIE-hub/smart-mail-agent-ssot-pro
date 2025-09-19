@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/rpa/quotation.py
+# 模組用途: 產生報價單/回覆，透過 utils/pdf_safe 安全輸出檔案。
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any, Dict
+
+from smart_mail_agent.utils.config import load_env
+from smart_mail_agent.utils.logger import get_logger
+from smart_mail_agent.utils.pdf_safe import write_pdf_or_txt
+
+log = get_logger("RPA/Quotation")
+
+def choose_package(hints: Dict[str, Any]) -> str:
+    """
+    參數:
+        hints: 根據郵件或表單解析到的需求線索（如數量、期限、語言）
+    回傳:
+        str: 套餐名稱（範例：'basic'、'standard'、'pro'）
+    """
+    # 簡單骨架：後續可替換成規則/ML
+    level = str(hints.get("level") or "").lower()
+    if "pro" in level:
+        return "pro"
+    if "std" in level or "standard" in level:
+        return "standard"
+    return "basic"
+
+def generate_pdf_quote(out_path: str, context: Dict[str, Any]) -> str:
+    """
+    參數:
+        out_path: 期望輸出路徑（.pdf 或 .txt）
+        context: 報價內容（公司/客戶/品項/金額/備註等）
+    回傳:
+        str: 實際寫出的檔案路徑
+    """
+    env = load_env()
+    font = env.get("SMA_FONT_TTF") or ""
+    lines = ["Quotation"]
+    for k, v in sorted(context.items()):
+        lines.append(f"{k}: {v}")
+    text = "\n".join(lines) + "\n"
+    Path(out_path).parent.mkdir(parents=True, exist_ok=True)
+    out = write_pdf_or_txt(out_path, text, font_path=font if font else None)
+    log.info(f"quote written -> {out}")
+    return out

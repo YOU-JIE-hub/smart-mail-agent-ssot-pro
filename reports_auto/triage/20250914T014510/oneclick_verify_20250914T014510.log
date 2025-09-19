@@ -1,0 +1,9 @@
+[01:45:10] Python: Python 3.10.12
+[01:45:10] Which python: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[01:45:10] PWD: /home/youjie/projects/smart-mail-agent-ssot-pro
+[01:45:10] ----- STEP: doctor -----
+[01:45:10] CMD : bash scripts/sma_env_doctor.sh
+scripts/sma_env_doctor.sh: line 5: .sma_tools/env_guard.sh: No such file or directory
+[01:45:10] RESULT: FAIL (rc=1)
+[01:45:10] ----- STEP: doctor.cli -----
+[01:45:10] CMD : python -m smart_mail_agent.cli.doctor

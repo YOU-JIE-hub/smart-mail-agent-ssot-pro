@@ -1,0 +1,42 @@
+{
+  "tools/tri_suite.py": {
+    "exists": true,
+    "size": 3581
+  },
+  "tools/pipeline_ml.py": {
+    "exists": true,
+    "size": 3073
+  },
+  "tools/pipeline_ml_boosted.py": {
+    "exists": true,
+    "size": 1395
+  },
+  "tools/kie/eval.py": {
+    "exists": true,
+    "size": 1832
+  },
+  "tools/kie/score_spans.py": {
+    "exists": false,
+    "size": null
+  },
+  "tools/spam_report.py": {
+    "exists": true,
+    "size": 641
+  },
+  "tools/log_ml_signals.py": {
+    "exists": true,
+    "size": 2137
+  },
+  "reports_auto/prod_quick_report.md": {
+    "exists": true,
+    "size": 97
+  },
+  "data/kie/test_real.jsonl": {
+    "exists": true,
+    "size": 4003
+  },
+  "data/kie/test.jsonl": {
+    "exists": true,
+    "size": 7750
+  }
+}

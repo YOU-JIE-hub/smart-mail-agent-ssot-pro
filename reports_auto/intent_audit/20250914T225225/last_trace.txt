@@ -1,0 +1,222 @@
+=== TRAP ===
+TIME: 2025-09-14T22:52:25+08:00
+CMD: python - "$PKL_A" "$PKL_B" "$R" <<'PY'
+import os, sys, json, time, inspect, traceback
+import numpy as np
+from scipy import sparse as sp
+from collections import Counter, defaultdict
+from pathlib import Path
+import joblib
+
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+PKL_A, PKL_B, R = sys.argv[1], sys.argv[2], Path(sys.argv[3])
+R.mkdir(parents=True, exist_ok=True)
+
+def dump(p, obj): p.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def env_snapshot():
+    import platform, sklearn, scipy, joblib, numpy
+    return {
+        "python": platform.python_version(),
+        "numpy": numpy.__version__,
+        "scipy": scipy.__version__,
+        "sklearn": sklearn.__version__,
+        "joblib": joblib.__version__,
+        "cwd": os.getcwd(),
+    }
+
+def load_pipe(path):
+    if not path or not os.path.exists(path): return None, f"missing: {path}"
+    try:
+        pipe = joblib.load(path)
+        return pipe, None
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}"
+
+def find_union(pipe):
+    if hasattr(pipe, "steps"):
+        for n, est in pipe.steps:
+            # 常見名：features / pre / union
+            if n in ("features","pre","union"): return est
+        # 或找 FeatureUnion/ColumnTransformer
+        for _, est in pipe.steps:
+            if hasattr(est, "transformer_list") or hasattr(est, "transformers"): return est
+    return None
+
+def as_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(f"non-numeric branch output: {type(X)}")
+
+def branch_dims(union, xs):
+    dims, types = {}, {}
+    if hasattr(union, "transformer_list"):
+        for name, sub in union.transformer_list:
+            try:
+                Y = as_csr(sub.transform(xs))
+                dims[name] = int(Y.shape[1])
+                types[name] = ["sparse", str(Y.dtype)]
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}:{e}"
+                types[name] = ["ERR", str(e)]
+    elif hasattr(union, "transformers"):
+        for name, sub, _sel in union.transformers:
+            try:
+                Y = as_csr(sub.transform(xs))
+                dims[name] = int(Y.shape[1])
+                types[name] = ["sparse", str(Y.dtype)]
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}:{e}"
+                types[name] = ["ERR", str(e)]
+    return dims, types
+
+def expected_dim(clf):
+    # CalibratedClassifierCV/LinearSVC/LogReg...
+    if hasattr(clf, "n_features_in_"): return int(clf.n_features_in_)
+    if hasattr(clf, "base_estimator") and hasattr(clf.base_estimator, "n_features_in_"):
+        return int(clf.base_estimator.n_features_in_)
+    return None
+
+def final_clf(pipe):
+    if hasattr(pipe, "steps"): return pipe.steps[-1][1]
+    return pipe
+
+zh_map = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+def zh(y): return zh_map.get(str(y), str(y))
+
+def audit_one(tag, pipe, outdir:Path):
+    """審核一顆：維度/來源/評估/錯誤"""
+    rep = {"tag": tag, "ok": False}
+    if pipe is None: return rep
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    # 0) 環境
+    dump(outdir/"env.json", env_snapshot())
+
+    # 1) pipeline 概況
+    steps = [(n, est.__class__.__name__) for n, est in getattr(pipe, "steps", [])]
+    rep["steps"] = steps
+
+    # 2) features 分支維度 & rules_feat 來源
+    union = find_union(pipe)
+    xs_probe = ["報價與交期","技術支援","發票抬頭","退訂連結","工單進度","收件資訊更新"]
+    dims, types = branch_dims(union, xs_probe) if union else ({}, {})
+    rep["branch_dims"] = dims
+    rep["branch_types"]= types
+
+    # 嘗試找 rules 分支 transform 的 Python 來源（保障用的是訓練期那份）
+    rules_src = None
+    if hasattr(union, "transformer_list"):
+        for name, sub in union.transformer_list:
+            if "rules" in name.lower():
+                # sklearn FunctionTransformer 或自訂 transformer 都可能
+                fn = getattr(sub, "func", None)
+                if fn is not None:
+                    try:
+                        rules_src = {
+                            "module": getattr(fn, "__module__", "?"),
+                            "file": inspect.getsourcefile(fn) or "?",
+                            "name": getattr(fn, "__name__", str(fn)),
+                        }
+                    except Exception:
+                        rules_src = {"module": getattr(fn, "__module__", "?"), "file":"?", "name": str(fn)}
+                break
+    rep["rules_source"] = rules_src
+
+    # 3) expected 與 sum_before
+    clf = final_clf(pipe)
+    rep["expected_dim"] = expected_dim(clf)
+    num_sum = sum(v for v in dims.values() if isinstance(v, int))
+    rep["sum_before"]  = num_sum
+    rep["aligned_ok"]  = (rep["expected_dim"] == num_sum)
+
+    # 4) classes
+    classes = list(getattr(clf, "classes_", []))
+    dump(outdir/"classes.json", {"en": classes, "zh": [zh(c) for c in classes]})
+
+    # 5) dataset 評估（若檔案存在）
+    ds = Path("data/intent_eval/dataset.cleaned.jsonl")
+    if ds.exists():
+        X, y_zh = [], []
+        with ds.open("r", encoding="utf-8") as f:
+            for line in f:
+                line=line.strip()
+                if not line: continue
+                try:
+                    d = json.loads(line)
+                    X.append(d.get("text") or d.get("content") or d.get("utterance") or "")
+                    y_zh.append(str(d.get("label") or d.get("intent") or ""))
+                except: pass
+        yp_en = pipe.predict(X)
+        yp_zh = [zh(y) for y in yp_en]
+
+        acc = accuracy_score(y_zh, yp_zh)
+        cm  = confusion_matrix(y_zh, yp_zh, labels=[zh(c) for c in classes if zh(c) in set(y_zh)])
+        cr  = classification_report(y_zh, yp_zh, output_dict=True, zero_division=0)
+
+        # 存指標
+        dump(outdir/"metrics.json", {
+            "n": len(y_zh),
+            "acc_zh": round(float(acc),4),
+            "report": cr,
+            "labels_order": [zh(c) for c in classes],
+            "confusion_matrix": cm.tolist(),
+            "pred_top": Counter(yp_zh).most_common(10)
+        })
+
+        # 錯誤樣本（前100）
+        bad = []
+        for i,(g,p,x) in enumerate(zip(y_zh, yp_zh, X)):
+            if g!=p:
+                bad.append({"i": i, "gold": g, "pred": p, "text": x})
+                if len(bad)>=100: break
+        dump(outdir/"misclassified_top100.json", bad)
+
+        rep["acc_zh"]= round(float(acc),4)
+        rep["pred_top"]= Counter(yp_zh).most_common(6)
+
+    # 6) sample smoke
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    try:
+        sm = [f"{s} -> {zh(y)}" for s,y in zip(tests, pipe.predict(tests))]
+        dump(outdir/"sample_pred.json", {"samples": tests, "pred": sm})
+        rep["sample_pred"] = sm
+    except Exception as e:
+        rep["sample_error"] = f"{type(e).__name__}: {e}"
+
+    dump(outdir/"diagnostics.json", rep)
+    rep["ok"] = True
+    return rep
+
+# 主模型
+pipeA, errA = load_pipe(PKL_A)
+if errA: raise SystemExit(f"[FATAL] load A failed: {errA}")
+repA = audit_one("A", pipeA, Path(R)/"A")
+
+# 對比模型（可選）
+repB = None
+if PKL_B:
+    pipeB, errB = load_pipe(PKL_B)
+    if errB:
+        repB = {"tag":"B","ok":False,"error":errB}
+    else:
+        repB = audit_one("B", pipeB, Path(R)/"B")
+
+# 總覽
+summary = {"A": repA, "B": repB}
+dump(Path(R)/"summary.json", summary)
+
+print("\n=== SUMMARY ===")
+print(json.dumps({
+    "A_acc_zh": repA.get("acc_zh"),
+    "A_aligned_ok": repA.get("aligned_ok"),
+    "A_expected": repA.get("expected_dim"),
+    "A_sum_before": repA.get("sum_before"),
+    "A_rules_src": repA.get("rules_source"),
+    "A_pred_top": repA.get("pred_top"),
+    "B_acc_zh": (repB or {}).get("acc_zh") if repB else None
+}, ensure_ascii=False, indent=2))
+PY
+
+EXIT: 1

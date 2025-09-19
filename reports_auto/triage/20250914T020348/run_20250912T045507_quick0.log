@@ -1,0 +1,2 @@
+[RUN:quick0] /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python scripts/sma_quick_eval.py
+[EXIT:0] -> reports_auto/logs/run_20250912T045507_quick0.log

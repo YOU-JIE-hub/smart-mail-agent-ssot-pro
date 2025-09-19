@@ -1,0 +1,26 @@
+from __future__ import annotations
+import os, argparse, time
+from pathlib import Path
+
+def main():
+    ap = argparse.ArgumentParser(description="Smart Mail Agent - E2E")
+    ap.add_argument("eml_dir_pos", nargs="?", help="EML directory (optional positional)")
+    ap.add_argument("--eml-dir", dest="eml_dir", help="EML directory (flag)")
+    ap.add_argument("--out-root", dest="out_root")
+    ap.add_argument("--db-path", dest="db_path", default=os.environ.get("SMA_DB_PATH","db/sma.sqlite"))
+    ap.add_argument("--ndjson", dest="ndjson", default="reports_auto/logs/pipeline.ndjson")
+    args = ap.parse_args()
+
+
+    from smart_mail_agent.pipeline.run_action_handler import run_e2e_mail
+    # lazy import to avoid heavy deps at top-level
+    in_dir = Path(args.eml_dir or args.eml_dir_pos or os.environ.get("SMA_EML_DIR","data/demo_eml"))
+    out_root = Path(args.out_root or os.environ.get("SMA_OUT_ROOT","reports_auto/e2e_mail"))
+    stamp = os.environ.get("SMA_RUN_TS") or time.strftime("%Y%m%dT%H%M%S")
+    out_dir = out_root / stamp
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    run_e2e_mail(str(in_dir), str(out_dir), db_path=args.db_path, ndjson_path=args.ndjson)
+
+if __name__ == "__main__":
+    main()

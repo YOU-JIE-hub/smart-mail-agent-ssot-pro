@@ -1,0 +1,3 @@
+RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T084052
+ERR_FILE=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T084052/tri_eval.err
+PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T084052/py_last_trace.txt

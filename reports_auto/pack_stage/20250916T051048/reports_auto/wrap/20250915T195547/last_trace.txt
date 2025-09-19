@@ -1,0 +1,4 @@
+=== BASH_TRAP(sink_wrap) ===
+TIME: 2025-09-15T19:55:47+08:00
+LAST:bash -x -o pipefail -c "$*"
+CODE:1

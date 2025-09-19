@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "<stdin>", line 151, in <module>
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 788, in predict
+    Xt = transform.transform(Xt)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 2030, in transform
+    Xs = Parallel(n_jobs=self.n_jobs)(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/parallel.py", line 1986, in __call__
+    return output if self.return_generator else list(output)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/parallel.py", line 1914, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 1520, in _transform_one
+    res = transformer.transform(X, **params.transform)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/preprocessing/_function_transformer.py", line 260, in transform
+    out = self._transform(X, func=self.func, kw_args=self.kw_args)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/preprocessing/_function_transformer.py", line 387, in _transform
+    return func(X, **(kw_args if kw_args else {}))
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/vendor/rules_features.py", line 5, in rules_feat
+    def rules_feat(texts): return _sp.csr_matrix(_np.zeros((len(texts),1), dtype='float64'))
+NameError: name '_sp' is not defined

@@ -1,0 +1,22 @@
+# MANIFEST (generated 2025-09-18T06:13:19+08:00)
+ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
+
+## INCLUDED PATTERNS:
+- src/**/*
+- intent/**/*.py
+- scripts/*.sh
+- scripts/http_api_min.py
+- scripts/env.default
+- Makefile
+- vendor/sma_tools/**/*.py
+- data/intent_eval/*.jsonl
+- reports_auto/status/INTENTS_SUMMARY_*.md
+
+## DECLARED MODELS & DATA (absolute paths):
+- /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl  (size=4924369, sha256=83677482e9d1c87110d169d8dd781b39f4aaf8330a24449c8441079eb083a14e)
+- /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py  (size=1212, sha256=06726d99af9f5b352b6e8b51c9f0b4ab5859cd8697630be790286274b07a0203)
+- /home/youjie/projects/smart-mail-agent_ssot/.sma_tools/runtime_threshold_router.py  (size=6584, sha256=0db46b7f86fc0bbfd7f2525cdda87ca1f158cc5310546b19c0fdae85443e5c21)
+- /home/youjie/projects/smart-mail-agent-ssot-pro/data/intent_eval/dataset.cleaned.jsonl  (size=125879, sha256=a58332d2d4ef7f2514bc30b01c86c868f9eb099590638ff1afe9fd2c359c3d7b)
+- /home/youjie/projects/smart-mail-agent_ssot/data/kie_eval/gold_merged.jsonl  (size=49710, sha256=8dbe647e8f17960ac37f46b05957b0ba8dbb290d622b78bb59007408050dcd5f)
+- /home/youjie/projects/smart-mail-agent_ssot/data/kie/test_real.for_eval.jsonl  (size=4003, sha256=b473384245b1de4a26b2144840dff70c018f61ffad04966a209a8f187acaa42b)
+- /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl  (size=960, sha256=6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48)

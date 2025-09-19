@@ -1,0 +1,7 @@
+from __future__ import annotations
+from tools.ml_io import predict, DEFAULT_ML_PKL
+def classify_ml(email: dict, pkl=DEFAULT_ML_PKL): return predict(email, pkl)
+if __name__=="__main__":
+    import sys, json
+    email=json.loads(sys.stdin.read()) if not sys.stdin.isatty() else {"subject":"報價 單價:100 數量:2","body":""}
+    print(json.dumps(classify_ml(email), ensure_ascii=False))

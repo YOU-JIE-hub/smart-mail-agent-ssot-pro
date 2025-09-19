@@ -1,0 +1,11 @@
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[*] DATA=data/intent_eval/dataset.cleaned.jsonl
+[*] PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+[*] RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py (bind to __main__.rules_feat)
+[OK] wrote: reports_auto/eval_fix/20250915T201456/tri_results_fixed.json
+[PATHS]
+  RUN = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T201456
+  LOG = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T201456/run.log
+  ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T201456/tri_eval.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T201456/py_last_trace.txt
+  RESULT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T201456/tri_results_fixed.json

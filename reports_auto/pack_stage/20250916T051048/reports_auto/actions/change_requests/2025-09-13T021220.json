@@ -1,0 +1,18 @@
+{
+  "mail_id": "2025-09-13T021220",
+  "intent": "資料異動",
+  "plan": {
+    "action": "change_request",
+    "ok": true,
+    "route": {
+      "channel": "crm",
+      "dry_run": true
+    },
+    "required": [],
+    "template": "cr_v1",
+    "params": {
+      "fields": {},
+      "requester": "noreply@example.com"
+    }
+  }
+}

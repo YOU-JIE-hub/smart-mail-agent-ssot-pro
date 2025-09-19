@@ -1,0 +1,9 @@
+{
+  "subject": "投訴",
+  "body": "投訴",
+  "tags": [
+    "complaint"
+  ],
+  "severity": "P3",
+  "dry": true
+}

@@ -1,0 +1,77 @@
+[01:45:10] Python: Python 3.10.12
+[01:45:10] Which python: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[01:45:10] PWD: /home/youjie/projects/smart-mail-agent-ssot-pro
+[01:45:10] ----- STEP: doctor -----
+[01:45:10] CMD : bash scripts/sma_env_doctor.sh
+scripts/sma_env_doctor.sh: line 5: .sma_tools/env_guard.sh: No such file or directory
+[01:45:10] RESULT: FAIL (rc=1)
+[01:45:10] ----- STEP: doctor.cli -----
+[01:45:10] CMD : python -m smart_mail_agent.cli.doctor
+{"ok": true, "triage_dir": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/triage/20250914T014510"}
+[01:45:11] RESULT: PASS
+[01:45:11] ----- STEP: tests.fast -----
+[01:45:11] CMD : bash scripts/test_fast.sh
+/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python: No module named pytest
+[01:45:11] RESULT: PASS
+[01:45:11] ----- STEP: e2e.safe -----
+[01:45:11] CMD : OFFLINE=${OFFLINE} bash scripts/sma_e2e_all_safe.sh
+scripts/sma_e2e_all_safe.sh: line 6: .sma_tools/env_guard.sh: No such file or directory
+scripts/sma_e2e_all_safe.sh: line 7: guard::venv_on: command not found
+[OK] E2E 完成 → /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/e2e_mail/20250914T014511
+[SAFE] E2E finished. out_root=reports_auto/e2e_mail
+[SAFE] 完成安全執行；輸出根在：reports_auto/e2e_mail
+[01:45:11] RESULT: PASS
+[01:45:11] ----- STEP: e2e.safe.cli -----
+[01:45:11] CMD : python -m smart_mail_agent.cli.e2e_safe
+[OK] E2E 完成 → /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/e2e_mail/20250914T014511
+[SAFE] E2E finished. out_root=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/e2e_mail
+[01:45:11] RESULT: PASS
+[01:45:11] ----- STEP: spam.report -----
+[01:45:11] CMD : python tools/spam_report.py
+[SPAM] metrics -> metrics/spam_metrics.json
+[01:45:11] RESULT: PASS
+[01:45:11] ----- STEP: spam.spamcheck -----
+[01:45:11] CMD : python -m smart_mail_agent.cli.spamcheck --text "free moneybash /tmp/sma_oneclick_verify.sh! click now"
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/src/smart_mail_agent/cli/spamcheck.py", line 12, in <module>
+    from smart_mail_agent.spam.ens import SpamEnsemble
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/src/smart_mail_agent/spam/ens.py", line 52
+    return joblib.load(mpath, mmap_mode="r", mmap_mode="r")
+                                             ^^^^^^^^^^^^^
+SyntaxError: keyword argument repeated: mmap_mode
+[01:45:11] RESULT: FAIL (rc=1)
+[01:45:11] ----- STEP: intent.eval -----
+[01:45:11] CMD : python scripts/sma_eval_intent_with_rules.py
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/sma_eval_intent_with_rules.py", line 3, in <module>
+    import argparse, json, sys, pathlib, joblib
+ModuleNotFoundError: No module named 'joblib'
+[01:45:11] RESULT: FAIL (rc=1)
+[01:45:11] [INFO] kie.eval：未偵測到 KIE_MODEL_DIR 或缺 tools/kie/eval.py，略過
+[01:45:11] ----- STEP: tri.suite -----
+[01:45:11] CMD : python tools/tri_suite.py
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 98, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 91, in main
+    result["intent_ml"]      = _eval_backend(rows, "ml",       _classify_ml)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 69, in _eval_backend
+    pred, _ = caller(r.get("email") or {})
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_suite.py", line 45, in _classify_ml
+    return _norm_pair(classify_ml(email))
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/pipeline_ml.py", line 86, in classify_ml
+    est = _get_est()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/pipeline_ml.py", line 37, in _get_est
+    obj = joblib_load(str(p))
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/ml_compat.py", line 20, in joblib_load
+    import joblib
+ModuleNotFoundError: No module named 'joblib'
+[01:45:11] RESULT: FAIL (rc=1)
+[01:45:11] ----- STEP: support.bundle -----
+[01:45:11] CMD : python tools/support_bundle.py
+{"bundle": "reports_auto/support_bundle/20250914T014511"}
+[01:45:11] RESULT: PASS

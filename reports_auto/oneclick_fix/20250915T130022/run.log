@@ -1,0 +1,154 @@
+[OK] env.default pinned:
+SMA_DRY_RUN=1
+SMA_LLM_PROVIDER=none
+SMA_EML_DIR=fixtures/eml
+SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+PORT=8000
+[OK] patched: scripts/http_api_min.py
+[*] no running PID
+[*] DRY_RUN=1  PORT=8000
+[OK] API ready
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/py_last_trace.txt
+[*] WHERE API:
+RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022
+LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/run.log
+ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/api.err
+SERVER_LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/server.log
+PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T130022/py_last_trace.txt
+[*] smoke: rule
+{
+  "pred": [
+    "biz_quote",
+    "tech_support"
+  ],
+  "latency_ms": 0,
+  "route": "rule"
+}
+[*] smoke: ml
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 96, in do_POST\n    latency_ms INTEGER, cost_usd REAL, request_id TEXT, created_at TEXT)\"\"\")\nAttributeError: 'dict' object has no attribute 'predict'\n"
+}
+[*] tri-eval (3樣 + 標籤)
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 118, in do_POST\n    return self._json(400,{\"error\":\"invalid json\"})\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 117, in <lambda>\n    except Exception:\nAttributeError: 'dict' object has no attribute 'predict'\n"
+}
+[*] done.
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mcd /home/youjie/projects/smart-mail-agent-ssot-pro[27m
+[7m. .venv/bin/activate 2>/dev/null || true[27m
+[7mpython - <<'PY'[27m
+[7mimport os, joblib, importlib.util, sys[27m
+[7mMODEL="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl"[27m
+[7mRULES="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py"[27m
+
+[7m# 綁 rules_feat，避免反序列化失敗[27m
+[7mspec=importlib.util.spec_from_file_location("rt", RULES)[27m
+[7mm=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)[27m
+[7mimport __main__; __main__.rules_feat=getattr(m,"rules_feat", None)[27m
+
+[7mobj=joblib.load(MODEL)[27m
+[7mdef pick(o):[27m
+[7m    if hasattr(o,"predict"): return o[27m
+[7m    if isinstance(o,dict):[27m
+[7m        for k in ("pipe","pipeline","estimator","model"):[27m
+[7m            if k in o and o[k] is not None: return pick(o[k])[27m
+[7m    if isinstance(o,(list,tuple)) and o: return pick(o[0])[27m
+[7m    raise SystemExit("no predictor inside pickle")[27m
+[7mest = pick(obj)[27m
+[7m# pipeline 最後一層分類器[27m
+[7mclf = est.steps[-1][1] if hasattr(est,"steps") else est[27m
+[7mprint("EST:", type(est))[27m
+[7mprint("CLF:", type(clf))[27m
+[7mprint("classes_:", getattr(clf, "classes_", None))[27m
+[7mPY[27m
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd /home/youjie/projects/smart-mail-agent-ssot-pro
+. .venv/bin/activate 2>/dev/null || true
+python - <<'PY'
+import os, joblib, importlib.util, sys
+MODEL="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl"
+RULES="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py"
+
+# 綁 rules_feat，避免反序列化失敗
+spec=importlib.util.spec_from_file_location("rt", RULES)
+m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+import __main__; __main__.rules_feat=getattr(m,"rules_feat", None)
+
+obj=joblib.load(MODEL)
+def pick(o):
+    if hasattr(o,"predict"): return o
+    if isinstance(o,dict):
+        for k in ("pipe","pipeline","estimator","model"):
+            if k in o and o[k] is not None: return pick(o[k])
+    if isinstance(o,(list,tuple)) and o: return pick(o[0])
+    raise SystemExit("no predictor inside pickle")
+est = pick(obj)
+# pipeline 最後一層分類器
+clf = est.steps[-1][1] if hasattr(est,"steps") else est
+print("EST:", type(est))
+print("CLF:", type(clf))
+print("classes_:", getattr(clf, "classes_", None))
+PY
+[A
+[?2004lEST: <class 'sklearn.pipeline.Pipeline'>
+CLF: <class 'sklearn.calibration.CalibratedClassifierCV'>
+classes_: ['biz_quote' 'complaint' 'other' 'policy_qa' 'profile_update'
+ 'tech_support']
+[?2004h(.venv) ]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7m            if p=="/debug/model_meta":[27m
+[7m                pipe = load_pipe()[27m
+[7m                clf = pipe.steps[-1][1] if hasattr(pipe,"steps") else pipe[27m
+[7m                meta = {[27m
+[7m                    "pipe_type": type(pipe).__name__,[27m
+[7m                    "clf_type": type(clf).__name__,[27m
+[7m                    "classes_": [str(x) for x in getattr(clf, "classes_", [])][27m
+[7m                }[27m
+[7m                return self._json(200, meta)[27m
+
+[7m            if p=="/debug/proba":[27m
+[7m                texts = req.get("texts") or [][27m
+[7m                pipe = load_pipe()[27m
+[7m                clf = pipe.steps[-1][1] if hasattr(pipe,"steps") else pipe[27m
+[7m                if not hasattr(clf, "predict_proba"):[27m
+[7m                    return self._json(400, {"error":"no_predict_proba"})[27m
+[7m                import numpy as np[27m
+[7m                prob = clf.predict_proba(pipe[:-1].transform(texts) if hasattr(pipe,"steps") else texts)[27m
+[7m                classes = [str(x) for x in getattr(clf,"classes_",[])][27m
+[7m                # 取 top3 方便閱讀[27m
+[7m                def topk(row, k=3):[27m
+[7m                    idx = np.argsort(row)[::-1][:k][27m
+[7m                    return [{"label":classes[i], "p":float(row[i])} for i in idx][27m
+[7m                out = [topk(row) for row in prob][27m
+[7m                return self._json(200, {"topk": out, "classes": classes})[27m
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C            if p=="/debug/model_meta":
+                pipe = load_pipe()
+                clf = pipe.steps[-1][1] if hasattr(pipe,"steps") else pipe
+                meta = {
+                    "pipe_type": type(pipe).__name__,
+                    "clf_type": type(clf).__name__,
+                    "classes_": [str(x) for x in getattr(clf, "classes_", [])]
+                }
+                return self._json(200, meta)
+
+            if p=="/debug/proba":
+                texts = req.get("texts") or []
+                pipe = load_pipe()
+                clf = pipe.steps[-1][1] if hasattr(pipe,"steps") else pipe
+                if not hasattr(clf, "predict_proba"):
+                    return self._json(400, {"error":"no_predict_proba"})
+                import numpy as np
+                prob = clf.predict_proba(pipe[:-1].transform(texts) if hasattr(pipe,"steps") else texts)
+                classes = [str(x) for x in getattr(clf,"classes_",[])]
+                # 取 top3 方便閱讀
+                def topk(row, k=3):
+                    idx = np.argsort(row)[::-1][:k]
+                    return [{"label":classes[i], "p":float(row[i])} for i in idx]
+                out = [topk(row) for row in prob]
+                return self._json(200, {"topk": out, "classes": classes})
+[A
+[?2004l-bash: syntax error near unexpected token `('
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick_fix/20250915T130022

@@ -1,0 +1,64 @@
+[19:16:52] [RUN] guard :: bash tools/guard_bad_imports.sh
+[GUARD] ok
+[19:17:16] [OK]  guard
+[19:17:16] [RUN] fix-v4 (DRY send) :: SMA_DRY_RUN=1 bash one_click_patch_intent_contract_all.sh
+[19:17:16] [0/4] DB migrate
+[MIGRATE] llm_calls schema OK -> db/sma.sqlite
+[19:17:16] [1/4] v4 fix
+[19:17:16] [0] 寫入 6 意圖白名單
+[19:17:16] [1/5] 產生 names.json（以白名單為準）
+[OK] names -> artifacts_prod/intent_names.json  N=6
+[19:17:16] [2/5] 產生 intent_contract.json（subject_tag=[名稱]）
+[OK] contract -> artifacts_prod/intent_contract.json
+[19:17:16] [3/5] 種 outbox 稿件並自動批核
+[SEED] outbox -> reports_auto/e2e_mail/20250912T191716/rpa_out/email_outbox
+[19:17:16] [4/5] 合約驅動寄送（SMA_DRY_RUN=1 僅 .eml 落地）
+[DRY] would send 一般回覆.eml -> noreply@example.com
+[DRY] would send 報價.eml -> noreply@example.com
+[DRY] would send 投訴.eml -> noreply@example.com
+[DRY] would send 技術支援.eml -> noreply@example.com
+[DRY] would send 規則詢問.eml -> noreply@example.com
+[DRY] would send 資料異動.eml -> noreply@example.com
+[DONE] run=20250912T191716
+[19:17:16] [5/5] 摘要
+[DONE] report -> reports_auto/status/INTENTS_20250912T191716.md
+[19:17:16] [2/4] Validate
+[VALID] intent_contract.json OK :: 6 intents
+[19:17:16] [3/4] Health + LATEST
+[HEALTH] latest: 20250912T191716
+[HEALTH] LATEST -> 20250912T191716
+[19:17:16] [4/4] Retention (14d)
+[DONE] log -> reports_auto/logs/patch_intent_contract_20250912T191716.log
+[19:17:16] [OK]  fix-v4 (DRY send)
+[19:17:16] [RUN] validate-contract :: python tools/validate_intent_contract.py
+[VALID] intent_contract.json OK :: 6 intents
+[19:17:16] [OK]  validate-contract
+[19:17:16] [RUN] health :: bash tools/health_check.sh
+[STEP] Detailed health check...
+[HEALTH] run=20250912T191716 sent=6 seeds=6 names=6
+[HEALTH] OK
+[19:17:16] [OK]  health
+[19:17:16] [RUN] eval-rule :: python tools/tri_model_eval.py
+[EVAL] acc=1.000 -> reports_auto/eval/20250912T191716/summary.md
+[19:17:16] [OK]  eval-rule
+[19:17:16] [RUN] e2e-rule :: python tools/e2e_full.py
+[E2E] wrote reports_auto/actions/20250912T191716/audit.jsonl
+[19:17:16] [OK]  e2e-rule
+[19:17:16] [RUN] ml-spec :: python tools/dump_intent_ml_spec.py
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/dump_intent_ml_spec.py", line 2, in <module>
+    from tools.ml_io import load_intent_pipeline, FEATURE_SPEC, LABEL_MAP, DEFAULT_ML_PKL
+ImportError: cannot import name 'load_intent_pipeline' from 'tools.ml_io' (/home/youjie/projects/smart-mail-agent-ssot-pro/tools/ml_io.py)
+[19:17:16] [FAIL] ml-spec (see reports_auto/logs/full_check_20250912T191652.log)
+[19:17:16] [RUN] eval-ml :: python tools/tri_model_eval_ml.py
+[EVAL-ML] acc=0.333 -> reports_auto/eval/20250912T191716/summary_ml.md
+[19:17:19] [OK]  eval-ml
+[19:17:19] [RUN] e2e-ml :: python tools/e2e_full_ml.py
+[E2E-ML] wrote reports_auto/actions/20250912T191719/audit_ml.jsonl
+[19:17:20] [OK]  e2e-ml
+[19:17:20] [RUN] eval-ml-boosted :: python tools/tri_model_eval_ml_boosted.py
+[EVAL-ML+] n=6 acc_ml=0.333 acc_boosted=0.833 -> reports_auto/eval/20250912T191720
+[19:17:22] [OK]  eval-ml-boosted
+[19:17:22] [RUN] e2e-ml-boosted :: python tools/e2e_full_ml_boosted.py
+[E2E-ML+] wrote reports_auto/actions/20250912T191722/audit_ml_boosted.jsonl
+[19:17:23] [OK]  e2e-ml-boosted

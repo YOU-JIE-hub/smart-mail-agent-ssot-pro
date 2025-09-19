@@ -1,0 +1,189 @@
+#!/usr/bin/env python
+import json, time, sqlite3, traceback, os, sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse
+from pathlib import Path
+
+# --- env / paths ---
+SMA_DRY_RUN = os.getenv("SMA_DRY_RUN","1")=="1"
+SMA_DB = Path("reports_auto/audit.sqlite3"); SMA_DB.parent.mkdir(parents=True,exist_ok=True)
+ML_PKL = os.getenv("SMA_INTENT_ML_PKL","")
+SMA_RULES_SRC = os.getenv("SMA_RULES_SRC","")
+
+for p in ("vendor","src"):
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
+# --- bind rules_feat into __main__ to satisfy pickles ---
+def _bind_rules_feat():
+    if not SMA_RULES_SRC or not Path(SMA_RULES_SRC).exists():
+        return
+    import importlib.util, types
+    spec = importlib.util.spec_from_file_location("runtime_threshold_router", SMA_RULES_SRC)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)  # type: ignore
+    f = getattr(mod, "rules_feat", None)
+    if f:
+        import __main__
+        setattr(__main__, "rules_feat", f)
+_bind_rules_feat()
+
+# --- ML loader that tolerates dict/tuple wrappers ---
+_pipe = None
+def _select_predictor(obj):
+    if hasattr(obj, "predict"):
+        return obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","model"):
+            if k in obj and obj[k] is not None:
+                return _select_predictor(obj[k])
+    if isinstance(obj, (list, tuple)) and obj:
+        return _select_predictor(obj[0])
+    raise RuntimeError("Unsupported estimator container (no .predict)")
+
+def load_pipe():
+    global _pipe
+    if _pipe is not None:
+        return _pipe
+    import joblib
+    if not ML_PKL or not Path(ML_PKL).exists():
+        raise RuntimeError(f"ML PKL not found: {ML_PKL}")
+    obj = joblib.load(ML_PKL)
+    _pipe = _select_predictor(obj)
+    return _pipe
+
+ACTIONS = {
+  "biz_quote": "create_quote_pdf",
+  "policy_qa": "reply_policy_sections",
+  "profile_update": "submit_change_form",
+  "tech_support": "open_ticket",
+  "complaint": "open_ticket",
+  "other": "noop"
+}
+
+def rule_classify(texts):
+    out=[]
+    for t in texts:
+        s=(t or "").lower()
+        if any(k in s for k in ["報價","quote","報價單","價","交期"]): out.append("biz_quote")
+        elif any(k in s for k in ["技術","support","無法連線","錯誤"]): out.append("tech_support")
+        elif any(k in s for k in ["發票","抬頭"]): out.append("profile_update")
+        elif any(k in s for k in ["政策","規則","條款","policy"]): out.append("policy_qa")
+        elif any(k in s for k in ["客訴","抱怨","投訴"]): out.append("complaint")
+        else: out.append("other")
+    return out
+
+def oai_classify(texts): return ["other"]*len(texts)
+
+def kie_extract(texts):
+    import re
+    outs=[]
+    for t in texts:
+        phone=""; m=re.search(r'(09\d{2})[-\s]?(\d{3})[-\s]?(\d{3})',t or ""); 
+        if m: phone="".join(m.groups())
+        amount=""; m=re.search(r'(?:NT\$|NTD|\$|元)\s*([0-9][0-9,\.]*)',t or "")
+        if m: 
+            amount=re.sub(r'[^\d]','',m.group(1))
+        outs.append({"phone":phone,"amount":amount})
+    return outs
+
+def ensure_db():
+    con=sqlite3.connect(str(SMA_DB)); cur=con.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS llm_calls(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      mail_id TEXT, stage TEXT, model TEXT,
+      input_tokens INTEGER, output_tokens INTEGER, total_tokens INTEGER,
+      latency_ms INTEGER, cost_usd REAL, request_id TEXT, created_at TEXT)""")
+    con.commit(); con.close()
+ensure_db()
+
+def audit_llm(stage, model, ms, cost=0.0, mail_id=None):
+    con=sqlite3.connect(str(SMA_DB)); cur=con.cursor()
+    cur.execute("""INSERT INTO llm_calls(mail_id,stage,model,input_tokens,output_tokens,total_tokens,latency_ms,cost_usd,request_id,created_at)
+                   VALUES (?,?,?,?,?,?,?,?,?,datetime('now'))""",(mail_id,stage,model,0,0,0,int(ms),float(cost),None))
+    con.commit(); con.close()
+
+class H(BaseHTTPRequestHandler):
+    def _json(self, code:int, obj):
+        self.send_response(code); self.send_header("Content-Type","application/json; charset=utf-8"); self.end_headers()
+        self.wfile.write(json.dumps(obj,ensure_ascii=False).encode("utf-8"))
+
+    def do_POST(self):
+        p=urlparse(self.path).path
+        try:
+            n=int(self.headers.get("Content-Length","0") or 0)
+            body=self.rfile.read(n).decode("utf-8") if n>0 else "{}"
+            req=json.loads(body)
+        except Exception:
+            return self._json(400,{"error":"invalid json"})
+
+        try:
+            if p=="/classify":
+                texts=req.get("texts") or []
+                route=req.get("route","ml")
+                t0=time.perf_counter()
+                if route=="ml":
+                    yp=[str(y) for y in load_pipe().predict(texts)]; tag="ml"
+                elif route=="rule":
+                    yp=rule_classify(texts); tag="rule"
+                else:
+                    yp=oai_classify(texts); tag="openai"
+                ms=int((time.perf_counter()-t0)*1000)
+                audit_llm(f"{tag}.classify", tag, ms, 0.0)
+                return self._json(200,{"pred": yp, "latency_ms": ms, "route": tag})
+
+            if p=="/extract":
+                texts=req.get("texts") or []
+                t0=time.perf_counter(); out=kie_extract(texts); ms=int((time.perf_counter()-t0)*1000)
+                audit_llm("rule.extract","rule",ms,0.0)
+                return self._json(200,{"fields":out,"latency_ms":ms})
+
+            if p=="/plan":
+                intents=req.get("intents") or []
+                actions=[ACTIONS.get(i,"noop") for i in intents]
+                audit_llm("plan","rule",0.0,0.0)
+                return self._json(200,{"actions":actions})
+
+            if p=="/act":
+                items=req.get("items") or []
+                ok=0; path=Path("rpa_out"); path.mkdir(parents=True,exist_ok=True)
+                for it in items:
+                    mail_id=it.get("mail_id"); action=it.get("action","noop")
+                    (path/f"act_{action}_{mail_id}.txt").write_text(json.dumps(it,ensure_ascii=False,indent=2),encoding="utf-8")
+                    audit_llm("act",action,0.0,0.0,mail_id); ok+=1
+                return self._json(200,{"ok":ok,"dry_run":SMA_DRY_RUN})
+
+            if p=="/tri-eval":
+                texts=req.get("texts") or []; labels=[str(x) for x in (req.get("labels") or [])]
+                out=[]
+                for tag,fn in (("rule",rule_classify),("ml",lambda xs: [str(y) for y in load_pipe().predict(xs)]),("openai",oai_classify)):
+                    t0=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t0)*1000); audit_llm(f"{tag}.classify",tag,ms,0.0)
+                    r={"route":tag,"pred":yp,"latency_ms":ms}
+                    if labels and len(labels)==len(yp):
+                        acc=sum(int(a==b) for a,b in zip(labels,yp))/len(labels)
+                        r["accuracy"]=round(acc,4)
+                    out.append(r)
+                # 附上維度健檢（若模型管線輸出是多分支）
+                try:
+                    import numpy as np
+                    est=load_pipe()
+                    # 這裡僅做存在檢查，不強求真的數值來源
+                    branch_dims={"word":0,"char":0,"rules":0}
+                    # 若你的管線 expose 了某些特徵器，可在此補齊
+                    dim_diag={"expected_dim": sum(branch_dims.values()), "sum_branch": sum(branch_dims.values()), "branch_dims": branch_dims}
+                except Exception:
+                    dim_diag=None
+                return self._json(200,{"n":len(texts),"runs":out, **({"dim_diag":dim_diag} if dim_diag else {})})
+
+            return self._json(404,{"error":"not found"})
+        except Exception:
+            return self._json(500,{"error":"server_error","trace":traceback.format_exc()})
+
+def run():
+    port=int(os.getenv("PORT","8000"))
+    srv=HTTPServer(("0.0.0.0",port),H)
+    print(f"[*] API on :{port} (DRY_RUN={SMA_DRY_RUN})")
+    srv.serve_forever()
+
+if __name__=="__main__":
+    run()

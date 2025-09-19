@@ -1,0 +1,217 @@
+TIME: 2025-09-15T05:50:22+08:00
+EXIT_CODE: 1
+BASH_COMMAND: python - "${OUT}" <<'PY'
+import os, sys, json, glob, traceback, sqlite3, faulthandler
+from pathlib import Path
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+pylog = open(R/"py_run.log","w",encoding="utf-8"); faulthandler.enable(pylog)
+def log(*a): print(*a); print(*a,file=pylog,flush=True)
+
+# 環境快照
+env = {
+  "cwd": os.getcwd(),
+  "python": sys.version.split()[0],
+  "numpy": __import__("numpy").__version__ if "numpy" in sys.modules or True else None,
+  "scipy": __import__("scipy").__version__ if "scipy" in sys.modules or True else None,
+  "sklearn": __import__("sklearn").__version__ if "sklearn" in sys.modules or True else None,
+  "joblib": __import__("joblib").__version__ if "joblib" in sys.modules or True else None,
+  "PYTHONPATH": os.environ.get("PYTHONPATH",""),
+  "SMA_EML_DIR": os.environ.get("SMA_EML_DIR","")
+}
+(R/"env_snapshot.json").write_text(json.dumps(env,ensure_ascii=False,indent=2),encoding="utf-8")
+
+missing = []             # 待補清單（你要回傳給我的）
+findings = {"intent":{}, "spam":{}, "kie":{}, "configs":{}, "db":{}, "alerts":[]}
+
+# —— Intent 模型與資料 —— #
+def list_candidates():
+  c = []
+  c += glob.glob("artifacts/intent_*.pkl")
+  c += glob.glob("intent/**/artifacts/intent_pro_cal.pkl", recursive=True)
+  c += glob.glob("artifacts_prod/**/intent*.pkl", recursive=True)
+  return sorted(set(c))
+def bind_rules_from_bundle():
+  # 常見訓練時的 rules 檔
+  cands = sorted(glob.glob("intent/**/.sma_tools/runtime_threshold_router.py", recursive=True))
+  if not cands: return None
+  src = Path(cands[-1]).resolve()
+  code = src.read_text(encoding="utf-8", errors="replace")
+  import types
+  names = [
+    "train_pro","train_pro_fresh",
+    "sma_tools.runtime_threshold_router","runtime_threshold_router",
+    "vendor.rules_features"
+  ]
+  for nm in names:
+    m = types.ModuleType(nm); sys.modules[nm]=m
+    exec(compile(code,str(src),"exec"),m.__dict__,m.__dict__)
+  import __main__ as M
+  M.rules_feat = sys.modules[names[-1]].__dict__.get("rules_feat",None)
+  return str(src)
+
+rules_src = bind_rules_from_bundle()
+findings["intent"]["rules_module"] = rules_src or "NOT_FOUND"
+if not rules_src:
+  findings["alerts"].append("intent.rules: runtime_threshold_router.py 未找到，可能導致特徵對齊失敗")
+  missing.append({"need":"intent rules module (.sma_tools/runtime_threshold_router.py)","where":"intent/**/.sma_tools/","why":"確保與訓練期特徵完全一致"})
+
+# 嘗試載入每顆意圖模型，檢查 n_features 與分支維度
+import joblib, numpy as np
+from scipy import sparse as sp
+
+def try_probe_intent(pkl):
+  info = {"path":pkl,"load_ok":False,"msg":"","steps":[], "n_features_in":None, "branch_dims":{}, "sum_branch":None}
+  try:
+    obj = joblib.load(pkl)
+    # unwrap
+    est = obj
+    if isinstance(obj, dict):
+      for k in ("pipe","pipeline","estimator","clf","model"):
+        if k in obj and hasattr(obj[k],"predict"): est = obj[k]
+    info["steps"] = [(n, type(s).__name__) for n,s in getattr(est, "steps",[])]
+    clf = est.steps[-1][1] if hasattr(est,"steps") else est
+    nf = getattr(clf,"n_features_in_",None)
+    if nf is None and hasattr(clf,"base_estimator"): nf = getattr(clf.base_estimator,"n_features_in_",None)
+    info["n_features_in"] = int(nf) if nf is not None else None
+
+    # 嘗試對 features union 做 transform 測維度
+    feats = None
+    if hasattr(est,"steps"):
+      d = dict(est.steps)
+      feats = d.get("features") or d.get("pre") or d.get("union")
+    if feats and hasattr(feats,"transformer_list"):
+      xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+      dims={}
+      for name,sub in feats.transformer_list:
+        try:
+          X = sub.transform(xs)
+          X = X.tocsr() if sp.issparse(X) else sp.csr_matrix(X if isinstance(X,np.ndarray) else [[0]])
+          dims[name] = int(X.shape[1])
+        except Exception as e:
+          dims[name] = f"ERR:{type(e).__name__}"
+      info["branch_dims"] = dims
+      s = sum(v for v in dims.values() if isinstance(v,int))
+      info["sum_branch"] = s
+    info["load_ok"] = True
+  except Exception as e:
+    info["msg"] = f"{type(e).__name__}: {e}"
+  return info
+
+intent_pkls = list_candidates()
+findings["intent"]["candidates"] = intent_pkls
+probe_results = [try_probe_intent(p) for p in intent_pkls]
+findings["intent"]["probes"] = probe_results
+if not intent_pkls:
+  findings["alerts"].append("intent.pkl 未找到")
+  missing.append({"need":"intent_pro_cal.pkl 或 artifacts/intent_*.pkl","where":"intent/**/artifacts 或 artifacts/","why":"啟用 ML 路線並做三路比較"})
+
+# 意圖資料集
+ds = Path("data/intent_eval/dataset.cleaned.jsonl")
+if ds.exists():
+  labels=set(); n=0
+  for ln in ds.read_text(encoding="utf-8", errors="replace").splitlines():
+    if not ln.strip(): continue
+    try:
+      d=json.loads(ln); n+=1
+      lab = d.get("label") or d.get("intent") or ""
+      if lab!="": labels.add(str(lab))
+    except: pass
+  findings["intent"]["dataset"] = {"path":str(ds),"n":n,"labels":sorted(labels)}
+else:
+  missing.append({"need":"intent 評測集 dataset.cleaned.jsonl","where":"data/intent_eval/","why":"離線統一指標/混淆矩陣"})
+
+# —— Spam —— #
+spam_pkls = sorted(set(glob.glob("artifacts/**/spam*.pkl", recursive=True) + glob.glob("artifacts_inbox/**/spam*.pkl", recursive=True)))
+findings["spam"]["candidates"] = spam_pkls
+if not spam_pkls:
+  findings["alerts"].append("spam.pkl 未找到（或未索引到 artifacts_inbox/**）")
+ens = Path("artifacts_prod/ens_thresholds.json")
+if ens.exists():
+  try: findings["spam"]["ens_thresholds.json"] = json.loads(ens.read_text(encoding="utf-8"))
+  except Exception as e:
+    findings["spam"]["ens_thresholds.json"] = f"JSON_ERROR:{e}"
+else:
+  missing.append({"need":"ens_thresholds.json","where":"artifacts_prod/","why":"Spam 門檻校正重現"})
+
+# —— KIE —— #
+kie_model_dirs = sorted({str(Path(p).parent) for p in glob.glob("artifacts_inbox/**/kie*/model", recursive=True)})
+findings["kie"]["model_dirs"] = kie_model_dirs
+gold = Path("data/kie_eval/gold_merged.jsonl")
+for_eval = Path("data/kie/test_real.for_eval.jsonl")
+kie_info={}
+if gold.exists():
+  kie_info["gold_merged.jsonl_lines"] = sum(1 for _ in gold.open(encoding="utf-8", errors="ignore"))
+else:
+  missing.append({"need":"gold_merged.jsonl","where":"data/kie_eval/","why":"KIE 欄位級指標"})
+if for_eval.exists():
+  kie_info["for_eval.jsonl_lines"] = sum(1 for _ in for_eval.open(encoding="utf-8", errors="ignore"))
+else:
+  findings["alerts"].append("KIE for_eval 測資未見（可選）")
+findings["kie"]["datasets"]=kie_info
+
+# —— Configs —— #
+configs = {
+  "intent_rules_calib": sorted(glob.glob("**/intent_rules_calib*.json", recursive=True)),
+  "kie_runtime_config": sorted(glob.glob("**/kie_runtime_config*.json", recursive=True)),
+  "intent_contract": sorted(glob.glob("**/intent_contract*.json", recursive=True)),
+}
+findings["configs"]["paths"]=configs
+for key, lst in configs.items():
+  if not lst:
+    missing.append({"need":f"{key}.json","where":"專案內對應路徑","why":"對齊訓練/推論期契約"})
+  else:
+    # 嘗試載入第一個
+    f = Path(lst[0])
+    try:
+      findings["configs"][key] = json.loads(f.read_text(encoding="utf-8", errors="replace"))
+    except Exception as e:
+      findings["configs"][key] = f"JSON_ERROR:{e}"
+
+# —— DB 審計 —— #
+dbp = Path("reports_auto/audit.sqlite3")
+if dbp.exists():
+  try:
+    con = sqlite3.connect(dbp); cur = con.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table'"); tbls = [r[0] for r in cur.fetchall()]
+    findings["db"]["tables"]=tbls
+    needed = ["llm_calls","actions","mails"]
+    for t in needed:
+      if t not in tbls:
+        findings["alerts"].append(f"DB 表缺失: {t}")
+        missing.append({"need":t,"where":"reports_auto/audit.sqlite3","why":"審計與冪等紀錄"})
+  except Exception as e:
+    findings["db"]["error"]=f"{type(e).__name__}: {e}"
+else:
+  missing.append({"need":"audit.sqlite3","where":"reports_auto/","why":"審計/成本/延遲/行為結果"})
+
+# —— 報告輸出 —— #
+(R/"probe_findings.json").write_text(json.dumps(findings,ensure_ascii=False,indent=2),encoding="utf-8")
+req = {
+  "please_provide": missing,
+  "notes": findings["alerts"],
+  "intent_models": findings["intent"].get("candidates",[]),
+  "spam_models": findings["spam"].get("candidates",[]),
+  "kie_models": findings["kie"].get("model_dirs",[])
+}
+(R/"REQUEST_missing_items.json").write_text(json.dumps(req,ensure_ascii=False,indent=2),encoding="utf-8")
+
+# 產 Markdown 給你直接貼回/上傳
+md = ["# 資料盤點與徵集報告",
+      f"- 目錄: {R}",
+      "## 待補清單（請回傳/放置）:"]
+for i,x in enumerate(missing,1):
+  md.append(f"{i}. **{x['need']}** → 放在 `{x['where']}` ；用途：{x['why']}")
+md += ["","## 重要提醒:"]
+for a in findings["alerts"]:
+  md.append(f"- {a}")
+md += ["","## Intent 模型候選:"] + [f"- {p}" for p in findings["intent"].get("candidates",[])]
+md += ["","## Spam 模型候選:"] + [f"- {p}" for p in findings["spam"].get("candidates",[])]
+md += ["","## KIE 模型目錄:"] + [f"- {p}" for p in findings["kie"].get("model_dirs",[])]
+md += ["","## Intent 模型探測（節選）:"]
+for pr in findings["intent"].get("probes",[])[:5]:
+  md.append(f"- `{pr['path']}` | load_ok={pr['load_ok']} | n_features_in={pr['n_features_in']} | sum_branch={pr['sum_branch']} | steps={pr['steps']} | branch_dims={pr['branch_dims']}")
+(Path(R/"REQUEST_missing_items.md")).write_text("\n".join(md),encoding="utf-8")
+
+print("[OK] probe done at", R, file=pylog)
+PY
+

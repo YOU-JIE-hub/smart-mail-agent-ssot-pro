@@ -1,0 +1,20 @@
+Script started on 2025-09-16 12:19:43+08:00 [<not executed on terminal>]
+Error in sitecustomize; set PYTHONVERBOSE for traceback:
+ModuleNotFoundError: No module named 'numpy'
+[API] http://127.0.0.1:8088
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/api_server.py", line 28, in <module>
+    print(f"[API] http://127.0.0.1:{port}"); HTTPServer(("127.0.0.1", port), H).serve_forever()
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+
+Script done on 2025-09-16 12:19:43+08:00 [COMMAND_EXIT_CODE="1"]

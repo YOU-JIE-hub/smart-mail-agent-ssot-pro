@@ -1,0 +1,6 @@
+{"email": {"subject": "[一般回覆] 測試", "body": "hello"}, "ml": {"intent_raw": "complaint", "intent_name": "complaint", "confidence": 0.6809491121852632}}
+{"email": {"subject": "報價 請提供 單價:100 數量:2", "body": ""}, "ml": {"intent_raw": "complaint", "intent_name": "complaint", "confidence": 0.6559496836392228}}
+{"email": {"subject": "投訴", "body": "客訴"}, "ml": {"intent_raw": "complaint", "intent_name": "complaint", "confidence": 0.6863920340150053}}
+{"email": {"subject": "技術支援 ticket:TS-1234", "body": ""}, "ml": {"intent_raw": "complaint", "intent_name": "complaint", "confidence": 0.7808748862541682}}
+{"email": {"subject": "請問規則", "body": "這是規則詢問"}, "ml": {"intent_raw": "complaint", "intent_name": "complaint", "confidence": 0.6863920340150053}}
+{"email": {"subject": "請協助資料異動 order:ORD-9", "body": ""}, "ml": {"intent_raw": "complaint", "intent_name": "complaint", "confidence": 0.7435065836782216}}

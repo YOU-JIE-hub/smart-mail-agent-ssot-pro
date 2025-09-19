@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/spam/spam_filter_pipeline.py
+# 模組用途: 載入規則與提取信號（signals），輸出 rule-based 分數。
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, Optional
+
+try:
+    import yaml  # type: ignore
+except Exception:  # pragma: no cover
+    yaml = None  # type: ignore
+
+
+@dataclass
+class SpamSignals:
+    keyword_hits: int
+    link_ratio: float
+    blacklisted: bool
+
+
+def _load_rules() -> Dict[str, Any]:
+    p = Path(__file__).with_name("rules.yaml")
+    if yaml and p.is_file():
+        try:
+            return yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+        except Exception:
+            return {}
+    return {}
+
+
+def extract_signals(text: str, sender: Optional[str] = None) -> SpamSignals:
+    rules = _load_rules()
+    kw_en = rules.get("keywords_en", [])
+    kw_zh = rules.get("keywords_zh", [])
+    hits = 0
+    for kw in kw_en:
+        if kw.lower() in text.lower():
+            hits += 1
+    for kw in kw_zh:
+        if kw in text:
+            hits += 1
+    RE_URL = re.compile(r"https?://\S+", re.I)
+    RE_TLD = re.compile(r"\.(vip|xyz|top|click|work|win)\b", re.I)
+    links = len(RE_URL.findall(text))
+    tokens = max(1, len(text.split()))
+    lr = min(1.0, links / max(1, tokens // 5))
+    blk = False
+    if sender:
+        sender_l = sender.lower()
+        for d in rules.get("blacklist_domains", []):
+            if sender_l.endswith("@" + d) or sender_l.endswith(d):
+                blk = True
+                break
+    return SpamSignals(keyword_hits=hits, link_ratio=lr, blacklisted=blk)
+
+
+def rule_score(sig: SpamSignals) -> float:
+    score = 0.0
+    if sig.keyword_hits >= 1:
+        score += 0.3
+    if sig.link_ratio >= 0.2:
+        score += 0.3
+    if sig.blacklisted:
+        score += 0.4
+    return max(0.0, min(1.0, score))

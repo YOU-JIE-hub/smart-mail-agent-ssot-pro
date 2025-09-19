@@ -1,0 +1,71 @@
+[*] retrain+swap TS=20250915T113248
+/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:1296: FutureWarning: Using the 'liblinear' solver for multiclass classification is deprecated. An error will be raised in 1.8. Either use another solver which supports the multinomial loss or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+  warnings.warn(
+{
+  "其他": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 9.0
+  },
+  "報價": {
+    "precision": 0.8709677419354839,
+    "recall": 1.0,
+    "f1-score": 0.9310344827586207,
+    "support": 27.0
+  },
+  "技術支援": {
+    "precision": 1.0,
+    "recall": 0.875,
+    "f1-score": 0.9333333333333333,
+    "support": 16.0
+  },
+  "投訴": {
+    "precision": 1.0,
+    "recall": 0.9230769230769231,
+    "f1-score": 0.96,
+    "support": 13.0
+  },
+  "規則詢問": {
+    "precision": 0.9090909090909091,
+    "recall": 0.9090909090909091,
+    "f1-score": 0.9090909090909091,
+    "support": 11.0
+  },
+  "資料異動": {
+    "precision": 0.8888888888888888,
+    "recall": 0.8,
+    "f1-score": 0.8421052631578947,
+    "support": 10.0
+  },
+  "accuracy": 0.9302325581395349,
+  "macro avg": {
+    "precision": 0.9448245899858803,
+    "recall": 0.9178613053613054,
+    "f1-score": 0.9292606647234596,
+    "support": 86.0
+  },
+  "weighted avg": {
+    "precision": 0.934942068850546,
+    "recall": 0.9302325581395349,
+    "f1-score": 0.9299106627836633,
+    "support": 86.0
+  }
+}
+[OK] saved: /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl
+[OK] env.default updated to: /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl
+OK
+[*] DRY_RUN=1  PORT=8000
+[OK] API ready
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250/py_last_trace.txt
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T113250/py_last_trace.txt
+[*] REPORT DIR ready
+[FATAL] scripts/api_up.sh 不在

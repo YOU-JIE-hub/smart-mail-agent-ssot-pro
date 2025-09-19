@@ -1,0 +1,146 @@
+=== TRAP ===
+TIME: 2025-09-14T19:47:08+08:00
+BASH_COMMAND: python - <<'PY'
+import os, sys, json, time, traceback, joblib, types, importlib
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+
+LOGDIR = Path(os.environ.get("R", "reports_auto/intent_import/_missing"))
+def log(*a): print(*a, flush=True)
+
+def as_csr(Y):
+    if sp.issparse(Y): return Y.tocsr()
+    if isinstance(Y, np.ndarray): return sp.csr_matrix(Y if Y.ndim==2 else Y.reshape(1,-1))
+    raise TypeError(f"non-numeric output: {type(Y).__name__}")
+
+# 1) 找 pkl（優先 intent/intent/artifacts/intent_pro_cal.pkl）
+cands = [
+    Path("intent/intent/artifacts/intent_pro_cal.pkl"),
+    Path("intent/artifacts/intent_pro_cal.pkl"),
+    Path("intent/intent/artifacts/intent_pipeline_fixed.pkl"),
+    Path("intent/artifacts/intent_pipeline_fixed.pkl"),
+]
+pkl = next((p for p in cands if p.exists()), None)
+if not pkl:
+    print("[FATAL] 找不到 intent/**/artifacts/*.pkl"); sys.exit(2)
+print("[PKL]", pkl)
+
+# 2) 嘗試 import 壓縮包裡的 rules_feat（就在 intent/intent 路徑）
+#    這一步只為了保證 unpickle 時 FunctionTransformer 的 func 可被還原
+try:
+    # 常見幾個命名；實際以 PKL 內 __module__ 為準，這裡先確保 intent/intent 在 sys.path
+    sys.path.insert(0, str(Path("intent/intent").resolve()))
+except Exception as e:
+    print("[WARN] 加入 intent/intent 到 sys.path 失敗:", e)
+
+# 3) load
+try:
+    obj = joblib.load(pkl)
+except Exception as e:
+    (LOGDIR / "last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    print("[LOAD_FAIL]", type(e).__name__, e); sys.exit(3)
+
+# unwrap（dict -> 取可 predict 的）
+est = obj
+if isinstance(obj, dict):
+    for k in ("pipe","pipeline","estimator","clf","model"):
+        if k in obj and hasattr(obj[k], "predict"): est = obj[k]; break
+if not hasattr(est, "predict"):
+    print("[FATAL] 不是可推論的 estimator"); sys.exit(4)
+
+# 4) 找 features union
+pre = None
+if hasattr(est, "steps"):
+    steps = dict(est.steps)
+    pre = steps.get("features") or steps.get("pre") or steps.get("union")
+    clf = est.steps[-1][1]
+else:
+    pre = getattr(est, "features", None); clf = est
+
+expected = None
+for attr in ("n_features_in_",):
+    if hasattr(clf, attr): expected = int(getattr(clf, attr)); break
+if hasattr(clf, "base_estimator") and hasattr(clf.base_estimator, "n_features_in_"):
+    expected = int(clf.base_estimator.n_features_in_)
+
+print("steps:", [(n, s.__class__.__name__) for n,s in (est.steps if hasattr(est,"steps") else [])])
+print("[EXPECTED]", expected)
+
+# 5) 實測各分支 shape
+xs = ["您好，想詢問報價與交期", "請協助開立三聯發票抬頭", "需要技術支援協助，附件連不上"]
+branch_dims = {}
+if pre and hasattr(pre, "transformer_list"):
+    for name, sub in pre.transformer_list:
+        try:
+            Y = as_csr(sub.transform(xs))
+            branch_dims[name] = Y.shape[1]
+        except Exception as e:
+            branch_dims[name] = f"ERR:{type(e).__name__}"
+print("[BRANCH_DIMS]", json.dumps(branch_dims, ensure_ascii=False))
+
+# 6) 若總和 != expected，就嘗試在有 width 屬性的 pad 類分支補齊
+num_sum = sum(v for v in branch_dims.values() if isinstance(v,int))
+delta = None if expected is None or not num_sum else (expected - num_sum)
+if delta:
+    fixed = False
+    if pre and hasattr(pre, "transformer_list"):
+        for i,(name, sub) in enumerate(pre.transformer_list):
+            if hasattr(sub, "width"):
+                try:
+                    old = int(getattr(sub,"width",1) or 1)
+                    setattr(sub, "width", old + int(delta))
+                    pre.transformer_list[i] = (name, sub)
+                    print(f"[PAD_ADD] {name}: +{int(delta)} (from {old} -> {old+int(delta)})")
+                    fixed = True
+                    break
+                except Exception as e:
+                    print("[PAD_FIX_FAIL]", name, type(e).__name__, e)
+    if not fixed:
+        print("[WARN] 找不到可補的 pad 分支；只做診斷不存檔。")
+
+# 7) 存成 aligned 版
+out = Path("artifacts/intent_pipeline_aligned.pkl")
+try:
+    joblib.dump(est, out)
+    print("[SAVED]", out)
+except Exception as e:
+    (LOGDIR / "last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    print("[SAVE_FAIL]", type(e).__name__, e)
+
+# 8) 煙囪測（中文）
+to_zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+probes = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    yp = est.predict(probes)
+    for s,y in zip(probes, yp):
+        print("   ", s, "->", f"{y} / {to_zh.get(str(y), str(y))}")
+    (LOGDIR / "sample_pred.json").write_text(json.dumps({"samples":probes,"pred":[str(x) for x in yp]}, ensure_ascii=False, indent=2), encoding="utf-8")
+except Exception as e:
+    (LOGDIR / "last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    print("[PRED_FAIL]", type(e).__name__, e)
+
+# 9)（可選）用你專案的驗證集粗驗
+DS = Path("data/intent_eval/dataset.cleaned.jsonl")
+if DS.exists():
+    xs, ys = [], []
+    with DS.open("r",encoding="utf-8") as f:
+        for l in f:
+            l=l.strip()
+            if not l: continue
+            try:
+                d = json.loads(l)
+                xs.append(d.get("text") or d.get("content") or d.get("utterance") or "")
+                ys.append(str(d.get("label") or d.get("intent") or ""))
+            except: pass
+    try:
+        yp = est.predict(xs)
+        yp_zh = [to_zh.get(str(y), str(y)) for y in yp]
+        acc = sum(int(a==b) for a,b in zip(yp_zh,ys))/len(ys) if ys else 0.0
+        print("[VAL] n=", len(ys), " acc(直接中翻)=", round(acc,4))
+        (LOGDIR / "val_summary.json").write_text(json.dumps({"n":len(ys),"acc_zh":acc}, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as e:
+        print("[VAL_FAIL]", type(e).__name__, e)
+PY
+
+EXIT_CODE: 1

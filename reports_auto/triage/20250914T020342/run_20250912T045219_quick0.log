@@ -1,0 +1,6 @@
+[RUN:quick0] python scripts/sma_quick_eval.py
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/sma_quick_eval.py", line 5, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+[EXIT:1] -> reports_auto/logs/run_20250912T045219_quick0.log

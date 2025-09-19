@@ -1,0 +1,11 @@
+{
+  "pkl": "intent/intent/artifacts/intent_pro_cal.pkl",
+  "rules_src": "intent/intent/.sma_tools/runtime_threshold_router.py",
+  "expected": 29233,
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": 7
+  },
+  "sum_before": 29233
+}

@@ -1,0 +1,5 @@
+[*] tri-eval TS=20250915T073941
+./scripts/sma_probe_all.sh:86:# ---------- Python 盤點主程式（嚴禁「from pathlib import Path, json」） ----------
+/home/youjie/bin/python: can't open file '/home/youjie/projects/smart-mail-agent-ssot-pro/tools/tri_eval.py': [Errno 2] No such file or directory
+logout
+[*] REPORT DIR: reports_auto/eval/20250915T073941

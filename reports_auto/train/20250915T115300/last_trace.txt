@@ -1,0 +1,4 @@
+=== BASH_TRAP(train) ===
+2025-09-15T11:53:15+08:00
+LAST: SMA_INTENT_ML_PKL="$(realpath -m artifacts/intent_pipeline_aligned.pkl)" scripts/api_up.sh
+CODE: 2

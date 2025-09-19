@@ -1,0 +1,681 @@
++ wrap:15: '[' 3 -eq 0 ']'
++ wrap:16: bash -x -o pipefail -c 'bash -lc false'
++ bash -lc false
+++ wrap:16: on_err 1
+++ wrap:9: ec=1
+++ wrap:9: echo '=== BASH_TRAP(sink_wrap) ==='
++++ wrap:9: date -Is
+++ wrap:9: echo 'TIME: 2025-09-15T19:55:47+08:00'
+++ wrap:9: echo 'LAST:bash -x -o pipefail -c "$*"'
+++ wrap:9: echo CODE:1
+++ wrap:9: echo exit_code=1
+++ wrap:9: sink_err reports_auto/wrap/20250915T195547 reports_auto/wrap/20250915T195547/wrap.err reports_auto/wrap/20250915T195547/py_last_trace.txt
+++ wrap:6: local d=reports_auto/wrap/20250915T195547 e=reports_auto/wrap/20250915T195547/wrap.err py=reports_auto/wrap/20250915T195547/py_last_trace.txt slog=
+++ wrap:7: error_sink::init
+++ wrap:3: mkdir -p reports_auto/ERR
+++ wrap:8: error_sink::copy reports_auto/wrap/20250915T195547/wrap.err reports_auto/ERR/api.err
+++ wrap:4: local src=reports_auto/wrap/20250915T195547/wrap.err dst=reports_auto/ERR/api.err
+++ wrap:4: '[' -n reports_auto/wrap/20250915T195547/wrap.err ']'
+++ wrap:4: '[' -f reports_auto/wrap/20250915T195547/wrap.err ']'
+++ wrap:4: cp -f reports_auto/wrap/20250915T195547/wrap.err reports_auto/ERR/api.err
+++ wrap:9: error_sink::copy reports_auto/wrap/20250915T195547/run.log reports_auto/ERR/run.log
+++ wrap:4: local src=reports_auto/wrap/20250915T195547/run.log dst=reports_auto/ERR/run.log
+++ wrap:4: '[' -n reports_auto/wrap/20250915T195547/run.log ']'
+++ wrap:4: '[' -f reports_auto/wrap/20250915T195547/run.log ']'
+++ wrap:4: cp -f reports_auto/wrap/20250915T195547/run.log reports_auto/ERR/run.log
+++ wrap:10: error_sink::copy '' reports_auto/ERR/server.log
+++ wrap:4: local src= dst=reports_auto/ERR/server.log
+++ wrap:4: '[' -n '' ']'
+++ wrap:4: true
+++ wrap:11: error_sink::copy reports_auto/wrap/20250915T195547/py_last_trace.txt reports_auto/ERR/py_last_trace.txt
+++ wrap:4: local src=reports_auto/wrap/20250915T195547/py_last_trace.txt dst=reports_auto/ERR/py_last_trace.txt
+++ wrap:4: '[' -n reports_auto/wrap/20250915T195547/py_last_trace.txt ']'
+++ wrap:4: '[' -f reports_auto/wrap/20250915T195547/py_last_trace.txt ']'
+++ wrap:4: true
++++ wrap:12: cd reports_auto/wrap/20250915T195547
++++ wrap:12: pwd
+++ wrap:12: echo RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547
++++ wrap:13: cd reports_auto/wrap/20250915T195547
++++ wrap:13: pwd
+++ wrap:13: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547 reports_auto/ERR/LATEST_RUN
+++ wrap:9: print_paths
+++ wrap:8: echo '[PATHS]'
+[PATHS]
++++ wrap:8: cd reports_auto/wrap/20250915T195547
++++ wrap:8: pwd
+++ wrap:8: echo '  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547'
+  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547
++++ wrap:8: cd reports_auto/wrap/20250915T195547
++++ wrap:8: pwd
+++ wrap:8: echo '  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547/run.log'
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547/run.log
++++ wrap:8: cd reports_auto/wrap/20250915T195547
++++ wrap:8: pwd
+++ wrap:8: echo '  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547/wrap.err'
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547/wrap.err
++++ wrap:8: cd reports_auto/wrap/20250915T195547
++++ wrap:8: pwd
+++ wrap:8: echo '  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547/py_last_trace.txt'
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T195547/py_last_trace.txt
+++ wrap:9: exit 1
++ wrap:1: on_exit
++ wrap:10: sink_run reports_auto/wrap/20250915T195547
++ wrap:16: local d=reports_auto/wrap/20250915T195547
++ wrap:17: error_sink::init
++ wrap:3: mkdir -p reports_auto/ERR
++ wrap:18: error_sink::copy reports_auto/wrap/20250915T195547/run.log reports_auto/ERR/run.log
++ wrap:4: local src=reports_auto/wrap/20250915T195547/run.log dst=reports_auto/ERR/run.log
++ wrap:4: '[' -n reports_auto/wrap/20250915T195547/run.log ']'
++ wrap:4: '[' -f reports_auto/wrap/20250915T195547/run.log ']'
++ wrap:4: cp -f reports_auto/wrap/20250915T195547/run.log reports_auto/ERR/run.log
+
+[*] api_down @ 20250915T221407
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[*] force-free :8000 if still occupied
+[*] fuser: nothing to kill or not available
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ #!/usr/bin/env bash
+# scripts/api_down.sh — stop API safely, free port, ALWAYS log to reports_auto/ERR/*
+set -Eeuo pipefail -o errtrace
+ROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"
+
+ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"
+echo "RUN_DIR=$ERR_DIR" > "$ERR_DIR/where.txt"
+
+TS="$(date +%Y%m%dT%H%M%S)"
+LOG="$ERR_DIR/run.log"
+ERRF="$ERR_DIR/api.err"
+PY_LAST="$ERR_DIR/py_last_trace.txt"
+SLOG="$ERR_DIR/server.log"
+PIDF1="reports_auto/api/LAST.pid"
+PIDF2="$ERR_DIR/api.pid"
+
+exec > >(tee -a "$LOG") 2>&1
+PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"
+
+print_paths(){ echo "[PATHS]"
+  echo "  ERR_DIR=$(cd "$ERR_DIR" && pwd)"
+  echo "  LOG=$(cd "$ERR_DIR" && pwd)/$(basename "$LOG")"
+  echo "  ERR=$(cd "$ERR_DIR" && pwd)/$(basename "$ERRF")"
+  echo "  SERVER=$(cd "$ERR_DIR" && pwd)/$(basename "$SLOG")"
+  echo "  PY_LAST=$(cd "$ERR_DIR" && pwd)/$(basename "$PY_LAST")"
+  echo "  PORT=$PORT"
+}
+
+on_err(){ ec=${1:-$?}
+  { echo "=== BASH_TRAP(api_down) ==="
+    echo "TIME: $(date -Is)"    echo "LAST:${BASH_COMMAND:-<none>}"    echo "CODE:$ec"  } >>"$LOG"  echo "exit_code=$ec" > "$ERRF"  print_paths  exit "$ec"}on_exit(){ echo "exit_code=0" > "$ERRF"; print_paths; }trap 'on_err $?' ERRtrap on_exit EXITechoecho "[*] api_down @ $TS"print_pathsecho "[*] pre-check listeners on :$PORT"if command -v ss >/dev/null 2>&1; then ss -lptn "sport = :${PORT}" || trueelif command -v lsof >/dev/null 2>&1; then lsof -nP -iTCP:"${PORT}" -sTCP:LISTEN || true; fikill_wait(){ local p="${1:-}"; [ -n "$p" ] || return 0  echo "[*] kill $p"; kill "$p" 2>/dev/null || true  for _ in {1..30}; do kill -0 "$p" 2>/dev/null || { echo "    -> gone"; return 0; }; sleep 0.1; done  echo "    -> SIGKILL $p"; kill -9 "$p" 2>/dev/null || true}[7m# 1) stop by pidfiles[27m[7mfor pf in "$PIDF1" "$PIDF2"; do[27m[7m  [ -f "$pf" ] || continue[27m[7m  pid="$(cat "$pf" 2>/dev/null || true)"; echo "[*] pidfile $pf -> $pid"[27m[7m  [ -n "$pid" ] && kill_wait "$pid"[27m[7m  rm -f "$pf" || true[27m[7mdone[27m[7m# 2) free the port (multi-tool fallback)[27m[7mecho "[*] force-free :$PORT if still occupied"[27m[7mif command -v fuser >/dev/null 2>&1; then[27m[7m  fuser -k "${PORT}"/tcp 2>/dev/null && echo "[*] fuser killed holders" || echo "[*] fuser: nothing to kill"[27m[7mfi[27m[7mif ss -lptn "sport = :${PORT}" 2>/dev/null | grep -q LISTEN; then[27m[7m  if command -v lsof >/dev/null 2>&1; then[27m[7m    mapfile -t LP < <(lsof -tiTCP:"${PORT}" -sTCP:LISTEN 2>/dev/null || true)[27m[7m    for p in "${LP[@]:-}"; do kill_wait "$p"; done[27m[7m  else[27m[7m    mapfile -t SP < <(ss -lptn "sport = :${PORT}" 2>/dev/null | sed -n 's/.*pid=\([0-9]\+\).*/\1/p')[27m[7m    for p in "${SP[@]:-}"; do kill_wait "$p"; done[27m[7m  fi[27m[7mfi[27m[7mecho "[*] post-check listeners on :$PORT"[27m[7mif command -v ss >/dev/null 2>&1; then ss -lptn "sport = :${PORT}" || true[27m[7melif command -v lsof >/dev/null 2>&1; then lsof -nP -iTCP:"${PORT}" -sTCP:LISTEN || true; fi[27m[7mecho "[DOWN] port=${PORT}; pidfiles cleared; ERR_DIR=$ERR_DIR"[27m# 1) stop by pidfilesfor pf in "$PIDF1" "$PIDF2"; do  [ -f "$pf" ] || continue  pid="$(cat "$pf" 2>/dev/null || true)"; echo "[*] pidfile $pf -> $pid"  [ -n "$pid" ] && kill_wait "$pid"  rm -f "$pf" || truedone# 2) free the port (multi-tool fallback)echo "[*] force-free :$PORT if still occupied"if command -v fuser >/dev/null 2>&1; then  fuser -k "${PORT}"/tcp 2>/dev/null && echo "[*] fuser killed holders" || echo "[*] fuser: nothing to kill"fiif ss -lptn "sport = :${PORT}" 2>/dev/null | grep -q LISTEN; then  if command -v lsof >/dev/null 2>&1; then    mapfile -t LP < <(lsof -tiTCP:"${PORT}" -sTCP:LISTEN 2>/dev/null || true)    for p in "${LP[@]:-}"; do kill_wait "$p"; done  else    mapfile -t SP < <(ss -lptn "sport = :${PORT}" 2>/dev/null | sed -n 's/.*pid=\([0-9]\+\).*/\1/p')    for p in "${SP[@]:-}"; do kill_wait "$p"; done  fifiecho "[*] post-check listeners on :$PORT"if command -v ss >/dev/null 2>&1; then ss -lptn "sport = :${PORT}" || trueelif command -v lsof >/dev/null 2>&1; then lsof -nP -iTCP:"${PORT}" -sTCP:LISTEN || true; fiecho "[DOWN] port=${PORT}; pidfiles cleared; ERR_DIR=$ERR_DIR"
+[?2004l
+[*] api_down @ 20250915T223021
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+
+[*] api_down @ 20250915T223021
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+[*] pre-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[*] force-free :8000 if still occupied
+[*] force-free :8000 if still occupied
+[*] fuser: nothing to kill
+[*] fuser: nothing to kill
+[*] post-check listeners on :8000
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mchmod +x scripts/api_down.sh[27m
+[7mbash scripts/api_down.sh || true[27m
+
+[7m# 你要看的固定檔位（一定有）：[27m
+[7mecho "ERR  : $PWD/reports_auto/ERR/api.err"[27m
+[7mecho "LOG  : $PWD/reports_auto/ERR/run.log"[27m
+[7mecho "SERV : $PWD/reports_auto/ERR/server.log"[27m
+[7mecho "WHERE: $PWD/reports_auto/ERR/where.txt"[27m
+[7mtail -n 80 reports_auto/ERR/run.log[27m
+[7mcat reports_auto/ERR/api.err[27m[7mchmod +x scripts/api_down.sh[27m
+[7mbash scripts/api_down.sh || true[27m
+
+[7m# 你要看的固定檔位（一定有）：[27m
+[7mecho "ERR  : $PWD/reports_auto/ERR/api.err"[27m
+[7mecho "LOG  : $PWD/reports_auto/ERR/run.log"[27m
+[7mecho "SERV : $PWD/reports_auto/ERR/server.log"[27m
+[7mecho "WHERE: $PWD/reports_auto/ERR/where.txt"[27m
+[7mtail -n 80 reports_auto/ERR/run.log[27m
+[7mcat reports_auto/ERR/api.err[27m[A[A[A[A[A[A[A[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ chmod +x scripts/api_down.sh
+bash scripts/api_down.sh || true
+
+# 你要看的固定檔位（一定有）：
+echo "ERR  : $PWD/reports_auto/ERR/api.err"
+echo "LOG  : $PWD/reports_auto/ERR/run.log"
+echo "SERV : $PWD/reports_auto/ERR/server.log"
+echo "WHERE: $PWD/reports_auto/ERR/where.txt"
+tail -n 80 reports_auto/ERR/run.log
+cat reports_auto/ERR/api.err
+[?2004l[A[A[A[A[A[A[A[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ chmod +x scripts/api_down.sh
+bash scripts/api_down.sh || true
+
+# 你要看的固定檔位（一定有）：
+echo "ERR  : $PWD/reports_auto/ERR/api.err"
+echo "LOG  : $PWD/reports_auto/ERR/run.log"
+echo "SERV : $PWD/reports_auto/ERR/server.log"
+echo "WHERE: $PWD/reports_auto/ERR/where.txt"
+tail -n 80 reports_auto/ERR/run.log
+cat reports_auto/ERR/api.err
+[?2004l[*] no running PID
+[*] no running PID
+ERR  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+LOG  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+SERV : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+ERR  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+LOG  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+SERV : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+WHERE: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt
+WHERE: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt
+[?2004l
+[*] api_down @ 20250915T223021
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+
+[*] api_down @ 20250915T223021
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+[*] pre-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[*] force-free :8000 if still occupied
+[*] force-free :8000 if still occupied
+[*] fuser: nothing to kill
+[*] fuser: nothing to kill
+[*] post-check listeners on :8000
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mchmod +x scripts/api_down.sh[27m
+[7mbash scripts/api_down.sh || true[27m
+
+[7m# 你要看的固定檔位（一定有）：[27m
+[7mecho "ERR  : $PWD/reports_auto/ERR/api.err"[27m
+[7mecho "LOG  : $PWD/reports_auto/ERR/run.log"[27m
+[7mecho "SERV : $PWD/reports_auto/ERR/server.log"[27m
+[7mecho "WHERE: $PWD/reports_auto/ERR/where.txt"[27m
+[7mtail -n 80 reports_auto/ERR/run.log[27m
+[7mcat reports_auto/ERR/api.err[27m[7mchmod +x scripts/api_down.sh[27m
+[7mbash scripts/api_down.sh || true[27m
+
+[7m# 你要看的固定檔位（一定有）：[27m
+[7mecho "ERR  : $PWD/reports_auto/ERR/api.err"[27m
+[7mecho "LOG  : $PWD/reports_auto/ERR/run.log"[27m
+[7mecho "SERV : $PWD/reports_auto/ERR/server.log"[27m
+[7mecho "WHERE: $PWD/reports_auto/ERR/where.txt"[27m
+[7mtail -n 80 reports_auto/ERR/run.log[27m
+[7mcat reports_auto/ERR/api.err[27m[A[A[A[A[A[A[A[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ chmod +x scripts/api_down.sh
+bash scripts/api_down.sh || true
+
+# 你要看的固定檔位（一定有）：
+echo "ERR  : $PWD/reports_auto/ERR/api.err"
+echo "LOG  : $PWD/reports_auto/ERR/run.log"
+echo "SERV : $PWD/reports_auto/ERR/server.log"
+echo "WHERE: $PWD/reports_auto/ERR/where.txt"
+tail -n 80 reports_auto/ERR/run.log
+cat reports_auto/ERR/api.err
+[?2004l[A[A[A[A[A[A[A[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ chmod +x scripts/api_down.sh
+bash scripts/api_down.sh || true
+
+# 你要看的固定檔位（一定有）：
+echo "ERR  : $PWD/reports_auto/ERR/api.err"
+echo "LOG  : $PWD/reports_auto/ERR/run.log"
+echo "SERV : $PWD/reports_auto/ERR/server.log"
+echo "WHERE: $PWD/reports_auto/ERR/where.txt"
+tail -n 80 reports_auto/ERR/run.log
+cat reports_auto/ERR/api.err
+[?2004l[*] no running PID
+[*] no running PID
+ERR  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+LOG  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+SERV : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+ERR  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+LOG  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+SERV : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+WHERE: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt
+WHERE: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt
+[?2004l
+[*] api_down @ 20250915T223021
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+
+[*] api_down @ 20250915T223021
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+[*] pre-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[*] force-free :8000 if still occupied
+[*] force-free :8000 if still occupied
+[*] fuser: nothing to kill
+[*] fuser: nothing to kill
+[*] post-check listeners on :8000
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mchmod +x scripts/api_down.sh[27m
+[7mbash scripts/api_down.sh || true[27m
+
+[7m# 你要看的固定檔位（一定有）：[27m
+[7mecho "ERR  : $PWD/reports_auto/ERR/api.err"[27m
+[7mecho "LOG  : $PWD/reports_auto/ERR/run.log"[27m
+[7mecho "SERV : $PWD/reports_auto/ERR/server.log"[27m
+[7mecho "WHERE: $PWD/reports_auto/ERR/where.txt"[27m
+[7mtail -n 80 reports_auto/ERR/run.log[27m
+[7mcat reports_auto/ERR/api.err[27m[7mchmod +x scripts/api_down.sh[27m
+[7mbash scripts/api_down.sh || true[27m
+
+[7m# 你要看的固定檔位（一定有）：[27m
+[7mecho "ERR  : $PWD/reports_auto/ERR/api.err"[27m
+[7mecho "LOG  : $PWD/reports_auto/ERR/run.log"[27m
+[7mecho "SERV : $PWD/reports_auto/ERR/server.log"[27m
+[7mecho "WHERE: $PWD/reports_auto/ERR/where.txt"[27m
+[7mtail -n 80 reports_auto/ERR/run.log[27m
+[7mcat reports_auto/ERR/api.err[27m[A[A[A[A[A[A[A[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ chmod +x scripts/api_down.sh
+bash scripts/api_down.sh || true
+
+# 你要看的固定檔位（一定有）：
+echo "ERR  : $PWD/reports_auto/ERR/api.err"
+echo "LOG  : $PWD/reports_auto/ERR/run.log"
+echo "SERV : $PWD/reports_auto/ERR/server.log"
+echo "WHERE: $PWD/reports_auto/ERR/where.txt"
+tail -n 80 reports_auto/ERR/run.log
+cat reports_auto/ERR/api.err
+[?2004l[A[A[A[A[A[A[A[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ chmod +x scripts/api_down.sh
+bash scripts/api_down.sh || true
+
+# 你要看的固定檔位（一定有）：
+echo "ERR  : $PWD/reports_auto/ERR/api.err"
+echo "LOG  : $PWD/reports_auto/ERR/run.log"
+echo "SERV : $PWD/reports_auto/ERR/server.log"
+echo "WHERE: $PWD/reports_auto/ERR/where.txt"
+tail -n 80 reports_auto/ERR/run.log
+cat reports_auto/ERR/api.err
+[?2004l[*] no running PID
+[*] no running PID
+ERR  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+LOG  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+SERV : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+ERR  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+LOG  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+SERV : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+WHERE: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt
+WHERE: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt
+exit_code=1
+exit_code=1
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ #!/usr/bin/env bash
+# oneclick_production.sh — 一鍵：生產化 + 腳本部署 + /debug/proba + API重啟 + smoke/eval/gate
+set -Eeuo pipefail -o errtrace
+ROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"
+
+TS="$(date +%Y%m%dT%H%M%S)"
+OUT="reports_auto/oneclick/${TS}"
+mkdir -p "$OUT" reports_auto/ERR reports_auto/status reports_auto/.quarantine scripts vendor/sma_tools
+LOG="$OUT/run.log"; ERR="$OUT/oneclick.err"
+exec > >(tee -a "$LOG") 2>&1
+trap 'ec=${1:-$?}; echo "exit_code=$ec" > "$ERR"; echo "[ERR] see: $(cd "$OUT"&&pwd)/oneclick.err"; exit $ec' ERR
+
+# ---------- 0) 固定資源（你的機器既有路徑，不猜） ----------
+MODEL="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl"
+RULE1="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py"
+RULE2="/home/youjie/projects/smart-mail-agent_ssot/.sma_tools/runtime_threshold_router.py"
+[ -f "$MODEL" ] || { echo "[FATAL] 模型不存在: $MODEL"; exit 2; }
+RULES="$RULE1"; [ -f "$RULES" ] || RULES="$RULE2"; [ -f "$RULES" ] || { echo "[FATAL] 找不到 rules: $RULE1 或 $RULE2"; exit 2; } 
+
+# ---------- 1) venv 復用 + 錯誤匯流固定 ----------
+[ -e .venv ] || { [ -d /home/youjie/projects/smart-mail-agent_ssot/.venv ] && ln -s /home/youjie/projects/smart-mail-agent_ssot/.venv .venv || true; } 
+PYBIN="$ROOT/.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)"
+ERR_DIR="$ROOT/reports_auto/ERR"; echo "RUN_DIR=$ERR_DIR" > "$ERR_DIR/where.txt"
+
+# ---------- 2) sma_tools：ZeroPad + label_map（6 標） ----------
+cat > vendor/sma_tools/__init__.py <<'PY'
+__all__ = ["sk_zero_pad","label_map"]
+PY
+#!/usr/bin/env bash
+# oneclick_production.sh — 一鍵：生產化 + 腳本部署 + /debug/proba + API重啟 + smoke/eval/gate
+set -Eeuo pipefail -o errtrace
+ROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"
+
+TS="$(date +%Y%m%dT%H%M%S)"
+OUT="reports_auto/oneclick/${TS}"
+mkdir -p "$OUT" reports_auto/ERR reports_auto/status reports_auto/.quarantine scripts vendor/sma_tools
+LOG="$OUT/run.log"; ERR="$OUT/oneclick.err"
+exec > >(tee -a "$LOG") 2>&1
+trap 'ec=${1:-$?}; echo "exit_code=$ec" > "$ERR"; echo "[ERR] see: $(cd "$OUT"&&pwd)/oneclick.err"; exit $ec' ERR
+
+# ---------- 0) 固定資源（你的機器既有路徑，不猜） ----------
+MODEL="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl"
+RULE1="/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py"
+RULE2="/home/youjie/projects/smart-mail-agent_ssot/.sma_tools/runtime_threshold_router.py"
+[ -f "$MODEL" ] || { echo "[FATAL] 模型不存在: $MODEL"; exit 2; }
+RULES="$RULE1"; [ -f "$RULES" ] || RULES="$RULE2"; [ -f "$RULES" ] || { echo "[FATAL] 找不到 rules: $RULE1 或 $RULE2"; exit 2; } 
+
+# ---------- 1) venv 復用 + 錯誤匯流固定 ----------
+[ -e .venv ] || { [ -d /home/youjie/projects/smart-mail-agent_ssot/.venv ] && ln -s /home/youjie/projects/smart-mail-agent_ssot/.venv .venv || true; } 
+PYBIN="$ROOT/.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)"
+ERR_DIR="$ROOT/reports_auto/ERR"; echo "RUN_DIR=$ERR_DIR" > "$ERR_DIR/where.txt"
+
+# ---------- 2) sma_tools：ZeroPad + label_map（6 標） ----------
+cat > vendor/sma_tools/__init__.py <<'PY'
+__all__ = ["sk_zero_pad","label_map"]
+PY
+cat > vendor/sma_tools/sk_zero_pad.py <<'PY'from __future__ import annotationsimport numpy as npfrom scipy import sparse as spfrom sklearn.base import BaseEstimator, TransformerMixinclass ZeroPad(BaseEstimator, TransformerMixin):    def __init__(self, width:int=1, dtype=np.float64, **kw):        try: self.width = int(width) if width else 1        except Exception: self.width = 1        self.dtype = dtype        self._extra = dict(kw)    def __setstate__(self, state):        self.__dict__.update(state or {})        if not hasattr(self,"width"): self.width=1        if not hasattr(self,"dtype"): self.dtype=np.float64    def fit(self, X, y=None): return self    def transform(self, X): return sp.csr_matrix((len(X), self.width), dtype=self.dtype)PYcat > vendor/sma_tools/label_map.py <<'PY'ZH2EN = {  "報價":"biz_quote", "技術支援":"tech_support", "資料異動":"profile_update",  "規則詢問":"policy_qa", "投訴":"complaint", "其他":"other"}EN2ZH = {v:k for k,v in ZH2EN.items()}EN_LABELS = ["biz_quote","complaint","other","policy_qa","profile_update","tech_support"]def normalize_labels(labels, target="en"):    if target=="en":        conv = ZH2EN; passthru = set(EN2ZH.keys())    else:        conv = EN2ZH; passthru = set(ZH2EN.keys())    out=[]    for x in labels:        s = ("" if x is None else str(x))        if s in conv: out.append(conv[s])        elif s in passthru: out.append(s)        else: out.append("other")    return outPY# ---------- 3) env.default：若缺則補（不覆蓋既有值） ----------touch scripts/env.defaultawk -v M="$MODEL" -v R1="$RULE1" -v R2="$RULE2" 'BEGIN{hM=0;hR=0;hP=0;hE=0}$0 ~ /^SMA_INTENT_ML_PKL=/ {hM=1}$0 ~ /^SMA_RULES_SRC=/     {hR=1}$0 ~ /^PORT=/              {hP=1}$0 ~ /^SMA_ERR_DIR=/       {hE=1}{print}END{  if(!hM) print "SMA_INTENT_ML_PKL=" M;  if(!hR) print "SMA_RULES_SRC=" (system("[ -f " R1 " ]")==0?R1:R2);  if(!hP) print "PORT=8000";  if(!hE) print "SMA_ERR_DIR='"$ERR_DIR"'";}' scripts/env.default > scripts/.env.tmp && mv scripts/.env.tmp scripts/env.default# ---------- 4) sink_wrap：所有腳本錯誤統一匯流到 ERR ----------cat > scripts/sink_wrap.sh <<'SH'#!/usr/bin/env bash# 使用： scripts/sink_wrap.sh bash -lc 'your command'set -Eeuo pipefail -o errtraceROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"TS="$(date +%Y%m%dT%H%M%S)"; RUN="reports_auto/wrap/${TS}"; mkdir -p "$RUN"LOG="$RUN/run.log"; E="$RUN/wrap.err"; PY="$RUN/py_last_trace.txt"exec > >(tee -a "$LOG") 2>&1error_sink::copy(){ local src="${1:-}"; local dst="${2:-}"; [ -n "$src" ] && [ -f "$src" ] && cp -f "$src" "$dst" || true; }error_sink::init(){ mkdir -p "$ERR_DIR"; }sink_err(){ local d="$1"; local e="$2"; local py="$3"; local slog="${4:-}"; error_sink::init;  error_sink::copy "$e" "$ERR_DIR/api.err"; error_sink::copy "$LOG" "$ERR_DIR/run.log";  error_sink::copy "$py" "$ERR_DIR/py_last_trace.txt"; error_sink::copy "$slog" "$ERR_DIR/server.log";  (cd "$d" && pwd) | awk '{print "RUN_DIR=" $0}' > "$ERR_DIR/where.txt"; ln -sfn "$(cd "$d"&&pwd)" "$ERR_DIR/LATEST_RUN" || true; }print_paths(){ echo "[PATHS]"; echo "  RUN_DIR=$(cd "$RUN"&&pwd)"; echo "  LOG=$(cd "$RUN"&&pwd)/run.log"; echo "  ERR=$(cd "$RUN"&&pwd)/wrap.err"; echo "  PY_LAST=$(cd "$RUN"&&pwd)/py_last_trace.txt"; }on_err(){ ec=${1:-$?}; echo "=== BASH_TRAP(sink_wrap) ===" >> "$LOG"; echo "TIME: $(date -Is)" >> "$LOG"; echo "LAST:$*" >> "$LOG"; echo "CODE:$ec" >> "$LOG"; echo "exit_code=$ec" > "$E"; sink_err "$RUN" "$E" "$PY" ""; print_paths; exit "$ec"; }on_exit(){ error_sink::init; error_sink::copy "$LOG" "$ERR_DIR/run.log"; (cd "$RUN"&&pwd) | awk '{print "RUN_DIR=" $0}' > "$ERR_DIR/where.txt"; ln -sfn "$(cd "$RUN"&&pwd)" "$ERR_DIR/LATEST_RUN" || true; print_paths; }trap 'on_err $?' ERR; trap on_exit EXIT[ $# -eq 0 ] && { echo "[FATAL] need a command"; exit 2; }bash -x -o pipefail -c "$*" || on_err $?SHchmod +x scripts/sink_wrap.sh# ---------- 5) API 啟停（固定錯誤匯流） ----------cat > scripts/api_down.sh <<'SH'#!/usr/bin/env bash# stop API on PORT safely, clear pidfiles, free port if needed; log to ERRset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"{echo; echo "[*] api_down @ $(date +%Y%m%dT%H%M%S)"; echo "[PATHS]"; echo "  ERR_DIR=$ERR_DIR"echo "  LOG=$ERR_DIR/run.log"; echo "  ERR=$ERR_DIR/api.err"; echo "  SERVER=$ERR_DIR/server.log"; echo "  PY_LAST=$ERR_DIR/py_last_trace.txt"; echo "  PORT=$PORT"echo "[*] pre-check listeners on :$PORT"; (command -v ss >/dev/null && ss -lptn "sport = :$PORT" || true) || truekill_wait(){ local p="${1:-}"; [ -n "$p" ] || return 0; kill "$p" 2>/dev/null || true; for _ in {1..20}; do kill -0 "$p" 2>/dev/null || return 0; sleep 0.1; done; kill -9 "$p" 2>/dev/null || true; }for pf in reports_auto/api/LAST.pid reports_auto/ERR/api.pid; do [ -f "$pf" ] || continue; pid="$(cat "$pf" 2>/dev/null || true)"; [ -n "$pid" ] && kill_wait "$pid"; rm -f "$pf" || true; doneecho "[*] force-free :$PORT if still occupied"if command -v fuser >/dev/null 2>&1; then fuser -k "${PORT}"/tcp 2>/dev/null || trueelif command -v lsof >/dev/null 2>&1; then mapfile -t LP < <(lsof -tiTCP:"${PORT}" -sTCP:LISTEN 2>/dev/null || true); for p in "${LP[@]:-}"; do kill_wait "$p"; doneelse mapfile -t SP < <(ss -lptn "sport = :${PORT}" 2>/dev/null | sed -n 's/.*pid=\([0-9]\+\).*/\1/p'); for p in "${SP[@]:-}"; do kill_wait "$p"; done; fiecho "[*] post-check listeners on :$PORT"; (command -v ss >/dev/null && ss -lptn "sport = :$PORT" || true) || trueecho "[DOWN] port=$PORT; pidfiles cleared; ERR_DIR=$ERR_DIR"; } >> "$ERR_DIR/run.log" 2>&1SHchmod +x scripts/api_down.shcat > scripts/api_up_env.sh <<'SH'#!/usr/bin/env bash# export env → start API → pin logs into reports_auto/ERR/server.log (+PID)set -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"set -a; . scripts/env.default 2>/dev/null || true; set +aexport SMA_INTENT_ML_PKL="${SMA_INTENT_ML_PKL}"export SMA_RULES_SRC="${SMA_RULES_SRC}"export SMA_ERR_DIR="$ERR_DIR"PORT="${PORT:-8000}"echo "[*] ENV"            | tee -a "$ERR_DIR/run.log"echo "  SMA_INTENT_ML_PKL=$SMA_INTENT_ML_PKL" | tee -a "$ERR_DIR/run.log"echo "  SMA_RULES_SRC=$SMA_RULES_SRC"         | tee -a "$ERR_DIR/run.log"echo "  SMA_ERR_DIR=$SMA_ERR_DIR"             | tee -a "$ERR_DIR/run.log"echo "  PORT=$PORT"                           | tee -a "$ERR_DIR/run.log"bash scripts/api_down.sh || truePYBIN="$ROOT/.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)"nohup "$PYBIN" scripts/http_api_min.py >> "$ERR_DIR/server.log" 2>&1 & echo $! > "$ERR_DIR/api.pid"sleep 0.4echo "[OK] API ready :$PORT" | tee -a "$ERR_DIR/run.log"SHchmod +x scripts/api_up_env.sh# ---------- 6) tri-eval（修正標籤 + 綁 rules_feat） ----------cat > scripts/tri_eval_fixlabels.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefail -o errtraceROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"TS="$(date +%Y%m%dT%H%M%S)"; RUN="reports_auto/eval_fix/${TS}"LOG="$RUN/run.log"; ERR="$RUN/tri_eval.err"; PY_LAST="$RUN/py_last_trace.txt"mkdir -p "$RUN"; exec > >(tee -a "$LOG") 2>&1trap 'ec=${1:-$?}; echo "exit_code=$ec" > "$ERR"; echo "[PATHS]"; echo "  RUN = $(cd "$RUN"&&pwd)"; echo "  LOG = $(cd "$RUN"&&pwd)/run.log"; echo "  ERR = $(cd "$RUN"&&pwd)/tri_eval.err"; echo "  PY_LAST = $(cd "$RUN"&&pwd)/py_last_trace.txt"; echo "  RESULT = $(cd "$RUN"&&pwd)/tri_results_fixed.json"; exit $ec' ERRset -a; . scripts/env.default 2>/dev/null || true; set +aexport PYTHONPATH="src:vendor:${PYTHONPATH:-}"PYBIN="./.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)"DATA="data/intent_eval/dataset.cleaned.jsonl"[ -f "$DATA" ] || { echo "[FATAL] $DATA not found"; exit 2; }echo "[*] PYBIN=$PYBIN"; echo "[*] DATA=$DATA"; echo "[*] PKL=$SMA_INTENT_ML_PKL"; echo "[*] RULES_SRC=$SMA_RULES_SRC (bind to __main__.rules_feat)""$PYBIN" - "$DATA" "$SMA_INTENT_ML_PKL" "$SMA_RULES_SRC" "$RUN/tri_results_fixed.json" <<'PY'import sys, json, importlib.util, __main__, joblib, pathlibfrom vendor.sma_tools.label_map import normalize_labels, EN_LABELSdata, pkl, rules_src, out = sys.argv[1:5]spec = importlib.util.spec_from_file_location("rt", rules_src)m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)setattr(__main__, "rules_feat", getattr(m,"rules_feat", None))obj=joblib.load(pkl)def pick(o):    if hasattr(o,"predict"): return o    if isinstance(o,dict):        for k in ("pipe","pipeline","estimator","model"):            if k in o and o[k] is not None: return pick(o[k])    if isinstance(o,(list,tuple)) and o: return pick(o[0])    raise SystemExit("no predictor inside pickle")est = pick(obj)clf = est.steps[-1][1] if hasattr(est,"steps") else estimport numpy as np, timetexts=[]; ys=[]with open(data,"r",encoding="utf-8") as f:    for line in f:        j=json.loads(line); texts.append(j.get("text","")); ys.append(j.get("label","other"))Y = normalize_labels(ys,"en")t0=time.time(); yp_ml=[str(y) for y in est.predict(texts)]; t1=time.time()def f1_macro(y_true,y_pred):    from sklearn.metrics import f1_score    return float(f1_score(y_true,y_pred,average="macro"))def acc(y_true,y_pred):    import numpy as np    return float(np.mean([a==b for a,b in zip(y_true,y_pred)]))res = {  "n": len(texts),  "runs": [    {"route":"ml","pred":yp_ml,"latency_ms": int((t1-t0)*1000),     "report":{"accuracy":acc(Y, yp_ml), "macro_f1": f1_macro(Y, yp_ml)}}  ]}pathlib.Path(out).write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")print(f"[OK] wrote: {out}")PYecho "[PATHS]"; echo "  RUN = $(cd "$RUN"&&pwd)"; echo "  LOG = $(cd "$RUN"&&pwd)/run.log"; echo "  ERR = $(cd "$RUN"&&pwd)/tri_eval.err"; echo "  PY_LAST = $(cd "$RUN"&&pwd)/py_last_trace.txt"; echo "  RESULT = $(cd "$RUN"&&pwd)/tri_results_fixed.json"SHchmod +x scripts/tri_eval_fixlabels.sh# ---------- 7) tri-eval 報告 ----------cat > scripts/tri_eval_report.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"LAST="$(ls -1dt reports_auto/eval_fix/2* reports_auto/eval/2* 2>/dev/null | head -n1 || true)"[ -n "$LAST" ] || { echo "[FATAL] no eval dir under reports_auto/eval_fix or reports_auto/eval"; exit 2; }RES="$LAST/tri_results_fixed.json"; [ -f "$RES" ] || RES="$LAST/tri_results.json"[ -f "$RES" ] || { echo "[FATAL] no tri_results json in $LAST"; exit 2; }TS="$(basename "$LAST")"; MD="reports_auto/status/INTENTS_SUMMARY_${TS}.md"PYBIN="./.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)""$PYBIN" - "$RES" "$MD" <<'PY'import sys, json, pathlibres = pathlib.Path(sys.argv[1]); md = pathlib.Path(sys.argv[2])J = json.loads(res.read_text(encoding="utf-8")); runs = J.get("runs", [])def pick(d,k,default=0.0): return float(d.get("report",{}).get(k, default))m = { r.get("route"): r for r in runs }ml = m.get("ml") or {}acc = pick(ml, "accuracy"); mf1 = pick(ml, "macro_f1"); lat = ml.get("latency_ms",0)md.write_text(f"# INTENT TRI-EVAL SUMMARY ({res.parent.name})\n\n"              f"- RESULT_JSON: {res}\n\n"              "| route | accuracy | macro F1 | latency ms |\n|---|---:|---:|---:|\n"              f"| ml.classify | {acc:.4f} | {mf1:.4f} | {lat} |\n", encoding="utf-8")print(md)PYecho "[PATHS]"; echo "  LAST_DIR = $(cd "$LAST"&&pwd)"; echo "  RESULT   = $(cd "$LAST"&&pwd)/$(basename "$RES")"; echo "  SUMMARY  = $(cd "$(dirname "$MD")"&&pwd)/$(basename "$MD")"SHchmod +x scripts/tri_eval_report.sh# ---------- 8) sanity（rule/ml/tri-eval 小樣本） ----------cat > scripts/sanity_all.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"API_DIR="$(ls -1dt reports_auto/api/2* 2>/dev/null | head -n1 || true)"[ -n "$API_DIR"cat > vendor/sma_tools/sk_zero_pad.py <<'PY'from __future__ import annotationsimport numpy as npfrom scipy import sparse as spfrom sklearn.base import BaseEstimator, TransformerMixinclass ZeroPad(BaseEstimator, TransformerMixin):    def __init__(self, width:int=1, dtype=np.float64, **kw):        try: self.width = int(width) if width else 1        except Exception: self.width = 1        self.dtype = dtype        self._extra = dict(kw)    def __setstate__(self, state):        self.__dict__.update(state or {})        if not hasattr(self,"width"): self.width=1        if not hasattr(self,"dtype"): self.dtype=np.float64    def fit(self, X, y=None): return self    def transform(self, X): return sp.csr_matrix((len(X), self.width), dtype=self.dtype)PYcat > vendor/sma_tools/label_map.py <<'PY'ZH2EN = {  "報價":"biz_quote", "技術支援":"tech_support", "資料異動":"profile_update",  "規則詢問":"policy_qa", "投訴":"complaint", "其他":"other"}EN2ZH = {v:k for k,v in ZH2EN.items()}EN_LABELS = ["biz_quote","complaint","other","policy_qa","profile_update","tech_support"]def normalize_labels(labels, target="en"):    if target=="en":        conv = ZH2EN; passthru = set(EN2ZH.keys())    else:        conv = EN2ZH; passthru = set(ZH2EN.keys())    out=[]    for x in labels:        s = ("" if x is None else str(x))        if s in conv: out.append(conv[s])        elif s in passthru: out.append(s)        else: out.append("other")    return outPY# ---------- 3) env.default：若缺則補（不覆蓋既有值） ----------touch scripts/env.defaultawk -v M="$MODEL" -v R1="$RULE1" -v R2="$RULE2" 'BEGIN{hM=0;hR=0;hP=0;hE=0}$0 ~ /^SMA_INTENT_ML_PKL=/ {hM=1}$0 ~ /^SMA_RULES_SRC=/     {hR=1}$0 ~ /^PORT=/              {hP=1}$0 ~ /^SMA_ERR_DIR=/       {hE=1}{print}END{  if(!hM) print "SMA_INTENT_ML_PKL=" M;  if(!hR) print "SMA_RULES_SRC=" (system("[ -f " R1 " ]")==0?R1:R2);  if(!hP) print "PORT=8000";  if(!hE) print "SMA_ERR_DIR='"$ERR_DIR"'";}' scripts/env.default > scripts/.env.tmp && mv scripts/.env.tmp scripts/env.default# ---------- 4) sink_wrap：所有腳本錯誤統一匯流到 ERR ----------cat > scripts/sink_wrap.sh <<'SH'#!/usr/bin/env bash# 使用： scripts/sink_wrap.sh bash -lc 'your command'set -Eeuo pipefail -o errtraceROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"TS="$(date +%Y%m%dT%H%M%S)"; RUN="reports_auto/wrap/${TS}"; mkdir -p "$RUN"LOG="$RUN/run.log"; E="$RUN/wrap.err"; PY="$RUN/py_last_trace.txt"exec > >(tee -a "$LOG") 2>&1error_sink::copy(){ local src="${1:-}"; local dst="${2:-}"; [ -n "$src" ] && [ -f "$src" ] && cp -f "$src" "$dst" || true; }error_sink::init(){ mkdir -p "$ERR_DIR"; }sink_err(){ local d="$1"; local e="$2"; local py="$3"; local slog="${4:-}"; error_sink::init;  error_sink::copy "$e" "$ERR_DIR/api.err"; error_sink::copy "$LOG" "$ERR_DIR/run.log";  error_sink::copy "$py" "$ERR_DIR/py_last_trace.txt"; error_sink::copy "$slog" "$ERR_DIR/server.log";  (cd "$d" && pwd) | awk '{print "RUN_DIR=" $0}' > "$ERR_DIR/where.txt"; ln -sfn "$(cd "$d"&&pwd)" "$ERR_DIR/LATEST_RUN" || true; }print_paths(){ echo "[PATHS]"; echo "  RUN_DIR=$(cd "$RUN"&&pwd)"; echo "  LOG=$(cd "$RUN"&&pwd)/run.log"; echo "  ERR=$(cd "$RUN"&&pwd)/wrap.err"; echo "  PY_LAST=$(cd "$RUN"&&pwd)/py_last_trace.txt"; }on_err(){ ec=${1:-$?}; echo "=== BASH_TRAP(sink_wrap) ===" >> "$LOG"; echo "TIME: $(date -Is)" >> "$LOG"; echo "LAST:$*" >> "$LOG"; echo "CODE:$ec" >> "$LOG"; echo "exit_code=$ec" > "$E"; sink_err "$RUN" "$E" "$PY" ""; print_paths; exit "$ec"; }on_exit(){ error_sink::init; error_sink::copy "$LOG" "$ERR_DIR/run.log"; (cd "$RUN"&&pwd) | awk '{print "RUN_DIR=" $0}' > "$ERR_DIR/where.txt"; ln -sfn "$(cd "$RUN"&&pwd)" "$ERR_DIR/LATEST_RUN" || true; print_paths; }trap 'on_err $?' ERR; trap on_exit EXIT[ $# -eq 0 ] && { echo "[FATAL] need a command"; exit 2; }bash -x -o pipefail -c "$*" || on_err $?SHchmod +x scripts/sink_wrap.sh# ---------- 5) API 啟停（固定錯誤匯流） ----------cat > scripts/api_down.sh <<'SH'#!/usr/bin/env bash# stop API on PORT safely, clear pidfiles, free port if needed; log to ERRset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"{echo; echo "[*] api_down @ $(date +%Y%m%dT%H%M%S)"; echo "[PATHS]"; echo "  ERR_DIR=$ERR_DIR"echo "  LOG=$ERR_DIR/run.log"; echo "  ERR=$ERR_DIR/api.err"; echo "  SERVER=$ERR_DIR/server.log"; echo "  PY_LAST=$ERR_DIR/py_last_trace.txt"; echo "  PORT=$PORT"echo "[*] pre-check listeners on :$PORT"; (command -v ss >/dev/null && ss -lptn "sport = :$PORT" || true) || truekill_wait(){ local p="${1:-}"; [ -n "$p" ] || return 0; kill "$p" 2>/dev/null || true; for _ in {1..20}; do kill -0 "$p" 2>/dev/null || return 0; sleep 0.1; done; kill -9 "$p" 2>/dev/null || true; }for pf in reports_auto/api/LAST.pid reports_auto/ERR/api.pid; do [ -f "$pf" ] || continue; pid="$(cat "$pf" 2>/dev/null || true)"; [ -n "$pid" ] && kill_wait "$pid"; rm -f "$pf" || true; doneecho "[*] force-free :$PORT if still occupied"if command -v fuser >/dev/null 2>&1; then fuser -k "${PORT}"/tcp 2>/dev/null || trueelif command -v lsof >/dev/null 2>&1; then mapfile -t LP < <(lsof -tiTCP:"${PORT}" -sTCP:LISTEN 2>/dev/null || true); for p in "${LP[@]:-}"; do kill_wait "$p"; doneelse mapfile -t SP < <(ss -lptn "sport = :${PORT}" 2>/dev/null | sed -n 's/.*pid=\([0-9]\+\).*/\1/p'); for p in "${SP[@]:-}"; do kill_wait "$p"; done; fiecho "[*] post-check listeners on :$PORT"; (command -v ss >/dev/null && ss -lptn "sport = :$PORT" || true) || trueecho "[DOWN] port=$PORT; pidfiles cleared; ERR_DIR=$ERR_DIR"; } >> "$ERR_DIR/run.log" 2>&1SHchmod +x scripts/api_down.shcat > scripts/api_up_env.sh <<'SH'#!/usr/bin/env bash# export env → start API → pin logs into reports_auto/ERR/server.log (+PID)set -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"set -a; . scripts/env.default 2>/dev/null || true; set +aexport SMA_INTENT_ML_PKL="${SMA_INTENT_ML_PKL}"export SMA_RULES_SRC="${SMA_RULES_SRC}"export SMA_ERR_DIR="$ERR_DIR"PORT="${PORT:-8000}"echo "[*] ENV"            | tee -a "$ERR_DIR/run.log"echo "  SMA_INTENT_ML_PKL=$SMA_INTENT_ML_PKL" | tee -a "$ERR_DIR/run.log"echo "  SMA_RULES_SRC=$SMA_RULES_SRC"         | tee -a "$ERR_DIR/run.log"echo "  SMA_ERR_DIR=$SMA_ERR_DIR"             | tee -a "$ERR_DIR/run.log"echo "  PORT=$PORT"                           | tee -a "$ERR_DIR/run.log"bash scripts/api_down.sh || truePYBIN="$ROOT/.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)"nohup "$PYBIN" scripts/http_api_min.py >> "$ERR_DIR/server.log" 2>&1 & echo $! > "$ERR_DIR/api.pid"sleep 0.4echo "[OK] API ready :$PORT" | tee -a "$ERR_DIR/run.log"SHchmod +x scripts/api_up_env.sh# ---------- 6) tri-eval（修正標籤 + 綁 rules_feat） ----------cat > scripts/tri_eval_fixlabels.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefail -o errtraceROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"TS="$(date +%Y%m%dT%H%M%S)"; RUN="reports_auto/eval_fix/${TS}"LOG="$RUN/run.log"; ERR="$RUN/tri_eval.err"; PY_LAST="$RUN/py_last_trace.txt"mkdir -p "$RUN"; exec > >(tee -a "$LOG") 2>&1trap 'ec=${1:-$?}; echo "exit_code=$ec" > "$ERR"; echo "[PATHS]"; echo "  RUN = $(cd "$RUN"&&pwd)"; echo "  LOG = $(cd "$RUN"&&pwd)/run.log"; echo "  ERR = $(cd "$RUN"&&pwd)/tri_eval.err"; echo "  PY_LAST = $(cd "$RUN"&&pwd)/py_last_trace.txt"; echo "  RESULT = $(cd "$RUN"&&pwd)/tri_results_fixed.json"; exit $ec' ERRset -a; . scripts/env.default 2>/dev/null || true; set +aexport PYTHONPATH="src:vendor:${PYTHONPATH:-}"PYBIN="./.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)"DATA="data/intent_eval/dataset.cleaned.jsonl"[ -f "$DATA" ] || { echo "[FATAL] $DATA not found"; exit 2; }echo "[*] PYBIN=$PYBIN"; echo "[*] DATA=$DATA"; echo "[*] PKL=$SMA_INTENT_ML_PKL"; echo "[*]  ] || API_DIR="reports_auto/api/$(date +%Y%m%dT%H%M%S)"; mkdir -p "$API_DIR"LOG="$API_DIR/run.log"; ERR="$API_DIR/api.err"; PY_LAST="$API_DIR/py_last_trace.txt"; SLOG="$API_DIR/server.log"jqok(){ command -v jq >/dev/null 2>&1; }echo "[*] Using API_DIR: $(cd "$API_DIR" && pwd)"; echo "[*] PORT=$PORT"for route in rule ml; do  out="$API_DIR/sanity_smoke_${route}.json"  echo "[*] smoke $route -> $out"  curl -sS -X POST "http://127.0.0.1:${PORT}/classify" -H 'Content-Type: application/json' \    -d '{"texts":["想詢問報價與交期","需要技術支援"],"route":"'"$route"'"}' > "$out" || true  if jqok; then jq . "$out" || true; else cat "$out" || true; fidoneTRI="$API_DIR/sanity_tri_eval.json"echo "[*] /tri-eval -> $TRI"curl -sS -X POST "http://127.0.0.1:${PORT}/tri-eval" -H 'Content-Type: application/json' \  -d '{"texts":["想詢問報價與交期","需要技術支援","發票抬頭更新"],"labels":["biz_quote","tech_support","profile_update"]}' > "$TRI" || trueif jqok; then jq . "$TRI" || tRULES_SRC=$SMA_RULES_SRC (bind to __main__.rules_feat)""$PYBIN" - "$DATA" "$SMA_INTENT_ML_PKL" "$SMA_RULES_SRC" "$RUN/tri_results_fixed.json" <<'PY'import sys, json, importlib.util, __main__, joblib, pathlibfrom vendor.sma_tools.label_map import normalize_labels, EN_LABELSdata, pkl, rules_src, out = sys.argv[1:5]spec = importlib.util.spec_from_file_location("rt", rules_src)m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)setattr(__main__, "rules_feat", getattr(m,"rules_feat", None))obj=joblib.load(pkl)def pick(o):    if hasattr(o,"predict"): return o    if isinstance(o,dict):        for k in ("pipe","pipeline","estimator","model"):            if k in o and o[k] is not None: return pick(o[k])    if isinstance(o,(list,tuple)) and o: return pick(o[0])    raise SystemExit("no predictor inside pickle")est = pick(obj)clf = est.steps[-1][1] if hasattr(est,"steps") else estimport numpy as np, timetexts=[]; ys=[]with open(data,"r",encoding="utf-8") as f:    for line in f:        j=json.loads(line); texts.append(j.get("text","")); ys.append(j.get("label","other"))Y = normalize_labels(ys,"en")t0=time.time(); yp_ml=[str(y) for y in est.predict(texts)]; t1=time.time()def f1_macro(y_true,y_pred):    from sklearn.metrics import f1_score    return float(f1_score(y_true,y_pred,average="macro"))def acc(y_true,y_pred):    import numpy as np    return float(np.mean([a==b for a,b in zip(y_true,y_pred)]))res = {  "n": len(texts),  "runs": [    {"route":"ml","pred":yp_ml,"latency_ms": int((t1-t0)*1000),     "report":{"accuracy":acc(Y, yp_ml), "macro_f1": f1_macro(Y, yp_ml)}}  ]}pathlib.Path(out).write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")print(f"[OK] wrote: {out}")PYecho "[PATHS]"; echo "  RUN = $(cd "$RUN"&&pwd)"; echo "  LOG = $(cd "$RUN"&&pwd)/run.log"; echo "  ERR = $(cd "$RUN"&&pwd)/tri_eval.err"; echo "  PY_LAST = $(cd "$RUN"&&pwd)/py_last_trace.txt"; echo "  RESULT = $(cd "$RUN"&&pwd)/tri_results_fixed.json"SHchmod +x scripts/tri_eval_fixlabels.sh# ---------- 7) tri-eval 報告 ----------cat > scripts/tri_eval_report.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"LAST="$(ls -1dt reports_auto/eval_fix/2* reports_auto/eval/2* 2>/dev/null | head -n1 || true)"[ -n "$LAST" ] || { echo "[FATAL] no eval dir under reports_auto/eval_fix or reports_auto/eval"; exit 2; }RES="$LAST/tri_results_fixed.json"; [ -f "$RES" ] || RES="$LAST/tri_results.json"[ -f "$RES" ] || { echo "[FATAL] no tri_results json in $LAST"; exit 2; }TS="$(basename "$LAST")"; MD="reports_auto/status/INTENTS_SUMMARY_${TS}.md"PYBIN="./.venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="$(command -v python)""$PYBIN" - "$RES" "$MD" <<'PY'import sys, json, pathlibres = pathlib.Path(sys.argv[1]); md = pathlib.Path(sys.argv[2])J = json.loads(res.read_text(encoding="utf-8")); runs = J.get("runs", [])def pick(d,k,default=0.0): return float(d.get("report",{}).get(k, default))m = { r.get("route"): r for r in runs }ml = m.get("ml") or {}acc = pick(ml, "accuracy"); mf1 = pick(ml, "macro_f1"); lat = ml.get("latency_ms",0)md.write_text(f"# INTENT TRI-EVAL SUMMARY ({res.parent.name})\n\n"              f"- RESULT_JSON: {res}\n\n"              "| route | accuracy | macro F1 | latency ms |\n|---|---:|---:|---:|\n"              f"| ml.classify | {acc:.4f} | {mf1:.4f} | {lat} |\n", encoding="utf-8")print(md)PYecho "[PATHS]"; echo "  LAST_DIR = $(cd "$LAST"&&pwd)"; echo "  RESULT   = $(cd "$LAST"&&pwd)/$(basename "$RES")"; echo "  SUMMARY  = $(cd "$(dirname "$MD")"&&pwd)/$(basename "$MD")"SHchmod +x scripts/tri_eval_report.sh# ---------- 8) sanity（rule/ml/tri-eval 小樣本） ----------cat > scripts/sanity_all.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"API_DIR="$(ls -1dt reports_auto/api/2* 2>/dev/null | head -n1 || true)"[ -n "$API_DIR"rue; else cat "$TRI" || true; fiecho "[PATHS]"; echo "  RUN_DIR = $(cd "$API_DIR"&&pwd)"; echo "  LOG     = $(cd "$API_DIR"&&pwd)/run.log"; echo "  ERR     = $(cd "$API_DIR"&&pwd)/api.err"; echo "  PY_LAST = $(cd "$API_DIR"&&pwd)/py_last_trace.txt"; echo "  SERVER  = $(cd "$API_DIR"&&pwd)/server.log"; echo "  SMOKE_R = $(cd "$API_DIR"&&pwd)/sanity_smoke_rule.json"; echo "  SMOKE_M = $(cd "$API_DIR"&&pwd)/sanity_smoke_ml.json"; echo "  TRI_OUT = $(cd "$API_DIR"&&pwd)/sanity_tri_eval.json"SHchmod +x scripts/sanity_all.sh# ---------- 9) Gate（門檻） ----------cat > scripts/gate.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefail -o errtraceROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"; exec > >(tee -a "$ERR_DIR/run.log") 2>&1echo "RUN_DIR=$ERR_DIR" > "$ERR_DIR/where.txt"RES="$(ls -1dt reports_auto/eval_fix/2*/tri_results_fixed.json reports_auto/eval/2*/tri_results.json 2>/dev/null | head -n1 || true)"[ -n "$RES" ] || { echo "[FATAL] no tri_eval result"; echo exit_code=2 > "$ERR_DIR/api.err"; exit 2; }python - "$RES" <<'PY'import json, sys, pathlibres = pathlib.Path(sys.argv[1])J = json.loads(res.read_text(encoding="utf-8")); runs = J.get("runs", [])m = { r.get("route"): r for r in runs }def pick(d,k,default=0.0): return float(d.get("report",{}).get(k, default))ok=True; reasons=[]ml = m.get("ml") or m.get("ml.classify") or m.get("ml_classify")if not ml:    ok=False; reasons.append("no ML run in tri-eval")else:    acc = pick(ml, "accuracy"); mf1 = pick(ml, "macro_f1")    if mf1 < 0.92: ok=False; reasons.append(f"ML macro_f1={mf1}<0.92")    if acc < 0.93: ok=False; reasons.append(f"ML accuracy={acc}<0.93")print(json.dumps({"ok": ok, "reasons": reasons, "tri_eval": str(res)}, ensure_ascii=False))PYSHchmod +x scripts/gate.sh# ---------- 10) e2e（classify→extract→plan→act） ----------cat > scripts/e2e_smoke.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"T1='您好，想詢問報價與交期，數量100台'T2='附件服務無法連線，請協助處理，連絡 0912-345-678'C=$(curl -sS -X POST "http://127.0.0.1:${PORT}/classify" -H 'Content-Type: application/json' -d "{\"texts\":[\"$T1\",\"$T2\"],\"route\":\"ml\"}")echo "$C" | jq . || echo "$C"I1=$(echo "$C" | jq -r '.pred[0]') ; I2=$(echo "$C" | jq -r '.pred[1]')E=$(curl -sS -X POST "http://127.0.0.1:${PORT}/extract" -H 'Content-Type: application/json' -d "{\"texts\":[\"$T1\",\"$T2\"]}")echo "$E" | jq . || echo "$E"P=$(curl -sS -X POST "http://127.0.0.1:${PORT}/plan" -H 'Content-Type: application/json' -d "{\"intents\":[\"$I1\",\"$I2\"]}")echo "$P" | jq . || echo "$P"A1=$(echo "$P" | jq -r '.actions[0]') ; A2=$(echo "$P" | jq -r '.actions[1]')A=$(curl -sS -X POST "http://127.0.0.1:${PORT}/act" -H 'Content-Type: application/json' \  -d "{\"items\":[{\"mail_id\":\"m1\",\"actio ] || API_DIR="reports_auto/api/$(date +%Y%m%dT%H%M%S)"; mkdir -p "$API_DIR"LOG="$API_DIR/run.log"; ERR="$API_DIR/api.err"; PY_LAST="$API_DIR/py_last_trace.txt"; SLOG="$API_DIR/server.log"jqok(){ command -v jq >/dev/null 2>&1; }echo "[*] Using API_DIR: $(cd "$API_DIR" && pwd)"; echo "[*] PORT=$PORT"for route in rule ml; do  out="$API_DIR/sanity_smoke_${route}.json"  echo "[*] smoke $route -> $out"  curl -sS -X POST "http://127.0.0.1:${PORT}/classify" -H 'Content-Type: application/json' \    -d '{"texts":["想詢問報價與交期","需要技術支援"],"route":"'"$route"'"}' > "$out" || true  if jqok; then jq . "$out" || true; else cat "$out" || true; fidoneTRI="$API_DIR/sanity_tri_eval.json"echo "[*] /tri-eval -> $TRI"curl -sS -X POST "http://127.0.0.1:${PORT}/tri-eval" -H 'Content-Type: application/json' \  -d '{"texts":["想詢問報價與交期","需要技術支援","發票抬頭更新"],"labels":["biz_quote","tech_support","profile_update"]}' > "$TRI" || trueif jqok; then jq . "$TRI" || tn\":\"$A1\",\"fields\":$(echo "$E" | jq '.fields[0]')},{\"mail_id\":\"m2\",\"action\":\"$A2\",\"fields\":$(echo "$E" | jq '.fields[1]')}]} ")echo "$A" | jq . || echo "$A"ls -1 "$(pwd)/rpa_out" 2>/dev/null | sed "s#^#  rpa_out/#" || trueSHchmod +x scripts/e2e_smoke.sh# ---------- 11) 嘗試為 http_api_min.py 增加 /debug/proba ----------# 策略：若檔案中尚未包含 "/debug/proba" 字樣，則以保守方式插入 elif 分支；失敗不會中斷。if ! grep -q '"/debug/proba"' scripts/http_api_min.py 2>/dev/null; then  cp -f scripts/http_api_min.py "$OUT/http_api_min.py.bak" 2>/dev/null || true  python - "$RULES" <<'PY' || trueimport io,sys,re,os,importlib.utilfp="scripts/http_api_min.py"src=open(fp,"r",encoding="utf-8").read()if '"/debug/proba"' in src:    print("[*] /debug/proba already present"); sys.exit(0)# 嘗試找 do_POST 的 if 鏈，將新分支插到最後一個 elif 之前m=re.search(r"(def\s+do_POST\(self\):.*?)(\n\s*else:\s*return\s+self\._json\(.*?\))", src, flags=re.S)rue; else cat "$TRI" || true; fiecho "[PATHS]"; echo "  RUN_DIR = $(cd "$API_DIR"&&pwd)"; echo "  LOG     = $(cd "$API_DIR"&&pwd)/run.log"; echo "  ERR     = $(cd "$API_DIR"&&pwd)/api.err"; echo "  PY_LAST = $(cd "$API_DIR"&&pwd)/py_last_trace.txt"; echo "  SERVER  = $(cd "$API_DIR"&&pwd)/server.log"; echo "  SMOKE_R = $(cd "$API_DIR"&&pwd)/sanity_smoke_rule.json"; echo "  SMOKE_M = $(cd "$API_DIR"&&pwd)/sanity_smoke_ml.json"; echo "  TRI_OUT = $(cd "$API_DIR"&&pwd)/sanity_tri_eval.json"SHchmod +x scripts/sanity_all.sh# ---------- 9) Gate（門檻） ----------cat > scripts/gate.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefail -o errtraceROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"ERR_DIR="$ROOT/reports_auto/ERR"; mkdir -p "$ERR_DIR"; exec > >(tee -a "$ERR_DIR/run.log") 2>&1echo "RUN_DIR=$ERR_DIR" > "$ERR_DIR/where.txt"RES="$(ls -1dt reports_auto/eval_fix/2*/tri_results_fixed.json reports_auto/eval/2*/tri_results.json 2>/dev/null | head -n1 || true)"[ -n "$RES" ] || { echo "[FATAL] no tri_eval result"; echo exit_code=2 > "$ERR_DIR/api.err"; exit 2; }python - "$RES" <<'PY'import json, sys, pathlibres = pathlib.Path(sys.argv[1])J = json.loads(res.read_text(encoding="utf-8")); runs = J.get("runs", [])m = { r.get("route"): r for r in runs }def pick(d,k,default=0.0): return float(d.get("report",{}).get(k, default))ok=True; reasons=[]ml = m.get("ml") or m.get("ml.classify") or m.get("ml_classify")if not ml:    ok=False; reasons.append("no ML run in tri-eval")else:    acc = pick(ml, "accuracy"); mf1 = pick(ml, "macro_f1")    if mf1 < 0.92: ok=False; reasons.append(f"ML macro_f1={mf1}<0.92")    if acc < 0.93: ok=False; reasons.append(f"ML accuracy={acc}<0.93")print(json.dumps({"ok": ok, "reasons": reasons, "tri_eval": str(res)}, ensure_ascii=False))PYSHchmod +x scripts/gate.sh# ---------- 10) e2e（classify→extract→plan→act） ----------cat > scripts/e2e_smoke.sh <<'SH'#!/usr/bin/env bashset -Eeuo pipefailROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"PORT="${PORT:-$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)}"T1='您好，想詢問報價與交期，數量100台'T2='附件服務無法連線，請協助處理，連絡 0912-345-678'C=$(curl -sS -X POST "http://127.0.0.1:${PORT}/classify" -H 'Content-Type: application/json' -d "{\"texts\":[\"$T1\",\"$T2\"],\"route\":\"ml\"}")echo "$C" | jq . || echo "$C"I1=$(echo "$C" | jq -r '.pred[0]') ; I2=$(echo "$C" | jq -r '.pred[1]')E=$(curl -sS -X POST "http://127.0.0.1:${PORT}/extract" -H 'Content-Type: application/json' -d "{\"texts\":[\"$T1\",\"$T2\"]}")echo "$E" | jq . || echo "$E"P=$(curl -sS -X POST "http://127.0.0.1:${PORT}/plan" -H 'Content-Type: application/json' -d "{\"intents\":[\"$I1\",\"$I2\"]}")echo "$P" | jq . || echo "$P"A1=$(echo "$P" | jq -r '.actions[0]') ; A2=$(echo "$P" | jq -r '.actions[1]')A=$(curl -sS -X POST "http://127.0.0.1:${PORT}/act" -H 'Content-Type: application/json' \  -d "{\"items\":[{\"mail_id\":\"m1\",\"action\":\"$A1\",\"fields\":$(echo "$E" | jq '.fields[0]')},{\"mail_id\":\"m2\",\"action\":\"$A2\",\"fields\":$(echo "$E" | jq '.fields[1]')}]} ")echo "$A" | jq . || echo "$A"ls -1 "$(pwd)/rpa_out" 2>/dev/null | sed "s#^#  rpa_out/#" || trueSHchmod +x scripts/e2e_smoke.sh# ---------- 11) 嘗試為 http_api_min.py 增加 /debug/proba ----------# 策略：若檔案中尚未包含 "/debug/proba" 字樣，則以保守方式插入 elif 分支；失敗不會中斷。if ! grep -q '"/debug/proba"' scripts/http_api_min.py 2>/dev/null; then  cp -f scripts/http_api_min.py "$OUT/http_api_min.py.bak" 2>/dev/null || true  python - "$RULES" <<'PY' || trueimport io,sys,re,os,importlib.utilfp="scripts/http_api_min.py"src=open(fp,"r",encoding="utf-8").read()if '"/debug/proba"' in src:    print("[*] /debug/proba already present"); sys.exit(0)# 嘗試找 do_POST 的 if 鏈，將新分支插到最後一個 elif 之前m=re.search(r"(def\s+do_POST\(self\):.*?)(\n\s*else:\s*return\s+self\._json\(.*?\))", src, flags=re.S)if not m:    print("[WARN] cannot find do_POST else-branch; skip patch"); sys.exit(0)block=m.group(1); end_else=m.group(2)indent=re.search(r"\n(\s*)else:", end_else).group(1)add=f"""\n{indent}elif p=="/debug/proba":\n{indent}    try:\n{indent}        import json, numpy as np, time\n{indent}        n=int(self.headers.get("Content-Length","0") or 0)\n{indent}        body=json.loads(self.rfile.read(n).decode("utf-8") or "{{}}")\n{indent}        texts=body.get("texts", [])\n{indent}        topk=int(body.get("topk", 6))\n{indent}        est=load_pipe()\n{indent}        clf = est.steps[-1][1] if hasattr(est,"steps") else est\n{indent}        proba = clf.predict_proba(texts)\n{indent}        classes=[str(c) for c in getattr(clf,"classes_", [])]\n{indent}        out=[]\n{indent}        for row in proba:\n{indent}            idx = np.argsort(row)[::-1][:topk]\n{indent}            out.append([[classes[j], float(row[j])] for j in idx])\n{indent}        return self._json(200, {{\"topk\": topk, \"proba\": out}})\n{indent}    except Exception:\n{indent}        import traceback as _tb\n{indent}        return self._json(500, {{\"error\":\"server_error\",\"trace\":_tb.format_exc()}})\n"""new=src.replace(block+end_else, block+add+end_else)open(fp,"w",encoding="utf-8").write(new)print("[OK] patched http_api_min.py with /debug/proba")PYelse  echo "[*] /debug/proba already present"fi# ---------- 12) Makefile（簡化，一律呼叫我們的腳本） ----------cat > Makefile <<'MK'SHELL := /bin/bash.PHONY: up down smoke eval intent_report gate e2eup: ; @bash scripts/api_up_env.shdown: ; @bash scripts/api_down.sh || truesmoke: ; @bash scripts/sanity_all.sheval: ; @bash scripts/tri_eval_fixlabels.shintent_report: ; @bash scripts/tri_eval_report.shgate: ; @bash scripts/gate.she2e: ; @bash scripts/e2e_smoke.sh[7mMK[27m[7m# ---------- 13) 重啟 API + smoke + tri-eval + 報告 + Gate ----------[27m[7mbash scripts/api_up_env.sh[27m[7mbash scripts/sanity_all.sh[27m[7mbash scripts/tri_eval_fixlabelif not m:    print("[WARN] cannot find do_POST else-branch; skip patch"); sys.exit(0)block=m.group(1); end_else=m.group(2)indent=re.search(r"\n(\s*)else:", end_else).group(1)add=f"""\n{indent}elif p=="/debug/proba":\n{indent}    try:\n{indent}        import json, numpy as np, time\n{indent}        n=int(self.headers.get("Content-Length","0") or 0)\n{indent}        body=json.loads(self.rfile.read(n).decode("utf-8") or "{{}}")\n{indent}        texts=body.get("texts", [])\n{indent}        topk=int(body.get("topk", 6))\n{indent}        est=load_pipe()\n{indent}        clf = est.steps[-1][1] if hasattr(est,"steps") else est\n{indent}        proba = clf.predict_proba(texts)\n{indent}        classes=[str(c) for c in getattr(clf,"classes_", [])]\n{indent}        out=[]\n{indent}        for row in proba:\n{indent}            idx = np.argsort(row)[::-1][:topk]\n{indent}            out.append([[classes[j], float(row[j])] for j in idx])\n{indent}        return self._json(200, {{\"topk\": topk, \"proba\": out}})\n{indent}    except Exception:\n{indent}        import traceback as _tb\n{indent}        return self._json(500, {{\"error\":\"server_error\",\"trace\":_tb.format_exc()}})\n"""new=src.replace(block+end_else, block+add+end_else)open(fp,"w",encoding="utf-8").write(new)print("[OK] patched http_api_min.py with /debug/proba")PYelse  echo "[*] /debug/proba already present"fi# ---------- 12) Makefile（簡化，一律呼叫我們的腳本） ----------cat > Makefile <<'MK'SHELL := /bin/bash.PHONY: up down smoke eval intent_report gate e2eup: ; @bash scripts/api_up_env.shdown: ; @bash scripts/api_down.sh || truesmoke: ; @bash scripts/sanity_all.sheval: ; @bash scripts/tri_eval_fixlabels.shintent_report: ; @bash scripts/tri_eval_report.shgate: ; @bash scripts/gate.she2e: ; @bash scripts/e2e_smoke.sh[7mMK[27m[7m# ---------- 13) 重啟 API + smoke + tri-eval + 報告 + Gate ----------[27m[7mbash scripts/api_up_env.sh[27m[7mbash scripts/sanity_all.sh[27m[7mbash scripts/tri_eval_fixlabels.sh[27m[7mbash scripts/tri_eval_report.sh[27m[7mbash scripts/gate.sh[27m[7m# ---------- 14) 顯示固定檔位（你只記這些就好） ----------[27m[7mecho "[WHERE] $ERR_DIR"[27m[7mecho "  PY_LAST = $ERR_DIR/py_last_trace.txt"[27m[7mecho "  SERVER  = $ERR_DIR/server.log"[27m[7mecho "  RUNLOG  = $ERR_DIR/run.log"[27m[7mecho "  API_ERR = $ERR_DIR/api.err"[27m[7m# ---------- 15) 額外驗證：/debug/model_meta 與 /debug/proba ----------[27m[7mPORT="$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)"[27m[7mecho "[*] /debug/model_meta"[27m[7mcurl -sS "http://127.0.0.1:${PORT}/debug/model_meta" | (command -v jq >/dev/null && jq . || cat) || true[27m[7mecho "[*] /debug/proba (top6)"[27m[7mcurl -sS -X POST "http://127.0.0.1:${PORT}/debug/proba" -H 'Content-Type: application/json' \[27m[7m  -d '{"texts":["您好想詢問報價","服務無法連線"],"topk":6}' | (command -v jq >/dev/null && jq . || cat) || true[27m[7mecho[27m[7mecho "[DONE] Run targets you may want next:"[27m[7mecho "  make smoke"[27m[7mecho "  make eval && make intent_report"[27m[7mecho "  make gate"[27ms.sh[27m[7mbash scripts/tri_eval_report.sh[27m[7mbash scripts/gate.sh[27m[7m# ---------- 14) 顯示固定檔位（你只記這些就好） ----------[27m[7mecho "[WHERE] $ERR_DIR"[27m[7mecho "  PY_LAST = $ERR_DIR/py_last_trace.txt"[27m[7mecho "  SERVER  = $ERR_DIR/server.log"[27m[7mecho "  RUNLOG  = $ERR_DIR/run.log"[27m[7mecho "  API_ERR = $ERR_DIR/api.err"[27m[7m# ---------- 15) 額外驗證：/debug/model_meta 與 /debug/proba ----------[27m[7mPORT="$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)"[27m[7mecho "[*] /debug/model_meta"[27m[7mcurl -sS "http://127.0.0.1:${PORT}/debug/model_meta" | (command -v jq >/dev/null && jq . || cat) || true[27m[7mecho "[*] /debug/proba (top6)"[27m[7mcurl -sS -X POST "http://127.0.0.1:${PORT}/debug/proba" -H 'Content-Type: application/json' \[27m[7m  -d '{"texts":["您好想詢問報價","服務無法連線"],"topk":6}' | (command -v jq >/dev/null && jq . || cat) || true[27m[7mecho[27m[7mecho "[DONE] Run targets you may want next:"[27m[7mecho "  make smoke"[27m[7mecho "  make eval && make intent_report"[27m[7mecho "  make gate"[27mMK# ---------- 13) 重啟 API + smoke + tri-eval + 報告 + Gate ----------bash scripts/api_up_env.shbash scripts/sanity_all.shbash scripts/tri_eval_fixlabels.shbash scripts/tri_eval_report.shbash scripts/gate.sh# ---------- 14) 顯示固定檔位（你只記這些就好） ----------echo "[WHERE] $ERR_DIR"echo "  PY_LAST = $ERR_DIR/py_last_trace.txt"echo "  SERVER  = $ERR_DIR/server.log"echo "  RUNLOG  = $ERR_DIR/run.log"echo "  API_ERR = $ERR_DIR/api.err"# ---------- 15) 額外驗證：/debug/model_meta 與 /debug/proba ----------PORT="$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)"echo "[*] /debug/model_meta"curl -sS "http://127.0.0.1:${PORT}/debug/model_meta" | (command -v jq >/dev/null && jq . || cat) || trueecho "[*] /debug/proba (top6)"curl -sS -X POST "http://127.0.0.1:${PORT}/debug/proba" -H 'Content-Type: application/json' \  -d '{"texts":["您好想詢問報價","服務無法連線"],"topk":6}' | (command -v jq >/dev/null && jq . || cat) || trueechoecho "[DONE] Run targets you may want next:"echo "  make smoke"echo "  make eval && make intent_report"echo "  make gate"
+[?2004lMK# ---------- 13) 重啟 API + smoke + tri-eval + 報告 + Gate ----------bash scripts/api_up_env.shbash scripts/sanity_all.shbash scripts/tri_eval_fixlabels.shbash scripts/tri_eval_report.shbash scripts/gate.sh# ---------- 14) 顯示固定檔位（你只記這些就好） ----------echo "[WHERE] $ERR_DIR"echo "  PY_LAST = $ERR_DIR/py_last_trace.txt"echo "  SERVER  = $ERR_DIR/server.log"echo "  RUNLOG  = $ERR_DIR/run.log"echo "  API_ERR = $ERR_DIR/api.err"# ---------- 15) 額外驗證：/debug/model_meta 與 /debug/proba ----------PORT="$(grep -E '^PORT=' scripts/env.default 2>/dev/null | tail -n1 | cut -d= -f2 || echo 8000)"echo "[*] /debug/model_meta"curl -sS "http://127.0.0.1:${PORT}/debug/model_meta" | (command -v jq >/dev/null && jq . || cat) || trueecho "[*] /debug/proba (top6)"curl -sS -X POST "http://127.0.0.1:${PORT}/debug/proba" -H 'Content-Type: application/json' \  -d '{"texts":["您好想詢問報價","服務無法連線"],"topk":6}' | (command -v jq >/dev/null && jq . || cat) || trueechoecho "[DONE] Run targets you may want next:"echo "  make smoke"echo "  make eval && make intent_report"echo "  make gate"
+[?2004l[*] /debug/proba already present
+[*] /debug/proba already present
+[*] ENV
+[*] ENV
+[*] ENV
+  SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  SMA_ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  SMA_ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  SMA_ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  PORT=8000
+  PORT=8000
+  PORT=8000
+
+[*] api_down @ 20250915T231924
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[*] force-free :8000 if still occupied
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[OK] API ready :8000
+[OK] API ready :8000
+[OK] API ready :8000
+[*] Using API_DIR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456
+[*] PORT=8000
+[*] smoke rule -> reports_auto/api/20250915T201456/sanity_smoke_rule.json
+[*] Using API_DIR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456
+[*] PORT=8000
+[*] smoke rule -> reports_auto/api/20250915T201456/sanity_smoke_rule.json
+{
+  "pred": [
+    "biz_quote",
+    "tech_support"
+  ],
+  "latency_ms": 0,
+  "route": "rule"
+}
+{
+  "pred": [
+    "biz_quote",
+    "tech_support"
+  ],
+  "latency_ms": 0,
+  "route": "rule"
+}
+[*] smoke ml -> reports_auto/api/20250915T201456/sanity_smoke_ml.json
+[*] smoke ml -> reports_auto/api/20250915T201456/sanity_smoke_ml.json
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 188, in do_POST\n    yp=route_ml(texts); tag=\"ml\"\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 115, in route_ml\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 188, in do_POST\n    yp=route_ml(texts); tag=\"ml\"\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 115, in route_ml\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+[*] /tri-eval -> reports_auto/api/20250915T201456/sanity_tri_eval.json
+[*] /tri-eval -> reports_auto/api/20250915T201456/sanity_tri_eval.json
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 223, in do_POST\n    t1=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t1)*1000)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 115, in route_ml\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 223, in do_POST\n    t1=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t1)*1000)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 115, in route_ml\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+[PATHS]
+[PATHS]
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/run.log
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/run.log
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/api.err
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/api.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/py_last_trace.txt
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/py_last_trace.txt
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/server.log
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/server.log
+  SMOKE_R = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_smoke_rule.json
+  SMOKE_R = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_smoke_rule.json
+  SMOKE_M = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_smoke_ml.json
+  SMOKE_M = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_smoke_ml.json
+  TRI_OUT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_tri_eval.json
+  TRI_OUT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_tri_eval.json
+[*] PYBIN=./.venv/bin/python
+[*] DATA=data/intent_eval/dataset.cleaned.jsonl
+[*] PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+[*] RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py (bind to __main__.rules_feat)
+[*] PYBIN=./.venv/bin/python
+[*] DATA=data/intent_eval/dataset.cleaned.jsonl
+[*] PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+[*] RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py (bind to __main__.rules_feat)
+[OK] wrote: reports_auto/eval_fix/20250915T231926/tri_results_fixed.json
+[OK] wrote: reports_auto/eval_fix/20250915T231926/tri_results_fixed.json
+[PATHS]
+[PATHS]
+  RUN = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926
+  RUN = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926
+  LOG = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/run.log
+  LOG = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/run.log
+  ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/tri_eval.err
+  ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/tri_eval.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/py_last_trace.txt
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/py_last_trace.txt
+  RESULT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/tri_results_fixed.json
+  RESULT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/tri_results_fixed.json
+reports_auto/status/INTENTS_SUMMARY_20250915T231926.md
+reports_auto/status/INTENTS_SUMMARY_20250915T231926.md
+[PATHS]
+[PATHS]
+  LAST_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926
+  LAST_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926
+  RESULT   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/tri_results_fixed.json
+  RESULT   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250915T231926/tri_results_fixed.json
+  SUMMARY  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/status/INTENTS_SUMMARY_20250915T231926.md
+  SUMMARY  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/status/INTENTS_SUMMARY_20250915T231926.md
+{"ok": true, "reasons": [], "tri_eval": "reports_auto/eval_fix/20250915T231926/tri_results_fixed.json"}
+{"ok": true, "reasons": [], "tri_eval": "reports_auto/eval_fix/20250915T231926/tri_results_fixed.json"}
+{"ok": true, "reasons": [], "tri_eval": "reports_auto/eval_fix/20250915T231926/tri_results_fixed.json"}
+[WHERE] /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  RUNLOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  API_ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+[WHERE] /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  RUNLOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  API_ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+[*] /debug/model_meta
+[*] /debug/model_meta
+{
+  "est_type": "Pipeline",
+  "clf_type": "CalibratedClassifierCV",
+  "classes": [
+    "biz_quote",
+    "complaint",
+    "other",
+    "policy_qa",
+    "profile_update",
+    "tech_support"
+  ]
+}
+{
+  "est_type": "Pipeline",
+  "clf_type": "CalibratedClassifierCV",
+  "classes": [
+    "biz_quote",
+    "complaint",
+    "other",
+    "policy_qa",
+    "profile_update",
+    "tech_support"
+  ]
+}
+[*] /debug/proba (top6)
+[*] /debug/proba (top6)
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 237, in do_POST\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 237, in do_POST\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+
+[DONE] Run targets you may want next:
+  make smoke
+
+[DONE] Run targets you may want next:
+  make smoke
+  make eval && make intent_report
+  make gate
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$   make eval && make intent_report
+  make gate
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mmake smoke[27m
+[7m  make eval && make intent_report[27m
+[7m  make gate[27m[7mmake smoke[27m
+[7m  make eval && make intent_report[27m
+[7m  make gate[27m[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ make smoke
+  make eval && make intent_report
+  make gate
+[?2004l[A[A]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ make smoke
+  make eval && make intent_report
+  make gate
+[?2004lGNUmakefile:7: *** missing separator.  Stop.
+GNUmakefile:7: *** missing separator.  Stop.
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick/20250915T231924/oneclick.err
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick/20250915T231924/oneclick.err
+[PATHS]
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] ENV
+  SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  SMA_ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  PORT=8000
+
+[*] api_down @ 20250915T234929
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      5          127.0.0.1:8000      0.0.0.0:*    users:(("python",pid=130,fd=3))
+[*] force-free :8000 if still occupied
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[OK] API ready :8000
+{"ok": true, "reasons": [], "tri_eval": "reports_auto/eval_fix/20250915T234931/tri_results_fixed.json"}
+[*] ENV
+  SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  SMA_ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  PORT=8000
+
+[*] api_down @ 20250916T000942
+[PATHS]
+  ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  SERVER=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+  PORT=8000
+[*] pre-check listeners on :8000
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      5          127.0.0.1:8000      0.0.0.0:*    users:(("python",pid=345,fd=3))
+[*] force-free :8000 if still occupied
+[*] post-check listeners on :8000
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+[DOWN] port=8000; pidfiles cleared; ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[OK] API ready :8000
+[GATE][INTENT] OK acc=0.954386 mf1=0.945322
+no predictor
+[GATE][SPAM] smoke_pred=
+---- GATE RESULT ----
+{"ok":false,"reasons":["KIE F1=0 未達門檻(F1>=0.85)"]}

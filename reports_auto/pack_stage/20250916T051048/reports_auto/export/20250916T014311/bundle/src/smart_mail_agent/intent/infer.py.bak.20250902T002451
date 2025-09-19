@@ -1,0 +1,88 @@
+from __future__ import annotations
+import json, joblib, numpy as np
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
+from .shim import ensure_joblib_main_shims
+from .labels import to_canonical, CANON
+
+def _pick_estimator(obj: Any) -> Any:
+    # 尋找具有 predict/predict_proba/decision_function 的物件（支援巢狀）
+    if hasattr(obj,"predict") or hasattr(obj,"predict_proba") or hasattr(obj,"decision_function"):
+        return obj
+    if isinstance(obj, dict):
+        for k in ("model","clf","estimator","pipeline","calibrated","calibrated_model"):
+            if k in obj:
+                e = _pick_estimator(obj[k])
+                if e is not None: return e
+        for v in obj.values():
+            e = _pick_estimator(v)
+            if e is not None: return e
+    if isinstance(obj, (list,tuple)):
+        for v in obj:
+            e = _pick_estimator(v)
+            if e is not None: return e
+    return None
+
+def _probas(est, text: str) -> Tuple[List[str], np.ndarray]:
+    # 取出原生類別名與對應機率
+    labels = []
+    if hasattr(est, "classes_"):
+        labels = [str(x) for x in est.classes_]
+    if hasattr(est, "predict_proba"):
+        p = np.asarray(est.predict_proba([text])[0], dtype=float)
+        if not labels: labels = [str(i) for i in range(len(p))]
+        return labels, p
+    # 無 predict_proba → decision_function（轉成 2 類或用 softmax）
+    if hasattr(est, "decision_function"):
+        s = est.decision_function([text])[0]
+        arr = np.asarray(s, dtype=float)
+        if arr.ndim == 0:
+            # binary：邏輯 sigmoid
+            prob1 = 1.0/(1.0+np.exp(-float(arr))); p = np.array([1.0-prob1, prob1], dtype=float)
+            if not labels: labels = ["neg","pos"]
+            return labels, p
+        else:
+            # multi-class：softmax
+            ex = np.exp(arr - np.max(arr))
+            p = ex / ex.sum() if ex.sum() > 0 else np.ones_like(ex)/len(ex)
+            if not labels: labels = [str(i) for i in range(len(p))]
+            return labels, p
+    # 再退 predict（無法給機率，只回 top=1）
+    pred = str(est.predict([text])[0])
+    labels = [pred]
+    p = np.array([1.0], dtype=float)
+    return labels, p
+
+class IntentRouter:
+    def __init__(self, root: Path|None=None):
+        root = Path(root or Path(__file__).resolve().parents[3])
+        ensure_joblib_main_shims()
+        raw = joblib.load(root/"artifacts/intent_pro_cal.pkl", mmap_mode=None)
+        est = _pick_estimator(raw)
+        if est is None:
+            raise TypeError("intent_pro_cal.pkl does not contain an estimator-like object")
+        self.model = est
+        # 門檻檔可缺；缺就用 0.5
+        th_path = root/"reports_auto/intent_thresholds.json"
+        self.cut = {k:0.5 for k in CANON}
+        try:
+            th = json.loads(th_path.read_text(encoding="utf-8"))
+            for k,v in th.items():
+                ck = to_canonical(k)
+                if ck in self.cut:
+                    self.cut[ck] = float(v)
+        except Exception:
+            pass
+
+    def predict(self, text: str) -> Dict[str,Any]:
+        raw_labels, prob = _probas(self.model, text)
+        # 映射成 6 類的機率（聚合同一 canonical 的多個原生類）
+        agg = {k:0.0 for k in CANON}
+        for lbl, p in zip(raw_labels, prob.tolist()):
+            agg[to_canonical(lbl)] = max(agg[to_canonical(lbl)], float(p))
+        # 選 top1
+        lab, p1 = max(agg.items(), key=lambda kv: kv[1])
+        # 門檻裁切
+        if lab != "other" and p1 < self.cut.get(lab, 0.5):
+            lab = "other"
+        return {"final": lab, "p1": float(p1), "raw_top": sorted(agg.items(), key=lambda kv: kv[1], reverse=True)[:3]}

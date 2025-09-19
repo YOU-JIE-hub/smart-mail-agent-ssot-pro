@@ -1,0 +1,10 @@
+To: demo@example.com\nFrom: noreply@example.com\nSubject: [報價] 自動回覆\n\n{
+  "item": "N/A",
+  "unit_price": 0,
+  "qty": 1,
+  "subtotal": 0,
+  "tax": 0,
+  "total": 0,
+  "currency": "TWD",
+  "valid_until": "2025-09-12"
+}\n

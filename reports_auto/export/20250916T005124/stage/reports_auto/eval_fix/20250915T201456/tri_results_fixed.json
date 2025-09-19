@@ -1,0 +1,25 @@
+{
+  "n": 570,
+  "runs": [
+    {
+      "route": "rule.classify",
+      "accuracy": 0.4316,
+      "latency_ms": 0
+    },
+    {
+      "route": "ml.classify",
+      "accuracy": 0.9544,
+      "latency_ms": 71
+    }
+  ],
+  "report": {
+    "labels": [
+      "biz_quote",
+      "complaint",
+      "other",
+      "policy_qa",
+      "profile_update",
+      "tech_support"
+    ]
+  }
+}

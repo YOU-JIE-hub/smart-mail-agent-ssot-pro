@@ -1,0 +1,41 @@
+# Smart Mail Agent (SSOT Rebuild)
+
+Run (3 steps):
+1) cd smart-mail-agent_ssot
+2) source .sma_tools/env_guard.sh
+3) ./scripts/sma_e2e_mail.sh /home/youjie/projects/smart-mail-agent/data/demo_eml
+
+Notes:
+- Models/thresholds are referenced from your original project via symlink (or copied if symlink not permitted).
+- Output: reports_auto/e2e_mail/<ts>/ with SUMMARY.md, actions.jsonl, rpa_out/*.
+- SQLite DB: db/sma.sqlite
+- Audit log (NDJSON): reports_auto/logs/pipeline.ndjson
+
+<!-- BEGIN ENV_VARS -->
+## 環境變數一覽
+- `OFFLINE`：預設 1，流程走離線安全路徑
+- `SMA_ROOT`：專案根路徑
+- `SMA_EML_DIR`：E2E 郵件來源資料夾（內含 .eml）
+- `SMA_SPAM_TARGET_RATE`：Spam 門檻校正參數
+- `SMA_FONT_TTF`：PDF 中文字型（建議 `assets/fonts/NotoSansTC-Regular.ttf`）
+> 未設置可用字型或未安裝 reportlab 時，PDF 會自動降級為 .txt（見 `smart_mail_agent/utils/pdf_safe.py`）。
+<!-- END ENV_VARS -->
+
+<!-- BEGIN E2E_USAGE -->
+## 一鍵 E2E 使用
+```bash
+export SMA_ROOT="$HOME/projects/smart-mail-agent_ssot"
+export SMA_EML_DIR="/path/to/eml_dir"
+bash scripts/sma_e2e_all.sh
+E2E 會產生 reports_auto/e2e_mail/<timestamp>/，包含 SUMMARY.md、actions.jsonl 與 rpa_out/*。
+<!-- END E2E_USAGE -->
+
+<!-- BEGIN CRON_SAMPLE -->
+
+排程範例（cron）
+新增下列排程可每日執行一次：
+
+bash
+Copy code
+0 3 * * * OFFLINE=1 SMA_ROOT=$HOME/projects/smart-mail-agent_ssot SMA_EML_DIR=/data/eml bash $HOME/projects/smart-mail-agent_ssot/scripts/sma_e2e_all.sh >> $HOME/projects/smart-mail-agent_ssot/reports_auto/logs/cron_e2e.log 2>&1
+<!-- END CRON_SAMPLE -->

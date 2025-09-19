@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/transport/mail.py
+# 模組用途: 寄送層（預設 file-transport；SMTP 需環境變數）
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+from typing import Any, Dict
+
+
+def send_file_transport(out_dir: Path, rec: Dict[str, Any]) -> Path:
+    out = out_dir / "rpa_out" / "email_outbox"
+    out.mkdir(parents=True, exist_ok=True)
+    fp = out / f"{rec['payload']['mail_id']}.eml.json"
+    fp.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
+    return fp
+
+
+def send_smtp(rec: Dict[str, Any]) -> None:
+    if not os.environ.get("SMTP_HOST"):
+        raise RuntimeError("SMTP_* not configured; use file-transport instead.")
+    # 此處略（企業環境建議以環境變數注入連線設定）

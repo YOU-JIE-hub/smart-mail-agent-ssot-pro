@@ -1,0 +1,7 @@
+=== BASH_TRAP(pack_release) ===
+TIME: 2025-09-16T05:04:41+08:00
+LAST: read -r -d '' HEAVY_GLOB <<'EOT'
+\( -iname '*.pkl' -o -iname '*.pt' -o -iname '*.bin' -o -iname '*.ckpt' -o -iname '*.onnx' -o -iname '*.h5' -o -iname '*.model' -o -iname '*.tar' -o -iname '*.tar.gz' -o -iname '*.zip' -o -iname '*.npz' -o -iname '*.npy' -o -iname '*.parquet' -o -iname '*.feather' -o -iname '*.pb' -o -iname '*.safetensors' -o -iname '*.jsonl' \)
+EOT
+
+CODE: 1

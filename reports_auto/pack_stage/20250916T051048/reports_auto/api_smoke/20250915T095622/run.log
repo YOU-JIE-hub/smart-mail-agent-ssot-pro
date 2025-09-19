@@ -1,0 +1,52 @@
+[*] API_RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145
+[OK] api_smoke_all 完成
+[?2004h(.venv) ]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mcd /home/youjie/projects/smart-mail-agent-ssot-pro[27m
+[7mPORT=8000[27m
+
+[7m# 先列出 API 目前的路徑（會印 RUN_DIR/LOG/ERR/PY_LAST）[27m
+[7mscripts/api_where.sh[27m
+
+[7m# 驗證 ML 路由[27m
+[7mcurl -sS -X POST "http://127.0.0.1:${PORT}/classify" -H 'Content-Type: application/json' \[27m
+[7m  -d '{"texts":["想詢問報價與交期","需要技術支援"], "route":"ml"}' | jq .[27m
+
+[7m# 若不是 200，立即把 Python traceback 印出來（一定有檔案）[27m
+[7mscripts/api_where.sh | sed -n 's/^PY_LAST=//p' | xargs -I{} sh -c 'echo "[PY_LAST] {}"; tail -n +1 "{}"'[27m
+
+[7m# 驗證 tri-eval（rule/ml/openai 三路一起比）[27m
+[7mcurl -sS -X POST "http://127.0.0.1:${PORT}/tri-eval" -H 'Content-Type: application/json' \[27m
+[7m  -d '{"texts":["想詢問報價與交期","需要技術支援","發票抬頭更新"],[27m
+[7m       "labels":["biz_quote","tech_support","profile_update"]}' | jq .[27m
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd /home/youjie/projects/smart-mail-agent-ssot-pro
+PORT=8000
+
+# 先列出 API 目前的路徑（會印 RUN_DIR/LOG/ERR/PY_LAST）
+scripts/api_where.sh
+
+# 驗證 ML 路由
+curl -sS -X POST "http://127.0.0.1:${PORT}/classify" -H 'Content-Type: application/json' \
+  -d '{"texts":["想詢問報價與交期","需要技術支援"], "route":"ml"}' | jq .
+
+# 若不是 200，立即把 Python traceback 印出來（一定有檔案）
+scripts/api_where.sh | sed -n 's/^PY_LAST=//p' | xargs -I{} sh -c 'echo "[PY_LAST] {}"; tail -n +1 "{}"'
+
+# 驗證 tri-eval（rule/ml/openai 三路一起比）
+curl -sS -X POST "http://127.0.0.1:${PORT}/tri-eval" -H 'Content-Type: application/json' \
+  -d '{"texts":["想詢問報價與交期","需要技術支援","發票抬頭更新"],
+       "labels":["biz_quote","tech_support","profile_update"]}' | jq .
+[A
+[?2004lRUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145
+LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145/run.log
+ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145/api.err
+PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145/py_last_trace.txt
+{
+  "pred": [
+    "biz_quote",
+    "complaint"
+  ],
+  "latency_ms": 3,
+  "route": "ml"
+}
+[PY_LAST] /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145/py_last_trace.txt
+tail: cannot open '/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T095145/py_last_trace.txt' for reading: No such file or directory
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api_smoke/20250915T095622

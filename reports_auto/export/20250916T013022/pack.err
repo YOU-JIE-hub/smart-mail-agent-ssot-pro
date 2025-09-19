@@ -1,0 +1,60 @@
+TIME: 2025-09-16T01:30:27+08:00
+EXIT_CODE: 1
+BASH_COMMAND: python - "$ROOT" "$OUT" "$STAGE" "$SMA_INTENT_ML_PKL" "$SMA_RULES_SRC" "$DATA_ABS" <<'PY'
+import json, os, sys, time, glob, hashlib, pathlib
+ROOT, OUT, STAGE, MODEL, RULES, DATA = sys.argv[1:7]
+def sha256(p):
+  try:
+    h=hashlib.sha256()
+    with open(p,'rb') as f:
+      for b in iter(lambda:f.read(1<<20), b''): h.update(b)
+    return h.hexdigest()
+  except Exception: return None
+
+manifest = {
+  "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
+  "project_root": ROOT,
+  "out_dir": OUT,
+  "code_dirs": ["code/scripts","code/src","code/vendor","code/intent","code/fixtures"],
+  "reports": {
+    "err": ["err/server.log","err/run.log","err/api.err","err/py_last_trace.txt","err/where.txt"],
+    "api_last_dir": "reports/api_last",
+    "intent_eval_last": "reports/eval_last"
+  },
+  "assets_pointers": {
+    "intent_model": {"abs": MODEL, "pointer": f"big_assets/{os.path.basename(MODEL)}.POINTER"},
+    "intent_dataset": {"abs": DATA, "pointer": f"big_assets/{os.path.basename(DATA)}.POINTER"},
+    "rules_src": {"abs": RULES}
+  },
+  "stage_inventory": []
+}
+for p in sorted(pathlib.Path(STAGE).rglob("*")):
+  if p.is_file():
+    rel = str(p.relative_to(STAGE))
+    try: sz = p.stat().st_size
+    except Exception: sz = None
+    manifest["stage_inventory"].append({"path": rel, "bytes": sz, "sha256": sha256(str(p))})
+(pathlib.Path(OUT)/"meta"/"MANIFEST.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+readme = f"""# Share Bundle for New Chat
+
+- OUT_DIR: {OUT}
+- 代碼：完整收錄於 `code/`（不省略）；重量級檔案以 `*.POINTER` 指示檔表示，含原始**絕對路徑**與 SHA256。
+- 快速路徑：
+  - 模型：{MODEL}
+  - 規則：{RULES}
+  - 意圖資料集：{DATA}
+
+## 如何在「新對話」快速上手
+1. 上傳本套件（或拆分檔的全部分片）。
+2. 先給 MANIFEST：`meta/MANIFEST.json` 與 `README_FOR_NEW_CHAT.md`。
+3. 若需要重現模型/資料集，按 `big_assets/*.POINTER` 指示在本機取檔或重放置。
+
+## 內含報告
+- ERR 匯流（固定）：`err/*`
+- 最近 API 測試輸出：`reports/api_last/*`
+- 最近 tri-eval：`reports/eval_last/*`
+"""
+(pathlib.Path(OUT)/"meta"/"README_FOR_NEW_CHAT.md").write_text(readme, encoding="utf-8")
+print("[OK] MANIFEST & README generated at", OUT+"/meta")
+PY
+

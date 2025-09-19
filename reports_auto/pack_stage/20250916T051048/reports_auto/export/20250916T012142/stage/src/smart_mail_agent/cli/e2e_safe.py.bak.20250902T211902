@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/cli/e2e_safe.py
+# 模組用途: 安全執行 E2E；自動提供 --eml-dir 與 --out-root；崩潰時落檔報告。
+from __future__ import annotations
+
+import faulthandler
+import json
+import os
+import platform
+import runpy
+import sys
+import time
+import traceback
+from pathlib import Path
+
+
+def env_snapshot() -> dict:
+    keys = ["OFFLINE","SMA_ROOT","SMA_EML_DIR","SMA_OUT_ROOT","SMA_SPAM_TARGET_RATE","SMA_FONT_TTF","PYTHONPATH"]
+    return {k: os.environ.get(k, "") for k in keys}
+
+def versions() -> dict:
+    mods = {}
+    for m in ["joblib","numpy","scipy","sklearn","pandas","yaml","reportlab","requests","bs4","PIL"]:
+        try:
+            mod = __import__(m)
+            mods[m] = getattr(mod, "__version__", "unknown")
+        except Exception as e:
+            mods[m] = f"missing:{e}"
+    return {"python": sys.version, "platform": platform.platform(), "modules": mods}
+
+def ensure_sample_eml() -> str:
+    """參數: 無；回傳: 確保存在的 EML 目錄絕對路徑"""
+    eml_dir = os.environ.get("SMA_EML_DIR", "").strip()
+    if eml_dir and os.path.isdir(eml_dir):
+        return os.path.abspath(eml_dir)
+    # 建立範例目錄
+    root = os.path.abspath(os.environ.get("SMA_ROOT", os.getcwd()))
+    sample_dir = os.path.join(root, "sample_eml")
+    Path(sample_dir).mkdir(parents=True, exist_ok=True)
+    sample = os.path.join(sample_dir, "example.eml")
+    if not os.path.isfile(sample):
+        with open(sample, "w", encoding="utf-8") as f:
+            f.write("From: \"Demo\" <noreply@scam.biz>\n")
+            f.write("To: you@example.com\n")
+            f.write("Subject: 限時優惠 快速致富\n")
+            f.write("Date: Tue, 02 Sep 2025 12:00:00 +0800\n")
+            f.write("Content-Type: text/plain; charset=\"UTF-8\"\n\n")
+            f.write("您好，立刻點擊 https://x.y 取得 USDT 回饋！\n")
+    os.environ["SMA_EML_DIR"] = sample_dir
+    return sample_dir
+
+def ensure_out_root() -> str:
+    """參數: 無；回傳: 輸出根目錄絕對路徑"""
+    out_root = os.environ.get("SMA_OUT_ROOT", "").strip() or "reports_auto/e2e_mail"
+    Path(out_root).mkdir(parents=True, exist_ok=True)
+    return os.path.abspath(out_root)
+
+def main() -> int:
+    """
+    參數: 無
+    回傳: 程式結束碼（int）
+    """
+    ts = time.strftime("%Y%m%dT%H%M%S")
+    log_dir = Path("reports_auto/logs"); log_dir.mkdir(parents=True, exist_ok=True)
+    crash_log = log_dir / f"CRASH_{ts}.log"
+    faulthandler.enable(open(log_dir / f"FAULTHANDLER_{ts}.log", "w"))
+
+    eml_dir = ensure_sample_eml()
+    out_root = ensure_out_root()
+
+    try:
+        # 將必要 CLI 參數注入給原 e2e 模組
+        sys.argv = ["smart_mail_agent.cli.e2e", "--eml-dir", eml_dir, "--out-root", out_root]
+        runpy.run_module("smart_mail_agent.cli.e2e", run_name="__main__")
+        print(f"[SAFE] E2E finished. out_root={out_root}")
+        return 0
+    except SystemExit as se:
+        code = int(se.code or 0)
+        if code != 0:
+            with open(crash_log, "w", encoding="utf-8") as f:
+                f.write("# CRASH REPORT (SystemExit)\n")
+                f.write(json.dumps({"exit_code": code}, ensure_ascii=False, indent=2))
+                f.write("\n\n## ENV\n"); f.write(json.dumps(env_snapshot(), ensure_ascii=False, indent=2))
+                f.write("\n\n## VERSIONS\n"); f.write(json.dumps(versions(), ensure_ascii=False, indent=2))
+            print(f"[SAFE] non-zero exit captured -> {crash_log}")
+        return code
+    except Exception:
+        with open(crash_log, "w", encoding="utf-8") as f:
+            f.write("# CRASH REPORT (Exception)\n")
+            f.write("\n## ENV\n"); f.write(json.dumps(env_snapshot(), ensure_ascii=False, indent=2))
+            f.write("\n\n## VERSIONS\n"); f.write(json.dumps(versions(), ensure_ascii=False, indent=2))
+            f.write("\n\n## TRACEBACK\n"); traceback.print_exc(file=f)
+        print(f"[SAFE] crash captured -> {crash_log}")
+        return 99
+
+if __name__ == "__main__":
+    raise SystemExit(main())

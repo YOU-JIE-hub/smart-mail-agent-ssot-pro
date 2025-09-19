@@ -1,0 +1,99 @@
+[INFO] model=artifacts/intent_pro_cal.pkl
+[STRUCT]
+{'pipeline': Pipeline(steps=[('features',
+                 FeatureUnion(transformer_list=[('word',
+                                                 TfidfVectorizer(ngram_range=(1,
+                                                                              2))),
+                                                ('char',
+                                                 TfidfVectorizer(analyzer='char_wb',
+                                                                 ngram_range=(3,
+                                                                              5))),
+                                                ('rules',
+                                                 FunctionTransformer(accept_sparse=True,
+                                                                     func=<function rules_feat at 0x7c4f1e839f30>))])),
+                ('clf',
+                 CalibratedClassifierCV(cv=3,
+                                        estimator=LinearSVC(class_weight='balanced',
+                                                            random_state=42)))])}
+[INFO] top-level is dict -> unwrap by key: pipeline (Pipeline)
+
+[TRY ] variant=dict+text  X0={"type": "list", "len": 1, "item0.type": "dict", "item0.keys": ["body", "subject", "text"]}
+[CALL] root.Pipeline.predict_proba IN {"type": "list", "len": 1, "item0.type": "dict", "item0.keys": ["body", "subject", "text"]}
+[EXC ] root.Pipeline.predict_proba -> TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+
+[CALL] root.Pipeline.predict IN {"type": "list", "len": 1, "item0.type": "dict", "item0.keys": ["body", "subject", "text"]}
+[EXC ] root.Pipeline.predict -> TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 142, in run_variants
+    try: _=est.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+
+[DONE] variant=dict+text ok=False err=TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+
+[TRY ] variant=string  X0={"type": "list", "len": 1, "item0.type": "str", "item0.preview": "報價 單價:100 數量:2 ticket TS-1234 規則詢問 資料異動 order ORD-9"}
+[CALL] root.Pipeline.predict_proba IN {"type": "list", "len": 1, "item0.type": "str", "item0.preview": "報價 單價:100 數量:2 ticket TS-1234 規則詢問 資料異動 order ORD-9"}
+[EXC ] root.Pipeline.predict_proba -> TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+
+[CALL] root.Pipeline.predict IN {"type": "list", "len": 1, "item0.type": "str", "item0.preview": "報價 單價:100 數量:2 ticket TS-1234 規則詢問 資料異動 order ORD-9"}
+[EXC ] root.Pipeline.predict -> TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 142, in run_variants
+    try: _=est.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+
+[DONE] variant=string ok=False err=TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+
+[TRY ] variant=tuple  X0={"type": "list", "len": 1, "item0.type": "tuple", "item0.tuple_types": ["str", "str"]}
+[CALL] root.Pipeline.predict_proba IN {"type": "list", "len": 1, "item0.type": "tuple", "item0.tuple_types": ["str", "str"]}
+[EXC ] root.Pipeline.predict_proba -> TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+
+[CALL] root.Pipeline.predict IN {"type": "list", "len": 1, "item0.type": "tuple", "item0.tuple_types": ["str", "str"]}
+[EXC ] root.Pipeline.predict -> TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 142, in run_variants
+    try: _=est.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict_proba() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/tools/_ml_introspect_and_probe.py", line 95, in wrapper
+    Y=orig(*args, **kwargs)
+TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+
+[DONE] variant=tuple ok=False err=TypeError: Pipeline.predict() takes 2 positional arguments but 3 were given
+
+[SAVED] reports_auto/debug/ml_probe_20250912T065500.log
+[SAVED] reports_auto/debug/ml_probe_20250912T065500.json

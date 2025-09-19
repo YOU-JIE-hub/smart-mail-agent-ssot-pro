@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<stdin>", line 70, in <module>
+  File "<stdin>", line 43, in load_rules_module
+  File "intent/intent/.sma_tools/runtime_threshold_router.py", line 9, in <module>
+    sys.path.insert(0, str(_P(__file__).resolve().parents[1] / '.sma_tools'))
+NameError: name '__file__' is not defined

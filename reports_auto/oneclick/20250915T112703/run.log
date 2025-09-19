@@ -1,0 +1,86 @@
+[*] stopped PID=171 (reports_auto/api/20250915T112053/api.pid)
+OK
+[*] DRY_RUN=1  PORT=8000
+[OK] API ready
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/py_last_trace.txt
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/py_last_trace.txt
+[*] REPORT DIR ready
+[*] Using API_DIR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704
+[*] PORT=8000
+[*] smoke rule -> reports_auto/api/20250915T112704/sanity_smoke_rule.json
+{
+  "pred": [
+    "biz_quote",
+    "tech_support"
+  ],
+  "latency_ms": 0,
+  "route": "rule"
+}
+[*] smoke ml -> reports_auto/api/20250915T112704/sanity_smoke_ml.json
+{
+  "pred": [
+    "biz_quote",
+    "complaint"
+  ],
+  "latency_ms": 3,
+  "route": "ml"
+}
+[*] /tri-eval -> reports_auto/api/20250915T112704/sanity_tri_eval.json
+{
+  "n": 3,
+  "runs": [
+    {
+      "route": "rule",
+      "pred": [
+        "biz_quote",
+        "tech_support",
+        "profile_update"
+      ],
+      "latency_ms": 0,
+      "accuracy": 1
+    },
+    {
+      "route": "ml",
+      "pred": [
+        "biz_quote",
+        "complaint",
+        "complaint"
+      ],
+      "latency_ms": 3,
+      "accuracy": 0.3333
+    },
+    {
+      "route": "openai",
+      "pred": [
+        "other",
+        "other",
+        "other"
+      ],
+      "latency_ms": 0,
+      "accuracy": 0
+    }
+  ]
+}
+[PATHS]
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/run.log
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/api.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/py_last_trace.txt
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/server.log
+  SMOKE_R = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/sanity_smoke_rule.json
+  SMOKE_M = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/sanity_smoke_ml.json
+  TRI_OUT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/sanity_tri_eval.json
+[*] WHERE API:
+RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704
+LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/run.log
+ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/api.err
+PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T112704/py_last_trace.txt
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/oneclick/20250915T112703

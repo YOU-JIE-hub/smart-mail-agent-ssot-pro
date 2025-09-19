@@ -1,0 +1,207 @@
+#!/usr/bin/env python
+import os, sys, json, time, sqlite3, traceback
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse
+from pathlib import Path
+
+# Make vendor importable (for legacy shims if any)
+VENDOR = Path(__file__).resolve().parent.parent/"vendor"
+if VENDOR.exists() and str(VENDOR) not in sys.path:
+    sys.path.insert(0, str(VENDOR))
+
+SMA_DRY_RUN = os.environ.get("SMA_DRY_RUN","1")=="1"
+SMA_DB = Path("reports_auto/audit.sqlite3"); SMA_DB.parent.mkdir(parents=True,exist_ok=True)
+
+def ensure_db():
+    con=sqlite3.connect(str(SMA_DB)); cur=con.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS actions(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      mail_id TEXT, action TEXT, params_json TEXT, status TEXT,
+      retries INTEGER DEFAULT 0, started_at TEXT, finished_at TEXT,
+      UNIQUE(mail_id, action))""")
+    cur.execute("""CREATE TABLE IF NOT EXISTS llm_calls(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      mail_id TEXT, stage TEXT, model TEXT,
+      input_tokens INTEGER, output_tokens INTEGER, total_tokens INTEGER,
+      latency_ms INTEGER, cost_usd REAL, request_id TEXT, created_at TEXT)""")
+    con.commit(); con.close()
+ensure_db()
+
+def audit_llm(stage, model, ms, cost=0.0, mail_id=None):
+    try:
+        con=sqlite3.connect(str(SMA_DB)); cur=con.cursor()
+        cur.execute("""INSERT INTO llm_calls(mail_id,stage,model,input_tokens,output_tokens,total_tokens,latency_ms,cost_usd,request_id,created_at)
+                       VALUES (?,?,?,?,?,?,?,?,?,datetime('now'))""",(mail_id,stage,model,0,0,0,int(ms),float(cost),None))
+        con.commit(); con.close()
+    except Exception:
+        pass
+
+_pipe=None
+def load_pipe():
+    """Robust loader: bind rules_feat for legacy pickles; unwrap dict/list containers."""
+    import importlib.util, __main__
+    import joblib
+    global _pipe
+    if _pipe is not None:
+        return _pipe
+
+    ML_PKL=os.environ.get("SMA_INTENT_ML_PKL","")
+    RULES=os.environ.get("SMA_RULES_SRC","")
+
+    # Bind rules_feat for legacy pickles
+    if RULES and not hasattr(__main__, "rules_feat"):
+        spec=importlib.util.spec_from_file_location("rt", RULES)
+        m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+        __main__.rules_feat=getattr(m, "rules_feat", None)
+
+    obj=joblib.load(ML_PKL)
+
+    def pick(o):
+        if hasattr(o, "predict"):
+            return o
+        if isinstance(o, dict):
+            for k in ("pipe","pipeline","estimator","model"):
+                if k in o and o[k] is not None:
+                    try: return pick(o[k])
+                    except Exception: pass
+        if isinstance(o, (list, tuple)):
+            for it in o:
+                try: return pick(it)
+                except Exception: pass
+        raise RuntimeError("Unsupported estimator container (no predictor)")
+
+    _pipe = pick(obj)
+    return _pipe
+
+ACTIONS={
+  "biz_quote": "create_quote_pdf",
+  "policy_qa": "reply_policy_sections",
+  "profile_update": "submit_change_form",
+  "tech_support": "open_ticket",
+  "complaint": "open_ticket",
+  "other": "noop"
+}
+
+def rule_classify(texts):
+    out=[]
+    for t in texts:
+        s=(t or "").lower()
+        if any(k in s for k in ["報價","quote","報價單","價","交期"]): out.append("biz_quote")
+        elif any(k in s for k in ["技術","support","無法連線","錯誤"]): out.append("tech_support")
+        elif any(k in s for k in ["發票","抬頭"]): out.append("profile_update")
+        elif any(k in s for k in ["政策","規則","條款","policy"]): out.append("policy_qa")
+        elif any(k in s for k in ["客訴","抱怨","投訴"]): out.append("complaint")
+        else: out.append("other")
+    return out
+
+def oai_classify(texts): return ["other"]*len(texts)
+
+def kie_extract(texts):
+    import re
+    outs=[]
+    for t in texts:
+        phone=""; m=re.search(r'(09\d{2})[-\s]?(\d{3})[-\s]?(\d{3})',t or ""); 
+        if m: phone="".join(m.groups())
+        amount=""; m=re.search(r'(?:NT\$|NTD|\$|元)\s*([0-9][0-9,\.]*)',t or "")
+        if m:
+            amount=re.sub(r'[^\d]','',m.group(1))
+        outs.append({"phone":phone,"amount":amount})
+    return outs
+
+class H(BaseHTTPRequestHandler):
+    def _json(self, code:int, obj):
+        self.send_response(code); self.send_header("Content-Type","application/json; charset=utf-8"); self.end_headers()
+        self.wfile.write(json.dumps(obj,ensure_ascii=False).encode("utf-8"))
+
+    def do_POST(self):
+        p=urlparse(self.path).path
+        n=int(self.headers.get("Content-Length","0") or 0)
+        body=self.rfile.read(n).decode("utf-8") if n>0 else "{}"
+        try: req=json.loads(body)
+        except Exception: return self._json(400,{"error":"invalid json"})
+
+        try:
+            if p=="/classify":
+                texts=req.get("texts") or []
+                route=req.get("route","ml")  # ml|rule|openai
+                t0=time.perf_counter()
+                if route=="ml":
+                    pipe=load_pipe(); yp=[str(y) for y in pipe.predict(texts)]; tag="ml"
+                elif route=="rule":
+                    yp=rule_classify(texts); tag="rule"
+                else:
+                    yp=oai_classify(texts); tag="openai"
+                ms=int((time.perf_counter()-t0)*1000); audit_llm(f"{tag}.classify", tag, ms, 0.0)
+                return self._json(200,{"pred": yp, "latency_ms": ms, "route": tag})
+
+            if p=="/extract":
+                texts=req.get("texts") or []
+                t0=time.perf_counter(); out=kie_extract(texts); ms=int((time.perf_counter()-t0)*1000)
+                audit_llm("rule.extract","rule",ms,0.0)
+                return self._json(200,{"fields":out,"latency_ms":ms})
+
+            if p=="/plan":
+                intents=req.get("intents") or []
+                actions=[ACTIONS.get(i,"noop") for i in intents]
+                audit_llm("plan","rule",0.0,0.0)
+                return self._json(200,{"actions":actions})
+
+            if p=="/act":
+                items=req.get("items") or []  # [{mail_id, action, fields}]
+                ok=0
+                outdir=Path("rpa_out"); outdir.mkdir(parents=True,exist_ok=True)
+                for it in items:
+                    (outdir/f"act_{it.get('action','noop')}_{it.get('mail_id','x')}.txt").write_text(json.dumps(it,ensure_ascii=False,indent=2),encoding="utf-8")
+                    audit_llm("act",it.get('action','noop'),0.0,0.0,it.get('mail_id'))
+                    ok+=1
+                return self._json(200,{"ok":ok,"dry_run":SMA_DRY_RUN})
+
+            if p=="/tri-eval":
+                texts=req.get("texts") or []
+                labels=[str(x) for x in (req.get("labels") or [])]
+                out=[]
+                for tag,fn in (("rule",rule_classify),("ml",lambda xs: [str(y) for y in load_pipe().predict(xs)]),("openai",oai_classify)):
+                    t0=time.perf_counter(); yp=[str(y) for y in fn(texts)]; ms=int((time.perf_counter()-t0)*1000)
+                    audit_llm(f"{tag}.classify",tag,ms,0.0)
+                    r={"route":tag,"pred":yp,"latency_ms":ms}
+                    if labels and len(labels)==len(yp):
+                        acc=sum(int(a==b) for a,b in zip(labels,yp))/len(labels)
+                        r["accuracy"]=round(acc,4)
+                    out.append(r)
+                return self._json(200,{"n":len(texts),"runs":out})
+
+            # ---- debug endpoints ----
+            if p=="/debug/model_meta":
+                pipe=load_pipe()
+                clf = pipe.steps[-1][1] if hasattr(pipe,"steps") else pipe
+                meta={"pipe_type":type(pipe).__name__,"clf_type":type(clf).__name__,"classes_":[str(x) for x in getattr(clf,"classes_",[])]}
+                return self._json(200, meta)
+
+            if p=="/debug/proba":
+                texts=req.get("texts") or []
+                pipe=load_pipe()
+                clf = pipe.steps[-1][1] if hasattr(pipe,"steps") else pipe
+                if not hasattr(pipe,"predict_proba") and not hasattr(clf,"predict_proba"):
+                    return self._json(400,{"error":"no_predict_proba"})
+                import numpy as np
+                prob = pipe.predict_proba(texts) if hasattr(pipe,"predict_proba") else clf.predict_proba(texts)
+                classes=[str(x) for x in getattr(clf,"classes_",[])]
+                out=[]
+                for row in prob:
+                    idx=np.argsort(row)[::-1][:3]
+                    out.append([{"label":classes[i],"p":float(row[i])} for i in idx])
+                return self._json(200,{"topk":out,"classes":classes})
+
+            return self._json(404,{"error":"not found"})
+        except Exception:
+            tb=traceback.format_exc()
+            return self._json(500,{"error":"server_error","trace":tb})
+
+def run():
+    port=int(os.environ.get("PORT","8000"))
+    srv=HTTPServer(("0.0.0.0",port),H)
+    print(f"[*] API on :{port} (DRY_RUN={SMA_DRY_RUN})")
+    srv.serve_forever()
+
+if __name__=="__main__":
+    run()

@@ -1,0 +1,5 @@
+# m h dom mon dow  command
+0 7 * * * cd $HOME/projects/smart-mail-agent_ssot && \
+  [ -f .venv/bin/activate ] && . .venv/bin/activate && \
+  PYTHONNOUSERSITE=1 PYTHONPATH=src SMA_SMTP_MODE=outbox SMA_LLM_PROVIDER=none \
+  bash tools/one_click_s2s3s5.sh >> reports_auto/logs/cron_oneclick.log 2>&1

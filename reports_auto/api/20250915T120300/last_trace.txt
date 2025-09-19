@@ -1,0 +1,4 @@
+=== BASH_TRAP(api_up) ===
+TIME: 2025-09-15T12:03:02+08:00
+LAST:echo "LAST:${BASH_COMMAND:-<none>}"
+CODE:2

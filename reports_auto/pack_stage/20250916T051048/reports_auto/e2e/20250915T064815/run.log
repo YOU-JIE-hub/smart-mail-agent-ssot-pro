@@ -1,0 +1,21 @@
+[*] OneClick v3.1 TS=20250915T064815
+[*] ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] LOG=reports_auto/e2e/20250915T064815/run.log
+[*] ERR=reports_auto/e2e/20250915T064815/oneclick.err
+[*] SMA_DRY_RUN=1
+[*] Gate scan…
+./scripts/sma_probe_all.sh:86:# ---------- Python 盤點主程式（嚴禁「from pathlib import Path, json」） ----------
+[*] Activate venv & verify deps…
+OK
+[*] Using PY_BIN=/home/youjie/bin/python
+[*] RUN Step1: scripts/ops_quickcheck.sh
+OK
+bash: line 1: scripts/ops_quickcheck.sh: Permission denied
+
+real	0m0.729s
+user	0m1.202s
+sys	0m2.963s
+[FATAL] code=10 (see reports_auto/e2e/20250915T064815/oneclick.err reports_auto/e2e/20250915T064815/last_trace.txt)
+logout
+[FATAL] code=1 (see reports_auto/e2e/20250915T064815/oneclick.err reports_auto/e2e/20250915T064815/last_trace.txt)
+[*] REPORT DIR: reports_auto/e2e/20250915T064815

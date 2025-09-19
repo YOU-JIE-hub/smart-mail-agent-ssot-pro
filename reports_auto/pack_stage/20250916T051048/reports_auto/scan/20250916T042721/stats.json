@@ -1,0 +1,91 @@
+{
+  "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+  "n_dirs": 7161,
+  "n_files": 155178,
+  "total_bytes": 3578432511,
+  "max_threshold_bytes": 268435456,
+  "topn": 50,
+  "by_ext_top20": [
+    {
+      "ext": ".py",
+      "count": 122299
+    },
+    {
+      "ext": ".pyc",
+      "count": 15726
+    },
+    {
+      "ext": ".h",
+      "count": 8670
+    },
+    {
+      "ext": "",
+      "count": 1924
+    },
+    {
+      "ext": ".sh",
+      "count": 1552
+    },
+    {
+      "ext": ".log",
+      "count": 530
+    },
+    {
+      "ext": ".txt",
+      "count": 444
+    },
+    {
+      "ext": ".json",
+      "count": 401
+    },
+    {
+      "ext": ".so",
+      "count": 307
+    },
+    {
+      "ext": ".pyi",
+      "count": 302
+    },
+    {
+      "ext": ".md",
+      "count": 234
+    },
+    {
+      "ext": ".jsonl",
+      "count": 173
+    },
+    {
+      "ext": ".20250902t211902",
+      "count": 132
+    },
+    {
+      "ext": ".20250902t211917",
+      "count": 132
+    },
+    {
+      "ext": ".mat",
+      "count": 109
+    },
+    {
+      "ext": ".gz",
+      "count": 97
+    },
+    {
+      "ext": ".typed",
+      "count": 80
+    },
+    {
+      "ext": ".pyx",
+      "count": 73
+    },
+    {
+      "ext": ".err",
+      "count": 70
+    },
+    {
+      "ext": ".cpp",
+      "count": 62
+    }
+  ],
+  "generated_at": "2025-09-16T04:28:09.599307+08:00"
+}

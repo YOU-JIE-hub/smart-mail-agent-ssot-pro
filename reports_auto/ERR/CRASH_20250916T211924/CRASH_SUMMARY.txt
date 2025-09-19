@@ -1,0 +1,25 @@
+When : 20250916T211924
+CWD  : /home/youjie/projects/smart-mail-agent-ssot-pro
+RC   : 1
+Cmd  : source scripts/env.default; python -m tools.api_server
+Msg  : trap EXIT non-zero
+
+== tail run.out ==
+[RUN] source scripts/env.default; python -m tools.api_server
+[API] http://127.0.0.1:8088
+
+== tail run.err ==
+127.0.0.1 - - [16/Sep/2025 21:30:25] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 21:30:25] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 21:30:25] "POST /extract HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 21:31:33] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 21:31:33] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2025 21:31:33] "POST /extract HTTP/1.1" 200 -
+
+== ss -ltnp ==
+State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+
+== ps -ef | python ==
+youjie    1326  1268  0 21:19 pts/0    00:00:00 bash scripts/crash_guard.sh --cmd source scripts/env.default; python -m tools.api_server
+youjie    1392  1269  0 22:52 pts/0    00:00:00 python -u -m tools.api_server

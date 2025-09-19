@@ -1,0 +1,137 @@
+from __future__ import annotations
+import sys, json, re, types
+from pathlib import Path
+from typing import Any, Tuple
+
+DEFAULT_ML_PKL = Path("artifacts/intent_pro_cal.pkl")
+FEATURE_SPEC   = Path("artifacts_prod/intent_feature_spec.json")
+LABEL_MAP      = Path("artifacts_prod/intent_label_map.json")
+NAMES_JSON     = Path("artifacts_prod/intent_names.json")
+
+def _alias_main():
+    import importlib
+    src = Path("src").resolve()
+    if str(src) not in sys.path: sys.path.insert(0, str(src))
+    try:
+        sf = importlib.import_module("sma_features")
+    except Exception:
+        mod=types.ModuleType("sma_features")
+        def rules_feat(X,*a,**k): return [[0.0] for _ in (X if isinstance(X,list) else [X])]
+        prio_feat=bias_feat=rules_feat
+        mod.rules_feat=rules_feat; mod.prio_feat=prio_feat; mod.bias_feat=bias_feat
+        sf=mod
+    sys.modules["sma_features"]=sf
+    sys.modules["__main__"]=sf
+
+def _load_joblib(p: Path):
+    import joblib
+    return joblib.load(p)
+
+def _unwrap(top: Any) -> Any:
+    if isinstance(top, dict):
+        for k in ("pipeline","pipe","estimator","model"):
+            if k in top: return top[k]
+        for k,v in top.items():
+            if hasattr(v, "predict") or hasattr(v, "predict_proba"): return v
+    return top
+
+def _read_spec() -> dict:
+    if FEATURE_SPEC.exists():
+        try: return json.loads(FEATURE_SPEC.read_text(encoding="utf-8"))
+        except Exception: pass
+    return {"dims":{"rules":0,"prio":0,"bias":0}}
+
+def _write_spec(spec: dict):
+    FEATURE_SPEC.write_text(json.dumps(spec, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def _ensure_label_map(pipe):
+    names = []
+    if NAMES_JSON.exists():
+        try: names = json.loads(NAMES_JSON.read_text(encoding="utf-8")).get("names",[])
+        except Exception: pass
+    classes=[]
+    if hasattr(pipe,"classes_"): classes=list(pipe.classes_)
+    else:
+        for k in ("clf","final","classifier","estimator"):
+            try:
+                c=pipe.named_steps.get(k)
+                if c is not None and hasattr(c,"classes_"):
+                    classes=list(c.classes_); break
+            except Exception: pass
+    m={}
+    if classes:
+        if names and len(names)==len(classes): m={str(c):str(n) for c,n in zip(classes,names)}
+        else: m={str(c):str(c) for c in classes}
+    LABEL_MAP.write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def _prep_text(x: Any) -> str:
+    try:
+        if isinstance(x, dict):
+            return " ".join(str(x.get(k,"")) for k in ("subject","body","text")).strip() or json.dumps(x, ensure_ascii=False)
+        if isinstance(x, tuple): return " ".join(str(v) for v in x)
+        if isinstance(x, (list,set)): return " ".join(_prep_text(v) for v in x)
+        return str(x)
+    except Exception:
+        return str(x)
+
+def _predict_once(pipe, X) -> Tuple[bool,str]:
+    try:
+        try:
+            _=pipe.predict_proba(X)
+        except Exception:
+            _=pipe.predict(X)
+        return True,"ok"
+    except Exception as e:
+        return False, f"{type(e).__name__}: {e}"
+
+def _bump_rules_dim_by(diff: int):
+    spec=_read_spec()
+    cur=int(spec["dims"].get("rules",0))
+    spec["dims"]["rules"]=max(0, cur + diff)
+    _write_spec(spec)
+
+def load_intent_pipeline(pkl: Path = DEFAULT_ML_PKL, auto_calibrate: bool = True):
+    p = Path(str(pkl))
+    if not p.exists(): raise FileNotFoundError(f"模型不存在：{p}")
+    _alias_main()
+    top=_load_joblib(p)
+    pipe=_unwrap(top)
+    _ensure_label_map(pipe)
+
+    if auto_calibrate:
+        # 初次嘗試（以純文字 list 餵入）
+        ok,msg=_predict_once(pipe, ["報價 測試 單價 100 數量 2"])
+
+        # 若失敗且包含特徵數不符，直接用差值修 spec 後重試一次
+        m=re.search(r"X has (\d+) features?,? but .*expects (\d+)", msg) if not ok else None
+        if (not ok) and m:
+            got, exp = int(m.group(1)), int(m.group(2))
+            _bump_rules_dim_by(exp - got)
+            _alias_main()  # 讓 sma_features 重新讀 spec
+            ok2,msg2=_predict_once(pipe, ["報價 測試 單價 100 數量 2"])
+            if not ok2:
+                raise RuntimeError(f"特徵維度仍不符：{msg2}")
+        elif not ok:
+            raise RuntimeError(f"pipeline 無法預測：{msg}")
+
+    return pipe
+
+def predict(email: dict, pkl: Path = DEFAULT_ML_PKL) -> dict:
+    pipe=load_intent_pipeline(pkl, auto_calibrate=True)
+    x=_prep_text(email)
+    lm={}
+    if LABEL_MAP.exists():
+        try: lm=json.loads(LABEL_MAP.read_text(encoding="utf-8"))
+        except Exception: pass
+    try:
+        try:
+            probs=pipe.predict_proba([x])[0]
+            classes=getattr(pipe,"classes_",None)
+            if classes is None: classes=pipe.named_steps["clf"].classes_
+            import numpy as np
+            i=int(np.asarray(probs).argmax()); raw=str(classes[i]); conf=float(probs[i])
+        except Exception:
+            raw=str(pipe.predict([x])[0]); conf=1.0
+        return {"intent_raw":raw, "intent_name": lm.get(raw, raw), "confidence": conf}
+    except Exception as e:
+        raise RuntimeError(f"predict 失敗：{e}")

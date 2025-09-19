@@ -1,0 +1,50 @@
+from __future__ import annotations
+import os, re, json, sqlite3, time, inspect, shutil
+from email import policy
+from email.parser import BytesParser
+from pathlib import Path
+from typing import Dict, Any, List, Tuple
+
+# 若有外部 plan_actions 就盡量使用（簽名不一致會自動適配）
+try:
+    from .action_handler import plan_actions as _plan_actions_external  # type: ignore
+except Exception:
+    _plan_actions_external = None
+
+# 郵件傳輸層
+# 三模型（可降級）
+# FAQ/RAG（policy.py 有就用；否則走 provider）
+INTENT_LABELS = ["報價", "技術支援", "投訴", "規則詢問", "資料異動", "其他"]
+
+def answer_policy_question(q: str):
+    # 先嘗試本地 policy；失敗再依環境變數決定是否啟用 OpenAI RAG
+    INTENT_LABELS = ["報價","技術支援","投訴","規則詢問","資料異動","其他"]
+        if cnt.get(k):
+            md.append(f"- {k}: {cnt[k]}")
+    (out_dir_p/"SUMMARY.md").write_text("\n".join(md), encoding="utf-8")
+
+
+def _lazy_models():
+    global SpamGuard, IntentRouter, KIEEngine
+    if SpamGuard is None:
+        SpamGuard=None as _S
+        SpamGuard = _S
+    if IntentRouter is None:
+        IntentRouter=None as _I
+        IntentRouter = _I
+    if KIEEngine is None:
+        KIEEngine=None as _K
+        KIEEngine = _K
+    return SpamGuard, IntentRouter, KIEEngine
+
+
+def _get_send_smtp():
+    import os
+    global send_smtp
+    if send_smtp is not None: return send_smtp
+    if not os.environ.get('SMA_SMTP_MODE'):
+        def _noop(*a, **k):
+            raise RuntimeError('SMTP disabled (SMA_SMTP_MODE not set)')
+        send_smtp=_noop; return send_smtp
+    from smart_mail_agent.transport.mail import send_smtp as _real
+    send_smtp=_real; return send_smtp

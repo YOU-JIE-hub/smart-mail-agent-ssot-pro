@@ -1,0 +1,74 @@
+from __future__ import annotations
+import os, datetime as dt
+from typing import Optional
+from sqlalchemy import (create_engine, Column, Integer, String, Text, Float,
+                        DateTime, JSON, Index)
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+PG_DSN = os.environ.get("SMA_PG_DSN","").strip()
+DB_URL = PG_DSN if PG_DSN else f"sqlite:///db/sma.sqlite"
+engine  = create_engine(DB_URL, future=True)
+Session = sessionmaker(bind=engine, future=True)
+Base = declarative_base()
+
+# 核心：訊息、三路分類、最終動作、KIE 槽位、Spam
+class Message(Base):
+    __tablename__ = "messages"
+    id = Column(Integer, primary_key=True)
+    mail_id = Column(String(64), index=True)      # 你自行生成/對應
+    ts = Column(DateTime, default=dt.datetime.utcnow, index=True)
+    from_addr = Column(String(256))
+    to_addr   = Column(String(256))
+    subject   = Column(Text)
+    body_path = Column(String(512))               # 原文存檔路徑（可選）
+
+class Classification(Base):
+    __tablename__ = "classifications"
+    id = Column(Integer, primary_key=True)
+    ts = Column(DateTime, default=dt.datetime.utcnow, index=True)
+    mail_id = Column(String(64), index=True)
+    backend = Column(String(32))                  # rule / ml / boosted
+    intent  = Column(String(64), index=True)
+    confidence = Column(Float)
+    extras  = Column(JSON)                        # 任意字典（如 raw_label, pkl 路徑）
+
+Index("ix_cls_mail_backend", Classification.mail_id, Classification.backend)
+
+class ActionLog(Base):
+    __tablename__ = "actions"
+    id = Column(Integer, primary_key=True)
+    ts = Column(DateTime, default=dt.datetime.utcnow, index=True)
+    intent = Column(String(64), index=True)
+    action = Column(String(64), index=True)
+    status = Column(String(16), index=True)       # ok / error
+    artifact_path = Column(String(512))
+    ext = Column(String(256))
+    message = Column(Text)
+
+class DeadLetter(Base):
+    __tablename__ = "dead_letters"
+    id = Column(Integer, primary_key=True)
+    ts = Column(DateTime, default=dt.datetime.utcnow, index=True)
+    intent = Column(String(64))
+    action = Column(String(64))
+    reason = Column(String(256))
+    payload = Column(JSON)
+
+class KIESlot(Base):
+    __tablename__ = "kie_slots"
+    id = Column(Integer, primary_key=True)
+    ts = Column(DateTime, default=dt.datetime.utcnow, index=True)
+    mail_id = Column(String(64), index=True)
+    slots = Column(JSON)                          # {"price":..., "qty":..., ...}
+
+class SpamScore(Base):
+    __tablename__ = "spam_scores"
+    id = Column(Integer, primary key=True)
+    ts = Column(DateTime, default=dt.datetime.utcnow, index=True)
+    mail_id = Column(String(64), index=True)
+    model = Column(String(64))                    # text/rule/ens
+    score = Column(Float)
+
+def init_db():
+    Base.metadata.create_all(engine)
+    return engine

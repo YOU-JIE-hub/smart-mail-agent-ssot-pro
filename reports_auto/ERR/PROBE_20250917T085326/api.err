@@ -1,0 +1,5 @@
+nohup: ignoring input
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /extract HTTP/1.1" 200 -

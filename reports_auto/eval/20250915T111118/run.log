@@ -1,0 +1,14 @@
+[*] tri-eval TS=20250915T111118
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/py_last_trace.txt
+OK
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/py_last_trace.txt
+[*] REPORT DIR ready

@@ -1,0 +1,4 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T07:47:14+08:00
+LAST:/usr/bin/clear_console -q
+CODE:1

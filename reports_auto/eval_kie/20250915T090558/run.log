@@ -1,0 +1,115 @@
++ kie-eval:21: '[' -f scripts/env.default ']'
++ kie-eval:21: set -a
++ kie-eval:21: . scripts/env.default
+++ kie-eval:1: SMA_DRY_RUN=1
+++ kie-eval:2: SMA_LLM_PROVIDER=none
+++ kie-eval:3: SMA_EML_DIR=fixtures/eml
+++ kie-eval:4: SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
++ kie-eval:21: set +a
++ kie-eval:27: PYBIN=
+++ kie-eval:28: command -v python
++ kie-eval:28: for cand in "$ROOT/.venv/bin/python" "/home/youjie/projects/smart-mail-agent_ssot/.venv/bin/python" "$(command -v python || true)"
++ kie-eval:29: '[' -x /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python ']'
++ kie-eval:30: need_deps_check /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ kie-eval:22: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python -
++ kie-eval:30: PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ kie-eval:30: break
++ kie-eval:32: '[' -n /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python ']'
++ kie-eval:33: echo '[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python'
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ kie-eval:36: DATA_KIE=data/kie_eval/gold_merged.jsonl
++ kie-eval:37: '[' -f data/kie_eval/gold_merged.jsonl ']'
++ kie-eval:38: '[' -f data/kie_eval/gold_merged.jsonl ']'
++ kie-eval:39: '[' '!' -f data/kie_eval/gold_merged.jsonl ']'
++ kie-eval:48: : /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model
++ kie-eval:51: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python - data/kie_eval/gold_merged.jsonl reports_auto/eval_kie/20250915T090558 reports_auto/eval_kie/20250915T090558/py_run.log reports_auto/eval_kie/20250915T090558/py_last_trace.txt /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model
+++ kie-eval:118: basename reports_auto/eval_kie/20250915T090558
++ kie-eval:118: RUN_NAME=20250915T090558
++ kie-eval:119: MD=reports_auto/status/KIE_20250915T090558.md
++ kie-eval:121: echo '# KIE 20250915T090558'
+++ kie-eval:122: realpath -m data/kie_eval/gold_merged.jsonl
++ kie-eval:122: echo '- DATA: /home/youjie/projects/smart-mail-agent-ssot-pro/data/kie_eval/gold_merged.jsonl'
+++ kie-eval:123: realpath -m /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model
++ kie-eval:123: echo '- MODEL_DIR: /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model'
+++ kie-eval:124: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:124: pwd
++ kie-eval:124: echo '- LOG: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/run.log'
+++ kie-eval:125: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:125: pwd
++ kie-eval:125: echo '- ERR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/kie_eval.err'
+++ kie-eval:126: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:126: pwd
++ kie-eval:126: echo '- PY_LAST: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/py_last_trace.txt'
+++ kie-eval:127: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:127: pwd
++ kie-eval:127: echo '- RESULTS: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/tri_results_kie.json'
++ kie-eval:1: on_exit
++ kie-eval:15: ln -sfn reports_auto/eval_kie/20250915T090558 reports_auto/LATEST
++ kie-eval:15: beacon_record_run reports_auto/eval_kie/20250915T090558
++ kie-eval:2: local d=reports_auto/eval_kie/20250915T090558
++ kie-eval:2: beacon_init
++ kie-eval:1: : reports_auto
++ kie-eval:1: mkdir -p reports_auto
+++ kie-eval:2: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:2: pwd
++ kie-eval:2: d=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558
++ kie-eval:2: printf '%s\n' /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558
++ kie-eval:2: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558 reports_auto/LATEST
++ kie-eval:2: command -v wslpath
+++ kie-eval:2: wslpath -w /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558
++ kie-eval:2: printf 'file://%s\n' '\\wsl.localhost\Ubuntu-22.04\home\youjie\projects\smart-mail-agent-ssot-pro\reports_auto\eval_kie\20250915T090558'
++ kie-eval:15: print_paths
++ kie-eval:13: echo '[PATHS]'
+[PATHS]
++ kie-eval:13: for k in RUN_DIR LOG ERR PY_LAST
+++ kie-eval:13: eval echo '$RUN_DIR'
++++ kie-eval:13: echo reports_auto/eval_kie/20250915T090558
++ kie-eval:13: v=reports_auto/eval_kie/20250915T090558
+++ kie-eval:13: printf %-7s RUN_DIR
++++ kie-eval:13: dirname reports_auto/eval_kie/20250915T090558
+++ kie-eval:13: cd reports_auto/eval_kie
+++ kie-eval:13: pwd
+++ kie-eval:13: basename reports_auto/eval_kie/20250915T090558
++ kie-eval:13: echo '  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558'
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558
++ kie-eval:13: for k in RUN_DIR LOG ERR PY_LAST
+++ kie-eval:13: eval echo '$LOG'
++++ kie-eval:13: echo reports_auto/eval_kie/20250915T090558/run.log
++ kie-eval:13: v=reports_auto/eval_kie/20250915T090558/run.log
+++ kie-eval:13: printf %-7s LOG
++++ kie-eval:13: dirname reports_auto/eval_kie/20250915T090558/run.log
+++ kie-eval:13: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:13: pwd
+++ kie-eval:13: basename reports_auto/eval_kie/20250915T090558/run.log
++ kie-eval:13: echo '  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/run.log'
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/run.log
++ kie-eval:13: for k in RUN_DIR LOG ERR PY_LAST
+++ kie-eval:13: eval echo '$ERR'
++++ kie-eval:13: echo reports_auto/eval_kie/20250915T090558/kie_eval.err
++ kie-eval:13: v=reports_auto/eval_kie/20250915T090558/kie_eval.err
+++ kie-eval:13: printf %-7s ERR
++++ kie-eval:13: dirname reports_auto/eval_kie/20250915T090558/kie_eval.err
+++ kie-eval:13: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:13: pwd
+++ kie-eval:13: basename reports_auto/eval_kie/20250915T090558/kie_eval.err
++ kie-eval:13: echo '  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/kie_eval.err'
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/kie_eval.err
++ kie-eval:13: for k in RUN_DIR LOG ERR PY_LAST
+++ kie-eval:13: eval echo '$PY_LAST'
++++ kie-eval:13: echo reports_auto/eval_kie/20250915T090558/py_last_trace.txt
++ kie-eval:13: v=reports_auto/eval_kie/20250915T090558/py_last_trace.txt
+++ kie-eval:13: printf %-7s PY_LAST
++++ kie-eval:13: dirname reports_auto/eval_kie/20250915T090558/py_last_trace.txt
+++ kie-eval:13: cd reports_auto/eval_kie/20250915T090558
+++ kie-eval:13: pwd
+++ kie-eval:13: basename reports_auto/eval_kie/20250915T090558/py_last_trace.txt
++ kie-eval:13: echo '  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/py_last_trace.txt'
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/py_last_trace.txt
++ kie-eval:15: echo '[*] REPORT DIR ready'
+[*] REPORT DIR ready
++ kie-eval:15: command -v explorer.exe
++++ kie-eval:15: cd reports_auto/eval_kie/20250915T090558
++++ kie-eval:15: pwd
+++ kie-eval:15: wslpath -w /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558
++ kie-eval:15: explorer.exe '\\wsl.localhost\Ubuntu-22.04\home\youjie\projects\smart-mail-agent-ssot-pro\reports_auto\eval_kie\20250915T090558'
++ kie-eval:15: true

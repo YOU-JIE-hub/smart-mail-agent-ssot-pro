@@ -1,0 +1,25 @@
+[*] tri-eval TS=20250915T105357
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/py_last_trace.txt
+OK
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+Traceback (most recent call last):
+  File "<stdin>", line 47, in <module>
+  File "<stdin>", line 28, in ml_predict
+  File "<frozen importlib._bootstrap>", line 568, in module_from_spec
+AttributeError: 'NoneType' object has no attribute 'loader'
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/py_last_trace.txt
+[FATAL] tri-eval failed (code=0) — see files above
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T105357/py_last_trace.txt
+[*] REPORT DIR ready

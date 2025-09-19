@@ -1,0 +1,9 @@
+[*] DB fix TS=20250915T070845
+[*] ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] TARGET DB=reports_auto/audit.sqlite3
+[*] initializing reports_auto/audit.sqlite3 via migrations/001_init.sql
+wal
+[OK] DB ready: 40K ; schema -> reports_auto/db_fix/20250915T070845/schema.txt
+chmod: cannot access 'scripts/sma_oneclick_strict.sh': No such file or directory
+bash: scripts/sma_oneclick_strict.sh: No such file or directory
+[*] REPORT: reports_auto/db_fix/20250915T070845

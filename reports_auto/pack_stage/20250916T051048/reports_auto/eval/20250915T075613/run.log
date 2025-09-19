@@ -1,0 +1,29 @@
++ tri-eval:20: echo '[*] tri-eval TS=20250915T075613'
+[*] tri-eval TS=20250915T075613
++ tri-eval:23: command -v guard::venv_on
++ tri-eval:23: guard::venv_on
+OK
++ tri-eval:25: command -v python
++ tri-eval:26: python -
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+ModuleNotFoundError: No module named 'numpy'
++ tri-eval:26: echo 'Gate: missing_deps'
++ tri-eval:26: exit 3
+logout
+++ tri-eval:5: '[' 1 = 1 ']'
+++ tri-eval:6: '[' -x /usr/bin/clear_console ']'
+++ tri-eval:6: /usr/bin/clear_console -q
++++ tri-eval:6: on_err 1
++++ tri-eval:14: c=1
++++ tri-eval:14: echo '=== BASH_TRAP ==='
+++++ tri-eval:14: date -Is
++++ tri-eval:14: echo 'TIME: 2025-09-15T07:56:14+08:00'
++++ tri-eval:14: echo 'LAST:/usr/bin/clear_console -q'
++++ tri-eval:14: echo CODE:1
++++ tri-eval:14: echo exit_code=1
++++ tri-eval:14: exit 1
++ tri-eval:1: on_exit
++ tri-eval:15: ln -sfn reports_auto/eval/20250915T075613 reports_auto/LATEST
++ tri-eval:15: echo '[*] REPORT DIR: reports_auto/eval/20250915T075613'
+[*] REPORT DIR: reports_auto/eval/20250915T075613

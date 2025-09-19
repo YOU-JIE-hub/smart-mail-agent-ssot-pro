@@ -1,0 +1,23 @@
+[01:42:35] Python: Python 3.10.12
+[01:42:35] Which python: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[01:42:35] PWD: /home/youjie/projects/smart-mail-agent-ssot-pro
+[01:42:35] ----- STEP: doctor -----
+[01:42:35] CMD : bash scripts/sma_env_doctor.sh
+scripts/sma_env_doctor.sh: line 5: .sma_tools/env_guard.sh: No such file or directory
+[01:42:35] RESULT: FAIL (rc=1) — 記錄失敗繼續跑
+[01:42:35] ----- STEP: tests.fast -----
+[01:42:35] CMD : bash scripts/test_fast.sh
+/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python: No module named pytest
+[01:42:35] RESULT: PASS
+[01:42:35] ----- STEP: e2e.safe -----
+[01:42:35] CMD : OFFLINE=1 bash scripts/sma_e2e_all_safe.sh
+scripts/sma_e2e_all_safe.sh: line 6: .sma_tools/env_guard.sh: No such file or directory
+scripts/sma_e2e_all_safe.sh: line 7: guard::venv_on: command not found
+[OK] E2E 完成 → /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/e2e_mail/20250914T014235
+[SAFE] E2E finished. out_root=reports_auto/e2e_mail
+[SAFE] 完成安全執行；輸出根在：reports_auto/e2e_mail
+[01:42:35] RESULT: PASS
+[01:42:35] ----- STEP: spam.report -----
+[01:42:35] CMD : python tools/spam_report.py
+[SPAM] metrics -> metrics/spam_metrics.json
+[01:42:35] RESULT: PASS

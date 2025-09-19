@@ -1,0 +1,8 @@
+[*] PACK start @ 20250916T005124
+[*] STAGE = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage
+[*] OUT   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/sma_pro_20250916T005124.tar.gz
+[*] LIMIT = 256MB, pointerize if > 10MB
+[*] pointerize if > 10MB ...
+  - pointerize: 
+du: invalid zero-length file name
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/pack.err

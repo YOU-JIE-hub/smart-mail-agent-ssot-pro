@@ -1,0 +1,11 @@
+
+# auto-generated: pin rules_feat at import-time
+import sys, importlib.util, types
+_path = '/home/youjie/projects/smart-mail-agent-ssot-pro/vendor/rules_features.py'
+spec = importlib.util.spec_from_file_location("rf_pinned", _path)
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+rf = getattr(m, "rules_feat")
+for name in ("__main__", "rules_features", "sma_tools.rules_features", "sma_tools.sk_rules_features"):
+    M = sys.modules.get(name) or types.ModuleType(name)
+    M.rules_feat = rf
+    sys.modules[name] = M

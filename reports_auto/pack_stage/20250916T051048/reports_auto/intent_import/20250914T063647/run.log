@@ -1,0 +1,5 @@
+[inject_skip] smart_mail_agent.intent.rules ModuleNotFoundError No module named 'smart_mail_agent.intent.rules'
+[inject_skip] smart_mail_agent.intent.features ModuleNotFoundError No module named 'smart_mail_agent.intent.features'
+[inject_skip] smart_mail_agent.intent.feats ModuleNotFoundError No module named 'smart_mail_agent.intent.feats'
+[inject_skip] smart_mail_agent.intent.utils ModuleNotFoundError No module named 'smart_mail_agent.intent.utils'
+[FATAL] 找不到 intent/artifacts/*.pkl；請確認 zip 已解到專案 intent/ 底下

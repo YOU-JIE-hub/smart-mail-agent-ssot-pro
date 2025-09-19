@@ -1,0 +1,11 @@
+from __future__ import annotations
+import argparse, json
+from pathlib import Path
+from smart_mail_agent.spam.ens import SpamEnsemble
+def main() -> None:
+    ap = argparse.ArgumentParser("sma-spamcheck"); ap.add_argument("--text"); ap.add_argument("--file")
+    a = ap.parse_args()
+    if not (a.text or a.file): ap.error("must provide --text or --file")
+    text = a.text or Path(a.file).read_text(encoding="utf-8", errors="ignore")
+    print(json.dumps(SpamEnsemble().predict(text), ensure_ascii=False, indent=2))
+if __name__ == "__main__": main()

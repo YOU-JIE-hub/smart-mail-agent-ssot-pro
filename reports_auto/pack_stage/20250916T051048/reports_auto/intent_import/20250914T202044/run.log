@@ -1,0 +1,11 @@
+[*] LOGDIR = reports_auto/intent_import/20250914T202044
+[PKL] intent/intent/artifacts/intent_pro_cal.pkl
+[CODE_ROOT] intent/intent
+Traceback (most recent call last):
+  File "<stdin>", line 89, in <module>
+  File "<stdin>", line 67, in import_rules_feat
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/train_pro_fresh.py", line 12, in <module>
+    from rules_features import rules_feat
+ModuleNotFoundError: No module named 'rules_features'

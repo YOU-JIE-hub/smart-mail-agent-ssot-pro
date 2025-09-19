@@ -1,0 +1,45 @@
+from __future__ import annotations
+from sqlalchemy import text
+from tools.db_models import init_db, engine
+
+def run():
+    init_db()
+    with engine.begin() as conn:
+        # 視圖：近7日動作、HITL率、意圖日趨勢
+        conn.execute(text("""
+        CREATE TABLE IF NOT EXISTS _meta_kv (k TEXT PRIMARY KEY, v TEXT);
+        """))
+        # SQLite/PG 通用視圖寫法（若已存在，SQLite 忽略；PG 可用 CREATE OR REPLACE）
+        try:
+            conn.execute(text("""
+            CREATE VIEW v_actions_last7 AS
+            SELECT * FROM actions
+            WHERE ts >= datetime('now','-7 day')
+            ORDER BY ts DESC;
+            """))
+        except Exception: pass
+        try:
+            conn.execute(text("""
+            CREATE VIEW v_hitl_rate AS
+            SELECT intent,
+                   COUNT(*) AS total,
+                   SUM(CASE WHEN action='hitl_queue' THEN 1 ELSE 0 END) AS hitl,
+                   ROUND(1.0*SUM(CASE WHEN action='hitl_queue' THEN 1 ELSE 0 END)/COUNT(*), 4) AS hitl_rate
+            FROM actions
+            GROUP BY intent
+            ORDER BY hitl_rate DESC, total DESC;
+            """))
+        except Exception: pass
+        try:
+            conn.execute(text("""
+            CREATE VIEW v_intent_daily AS
+            SELECT DATE(ts) AS d, intent, COUNT(*) AS n
+            FROM actions
+            GROUP BY DATE(ts), intent
+            ORDER BY d DESC, n DESC;
+            """))
+        except Exception: pass
+    print("[DB] migrate/views OK")
+
+if __name__=="__main__":
+    run()

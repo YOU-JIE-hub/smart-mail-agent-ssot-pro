@@ -1,0 +1,10 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T07:02:57+08:00
+CWD : /home/youjie/projects/smart-mail-agent-ssot-pro
+LAST: echo "LAST: ${BASH_COMMAND:-<none>}"
+CODE: 10
+=== BASH_TRAP ===
+TIME: 2025-09-15T07:02:57+08:00
+CWD : /home/youjie/projects/smart-mail-agent-ssot-pro
+LAST: /usr/bin/clear_console -q
+CODE: 1

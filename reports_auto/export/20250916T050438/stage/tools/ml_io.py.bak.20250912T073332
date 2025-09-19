@@ -1,0 +1,145 @@
+from __future__ import annotations
+import os, sys, json
+from pathlib import Path
+
+DEFAULT_ML_PKL = Path(os.environ.get("SMA_INTENT_ML_PKL") or "artifacts/intent_pro_cal.pkl")
+FEATURE_SPEC   = Path("artifacts_prod/intent_feature_spec.json")
+LABEL_MAP      = Path("artifacts_prod/intent_label_map.json")
+NAMES_JSON     = Path("artifacts_prod/intent_names.json")
+
+def _alias_main_to_sma_features():
+    import importlib, types
+    src = Path("src").resolve()
+    if str(src) not in sys.path: sys.path.insert(0, str(src))
+    try:
+        sf = importlib.import_module("sma_features")
+    except Exception:
+        sf = types.ModuleType("sma_features")
+        def _z(X,*a,**k):
+            import numpy as np
+            from scipy.sparse import csr_matrix
+            n = 1
+            try: n = len(X) if hasattr(X,"__len__") else 1
+            except Exception: n = 1
+            return csr_matrix((n, 0), dtype=np.float64)
+        sf.rules_feat=_z; sf.prio_feat=_z; sf.bias_feat=_z
+    sys.modules["sma_features"]=sf
+    sys.modules["__main__"]=sf
+    return sf
+
+def _load_joblib(p):
+    import joblib
+    return joblib.load(p)
+
+def _read_json(p, default):
+    try: return json.loads(Path(p).read_text(encoding="utf-8"))
+    except Exception: return default
+
+def _write_json(p, obj):
+    Path(p).parent.mkdir(parents=True, exist_ok=True)
+    Path(p).write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def load_names():
+    return _read_json(NAMES_JSON, {}).get("names", [])
+
+def ensure_label_map(pipe):
+    names = load_names()
+    classes=[]
+    if hasattr(pipe, "classes_"): classes = list(pipe.classes_)
+    if not classes and hasattr(pipe, "named_steps"):
+        for k in ("clf","final","classifier","estimator"):
+            est = pipe.named_steps.get(k)
+            if est is not None and hasattr(est,"classes_"):
+                classes = list(est.classes_); break
+    m={}
+    if classes:
+        if names and len(names)==len(classes):
+            m = {str(c): str(n) for c,n in zip(classes, names)}
+        else:
+            m = {str(c): str(c) for c in classes}
+    _write_json(LABEL_MAP, m)
+    return m
+
+def _expected_n_features(pipe):
+    """從 CalibratedClassifierCV 的 base_estimator 或最終 estimator 抓特徵數"""
+    est=None
+    if hasattr(pipe,"named_steps"):
+        est = pipe.named_steps.get("clf") or pipe.named_steps.get("final") or \
+              pipe.named_steps.get("classifier") or pipe.named_steps.get("estimator")
+    if est is None: return None
+    nfeat=None
+    try:
+        # CalibratedClassifierCV -> 拿第一個 calibrated_classifier 的 base_estimator
+        if hasattr(est, "calibrated_classifiers_") and est.calibrated_classifiers_:
+            base = est.calibrated_classifiers_[0].base_estimator
+            if hasattr(base, "coef_"): nfeat = int(base.coef_.shape[1])
+            elif hasattr(base, "n_features_in_"): nfeat = int(base.n_features_in_)
+    except Exception:
+        pass
+    if nfeat is None:
+        try:
+            if hasattr(est, "coef_"): nfeat = int(est.coef_.shape[1])
+            elif hasattr(est, "n_features_in_"): nfeat = int(est.n_features_in_)
+        except Exception:
+            nfeat=None
+    return nfeat
+
+def _word_char_dims(pipe):
+    try:
+        fu = pipe.named_steps["features"]
+        dims={}
+        for name, tr in getattr(fu, "transformer_list", []):
+            if hasattr(tr, "vocabulary_"):
+                dims[name] = len(getattr(tr, "vocabulary_", {}) or {})
+        return dims
+    except Exception:
+        return {}
+
+def _email_to_text(x):
+    if isinstance(x, str): return x
+    if isinstance(x, dict):
+        return " ".join([str(x.get(k,"") or "") for k in ("subject","body","text") if x.get(k)])
+    if isinstance(x, (list, tuple)):
+        return " ".join(str(t) for t in x)
+    return str(x)
+
+def load_intent_pipeline(pkl: Path = DEFAULT_ML_PKL, auto_calibrate: bool = True):
+    if not Path(pkl).exists():
+        raise FileNotFoundError(f"找不到模型：{pkl}")
+    _alias_main_to_sma_features()
+    pipe = _load_joblib(pkl)
+    ensure_label_map(pipe)
+
+    if auto_calibrate:
+        exp = _expected_n_features(pipe)
+        dims = _word_char_dims(pipe)  # {'word': N1, 'char': N2}
+        if exp is not None and dims:
+            word = int(dims.get("word",0)); char = int(dims.get("char",0))
+            need_rules = max(0, int(exp) - word - char)
+            spec = _read_json(FEATURE_SPEC, {"dims":{"rules":0,"prio":0,"bias":0}})
+            if int(spec["dims"].get("rules",0)) != need_rules:
+                spec["dims"]["rules"] = need_rules
+                _write_json(FEATURE_SPEC, spec)
+                # 重新 alias 後再載一次，讓新的 spec 在 sma_features 生效
+                _alias_main_to_sma_features()
+                pipe = _load_joblib(pkl)
+    return pipe
+
+def predict(email: dict, pkl: Path = DEFAULT_ML_PKL) -> dict:
+    pipe = load_intent_pipeline(pkl, auto_calibrate=True)
+    lm = _read_json(LABEL_MAP, {})
+    X = [_email_to_text(email)]
+    try:
+        try:
+            probs = pipe.predict_proba(X)[0]
+            classes = pipe.classes_ if hasattr(pipe,"classes_") else pipe.named_steps["clf"].classes_
+            import numpy as np
+            top = int(np.argmax(probs))
+            raw = str(classes[top]); conf = float(probs[top])
+        except Exception:
+            pred = pipe.predict(X)[0]
+            raw = str(pred); conf = 1.0
+    except Exception as e:
+        raise RuntimeError(f"predict 失敗：{e}")
+    name = lm.get(raw, raw)
+    return {"intent_raw": raw, "intent_name": name, "confidence": conf}

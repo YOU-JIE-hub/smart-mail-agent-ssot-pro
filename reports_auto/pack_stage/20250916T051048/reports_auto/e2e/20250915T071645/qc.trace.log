@@ -1,0 +1,15 @@
+OK
++ set -Eeuo pipefail
++ ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
++ cd /home/youjie/projects/smart-mail-agent-ssot-pro
++ DB=reports_auto/audit.sqlite3
++ echo '=== [OPS QUICKCHECK] ==='
+=== [OPS QUICKCHECK] ===
++ [[ -f reports_auto/audit.sqlite3 ]]
++ echo '[ACTIONS HIST]'
+[ACTIONS HIST]
++ sqlite3 reports_auto/audit.sqlite3 'SELECT status, COUNT(*) FROM actions GROUP BY status;'
++ echo '[ERRORS TOP5]'
+[ERRORS TOP5]
++ sqlite3 reports_auto/audit.sqlite3 'SELECT datetime(ts,'\''unixepoch'\''), stage, mail_id, message FROM errors ORDER BY ts DESC LIMIT 5;'
+Error: in prepare, no such table: errors (1)

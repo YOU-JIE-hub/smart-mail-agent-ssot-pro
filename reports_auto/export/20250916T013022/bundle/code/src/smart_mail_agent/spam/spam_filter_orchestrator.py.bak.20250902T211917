@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/spam/spam_filter_orchestrator.py
+# 模組用途: 規則分數 + ML 分數的綜合判斷與 CLI。
+
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+from typing import Optional
+
+from .ml_spam_filter import MLSpamFilter
+from .spam_filter_pipeline import extract_signals, rule_score
+
+
+def predict_score(text: str, sender: Optional[str] | None = None) -> float:
+    """
+    參數: text, sender
+    回傳: 綜合分數（0~1）
+    """
+    sig = extract_signals(text, sender=sender)
+    r = rule_score(sig)
+    ml = MLSpamFilter().score(text)
+    w_rule = float(os.environ.get("SMA_SPAM_W_RULE", "0.6"))
+    w_ml = float(os.environ.get("SMA_SPAM_W_ML", "0.4"))
+    return max(0.0, min(1.0, w_rule * r + w_ml * ml))
+
+
+def is_spam(text: str, sender: Optional[str] | None = None, threshold: float = 0.6) -> bool:
+    return predict_score(text, sender) >= threshold
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser("sma-spam-orchestrator")
+    ap.add_argument("--text", required=True)
+    ap.add_argument("--sender", default=None)
+    ap.add_argument("--threshold", type=float, default=0.6)
+    a = ap.parse_args()
+    score = predict_score(a.text, sender=a.sender)
+    ok = score >= a.threshold
+    print(f"{score:.4f}")
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

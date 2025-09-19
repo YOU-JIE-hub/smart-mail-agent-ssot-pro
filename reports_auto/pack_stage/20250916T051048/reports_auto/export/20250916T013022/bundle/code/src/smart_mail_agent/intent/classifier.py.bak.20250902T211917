@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+# 檔案位置
+# src/smart_mail_agent/intent/classifier.py
+# 模組用途
+# 載入 artifacts/intent/intent_pro_cal.pkl 與（可選）intent_thresholds.json，提供 predict/predict_proba。
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+from typing import List, Optional, Tuple
+
+try:
+    import joblib  # type: ignore
+    import numpy as np  # type: ignore
+except Exception as e:  # noqa: BLE001
+    raise RuntimeError(f"缺少必要依賴: {e}") from e
+
+
+CATS = ["biz_quote", "tech_support", "complaint", "policy_qa", "profile_update", "other"]
+
+
+class IntentClassifier:
+    """
+    參數:
+        model_path: 模型路徑（預設 artifacts/intent/intent_pro_cal.pkl）
+        thresholds_path: 門檻配置（預設 artifacts/intent/intent_thresholds.json 或 reports_auto/intent_thresholds.json）
+    回傳:
+        無
+    """
+
+    def __init__(self, model_path: Optional[str] = None, thresholds_path: Optional[str] = None) -> None:
+        self.model_path = Path(model_path or os.environ.get("SMA_INTENT_MODEL", "artifacts/intent/intent_pro_cal.pkl"))
+        self.thresholds_path = Path(thresholds_path) if thresholds_path else None
+        self.model = self._load_model()
+        classes = getattr(self.model, "classes_", list(CATS))
+        self.labels_: List[str] = [str(x) for x in classes]
+        self.thresholds = self._load_thresholds()
+
+    def _load_model(self):
+        if not self.model_path.is_file():
+            raise FileNotFoundError(f"找不到意圖模型: {self.model_path}")
+        return joblib.load(self.model_path)
+
+    def _load_thresholds(self) -> dict:
+        cands = []
+        if self.thresholds_path:
+            cands.append(self.thresholds_path)
+        cands += [Path("artifacts/intent/intent_thresholds.json"), Path("reports_auto/intent_thresholds.json")]
+        for p in cands:
+            if p.is_file():
+                try:
+                    return json.loads(p.read_text(encoding="utf-8"))
+                except Exception:  # noqa: BLE001
+                    pass
+        return {"default": 0.5}
+
+    def predict_proba(self, texts: List[str]):
+        """
+        參數:
+            texts: 多筆輸入文字
+        回傳:
+            np.ndarray: 機率矩陣 (n_samples, n_classes)
+        """
+        # 假設 model pipeline 已封裝向量化
+        return self.model.predict_proba(texts)  # type: ignore
+
+    def predict(self, text: str) -> Tuple[str, float]:
+        """
+        參數:
+            text: 單筆輸入
+        回傳:
+            (label, score): 最高分類別與分數（套用門檻）
+        """
+        prob = self.predict_proba([text])[0]
+        idx = int(np.argmax(prob))
+        label = self.labels_[idx] if self.labels_ else str(idx)
+        score = float(prob[idx])
+        thr = float(self.thresholds.get(label, self.thresholds.get("default", 0.5)))
+        return (label if score >= thr else "other", score)
+
+
+# 相容別名（舊代碼使用 IntentRouter）
+class IntentRouter(IntentClassifier):
+    pass

@@ -1,0 +1,46 @@
+from __future__ import annotations
+import os, json, math, joblib, numpy as np
+from pathlib import Path
+class SpamEnsemble:
+    def __init__(self, root: Path):
+        self.root = Path(root)
+        self._m = joblib.load(self.root/"artifacts_prod/model_pipeline.pkl")
+        th_p = self.root/"artifacts_prod/ens_thresholds.json"
+        self.th = json.loads(th_p.read_text(encoding="utf-8")) if th_p.exists() else {}
+        # classes_ to list(str)
+        classes = getattr(self._m, "classes_", None)
+        if classes is None and hasattr(self._m, "steps"):
+            classes = getattr(self._m.steps[-1][1], "classes_", None)
+        if hasattr(classes, "tolist"): classes = classes.tolist()
+        self.classes = [str(x) for x in (classes or [0,1])]
+        pos_label = str(self.th.get("pos_label", 1))
+        self.pos_idx = self.classes.index(pos_label) if pos_label in self.classes else (1 if len(self.classes)>1 else 0)
+        self.cut = float(self.th.get("ens_cut", self.th.get("threshold", 0.5)))
+        self.signals_min = int(self.th.get("signals_min", 3))
+    @staticmethod
+    def _sigmoid(x: float)->float: return 1/(1+math.exp(-float(x)))
+    def _proba(self, text: str)->float:
+        if hasattr(self._m, "predict_proba"): return float(self._m.predict_proba([text])[0][self.pos_idx])
+        if hasattr(self._m, "decision_function"): return float(self._sigmoid(self._m.decision_function([text])[0]))
+        y = self._m.predict([text])[0]
+        return 1.0 if str(y)==self.classes[self.pos_idx] else 0.0
+    def predict(self, text: str)->int:
+        # 規則訊號：這裡只保留最小集，完整規則在訓練側
+        import re
+        RE_URL=re.compile(r"https?://", re.I)
+        RE_TLD=re.compile(r"\.(zip|xyz|top|cam|shop|work|loan|country|gq|tk|ml|cf)(?:\b|/)", re.I)
+        RE_KW_EN=re.compile(r"verify|reset|2fa|account|security|login|signin|invoice|urgent", re.I)
+        RE_KW_ZH=re.compile(r"帳戶|驗證|重設|登入|發票|退款|匯款|海關|逾期")
+        RE_EXT=re.compile(r"\.(zip|rar|7z|exe|js|vbs|bat|cmd|htm|html|lnk|iso|docm|xlsm|pptm|scr)\b", re.I)
+        s=0
+        if RE_URL.search(text): s+=1
+        if RE_TLD.search(text): s+=1
+        if RE_KW_EN.search(text) or RE_KW_ZH.search(text): s+=1
+        if RE_EXT.search(text): s+=1
+        p = self._proba(text)
+        ens = int((p >= self.cut) or (s >= self.signals_min))
+        if os.environ.get("SMA_SPAM_DEBUG")=="1":
+            Path(self.root/"reports_auto/_diag").mkdir(parents=True, exist_ok=True)
+            (self.root/"reports_auto/_diag"/"spam_scores_.ndjson").open("a", encoding="utf-8")\
+                .write(json.dumps({"stage":"spam","prob":p,"cut":self.cut,"ens":ens})+"\n")
+        return ens

@@ -1,0 +1,29 @@
+[OK] env.default pinned:
+- SMA_DRY_RUN=1
+- SMA_LLM_PROVIDER=none
+- SMA_EML_DIR=fixtures/eml
+- SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+- SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+- PORT=8000
+[OK] patched: scripts/tri_eval_all.sh
+[OK] patched: scripts/api_up.sh
+[*] rerun tri-eval...
+[*] tri-eval TS=20250915T111118
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/py_last_trace.txt
+OK
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T111118/py_last_trace.txt
+[*] REPORT DIR ready
+[*] stopped PID=610 (reports_auto/api/20250915T105400/api.pid)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'numpy'
+[*] HOTFIX REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/hotfix/20250915T111118

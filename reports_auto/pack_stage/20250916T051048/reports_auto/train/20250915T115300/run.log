@@ -1,0 +1,62 @@
+[*] TRAIN -> artifacts/intent_pipeline_aligned.pkl
+[OK] TRAIN done -> artifacts/intent_pipeline_aligned.pkl
+[*] TRI-EVAL (override model=artifacts/intent_pipeline_aligned.pkl)
+[*] tri-eval TS=20250915T115304
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304/py_last_trace.txt
+OK
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[PATHS]
+  RUN    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304/run.log
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304/tri_eval.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T115304/py_last_trace.txt
+[*] REPORT DIR ready
+[PATHS]
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/run.log
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/train.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/py_last_trace.txt
+  MODEL   = /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl
+  DIAG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/diag.json
+[?2004h(.venv) ]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7mcd /home/youjie/projects/smart-mail-agent-ssot-pro[27m
+[7mSMA_INTENT_ML_PKL="$(realpath -m artifacts/intent_pipeline_aligned.pkl)" scripts/api_up.sh[27m
+[7mcurl -sS -X POST localhost:8000/classify -H 'Content-Type: application/json' \[27m
+[7m  -d '{"texts":["想詢問報價與交期","需要技術支援"], "route":"ml"}' | jq .[27m
+[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd /home/youjie/projects/smart-mail-agent-ssot-pro
+SMA_INTENT_ML_PKL="$(realpath -m artifacts/intent_pipeline_aligned.pkl)" scripts/api_up.sh
+curl -sS -X POST localhost:8000/classify -H 'Content-Type: application/json' \
+  -d '{"texts":["想詢問報價與交期","需要技術支援"], "route":"ml"}' | jq .
+[A
+[?2004lOK
+[*] DRY_RUN=1  PORT=8000
+[OK] API ready
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313/py_last_trace.txt
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T115313/py_last_trace.txt
+[*] REPORT DIR ready
+[PATHS]
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/run.log
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/train.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/py_last_trace.txt
+  MODEL   = /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl
+  DIAG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/diag.json
+[PATHS]
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/run.log
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/train.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/py_last_trace.txt
+  MODEL   = /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl
+  DIAG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300/diag.json
+[*] TRAIN REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T115300

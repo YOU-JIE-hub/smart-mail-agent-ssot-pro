@@ -1,0 +1,9 @@
+From: "Acme Sales" <sales@acme.test>
+To: youjie@example.com
+Subject: 報價與交期詢問
+Date: Thu, 11 Sep 2025 10:00:00 +0800
+Message-ID: <sample-quote-001@acme.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+您好，想詢問產品X的單價與交期，數量100台，請回覆報價單。謝謝。

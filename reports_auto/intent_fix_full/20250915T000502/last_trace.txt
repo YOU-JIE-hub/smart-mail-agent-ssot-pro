@@ -1,0 +1,181 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T00:05:03+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, re, json, glob, traceback, faulthandler, importlib.util, types, shutil
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+import joblib
+
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+py_log = (R/"py_run.log").open("w", encoding="utf-8")
+faulthandler.enable(py_log)
+def say(*a): print(*a, file=py_log, flush=True); print(*a, flush=True)
+def w(p,txt): Path(p).write_text(txt, encoding="utf-8")
+
+def pick_pkl():
+    cands=[]
+    for pat in ["intent/**/artifacts/intent_pro_cal.pkl",
+                "intent/**/artifacts/intent_pipeline*.pkl",
+                "intent/artifacts/*.pkl"]:
+        cands += [Path(p) for p in glob.glob(pat, recursive=True)]
+    cands = [p for p in cands if p.is_file()]
+    cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return cands[0] if cands else None
+
+# --- 綁 rules_feat：先放穩定占位，再嘗試用 bundle 內真正版本覆蓋 ---
+def write_rules_shim(width:int=1):
+    shim = (
+        "import numpy as _np\n"
+        "from scipy import sparse as _sp\n"
+        "def rules_feat(texts):\n"
+        "    n = len(texts)\n"
+        f"    return _sp.csr_matrix((n,{max(int(width),1)}), dtype=_np.float64)\n"
+    )
+    Path("vendor/rules_features.py").write_text(shim, encoding="utf-8")
+    # 載入成模組，並把 __main__.rules_feat 指到這個 shim
+    spec = importlib.util.spec_from_file_location("vendor.rules_features", "vendor/rules_features.py")
+    mod = importlib.util.module_from_spec(spec); sys.modules["vendor.rules_features"]=mod; spec.loader.exec_module(mod) # type: ignore
+    import __main__ as M
+    M.rules_feat = getattr(mod,"rules_feat")
+
+def bind_rules_from_bundle(code_root: Path|None) -> bool:
+    if not code_root: return False
+    # 1) 首選 intent/intent/.sma_tools/runtime_threshold_router.py
+    src = code_root/".sma_tools"/"runtime_threshold_router.py"
+    # 備援：任何含 def rules_feat 的檔
+    if not src.exists():
+        for py in code_root.rglob("*.py"):
+            try:
+                txt = py.read_text(encoding="utf-8", errors="ignore")
+                if "def rules_feat" in txt:
+                    src = py; break
+            except Exception: pass
+    if not src.exists():
+        say("[rules_feat] bundle file not found under", code_root); return False
+
+    txt = src.read_text(encoding="utf-8", errors="ignore")
+    m = re.search(r"(?ms)^\s*def\s+rules_feat\s*\([^)]*\):.*?(?=^\S)", txt+"\n\n")
+    if not m:
+        say("[rules_feat] signature not found in bundle:", src); return False
+    code_txt = m.group(0)
+    # 寫成 vendor/rules_features.py
+    Path("vendor/rules_features.py").write_text(code_txt+"\n", encoding="utf-8")
+    # 匯入並掛到 __main__
+    spec = importlib.util.spec_from_file_location("vendor.rules_features","vendor/rules_features.py")
+    mod = importlib.util.module_from_spec(spec); sys.modules["vendor.rules_features"]=mod; spec.loader.exec_module(mod) # type: ignore
+    import __main__ as M
+    M.rules_feat = getattr(mod,"rules_feat")
+    say("[rules_feat] bound from bundle:", src)
+    # 煙囪測
+    try:
+        test = M.rules_feat(["a","b","c"])
+        assert sp.issparse(test) and test.shape[0]==3 and test.shape[1] >= 1
+        say("[rules_feat] smoke ok ->", test.shape)
+    except Exception as e:
+        say("[rules_feat] smoke fail:", type(e).__name__, e)
+    return True
+
+def unwrap(obj):
+    if hasattr(obj,"predict"): return obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v = obj.get(k)
+            if hasattr(v, "predict"): return v
+    return obj
+
+def to_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(type(X).__name__)
+
+def feature_dims(feat, xs):
+    dims={}
+    if hasattr(feat,"transformer_list"):
+        for name, sub in feat.transformer_list:
+            try: dims[name]=to_csr(sub.transform(xs)).shape[1]
+            except Exception as e: dims[name]=f"ERR:{type(e).__name__}"
+    return dims
+
+def expected_n(clf):
+    if hasattr(clf, "n_features_in_"): return int(clf.n_features_in_)
+    if hasattr(clf, "base_estimator") and hasattr(clf.base_estimator, "n_features_in_"):
+        return int(clf.base_estimator.n_features_in_)
+    return None
+
+try:
+    # 1) 先放 1 維占位，避免 unpickle 立刻炸（你的 log 就是因為這步沒做才炸的） 
+    write_rules_shim(width=1)
+
+    # 2) 找 PKL
+    pkl = pick_pkl()
+    if not pkl:
+        w(R/"py_last_trace.txt", "No PKL under intent/**/artifacts\n")
+        print("[FATAL] no PKL"); sys.exit(2)
+    print("[PKL]", pkl)
+    code_root = Path(pkl).parent.parent  # intent/intent
+
+    # 3) 盡力綁回 bundle 內真正的 rules_feat（找到就覆蓋 shim）
+    _ = bind_rules_from_bundle(code_root)
+
+    # 4) 第一次載入（此時 __main__.rules_feat 已存在）
+    obj = joblib.load(pkl); est = unwrap(obj)
+    pre = None; clf = est
+    if hasattr(est, "steps"):
+        steps = dict(est.steps)
+        pre = steps.get("features") or steps.get("pre") or steps.get("union")
+        clf = est.steps[-1][1]
+        print("[PIPELINE_STEPS]", [(n, s.__class__.__name__) for n,s in est.steps])
+
+    xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+    dims = feature_dims(pre, xs) if pre is not None else {}
+    expect = expected_n(clf)
+    sum_before = sum(v for v in dims.values() if isinstance(v,int))
+    print("[EXPECTED]", expect); print("[BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False)); print("[SUM_BEFORE]", sum_before)
+
+    # 5) 若總維度不等於期望 → 補 pad_auto
+    if expect and sum_before and expect != sum_before and hasattr(pre, "transformer_list"):
+        delta = expect - sum_before
+        patched=False
+        for i,(name, sub) in enumerate(pre.transformer_list):
+            if any(k in name.lower() for k in ("pad","zero")) and hasattr(sub, "width"):
+                old = int(getattr(sub,"width",1) or 1)
+                setattr(sub, "width", old + delta)
+                pre.transformer_list[i] = (name, sub)
+                print("[PAD_ADD]", name, f"+{delta}")
+                patched=True
+                break
+        if not patched:
+            from sma_tools.sk_zero_pad import ZeroPad
+            pre.transformer_list.append(("pad_auto", ZeroPad(width=max(1,delta))))
+            print("[PAD_ADD]", "pad_auto", f"+{delta}")
+
+    # 6) 存 aligned 版
+    OUT = Path("artifacts")/"intent_pipeline_aligned.pkl"
+    joblib.dump(est, OUT)
+    print("[SAVED]", OUT)
+
+    # 7) 煙囪測 + 診斷
+    zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    try:
+        yp = est.predict(tests)
+        for s,y in zip(tests,yp): print("   ", s, "->", f"{y} / {zh.get(str(y), str(y))}")
+        (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in yp]}, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        w(R/"py_last_trace.txt", traceback.format_exc())
+
+    diag = {
+      "steps": [(n, s.__class__.__name__) for n,s in getattr(est,"steps",[])],
+      "branch_dims": dims,
+      "expected_dim": expect,
+      "sum_before": sum_before
+    }
+    (R/"diagnostics.json").write_text(json.dumps(diag, ensure_ascii=False, indent=2), encoding="utf-8")
+
+except Exception:
+    w(R/"py_last_trace.txt", traceback.format_exc())
+    raise
+PY
+
+EXIT_CODE: 1

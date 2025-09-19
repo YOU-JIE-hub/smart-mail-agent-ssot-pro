@@ -1,0 +1,7 @@
+[SMA-PLACEHOLDER]
+path: reports_auto/scan/20250916T042721/manifest.jsonl
+original_size_bytes: 71722584
+original_sha256: d99972349a03b450e37ede907e2f0ef13a9f2de241bbe6acca28e9fa4d92041f
+note: This large artifact was replaced to keep the chatpack small.
+      Restore by placing the original file back at the same path.
+timestamp: 2025-09-16T05:12:01

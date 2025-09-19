@@ -1,0 +1,34 @@
+{
+  "steps": [
+    [
+      "features",
+      "FeatureUnion"
+    ],
+    [
+      "clf",
+      "CalibratedClassifierCV"
+    ]
+  ],
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": 7
+  },
+  "branch_types": {
+    "word": [
+      "sparse",
+      "float64"
+    ],
+    "char": [
+      "sparse",
+      "float64"
+    ],
+    "rules": [
+      "sparse",
+      "float64"
+    ]
+  },
+  "expected_dim": 29233,
+  "sum_before": 29233,
+  "pad_fixed": null
+}

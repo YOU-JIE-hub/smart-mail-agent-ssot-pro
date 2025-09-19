@@ -1,0 +1,79 @@
+from __future__ import annotations
+import os, sys, json, time
+from pathlib import Path
+
+def _call_rule(email:dict):
+    import importlib
+    base=importlib.import_module("tools.pipeline_baseline")
+    # 嘗試拿 contract（若需要）
+    contract=None
+    if hasattr(base, "load_contract"):
+        try: contract = base.load_contract()
+        except Exception: contract=None
+    # 多種 API 兼容
+    if hasattr(base, "classify_rule"):
+        pred = base.classify_rule(email, contract) if contract is not None else base.classify_rule(email)
+        return {"intent": str(pred), "confidence": 1.0, "slots": {}}
+    elif hasattr(base, "classify"):
+        pred = base.classify(email)
+        return {"intent": str(pred), "confidence": 1.0, "slots": {}}
+    else:
+        raise ImportError("pipeline_baseline has no classify_rule/classify")
+
+def _call_ml(email:dict):
+    from tools.pipeline_ml import classify_ml
+    r=classify_ml(email)
+    if isinstance(r, tuple):   # (intent, conf, slots?)
+        it, cf, *rest = r
+        return {"intent": str(it), "confidence": float(cf), "slots": (rest[0] if rest else {}) or {}}
+    elif isinstance(r, dict):
+        it = r.get("intent_name") or r.get("intent") or r.get("label") or ""
+        cf = float(r.get("confidence", 1.0))
+        slots = r.get("slots") or {}
+        return {"intent": str(it), "confidence": cf, "slots": slots}
+    else:
+        return {"intent": str(r), "confidence": 1.0, "slots": {}}
+
+def _call_boosted(email:dict):
+    from tools.pipeline_ml_boosted import classify_boosted
+    r=classify_boosted(email)
+    if isinstance(r, tuple):
+        it, cf, *rest = r
+        return {"intent": str(it), "confidence": float(cf), "slots": (rest[0] if rest else {}) or {}}
+    elif isinstance(r, dict):
+        it = r.get("intent_name") or r.get("intent") or r.get("label") or ""
+        cf = float(r.get("confidence", 1.0))
+        slots = r.get("slots") or {}
+        return {"intent": str(it), "confidence": cf, "slots": slots}
+    else:
+        return {"intent": str(r), "confidence": 1.0, "slots": {}}
+
+def _classify(email: dict, backend: str):
+    b=(backend or "rule").lower()
+    if b=="rule":    return _call_rule(email)
+    if b=="ml":      return _call_ml(email)
+    if b=="boosted": return _call_boosted(email)
+    raise ValueError(b)
+
+def main():
+    backend=(sys.argv[1] if len(sys.argv)>1 else "rule").lower()
+    from tools.orch.planner_bridge import plan_action  # 統一 planner
+    from tools.actions.action_bus import ActionBus
+    bus=ActionBus(dry_run=bool(os.environ.get("SMA_DRY_RUN")))
+
+    fx=Path("fixtures/eval_set.jsonl")
+    if not fx.exists(): raise SystemExit("[E2E] fixtures/eval_set.jsonl missing")
+
+    for line in fx.read_text(encoding="utf-8").splitlines():
+        if not line.strip(): continue
+        s=json.loads(line); email=s["email"]
+        r=_classify(email, backend)
+        intent, conf, slots = r["intent"], float(r["confidence"]), (r.get("slots") or {})
+        plan=plan_action(intent, conf, email, slots)
+        mail_id=time.strftime("%Y%m%dT%H%M%S")
+        res=bus.execute(mail_id, intent, plan)
+        out={"intent":intent,"conf":conf,"plan":plan,"result":res}
+        print(json.dumps(out, ensure_ascii=False))
+
+if __name__=="__main__":
+    main()

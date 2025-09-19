@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/pipeline/action_handler.py
+# 模組用途: 決策後的動作規劃與輸出（file-transport）。
+
+from __future__ import annotations
+
+import hashlib
+import json
+import time
+from pathlib import Path
+from typing import Any, Dict, List
+
+ACTIONS = {
+    "biz_quote": "create_quote_ticket",
+    "tech_support": "create_support_case",
+    "complaint": "create_support_case",
+    "policy_qa": "send_policy_link",
+    "profile_update": "request_update_form",
+    "quarantine": "quarantine",
+    "other": "manual_triage",
+}
+PRIORITY = {"quarantine": "P1/Sec", "create_support_case": "P2/Support", "create_quote_ticket": "P2/Sales"}
+
+
+def _ide_key(meta: Dict[str, Any]) -> str:
+    h = hashlib.sha256(json.dumps(meta, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
+    return h[:16]
+
+
+def plan_actions(cases: List[Dict[str, Any]], outdir: Path) -> None:
+    """
+    參數:
+        cases: [{"id","intent","fields"}...]
+        outdir: 輸出根
+    回傳: None
+    """
+    outdir.mkdir(parents=True, exist_ok=True)
+    tickets = outdir / "tickets"
+    emails = outdir / "email_outbox"
+    scripts = outdir
+    tickets.mkdir(exist_ok=True)
+    emails.mkdir(exist_ok=True)
+
+    (scripts / "do_quarantine.sh").write_text(
+        "#!/usr/bin/env bash\nset -euo pipefail\necho \"[do_quarantine] idempotency_key=${IDEMPOTENCY_KEY}\";\n",  # noqa: E501
+        encoding="utf-8",
+    )
+    (scripts / "do_manual_triage.sh").write_text(
+        "#!/usr/bin/env bash\nset -euo pipefail\necho \"[do_manual_triage] idempotency_key=${IDEMPOTENCY_KEY}\";\n",  # noqa: E501
+        encoding="utf-8",
+    )
+
+    plan = outdir.parent / "actions_plan.ndjson"
+    jl: List[Dict[str, Any]] = []
+
+    for c in cases:
+        a = ACTIONS.get(c.get("intent", "other"), "manual_triage")
+        meta = {"mail_id": c.get("id"), "intent": c.get("intent"), "action": a, "ts": int(time.time())}
+        meta["idempotency_key"] = _ide_key(meta)
+        meta["priority"] = PRIORITY.get(a, "P3/Ops")
+        meta["queue"] = meta["priority"]
+        jl.append(meta)
+        plan.open("a", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False) + "\n")
+
+    (outdir / "actions.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in jl), encoding="utf-8")

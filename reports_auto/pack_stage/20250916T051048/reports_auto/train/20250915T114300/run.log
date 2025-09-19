@@ -1,0 +1,7 @@
+[*] TRAIN → artifacts/intent_pipeline_aligned.pkl
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/train_intent_min.py", line 16, in <module>
+    from vendor.sma_tools.sk_zero_pad import ZeroPad
+ModuleNotFoundError: No module named 'vendor'
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T114300/train.err
+[*] TRAIN REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train/20250915T114300

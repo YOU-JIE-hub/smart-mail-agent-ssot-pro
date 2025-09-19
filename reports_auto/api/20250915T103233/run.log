@@ -1,0 +1,10 @@
+[*] DRY_RUN=1  PORT=8000
+[*] PID=137
+[OK] API ready
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T103233
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T103233/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T103233/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T103233/py_last_trace.txt
+[*] REPORT DIR ready
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T103233

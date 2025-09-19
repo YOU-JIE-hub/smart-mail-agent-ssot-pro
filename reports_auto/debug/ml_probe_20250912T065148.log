@@ -1,0 +1,17 @@
+[INFO] model=artifacts/intent_pro_cal.pkl
+[STRUCT]
+{'pipeline': Pipeline(steps=[('features',
+                 FeatureUnion(transformer_list=[('word',
+                                                 TfidfVectorizer(ngram_range=(1,
+                                                                              2))),
+                                                ('char',
+                                                 TfidfVectorizer(analyzer='char_wb',
+                                                                 ngram_range=(3,
+                                                                              5))),
+                                                ('rules',
+                                                 FunctionTransformer(accept_sparse=True,
+                                                                     func=<function rules_feat at 0x7e07192f6170>))])),
+                ('clf',
+                 CalibratedClassifierCV(cv=3,
+                                        estimator=LinearSVC(class_weight='balanced',
+                                                            random_state=42)))])}

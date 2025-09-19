@@ -1,0 +1,6 @@
+  File "<stdin>", line 18
+    cur.execute("""CREATE TABLE IF NOT EXISTS llm_calls(
+                   ^^^^^^
+SyntaxError: invalid syntax
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api_fixed/20250915T133320/api.err
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api_fixed/20250915T133320

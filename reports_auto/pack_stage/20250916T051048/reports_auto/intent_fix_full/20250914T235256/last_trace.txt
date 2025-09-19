@@ -1,0 +1,173 @@
+=== BASH_TRAP ===
+TIME: 2025-09-14T23:52:57+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, json, glob, re, traceback, faulthandler, importlib.util, types
+from pathlib import Path
+import joblib, numpy as np
+from scipy import sparse as sp
+
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+pylog = (R / "py_run.log").open("w", encoding="utf-8")
+faulthandler.enable(pylog)
+
+def say(*a):
+    print(*a, file=pylog, flush=True)
+    print(*a, flush=True)
+
+def pick_pkl():
+    cands = []
+    for pat in [
+        "intent/**/artifacts/intent_pro_cal.pkl",
+        "intent/**/artifacts/intent_pipeline*.pkl",
+        "intent/artifacts/*.pkl",
+    ]:
+        cands += [Path(p) for p in glob.glob(pat, recursive=True)]
+    cands = [p for p in cands if p.is_file()]
+    cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return cands[0] if cands else None
+
+def bind_rules_from_bundle(code_root: Path):
+    """如果 bundle 內有訓練時的 rules_feat，就擷取那段覆蓋 vendor/rules_features.py，並綁到 __main__。"""
+    src = code_root/".sma_tools"/"runtime_threshold_router.py"
+    if not src.exists():
+        say("[rules_feat] bundle not found:", src)
+        return False
+    txt = src.read_text(encoding="utf-8")
+    m = re.search(r"(?ms)^def\s+rules_feat\s*\([^)]*\):.*?(?=^\S)", txt+"\n\n")
+    if not m:
+        say("[rules_feat] signature not found in bundle:", src)
+        return False
+    block = m.group(0)
+    # 強制去除任何前置空白，避免 IndentationError
+    from textwrap import dedent
+    code_txt = dedent(block).lstrip() + "\n"
+    Path("vendor/rules_features.py").write_text(code_txt, encoding="utf-8")
+    spec = importlib.util.spec_from_file_location("vendor.rules_features","vendor/rules_features.py")
+    mod = importlib.util.module_from_spec(spec); sys.modules["vendor.rules_features"]=mod; spec.loader.exec_module(mod)
+    import __main__ as M
+    M.rules_feat = getattr(mod, "rules_feat")
+    say("[rules_feat] bound from bundle:", src)
+    # 立即自測 shape
+    try:
+        import scipy.sparse as _sp
+        test = M.rules_feat(["a","b","c"])
+        assert _sp.issparse(test) and test.shape[0]==3 and test.shape[1] >= 1
+        say("[rules_feat] smoke ok ->", test.shape)
+    except Exception as e:
+        say("[rules_feat] smoke fail:", type(e).__name__, e)
+    return True
+
+def unwrap(obj):
+    if hasattr(obj,"predict"): return obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v = obj.get(k)
+            if hasattr(v, "predict"):
+                return v
+    return obj
+
+def to_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(type(X).__name__)
+
+def feature_dims(feat, xs):
+    dims={}
+    if hasattr(feat, "transformer_list"):
+        for name, sub in feat.transformer_list:
+            try:
+                dims[name] = to_csr(sub.transform(xs)).shape[1]
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}"
+    return dims
+
+def expected_n(clf):
+    if hasattr(clf, "n_features_in_"): return int(clf.n_features_in_)
+    if hasattr(clf,"base_estimator") and hasattr(clf.base_estimator,"n_features_in_"):
+        return int(clf.base_estimator.n_features_in_)
+    return None
+
+try:
+    pkl = pick_pkl()
+    if not pkl:
+        (R/"py_last_trace.txt").write_text("No PKL under intent/**/artifacts\n", encoding="utf-8")
+        print("[FATAL] no PKL"); sys.exit(2)
+    print("[PKL]", pkl)
+    code_root = pkl.parent.parent  # intent/intent
+
+    # 嘗試綁訓練版 rules_feat（覆蓋我們剛寫的安全版）
+    _ = bind_rules_from_bundle(code_root)
+
+    obj = joblib.load(pkl); est = unwrap(obj)
+    pre = None; clf = est
+    if hasattr(est, "steps"):
+        steps = dict(est.steps)
+        pre = steps.get("features") or steps.get("pre") or steps.get("union")
+        clf = est.steps[-1][1]
+        print("[PIPELINE]", [(n, s.__class__.__name__) for n,s in est.steps])
+
+    xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+    dims = feature_dims(pre, xs) if pre is not None else {}
+    expect = expected_n(clf)
+    sum_before = sum(v for v in dims.values() if isinstance(v,int))
+    print("[EXPECTED]", expect, " [BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False), " [SUM]", sum_before)
+
+    # 對齊 total 維度
+    if expect and sum_before and expect != sum_before and hasattr(pre, "transformer_list"):
+        delta = expect - sum_before
+        patched=False
+        for i,(name, sub) in enumerate(pre.transformer_list):
+            if any(k in name.lower() for k in ("pad","zero")) and hasattr(sub, "width"):
+                old = int(getattr(sub, "width", 1) or 1)
+                setattr(sub, "width", old + delta)
+                pre.transformer_list[i] = (name, sub)
+                print("[PAD_ADD]", name, f"+{delta}")
+                patched=True
+                break
+        if not patched:
+            # 沒 pad，就讓 rules_feat 以 (expect - other) 補齊，重載一次
+            word = next((v for k,v in dims.items() if k.lower()=="word" and isinstance(v,int)), 0)
+            char = next((v for k,v in dims.items() if k.lower()=="char" and isinstance(v,int)), 0)
+            rules_w = max(1, expect - word - char)
+            txt = Path("vendor/rules_features.py").read_text(encoding="utf-8")
+            txt = re.sub(r"(?ms)^def\s+rules_feat\s*\([^)]*\):.*?(?=^\S)", 
+                         f"def rules_feat(texts):\n    n = len(texts)\n    return sp.csr_matrix((n, {rules_w}), dtype=np.float64)\n",
+                         txt+"\n\n").lstrip()
+            Path("vendor/rules_features.py").write_text(txt, encoding="utf-8")
+            spec = importlib.util.spec_from_file_location("vendor.rules_features","vendor/rules_features.py")
+            mod = importlib.util.module_from_spec(spec); sys.modules["vendor.rules_features"]=mod; spec.loader.exec_module(mod)
+            import __main__ as M; M.rules_feat = getattr(mod,"rules_feat")
+            obj2 = joblib.load(pkl); est = unwrap(obj2)
+            print("[rules_feat] shim resized to", rules_w)
+
+    # 存檔
+    OUT = Path("artifacts")/"intent_pipeline_aligned.pkl"
+    joblib.dump(est, OUT)
+    print("[SAVED]", OUT)
+
+    # 煙囪
+    zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    try:
+        yp = est.predict(tests)
+        for s,y in zip(tests, yp):
+            print("   ", s, "->", f"{y} / {zh.get(str(y), str(y))}")
+        (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in yp]}, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+
+    # 診斷
+    diag = {
+      "steps": [(n, s.__class__.__name__) for n,s in getattr(est,"steps",[])],
+      "branch_dims": dims,
+      "expected_dim": expect,
+      "sum_before": sum_before
+    }
+    (R/"diagnostics.json").write_text(json.dumps(diag, ensure_ascii=False, indent=2), encoding="utf-8")
+
+except Exception:
+    (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    raise
+PY
+
+EXIT_CODE: 1

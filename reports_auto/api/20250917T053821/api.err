@@ -1,0 +1,6 @@
+nohup: ignoring input
+curl: (7) Failed to connect to 127.0.0.1 port 8088 after 0 ms: Connection refused
+127.0.0.1 - - [17/Sep/2025 05:38:21] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 05:38:21] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 05:38:21] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 05:38:21] "POST /extract HTTP/1.1" 200 -

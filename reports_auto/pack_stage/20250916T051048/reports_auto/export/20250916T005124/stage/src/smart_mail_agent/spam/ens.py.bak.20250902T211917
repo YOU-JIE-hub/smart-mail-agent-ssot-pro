@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+# 檔案位置
+# src/smart_mail_agent/spam/ens.py
+# 模組用途
+# 讀取 artifacts_prod/spam 下資源並提供 SpamEnsemble 介面；若無模型則回退 MLSpamFilter。
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+from typing import Optional
+
+try:
+    import joblib  # type: ignore
+except Exception:  # pragma: no cover
+    joblib = None  # type: ignore
+
+from .ml_spam_filter import MLSpamFilter
+from .spam_filter_pipeline import extract_signals, rule_score
+
+
+class SpamEnsemble:
+    """
+    參數:
+        root_dir: 模型資源根目錄（預設 artifacts_prod/spam）
+    回傳:
+        無
+    """
+
+    def __init__(self, root_dir: Optional[str] = None) -> None:
+        self.root = Path(root_dir or os.environ.get("SMA_SPAM_DIR", "artifacts_prod/spam"))
+        self.thresholds = self._load_thresholds()
+        self._clf = self._load_clf()
+        self._vec = self._load_vec()
+
+    def _load_thresholds(self) -> dict:
+        for name in ["ens_thresholds.json", "thresholds.json"]:
+            p = self.root / name
+            if p.is_file():
+                try:
+                    return json.loads(p.read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+        return {"threshold": 0.6, "ens_cut": 0.6, "signals_min": 1}
+
+    def _load_clf(self):
+        if joblib is None:
+            return None
+        for name in ["clf.joblib", "model.joblib", "spam_ens.joblib"]:
+            p = self.root / name
+            if p.is_file():
+                try:
+                    return joblib.load(p)
+                except Exception:
+                    return None
+        return None
+
+    def _load_vec(self):
+        if joblib is None:
+            return None
+        for name in ["vectorizer.joblib", "tfidf.joblib", "vec.joblib"]:
+            p = self.root / name
+            if p.is_file():
+                try:
+                    return joblib.load(p)
+                except Exception:
+                    return None
+        return None
+
+    def predict_proba(self, text: str, sender: Optional[str] = None) -> float:
+        base_sig = extract_signals(text or "", sender=sender)
+        r = rule_score(base_sig)
+        ml_p = 0.0
+        if self._clf is not None and self._vec is not None:
+            try:
+                X = self._vec.transform([text or ""])
+                proba = getattr(self._clf, "predict_proba")(X)[0]
+                pos_idx = 1
+                classes = getattr(self._clf, "classes_", None)
+                if classes is not None:
+                    try:
+                        pos_idx = list(classes).index(1)
+                    except Exception:
+                        pos_idx = -1
+                ml_p = float(proba[pos_idx]) if pos_idx >= 0 else float(proba.max())
+            except Exception:
+                ml_p = 0.0
+        else:
+            ml_p = MLSpamFilter().score(text or "")
+        w_rule = float(os.environ.get("SMA_SPAM_W_RULE", "0.6"))
+        w_ml = float(os.environ.get("SMA_SPAM_W_ML", "0.4"))
+        p = max(0.0, min(1.0, w_rule * r + w_ml * ml_p))
+        return p
+
+    def is_spam(self, text: str, sender: Optional[str] = None, threshold: Optional[float] = None) -> bool:
+        thr = float(threshold) if threshold is not None else float(self.thresholds.get("threshold", 0.6))
+        return self.predict_proba(text, sender) >= thr

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+[ -f scripts/ops_quickcheck.sh ] && [ -f scripts/sma_e2e_all.sh ] || { echo "[FATAL] not at repo root"; exit 2; }

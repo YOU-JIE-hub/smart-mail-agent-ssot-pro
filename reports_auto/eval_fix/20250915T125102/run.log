@@ -1,0 +1,5 @@
+[OK] wrote: reports_auto/eval_fix/20250915T125102/tri_results_fixed.json
+  File "<stdin>", line 9
+    (rule.get(latency_ms,-))
+                          ^
+SyntaxError: f-string: invalid syntax

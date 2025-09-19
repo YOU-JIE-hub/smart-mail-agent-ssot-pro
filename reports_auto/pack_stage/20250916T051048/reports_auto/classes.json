@@ -1,0 +1,18 @@
+{
+  "classes": [
+    "biz_quote",
+    "complaint",
+    "other",
+    "policy_qa",
+    "profile_update",
+    "tech_support"
+  ],
+  "classes_zh": [
+    "報價",
+    "投訴",
+    "其他",
+    "規則詢問",
+    "資料異動",
+    "技術支援"
+  ]
+}

@@ -1,0 +1,4 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T08:40:58+08:00
+LAST: echo "LAST: ${BASH_COMMAND:-<none>}"
+CODE: 10

@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+# 檔案位置: src/smart_mail_agent/spam/spam_filter_pipeline.py
+# 模組用途: 載入規則與提取信號（signals），輸出 rule-based 分數。
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, Optional
+
+try:
+    import yaml  # type: ignore
+except Exception:  # pragma: no cover
+    yaml = None  # type: ignore
+
+DEFAULT_RULES = {
+    "blacklist_senders": [],
+    "blacklist_domains": [],
+    "keywords": [],
+    "suspicious_tlds": [],
+    "link_ratio_threshold": 0.1,
+    "min_words": 10,
+}
+
+_RULES_CACHE: Dict[str, Any] = {}
+
+def load_rules(path: Optional[str] = None) -> Dict[str, Any]:
+    """
+    參數:
+        path: 規則檔路徑（YAML）；預設為模組旁的 rules.yaml
+    回傳:
+        dict: 規則內容
+    """
+    global _RULES_CACHE
+    if _RULES_CACHE:
+        return _RULES_CACHE
+    p = Path(path or Path(__file__).with_name("rules.yaml"))
+    if p.is_file() and yaml:
+        try:
+            _RULES_CACHE = {**DEFAULT_RULES, **(yaml.safe_load(p.read_text(encoding="utf-8")) or {})}
+            return _RULES_CACHE
+        except Exception:
+            pass
+    _RULES_CACHE = DEFAULT_RULES.copy()
+    return _RULES_CACHE
+
+@dataclass
+class SpamSignals:
+    keyword_hits: int
+    link_ratio: float
+    blacklisted: bool
+
+def _link_ratio(text: str) -> float:
+    links = re.findall(r"https?://\\S+", text, flags=re.IGNORECASE)
+    words = re.findall(r"\\w+", text, flags=re.UNICODE)
+    if not words:
+        return 0.0
+    return min(1.0, len(links) / max(1, len(words)))
+
+def extract_signals(text: str, sender: Optional[str] = None) -> SpamSignals:
+    rules = load_rules()
+    kw = rules.get("keywords", [])
+    hits = sum(text.lower().count(k.lower()) for k in kw)
+    lr = _link_ratio(text)
+    blk = False
+    if sender:
+        sender_l = sender.lower()
+        blk = any(sender_l.endswith("<"+s+">") or sender_l.endswith(s) or sender_l == s for s in rules.get("blacklist_senders", []))
+        # domain blacklist
+        for d in rules.get("blacklist_domains", []):
+            if sender_l.endswith("@"+d) or sender_l.endswith(d):
+                blk = True; break
+    return SpamSignals(keyword_hits=hits, link_ratio=lr, blacklisted=blk)
+
+def rule_score(sig: SpamSignals) -> float:
+    """
+    參數:
+        sig: SpamSignals
+    回傳:
+        float: 0~1 規則分數
+    """
+    base = 0.0
+    # 關鍵詞命中（每個加權 0.1，上限 0.6）
+    base += min(0.6, 0.1 * sig.keyword_hits)
+    # 連結比例（超閾值加權 0.2）
+    thr = load_rules().get("link_ratio_threshold", 0.1)
+    if sig.link_ratio >= float(thr):
+        base += 0.2
+    # 黑名單（直接拉滿到 0.95）
+    if sig.blacklisted:
+        base = max(base, 0.95)
+    return max(0.0, min(1.0, base))

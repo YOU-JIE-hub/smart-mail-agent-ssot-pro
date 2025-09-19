@@ -1,0 +1,1 @@
+{"error": "server_error", "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 96, in do_POST\n    if route==\"ml\": yp=[str(y) for y in load_pipe().predict(texts)]; tag=\"ml\"\nAttributeError: 'dict' object has no attribute 'predict'\n"}

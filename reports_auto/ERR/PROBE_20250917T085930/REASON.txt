@@ -1,0 +1,140 @@
+When   : 20250917T085930
+RunDir : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250917T073650
+Reason : not-listening
+Hint   : 服務未監聽 8088；檢查啟動指令/venv/被父殼終止
+
+== tail api.err ==
+nohup: ignoring input
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [17/Sep/2025 07:36:50] "POST /extract HTTP/1.1" 200 -
+
+== tail api.out ==
+[API] http://127.0.0.1:8088
+
+== ports ==
+State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+
+== dmesg (tail) ==
+[Wed Sep 17 08:53:24 2025] mptctl: /dev/mptctl @ (major,minor=10,220)
+[Wed Sep 17 08:53:24 2025] i8042: PNP: No PS/2 controller found.
+[Wed Sep 17 08:53:24 2025] hv_vmbus: registering driver hyperv_keyboard
+[Wed Sep 17 08:53:24 2025] rtc_cmos 00:00: RTC can wake from S4
+[Wed Sep 17 08:53:24 2025] rtc_cmos 00:00: registered as rtc0
+[Wed Sep 17 08:53:24 2025] rtc_cmos 00:00: setting system clock to 2025-09-17T00:53:24 UTC (1758070404)
+[Wed Sep 17 08:53:24 2025] rtc_cmos 00:00: alarms up to one month, 114 bytes nvram
+[Wed Sep 17 08:53:24 2025] device-mapper: core: CONFIG_IMA_DISABLE_HTABLE is disabled. Duplicate IMA measurements will not be recorded in the IMA log.
+[Wed Sep 17 08:53:24 2025] device-mapper: uevent: version 1.0.3
+[Wed Sep 17 08:53:24 2025] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[Wed Sep 17 08:53:24 2025] intel_pstate: CPU model not supported
+[Wed Sep 17 08:53:24 2025] hv_utils: Registering HyperV Utility Driver
+[Wed Sep 17 08:53:24 2025] hv_vmbus: registering driver hv_utils
+[Wed Sep 17 08:53:24 2025] hv_vmbus: registering driver hv_balloon
+[Wed Sep 17 08:53:24 2025] hv_vmbus: registering driver dxgkrnl
+[Wed Sep 17 08:53:24 2025] hv_utils: TimeSync IC version 4.0
+[Wed Sep 17 08:53:24 2025] hv_balloon: Using Dynamic Memory protocol version 2.0
+[Wed Sep 17 08:53:24 2025] Free page reporting enabled
+[Wed Sep 17 08:53:24 2025] hv_balloon: Cold memory discard hint enabled with order 9
+[Wed Sep 17 08:53:24 2025] drop_monitor: Initializing network drop monitor service
+[Wed Sep 17 08:53:24 2025] NET: Registered PF_INET6 protocol family
+[Wed Sep 17 08:53:24 2025] Segment Routing with IPv6
+[Wed Sep 17 08:53:24 2025] In-situ OAM (IOAM) with IPv6
+[Wed Sep 17 08:53:24 2025] NET: Registered PF_PACKET protocol family
+[Wed Sep 17 08:53:24 2025] 9pnet: Installing 9P2000 support
+[Wed Sep 17 08:53:24 2025] NET: Registered PF_VSOCK protocol family
+[Wed Sep 17 08:53:24 2025] hv_vmbus: registering driver hv_sock
+[Wed Sep 17 08:53:24 2025] IPI shorthand broadcast: enabled
+[Wed Sep 17 08:53:24 2025] AVX2 version of gcm_enc/dec engaged.
+[Wed Sep 17 08:53:24 2025] AES CTR mode by8 optimization enabled
+[Wed Sep 17 08:53:24 2025] sched_clock: Marking stable (224440721, 2719748)->(250979696, -23819227)
+[Wed Sep 17 08:53:24 2025] registered taskstats version 1
+[Wed Sep 17 08:53:24 2025] Loading compiled-in X.509 certificates
+[Wed Sep 17 08:53:24 2025] ima: No TPM chip found, activating TPM-bypass!
+[Wed Sep 17 08:53:24 2025] ima: Allocated hash algorithm: sha256
+[Wed Sep 17 08:53:24 2025] ima: No architecture policies found
+[Wed Sep 17 08:53:24 2025] RAS: Correctable Errors collector initialized.
+[Wed Sep 17 08:53:24 2025] clk: Disabling unused clocks
+[Wed Sep 17 08:53:24 2025] Freeing unused decrypted memory: 2028K
+[Wed Sep 17 08:53:24 2025] Freeing unused kernel image (initmem) memory: 4492K
+[Wed Sep 17 08:53:24 2025] Write protecting the kernel read-only data: 34816k
+[Wed Sep 17 08:53:24 2025] Freeing unused kernel image (rodata/data gap) memory: 840K
+[Wed Sep 17 08:53:24 2025] Run /init as init process
+[Wed Sep 17 08:53:24 2025]   with arguments:
+[Wed Sep 17 08:53:24 2025]     /init
+[Wed Sep 17 08:53:24 2025]   with environment:
+[Wed Sep 17 08:53:24 2025]     HOME=/
+[Wed Sep 17 08:53:24 2025]     TERM=linux
+[Wed Sep 17 08:53:24 2025]     WSL_ROOT_INIT=1
+[Wed Sep 17 08:53:24 2025]     WSL_ENABLE_CRASH_DUMP=1
+[Wed Sep 17 08:53:24 2025] scsi 0:0:0:0: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[Wed Sep 17 08:53:24 2025] scsi 0:0:0:1: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:0: [sda] 795536 512-byte logical blocks: (407 MB/388 MiB)
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:1: Attached scsi generic sg1 type 0
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:0: [sda] Write Protect is on
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:1: [sdb] 381016 512-byte logical blocks: (195 MB/186 MiB)
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:1: [sdb] Write Protect is on
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:1: [sdb] Mode Sense: 0f 00 80 00
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:1: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:0: [sda] Mode Sense: 0f 00 80 00
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:1: [sdb] Attached SCSI disk
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:0: [sda] Attached SCSI disk
+[Wed Sep 17 08:53:24 2025] scsi 0:0:0:2: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: Attached scsi generic sg2 type 0
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: [sdc] 8388616 512-byte logical blocks: (4.29 GB/4.00 GiB)
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: [sdc] 4096-byte physical blocks
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: [sdc] Write Protect is off
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: [sdc] Mode Sense: 0f 00 00 00
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: [sdc] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:2: [sdc] Attached SCSI disk
+[Wed Sep 17 08:53:24 2025] EXT4-fs (sda): mounted filesystem 00000000-0000-0000-0000-000000000000 ro without journal. Quota mode: none.
+[Wed Sep 17 08:53:24 2025] EXT4-fs (sdb): mounted filesystem 00000000-0000-0000-0000-000000000000 ro without journal. Quota mode: none.
+[Wed Sep 17 08:53:24 2025] tun: Universal TUN/TAP device driver, 1.6
+[Wed Sep 17 08:53:24 2025] Adding 4194304k swap on /dev/sdc.  Priority:-2 extents:1 across:4194304k 
+[Wed Sep 17 08:53:24 2025] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[Wed Sep 17 08:53:24 2025] Bridge firewalling registered
+[Wed Sep 17 08:53:24 2025] hv_pci bafdd002-a6bb-4089-a391-10c069af30e2: PCI VMBus probing: Using version 0x10004
+[Wed Sep 17 08:53:24 2025] hv_pci bafdd002-a6bb-4089-a391-10c069af30e2: PCI host bridge to bus a6bb:00
+[Wed Sep 17 08:53:24 2025] pci_bus a6bb:00: root bus resource [mem 0xc00000000-0xe00001fff window]
+[Wed Sep 17 08:53:24 2025] pci_bus a6bb:00: No busn resource found for root bus, will use [bus 00-ff]
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: [1af4:105a] type 00 class 0x088000
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: reg 0x10: [mem 0xe00000000-0xe00000fff 64bit]
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: reg 0x18: [mem 0xe00001000-0xe00001fff 64bit]
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: reg 0x20: [mem 0xc00000000-0xdffffffff 64bit]
+[Wed Sep 17 08:53:24 2025] pci_bus a6bb:00: busn_res: [bus 00-ff] end is updated to 00
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: BAR 4: assigned [mem 0xc00000000-0xdffffffff 64bit]
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: BAR 0: assigned [mem 0xe00000000-0xe00000fff 64bit]
+[Wed Sep 17 08:53:24 2025] pci a6bb:00:00.0: BAR 2: assigned [mem 0xe00001000-0xe00001fff 64bit]
+[Wed Sep 17 08:53:24 2025] virtio-pci a6bb:00:00.0: enabling device (0000 -> 0002)
+[Wed Sep 17 08:53:24 2025] virtiofs virtio1: Cache len: 0x200000000 @ 0xc00000000
+[Wed Sep 17 08:53:24 2025] scsi 0:0:0:3: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: Attached scsi generic sg3 type 0
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: [sdd] 2147483648 512-byte logical blocks: (1.10 TB/1.00 TiB)
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: [sdd] 4096-byte physical blocks
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: [sdd] Write Protect is off
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: [sdd] Mode Sense: 0f 00 00 00
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: [sdd] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[Wed Sep 17 08:53:24 2025] sd 0:0:0:3: [sdd] Attached SCSI disk
+[Wed Sep 17 08:53:24 2025] EXT4-fs (sdd): mounted filesystem c2e5e2dd-b6e6-44dc-b891-3753167ea5d3 r/w with ordered data mode. Quota mode: none.
+[Wed Sep 17 08:53:24 2025] /sbin/ldconfig: 
+[Wed Sep 17 08:53:24 2025] /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link
+
+[Wed Sep 17 08:53:25 2025] /sbin/ldconfig.real: 
+[Wed Sep 17 08:53:25 2025] /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link
+
+[Wed Sep 17 08:53:25 2025] pulseaudio[299]: memfd_create() called without MFD_EXEC or MFD_NOEXEC_SEAL set
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+[Wed Sep 17 08:53:25 2025] misc dxg: dxgk: dxgkio_reserve_gpu_va: Ioctl failed: -75
+[Wed Sep 17 08:53:29 2025] WSL (264) ERROR: CheckConnection: getaddrinfo() failed: -5
+[Wed Sep 17 08:54:12 2025] hv_balloon: Max. dynamic memory size: 16272 MB

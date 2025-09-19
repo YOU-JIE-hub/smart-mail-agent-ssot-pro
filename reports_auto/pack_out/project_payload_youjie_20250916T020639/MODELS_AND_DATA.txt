@@ -1,0 +1,7 @@
+# MODELS (ABS)
+- /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+# RULES (ABS)
+- /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+- /home/youjie/projects/smart-mail-agent_ssot/.sma_tools/runtime_threshold_router.py
+# INTENT DATA (ABS)
+- /home/youjie/projects/smart-mail-agent-ssot-pro/data/intent_eval/dataset.cleaned.jsonl

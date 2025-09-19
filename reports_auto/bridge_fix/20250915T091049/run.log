@@ -1,0 +1,7 @@
+[*] MODEL = /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+[*] RULES_SRC = /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'joblib'
+logout
+[FATAL] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/bridge_fix/20250915T091049

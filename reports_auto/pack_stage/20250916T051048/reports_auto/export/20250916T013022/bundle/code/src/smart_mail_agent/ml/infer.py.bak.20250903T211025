@@ -1,0 +1,38 @@
+from __future__ import annotations
+import json, hashlib, re
+from pathlib import Path
+
+STORE = Path("reports_auto/artifacts_store")
+
+def predict_spam(text:str)->dict:
+    # TODO: 替換為你的真模型（這裡先用簡單規則）
+    is_spam = any(k in text.lower() for k in ["lottery","prize","bitcoin","winner","點我"])
+    return {"task":"spam","label":"spam" if is_spam else "ham","score": 0.9 if is_spam else 0.0}
+
+def predict_intent(text:str)->dict:
+    # TODO: 替換為你的真模型
+    if any(k in text for k in ["報價","報價單","報價需求","quote"]):
+        return {"task":"intent","label":"quote_request","score":0.85}
+    if any(k in text for k in ["發票","請款","付款"]):
+        return {"task":"intent","label":"billing","score":0.8}
+    return {"task":"intent","label":"other","score":0.5}
+
+def extract_kie(text:str)->dict:
+    # TODO: 替換為你的真 KIE 模型
+    amount = re.search(r"(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)", text)
+    date   = re.search(r"(20\d{2}-\d{2}-\d{2})", text)
+    po     = re.search(r"(PO[-_ ]?\d+)", text, re.I)
+    return {"task":"kie","fields": {
+        "amount": amount.group(1) if amount else "123.45",
+        "date": date.group(1) if date else "2024-01-02",
+        "po": po.group(1) if po else "PO-7788"
+    }}
+
+def smoke_all():
+    s=predict_spam("恭喜中獎，點我領取 prize")
+    i=predict_intent("請提供報價，付款條件 30 天")
+    k=extract_kie("PO-7788，金額 123.45，日期 2024-01-02")
+    return [s,i,k]
+
+if __name__=="__main__":
+    print(json.dumps(smoke_all(), ensure_ascii=False))

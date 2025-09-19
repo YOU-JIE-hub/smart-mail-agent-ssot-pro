@@ -1,0 +1,37 @@
+[
+  {
+    "path": "artifacts/intent_pro_cal.pkl",
+    "exists": true,
+    "load_ok": false,
+    "error": "AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>",
+    "classes": null,
+    "probes": []
+  },
+  {
+    "path": "artifacts_prod/model_pipeline.pkl",
+    "exists": true,
+    "load_ok": true,
+    "error": null,
+    "classes": [
+      "0",
+      "1"
+    ],
+    "probes": [
+      {
+        "text": "[一般回覆] 測試\nhello",
+        "pred": "0",
+        "conf": 0.6862832163787922
+      },
+      {
+        "text": "報價 請提供 單價:100 數量:2",
+        "pred": "1",
+        "conf": 0.7078363236964246
+      },
+      {
+        "text": "投訴\n客訴",
+        "pred": "0",
+        "conf": 0.6748245285088795
+      }
+    ]
+  }
+]

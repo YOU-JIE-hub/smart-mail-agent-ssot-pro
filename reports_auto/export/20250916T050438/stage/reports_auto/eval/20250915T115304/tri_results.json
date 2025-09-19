@@ -1,0 +1,396 @@
+{
+  "n": 570,
+  "runs": [
+    {
+      "tag": "rule.classify",
+      "n": 570,
+      "labels": [
+        "biz_quote",
+        "complaint",
+        "other",
+        "policy_qa",
+        "profile_update",
+        "tech_support",
+        "其他",
+        "報價",
+        "技術支援",
+        "投訴",
+        "規則詢問",
+        "資料異動"
+      ],
+      "report": {
+        "biz_quote": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "complaint": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "other": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "policy_qa": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "profile_update": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "tech_support": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 0.0
+        },
+        "其他": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 57.0
+        },
+        "報價": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 181.0
+        },
+        "技術支援": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 108.0
+        },
+        "投訴": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 85.0
+        },
+        "規則詢問": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 72.0
+        },
+        "資料異動": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 67.0
+        },
+        "accuracy": 0.0,
+        "macro avg": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 570.0
+        },
+        "weighted avg": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 570.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          0,
+          42,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          114,
+          0,
+          47,
+          8,
+          8,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          76,
+          1,
+          4,
+          27,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          75,
+          0,
+          0,
+          6,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          16,
+          34,
+          20,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          52,
+          0,
+          11,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "latency_ms": 1
+    },
+    {
+      "tag": "ml.classify",
+      "n": 570,
+      "labels": [
+        "其他",
+        "報價",
+        "技術支援",
+        "投訴",
+        "規則詢問",
+        "資料異動"
+      ],
+      "report": {
+        "其他": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 57.0
+        },
+        "報價": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 181.0
+        },
+        "技術支援": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 108.0
+        },
+        "投訴": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 85.0
+        },
+        "規則詢問": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 72.0
+        },
+        "資料異動": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 67.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 570.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 570.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          57,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          181,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          108,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          85,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          72,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          67
+        ]
+      ],
+      "latency_ms": 252,
+      "model": "intent_pipeline_aligned.pkl"
+    }
+  ]
+}

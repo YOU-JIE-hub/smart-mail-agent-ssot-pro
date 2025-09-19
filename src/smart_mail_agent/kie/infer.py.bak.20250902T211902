@@ -1,0 +1,43 @@
+from __future__ import annotations
+import os, re, json
+from pathlib import Path
+from typing import List, Dict, Any
+class KIE:
+    def __init__(self, root: Path|None=None):
+        self.root = Path(root or Path(__file__).resolve().parents[3])
+        self.hf = None
+        try:
+            import transformers, torch  # noqa
+            hfdir=None
+            if (self.root/"kie").exists(): hfdir=self.root/"kie"
+            elif (self.root/"reports_auto/kie/kie").exists(): hfdir=self.root/"reports_auto/kie/kie"
+            if hfdir and (hfdir/"config.json").exists():
+                from transformers import AutoTokenizer, AutoModelForTokenClassification
+                self.tokenizer = AutoTokenizer.from_pretrained(hfdir)
+                self.model = AutoModelForTokenClassification.from_pretrained(hfdir)
+                cfg=json.loads((hfdir/"config.json").read_text())
+                id2label=cfg.get("id2label") or {}
+                if isinstance(id2label, list):
+                    id2label={int(i):v for i,v in enumerate(id2label)}
+                elif isinstance(id2label, dict):
+                    id2label={int(k):v for k,v in id2label.items()}
+                else:
+                    label2id=cfg.get("label2id") or {}; id2label={int(v):k for k,v in label2id.items()}
+                self.id2label=id2label; self.hf=hfdir
+        except Exception:
+            self.hf=None
+    def _regex(self, text:str)->List[Dict[str,Any]]:
+        spans=[]
+        m=re.search(r"\b(20\d{2}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/20\d{2})\b", text)
+        if m: spans.append({"label":"date_time","start":m.start(),"end":m.end()})
+        m=re.search(r"\b(\$?\d+(?:\.\d{2})?)\b", text)
+        if m: spans.append({"label":"amount","start":m.start(),"end":m.end()})
+        for kw,lbl in [("prod","env"),("uat","env"),("sla","sla")]:
+            i=text.lower().find(kw)
+            if i>=0: spans.append({"label":lbl,"start":i,"end":i+len(kw)})
+        return spans
+    def infer(self, text:str): 
+        if not self.hf: return self._regex(text)
+        return self._regex(text)
+    def extract(self, text:str):
+        return self.infer(text)

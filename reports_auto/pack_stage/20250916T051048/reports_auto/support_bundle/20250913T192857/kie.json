@@ -1,0 +1,7 @@
+{
+  "pred_head": [
+    "{\"text\": \"請問 9/30 前能提供報價？25 位，預算 NT$12,500，含稅與場地嗎？\", \"spans\": [{\"start\": 3, \"end\": 7, \"label\": \"date_time\"}, {\"start\": 23, \"end\": 33, \"label\": \"amount\"}]}",
+    "{\"text\": \"若 2025/09/15 前成交，可否給早鳥價 ＄9,800？\", \"spans\": [{\"start\": 2, \"end\": 12, \"label\": \"date_time\"}]}",
+    "{\"text\": \"我們預估本季採購 USD 1,200，10/5 前請出 formal quote。\", \"spans\": [{\"start\": 9, \"end\": 18, \"label\": \"amount\"}, {\"start\": 19, \"end\": 23, \"label\": \"date_time\"}]}"
+  ]
+}

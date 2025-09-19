@@ -1,0 +1,114 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T06:34:38+08:00
+CWD : /home/youjie/projects/smart-mail-agent-ssot-pro
+LAST: python - "$RUN_DIR" "$PY_LOG" "$PY_LAST" <<'PY'
+import os, sys, json, glob, sqlite3, traceback, importlib.util, types, faulthandler
+from pathlib import Path
+R=Path(sys.argv[1]); PY_LOG=sys.argv[2]; PY_LAST=sys.argv[3]
+with open(PY_LOG,"w",encoding="utf-8") as flog: faulthandler.enable(flog)
+def write_last(msg): Path(PY_LAST).write_text(msg,encoding="utf-8")
+
+# 綁 rules_feat（importlib，提供 __file__/__package__）
+cands=sorted(glob.glob("intent/**/.sma_tools/runtime_threshold_router.py",recursive=True))
+if not cands:
+    write_last("intent.rules: runtime_threshold_router.py NOT FOUND"); print("[FATAL] rules missing"); sys.exit(3)
+rules_src=str(Path(cands[-1]).resolve())
+spec=importlib.util.spec_from_file_location("vendor.rules_features", rules_src)
+if not spec or not spec.loader:
+    write_last(f"spec failed for {rules_src}"); print("[FATAL] rules spec fail"); sys.exit(3)
+mod=importlib.util.module_from_spec(spec); sys.modules["vendor.rules_features"]=mod; spec.loader.exec_module(mod)
+for alias in ("train_pro","train_pro_fresh","sma_tools.runtime_threshold_router","runtime_threshold_router"): sys.modules[alias]=mod
+import __main__ as M; M.rules_feat=getattr(mod,"rules_feat",None)
+
+# 嚴格挑一顆能通過特徵對齊的 PKL
+import joblib, numpy as np
+from scipy import sparse as sp
+def unwrap(o):
+    if hasattr(o,"predict"): return o
+    if isinstance(o,dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v=o.get(k); 
+            if hasattr(v,"predict"): return v
+    return o
+def probe(p):
+    info={"path":p,"n_features_in":None,"branch_dims":{},"sum_branch":None,"steps":[]}
+    obj=joblib.load(p); est=unwrap(obj)
+    info["steps"]=[(n, type(s).__name__) for n,s in getattr(est,"steps",[])]
+    clf=est.steps[-1][1] if hasattr(est,"steps") else est
+    exp=getattr(clf,"n_features_in_",None)
+    if exp is None and hasattr(clf,"base_estimator"): exp=getattr(clf.base_estimator,"n_features_in_",None)
+    info["n_features_in"]=int(exp) if exp is not None else None
+    feats=None
+    if hasattr(est,"steps"): d=dict(est["steps"] if isinstance(est,dict) else est.steps); feats=d.get("features") or d.get("pre") or d.get("union")
+    if feats and hasattr(feats,"transformer_list"):
+        xs=["報價與交期","技術支援","發票抬頭","退訂連結"]; dims={}
+        for name,sub in feats.transformer_list:
+            try:
+                X=sub.transform(xs); 
+                X = X.tocsr() if sp.issparse(X) else sp.csr_matrix(X)
+                dims[name]=int(X.shape[1])
+            except Exception as e:
+                dims[name]=f"ERR:{type(e).__name__}"
+        info["branch_dims"]=dims
+        info["sum_branch"]=sum(v for v in dims.values() if isinstance(v,int))
+    return info
+
+cands=[]
+env_pkl=os.environ.get("SMA_INTENT_ML_PKL","")
+if env_pkl: cands.append(env_pkl)
+cands += [ "artifacts/intent_pipeline_aligned.pkl",
+           "intent/intent/artifacts/intent_pro_cal.pkl",
+           "artifacts/intent_pro_cal.pkl",
+           "artifacts/intent_pro_cal_fixed.pkl",
+           "artifacts/intent_pipeline_fixed.pkl",
+           "artifacts/intent_clf.pkl" ]
+cands=[p for p in cands if Path(p).exists()]
+diag={"pkls":[],"selected":None}
+chosen=None
+for p in cands:
+    try:
+        info=probe(p); diag["pkls"].append(info)
+        if info["n_features_in"] and info["sum_branch"] and info["n_features_in"]==info["sum_branch"]:
+            chosen=p; break
+    except Exception as e:
+        diag["pkls"].append({"path":p,"error":f"{type(e).__name__}: {e}"})
+(R/"intent_pick_diag.json").write_text(json.dumps(diag,ensure_ascii=False,indent=2),encoding="utf-8")
+if not chosen:
+    write_last("No PKL passed strict feature check (see intent_pick_diag.json)")
+    print("[FATAL] feature mismatch / load failure"); sys.exit(3)
+
+# JSON 設定
+cfgs={"ens_thresholds":["artifacts_prod/ens_thresholds.json"],
+      "intent_rules_calib":["artifacts_prod/intent_rules_calib.json","artifacts_prod/intent_rules_calib_v11c.json"],
+      "intent_contract":["artifacts_prod/intent_contract.json"],
+      "kie_runtime_config":["artifacts_prod/kie_runtime_config.json"]}
+snap={}
+for k,paths in cfgs.items():
+    ok=False
+    for p in paths:
+        f=Path(p)
+        if f.exists():
+            snap[k]=json.loads(f.read_text(encoding="utf-8")); ok=True; break
+    if not ok:
+        write_last(f"Missing config for {k}: any of {paths}"); print("[FATAL] missing config",k); sys.exit(3)
+(R/"configs_snapshot.json").write_text(json.dumps(snap,ensure_ascii=False,indent=2),encoding="utf-8")
+
+# DB 審計存在但不自動 ALTER
+db=Path("reports_auto/audit.sqlite3")
+if not db.exists():
+    write_last("Missing reports_auto/audit.sqlite3 (請先跑原 migration/seed)")
+    print("[FATAL] audit.sqlite3 missing"); sys.exit(4)
+try:
+    con=sqlite3.connect(db); cur=con.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    tbls={r[0] for r in cur.fetchall()}
+    if not any("llm" in t.lower() and "call" in t.lower() for t in tbls):
+        raise RuntimeError("llm_calls table missing")
+finally:
+    try: con.close()
+    except: pass
+
+print("[OK] preflight passed")
+PY
+
+CODE: 1

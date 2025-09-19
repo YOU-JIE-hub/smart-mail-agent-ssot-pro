@@ -1,0 +1,18 @@
+id	lang	gold	pred	text
+		policy_qa	complaint	Subject: 合約移轉  若專案轉移至關係企業，是否可無罰移轉合約？有無需先行通知的天數與流程？
+		policy_qa	complaint	Subject: 自動續約與提醒  合約是否自動續約？到期前會提供幾天提醒？若不續約的資料保留政策為何？
+		policy_qa	complaint	Subject: SLA shortfall remedies  When monthly availability falls below SLA, is compensation via service extension or credit note? Do we need incident id <ORDER_ID>?
+		policy_qa	biz_quote	Subject: Trial extension  Can we extend the 14-day trial to 30 days and keep data? If converted, can trial fee be offset (NT$<AMOUNT>)? Please share the steps.
+		complaint	tech_support	Subject: 交付與文件未齊  上週承諾的設定文件仍未提供，導致內部無法完成稽核。請補齊並說明延遲原因。
+		other	complaint	Subject: 多語介面與權限  想確認是否支援多語與細緻權限，先看一份概覽文件即可。
+		other	tech_support	Subject: API 文件與 SDK  可否提供最新 API 文件與 SDK 連結 <URL>？我們想先做可行性評估。
+		other	complaint	Subject: 成功案例分享  是否有零售與醫療領域的案例簡報可供內部參考？暫不進入採購流程。
+		other	biz_quote	Subject: 部署方式概覽  想了解雲端/自管的差異、維運責任與大致時程，先不用細節報價。
+		other	tech_support	Subject: 整合範例  我們會與現行 CRM 整合，是否有典型整合架構圖與故事案例？先看概要即可。
+		other	policy_qa	Subject: 短介影片  有無 3–5 分鐘的產品短介影片能先讓主管了解？連結 <URL> 即可。
+		other	complaint	Subject: 內部簡報素材  方便提供 5–8 頁的概覽投影片，包含功能重點與上線步驟嗎？
+		other	biz_quote	Subject: Roadmap inquiry  If Q4 features include reporting/permissions, could you share a rough timeline? We're still evaluating and not discussing price yet.
+		other	complaint	Subject: Language & roles  Do you support multiple languages and fine-grained roles? A brief overview doc is enough for now.
+		other	tech_support	Subject: API docs & SDK  Please share the latest API docs and SDK link <URL>. We'd like to run a quick feasibility review.
+		other	biz_quote	Subject: Deployment options  We'd like a high-level comparison of cloud vs. self-hosted, ops responsibilities, and rough timelines; no pricing required.
+		other	complaint	Subject: Integration examples  We plan to integrate with our current CRM. Any typical architecture and example stories would help; summaries are fine.

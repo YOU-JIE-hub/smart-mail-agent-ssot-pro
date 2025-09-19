@@ -1,0 +1,4 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T10:01:49+08:00
+LAST:xargs -I{} sh -c 'echo "[PY_LAST] {}"; tail -n +1 "{}"'
+CODE:123

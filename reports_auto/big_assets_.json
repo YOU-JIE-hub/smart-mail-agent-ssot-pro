@@ -1,0 +1,54 @@
+[
+  {
+    "path": "reports_auto/source_only_.tar.gz",
+    "size": 53314494
+  },
+  {
+    "path": "reports_auto/export/20250916T014311/sma_export_20250916T014311.tar.gz",
+    "size": 20
+  },
+  {
+    "path": "reports_auto/export/20250916T014311/bundle/_external/_home_youjie_projects_smart-mail-agent_ssot_artifacts_inbox_77_77_artifacts_sa_spam_rules_lr.pkl",
+    "size": 960
+  },
+  {
+    "path": "reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/_external/_home_youjie_projects_smart-mail-agent_ssot_artifacts_inbox_77_77_artifacts_sa_spam_rules_lr.pkl",
+    "size": 960
+  },
+  {
+    "path": "reports_auto/support_bundle/20250913T102250.zip",
+    "size": 177764
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/1__intent_pipeline_aligned.pkl",
+    "size": 3736460
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/2__intent_pipeline_fixed.pkl",
+    "size": 1363778
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/5__intent_pro_cal_fixed.pkl",
+    "size": 4926032
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/3__intent_pipeline_fixed_wide.pkl",
+    "size": 1363920
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/0__intent_clf.pkl",
+    "size": 1363751
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/37__intent_pro_cal.pkl",
+    "size": 4924369
+  },
+  {
+    "path": "reports_auto/data_scan/SCAN_20250917T084806/links/4__intent_pro_cal.pkl",
+    "size": 4924369
+  },
+  {
+    "path": "reports_auto/context/SOURCE_CAPSULE_20250919T053549.tar.gz",
+    "size": 910627738
+  }
+]

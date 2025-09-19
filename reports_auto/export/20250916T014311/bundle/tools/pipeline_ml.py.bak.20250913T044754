@@ -1,0 +1,152 @@
+from __future__ import annotations
+from pathlib import Path
+import sys, json, typing as T
+
+def _alias_main_for_legacy():
+    # 舊 pickle 會到 __main__ 找 rules_feat/prio_feat/bias_feat
+    try:
+        import sma_features as sf
+        sys.modules["__main__"] = sf
+    except Exception:
+        pass
+
+def _compose(email:dict)->str:
+    return (str(email.get("subject","")) + "\n" + str(email.get("body",""))).strip()
+
+def _find_estimator(obj):
+    # 直接可預測
+    if hasattr(obj, "predict"):
+        return obj
+    # 在 dict 裡找常見鍵或任何有 predict 的值
+    if isinstance(obj, dict):
+        for k in ("model","pipeline","clf","estimator","pipe","sk_model"):
+            v = obj.get(k)
+            if hasattr(v, "predict"):
+                return v
+        for v in obj.values():
+            if hasattr(v, "predict"):
+                return v
+    return None
+
+def _safe_float(x, default=0.0):
+    try:
+        import numpy as np
+        if isinstance(x, np.generic):
+            return float(x.item())
+        return float(x)
+    except Exception:
+        return float(default)
+
+def _load_label_map(classes: T.Optional[T.Sequence]=None) -> dict:
+    # 1) 預設對照（英→中；以及 0/1 → 中）
+    base = {
+        "biz_quote": "報價",
+        "complaint": "投訴",
+        "other": "一般回覆",
+        "policy_qa": "規則詢問",
+        "profile_update": "資料異動",
+        "tech_support": "技術支援",
+        0: "一般回覆",
+        1: "報價",
+        "0": "一般回覆",
+        "1": "報價",
+    }
+    # 2) 使用者覆蓋（若存在）
+    cfg = Path("configs/intent_label_map.json")
+    if cfg.exists():
+        try:
+            user = json.loads(cfg.read_text(encoding="utf-8"))
+            base.update(user)
+            # 同步補齊數字字串雙鍵
+            for k,v in list(user.items()):
+                if isinstance(k,int): base[str(k)] = v
+                if isinstance(k,str) and k.isdigit(): base[int(k)] = v
+        except Exception:
+            pass
+    # 3) 若 classes_ 有提供，補充缺的鍵
+    if classes is not None:
+        for c in classes:
+            if c not in base and str(c) not in base:
+                base[c] = str(c)
+                base[str(c)] = str(c)
+    return base
+
+def _select_model():
+    """
+    回傳 (estimator, path_str, classes_list_or_None)
+    優先順序：
+      1) 環境變數 SMA_INTENT_ML_PKL
+      2) artifacts/intent_pro_cal.pkl  (若可從 dict 取出 estimator)
+      3) artifacts_prod/model_pipeline.pkl
+    """
+    _alias_main_for_legacy()
+    import joblib, numpy as np
+
+    cand = []
+    # env 覆蓋
+    envp = Path(str(Path().joinpath(Path(sys.argv[1])))) if (len(sys.argv)>1 and Path(sys.argv[1]).exists()) else None
+    if envp and envp.exists():
+        cand.append(envp)
+    else:
+        p_env = Path((__import__('os').environ.get("SMA_INTENT_ML_PKL") or "").strip())
+        if p_env and p_env.exists():
+            cand.append(p_env)
+
+    # 既有路徑
+    for p in (Path("artifacts/intent_pro_cal.pkl"), Path("artifacts_prod/model_pipeline.pkl")):
+        if p.exists():
+            cand.append(p)
+
+    seen=set()
+    for p in cand:
+        if p in seen: continue
+        seen.add(p)
+        try:
+            obj = joblib.load(p)
+            est = _find_estimator(obj)
+            if est is None:
+                continue
+            # 擷取 classes_
+            classes = getattr(est, "classes_", None)
+            # smoke test（有些模型會要求先 fit_transform 之類，若噴錯也放行）
+            try:
+                est.predict(["_smoke_"])
+            except Exception:
+                pass
+            return est, str(p), (list(classes) if classes is not None else None)
+        except Exception:
+            continue
+    raise RuntimeError("No usable sklearn estimator found")
+
+def classify_ml(email: dict) -> dict:
+    """
+    回傳：
+      {"intent": <中文>, "confidence": <0..1>, "raw_pred": <原始類別>, "pkl": <模型路徑>}
+    """
+    import numpy as np
+    txt = _compose(email)
+    est, path, classes = _select_model()
+
+    # 先拿 raw label + conf
+    try:
+        if hasattr(est, "predict_proba"):
+            proba = est.predict_proba([txt])[0]
+            yi = int(np.argmax(proba))
+            raw = classes[yi] if classes is not None and len(classes)>yi else yi
+            conf = _safe_float(proba[yi], 0.0)
+        else:
+            raw = est.predict([txt])[0]
+            conf = 0.0
+    except Exception as e:
+        return {"intent":"", "confidence":0.0, "error": f"{type(e).__name__}: {e}", "pkl": path}
+
+    # 中文映射
+    label_map = _load_label_map(classes)
+    zh = label_map.get(raw, label_map.get(str(raw), "一般回覆"))
+
+    return {
+        "intent": str(zh),
+        "confidence": _safe_float(conf, 0.0),
+        "raw_pred": (str(raw)),
+        "pkl": path
+    }

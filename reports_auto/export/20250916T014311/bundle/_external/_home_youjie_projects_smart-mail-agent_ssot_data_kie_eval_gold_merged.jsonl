@@ -1,0 +1,258 @@
+{"text": "請問 9/30 前能提供報價？11 位，約 NT$1,2010。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？12 位，約 NT$1,2020。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？13 位，約 NT$1,2030。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？14 位，約 NT$1,2040。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？15 位，約 NT$1,2050。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？16 位，約 NT$1,2060。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？17 位，約 NT$1,2070。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？18 位，約 NT$1,2080。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？19 位，約 NT$1,2090。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？20 位，約 NT$1,2100。", "spans": [{"start": 3, "end": 7, "label": "date_time"}, {"start": 22, "end": 31, "label": "amount"}]}
+{"text": "我們對上次服務不滿，2025/08/11 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/12 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/13 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/14 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/15 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/16 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/17 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/18 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/19 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/20 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/11 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/12 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/13 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/14 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/15 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/16 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/17 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/18 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/19 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/20 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？25 位，預算 NT$12,500，含稅與場地嗎？", "spans": [{"start": 23, "end": 33, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "若 2025/09/15 前成交，可否給早鳥價 ＄9,800？", "spans": [{"start": 24, "end": 30, "label": "amount"}, {"start": 2, "end": 12, "label": "date_time"}, {"start": 7, "end": 12, "label": "date_time"}]}
+{"text": "我們預估本季採購 USD 1,200，10/5 前請出 formal quote。", "spans": [{"start": 9, "end": 21, "label": "amount"}, {"start": 19, "end": 23, "label": "date_time"}]}
+{"text": "本案上限 NT＄50,000，期望 2025-10-01 簽約。", "spans": [{"start": 7, "end": 15, "label": "amount"}, {"start": 18, "end": 28, "label": "date_time"}]}
+{"text": "請協助估算費用，9月30日前需要內簽，初步抓 $ 3,200。", "spans": [{"start": 23, "end": 30, "label": "amount"}]}
+{"text": "若含維護一年總價 US$ 2,499，可 10/31 前報價？", "spans": [{"start": 9, "end": 19, "label": "amount"}, {"start": 21, "end": 26, "label": "date_time"}]}
+{"text": "合約金額希望 2025.10.15 前定稿，現在預估 NT$ 18,000。", "spans": [{"start": 27, "end": 37, "label": "amount"}, {"start": 7, "end": 17, "label": "date_time"}]}
+{"text": "月費 ＄1,200；能否於 10/7 前出正式報價？", "spans": [{"start": 3, "end": 9, "label": "amount"}, {"start": 14, "end": 18, "label": "date_time"}]}
+{"text": "stg 環境登入報 401，自 2025/08/29 起間歇發生，請協助看 log。", "spans": [{"start": 16, "end": 26, "label": "date_time"}, {"start": 21, "end": 26, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "prod 匯入報錯，08/30 晚上 22:10 開始，影響批次單。", "spans": [{"start": 10, "end": 15, "label": "date_time"}, {"start": 0, "end": 4, "label": "env"}]}
+{"text": "UAT 今天 9/1 無法上傳附件，瀏覽器 Console 有 500。", "spans": [{"start": 7, "end": 10, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "production 近一週偶發逾時，EOW 前希望有根因報告。", "spans": [{"start": 0, "end": 10, "label": "env"}, {"start": 19, "end": 22, "label": "sla"}]}
+{"text": "dev API 金鑰異常，2025年9月2日 新 key 也不可用。", "spans": [{"start": 13, "end": 22, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}, {"start": 20, "end": 22, "label": "sla"}]}
+{"text": "test 資料庫連線 reset，09/03 03:15 觸發警報。", "spans": [{"start": 17, "end": 22, "label": "date_time"}, {"start": 0, "end": 4, "label": "env"}]}
+{"text": "staging 驗證信函延遲超過 4 小時，影響註冊流程。", "spans": [{"start": 0, "end": 7, "label": "env"}, {"start": 17, "end": 21, "label": "sla"}]}
+{"text": "prd 任務排程卡住，2025-09-05 08:00 以後都沒有跑。", "spans": [{"start": 11, "end": 21, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "想確認客服 SLA，目前是否承諾 4 小時回覆、24 小時內解決？", "spans": [{"start": 6, "end": 9, "label": "sla"}]}
+{"text": "RTO 目標是 2 小時內？RPO 是否為 15 分鐘？", "spans": [{"start": 0, "end": 3, "label": "sla"}, {"start": 14, "end": 17, "label": "sla"}, {"start": 8, "end": 13, "label": "sla"}]}
+{"text": "請提供正式 SLA 文件，包含假日 EOD/EOW 規範。", "spans": [{"start": 6, "end": 9, "label": "sla"}, {"start": 18, "end": 21, "label": "sla"}, {"start": 22, "end": 25, "label": "sla"}]}
+{"text": "若佈署失敗，災難復原流程與 RPO 數值能否明列？", "spans": [{"start": 14, "end": 17, "label": "sla"}]}
+{"text": "想索取 SDK 與開發者指南，另需 staging 帳號流程。", "spans": [{"start": 18, "end": 25, "label": "env"}]}
+{"text": "Request for quotation\nPlease quote NT$ 12,000 for 20 units, needed by 2025-09-30. This is for prod.", "spans": [{"start": 35, "end": 45, "label": "amount"}, {"start": 70, "end": 80, "label": "date_time"}, {"start": 94, "end": 98, "label": "env"}]}
+{"text": "Need price and lead time\nBudget USD 1,500, delivery before 2025-09-10.", "spans": [{"start": 32, "end": 41, "label": "amount"}, {"start": 59, "end": 69, "label": "date_time"}]}
+{"text": "Cannot login to staging\nUser cannot login to staging; please fix within 4 hours.", "spans": [{"start": 16, "end": 23, "label": "env"}, {"start": 65, "end": 79, "label": "sla"}]}
+{"text": "Prod API timeout\nProd API timeout from 10:00 to 10:30; SLA 2h.", "spans": [{"start": 59, "end": 61, "label": "sla"}]}
+{"text": "想了解 API 使用政策與資安規範，有沒有文件與 SLA 說明？", "spans": [{"start": 25, "end": 28, "label": "sla"}]}
+{"text": "請問 ９月３０日 前能提供報價？１８ 位，約 NT＄１，２０８０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "請問 9.98月30日 前能提供報價？12 位，約 NT＄1，2020。", "spans": [{"start": 28, "end": 35, "label": "amount"}, {"start": 5, "end": 11, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.18 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.16 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.15 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9月30日 前能提供報價？19 位，約 NT＄1，2090。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "stg 無法登入，2025.38月08日/17 仍持續，錯誤碼 401。", "spans": [{"start": 14, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "請問 9月30日 前能提供報價？17 位，約 NT＄1，2070。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "stg 無法登入，2025．90月08日/12 仍持續，錯誤碼 401。", "spans": [{"start": 14, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "請問 ９月３０日 前能提供報價？１６ 位，約 NT＄１，２０６０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "請問 9月30日 前能提供報價？13 位，約 NT＄1，2030。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "stg 無法登入，２０２５．３５月０８日/１８ 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025.83月08日/14 已寄出投訴表，請回覆。", "spans": [{"start": 15, "end": 21, "label": "date_time"}]}
+{"text": "stg 無法登入，2025．34月08日/14 仍持續，錯誤碼 401。", "spans": [{"start": 14, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/50 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？48 位，約 NT$1,2380。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？43 位，約 NT$1,2330。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9月30日 前能提供報價？18 位，約 NT＄1，2080。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？30 位，約 NT$1,2200。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/36 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？35 位，約 NT$1,2250。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "stg 無法登入，2025．23月08日/43 仍持續，錯誤碼 401。", "spans": [{"start": 14, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/31 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "stg 無法登入，２０２５年０８月１８日 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？49 位，約 NT$1,2390。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9.93月30日 前能提供報價？46 位，約 NT＄1，2360。", "spans": [{"start": 28, "end": 35, "label": "amount"}, {"start": 5, "end": 11, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/35 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 ９．７１月３０日 前能提供報價？３４ 位，約 NT＄１，２２４０。", "spans": [{"start": 28, "end": 35, "label": "amount"}]}
+{"text": "請問 9月30日 前能提供報價？37 位，約 NT＄1，2270。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "請問 ９月３０日 前能提供報價？２９ 位，約 NT＄１，２１９０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？45 位，約 NT$1,2350。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/42 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025.08.26 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.30 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.41 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.27月08日/29 已寄出投訴表，請回覆。", "spans": [{"start": 15, "end": 21, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/44 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "stg 無法登入，２０２５．２４月０８日/２８ 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "stg 無法登入，2025.08.35 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 19, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/26 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.38 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？37 位，約 NT$1,2270。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/44 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/43 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025．88月08日/33 已寄出投訴表，請回覆。", "spans": [{"start": 15, "end": 21, "label": "date_time"}]}
+{"text": "stg 無法登入，2025.08.38 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 19, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/39 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/28 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/47 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/36 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9月30日 前能提供報價？22 位，約 NT＄1，2120。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "請問 ９．４１月３０日 前能提供報價？４２ 位，約 NT＄１，２３２０。", "spans": [{"start": 28, "end": 35, "label": "amount"}]}
+{"text": "staging 無法登入，2025/08/38 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9月30日 前能提供報價？28 位，約 NT＄1，2180。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "stg 無法登入，2025年08月32日 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/33 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/21 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？42 位，約 NT$1,2320。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9．45月30日 前能提供報價？25 位，約 NT＄1，2150。", "spans": [{"start": 28, "end": 35, "label": "amount"}, {"start": 5, "end": 11, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/37 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 ９月３０日 前能提供報價？３５ 位，約 NT＄１，２２５０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "我們對上次服務不滿，2025/08/22 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9．88月30日 前能提供報價？17 位，約 NT＄1，2070。", "spans": [{"start": 28, "end": 35, "label": "amount"}, {"start": 5, "end": 11, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/26 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/23 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/48 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？44 位，約 NT$1,2340。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？32 位，約 NT$1,2220。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/41 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/31 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/37 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025.40月08日/12 已寄出投訴表，請回覆。", "spans": [{"start": 15, "end": 21, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/30 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025年08月11日 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 21, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？21 位，約 NT$1,2110。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/43 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.24 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？41 位，約 NT$1,2310。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/32 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/49 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/34 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "stg 無法登入，２０２５年０８月４８日 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "請問 ９月３０日 前能提供報價？１９ 位，約 NT＄１，２０９０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "我們對上次服務不滿，2025年08月28日 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 21, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/21 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/47 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？38 位，約 NT$1,2280。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "stg 無法登入，2025．70月08日/47 仍持續，錯誤碼 401。", "spans": [{"start": 14, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/49 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/46 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/41 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？40 位，約 NT$1,2300。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/35 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "stg 無法登入，2025.08.16 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 19, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "stg 無法登入，2025.08.45 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 19, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025.08.20 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？50 位，約 NT$1,2400。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？39 位，約 NT$1,2290。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？34 位，約 NT$1,2240。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/22 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9月30日 前能提供報價？12 位，約 NT＄1，2020。", "spans": [{"start": 25, "end": 32, "label": "amount"}, {"start": 3, "end": 8, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？46 位，約 NT$1,2360。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/38 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？47 位，約 NT$1,2370。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025.08.39 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "stg 無法登入，２０２５．８月０８日/３１ 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/25 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "stg 無法登入，２０２５.０８.３４ 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "stg 無法登入，２０２５．３６月０８日/３０ 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "請問 ９月３０日 前能提供報價？３３ 位，約 NT＄１，２２３０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "請問 9/30 前能提供報價？25 位，約 NT$1,2150。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/27 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 ９．１０月３０日 前能提供報價？３１ 位，約 NT＄１，２２１０。", "spans": [{"start": 28, "end": 35, "label": "amount"}]}
+{"text": "請問 ９月３０日 前能提供報價？５０ 位，約 NT＄１，２４００。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "我們對上次服務不滿，2025/08/40 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 ９月３０日 前能提供報價？３９ 位，約 NT＄１，２２９０。", "spans": [{"start": 25, "end": 32, "label": "amount"}]}
+{"text": "staging 無法登入，2025/08/45 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/33 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/48 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？29 位，約 NT$1,2190。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025年08月46日 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 21, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/39 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/24 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/24 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9.52月30日 前能提供報價？47 位，約 NT＄1，2370。", "spans": [{"start": 28, "end": 35, "label": "amount"}, {"start": 5, "end": 11, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？36 位，約 NT$1,2260。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/32 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/30 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/29 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？31 位，約 NT$1,2210。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/45 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/29 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？22 位，約 NT$1,2120。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？28 位，約 NT$1,2180。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "stg 無法登入，2025.08.41 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 19, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/34 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/46 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？33 位，約 NT$1,2230。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "stg 無法登入，２０２５.０８.１９ 仍持續，錯誤碼 ４０１。", "spans": [{"start": 0, "end": 3, "label": "env"}]}
+{"text": "stg 無法登入，2025年08月24日 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 20, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "我們對上次服務不滿，2025/08/50 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 ９．６６月３０日 前能提供報價？２７ 位，約 NT＄１，２１７０。", "spans": [{"start": 28, "end": 35, "label": "amount"}]}
+{"text": "staging 無法登入，2025/08/40 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "staging 無法登入，2025/08/25 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "stg 無法登入，2025.08.22 仍持續，錯誤碼 401。", "spans": [{"start": 9, "end": 19, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "請問 9/30 前能提供報價？24 位，約 NT$1,2140。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025年08月42日 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 21, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？26 位，約 NT$1,2160。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？27 位，約 NT$1,2170。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "staging 無法登入，2025/08/27 仍持續，錯誤碼 401。", "spans": [{"start": 13, "end": 23, "label": "date_time"}, {"start": 0, "end": 7, "label": "env"}]}
+{"text": "請問 9．21月30日 前能提供報價？36 位，約 NT＄1，2260。", "spans": [{"start": 28, "end": 35, "label": "amount"}, {"start": 5, "end": 11, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/23 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/42 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請問 9/30 前能提供報價？23 位，約 NT$1,2130。", "spans": [{"start": 22, "end": 31, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "我們對上次服務不滿，2025/08/28 已寄出投訴表，請回覆。", "spans": [{"start": 10, "end": 20, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 2,450，並部署到正式環境。時限為 24 小時內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 5,000，並部署到正式環境。時限為 3 個工作天內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 12,800，並部署到預備環境。時限為 3 個工作天內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 39, "label": "sla"}, {"start": 44, "end": 54, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 2,450，並部署到預備環境。時限為 24 小時內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 2,450，並部署到正式環境。時限為 今晚 20:00 前，截止日：2025-12-31。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 2,450，並部署到沙箱環境。時限為 今晚 20:00 前，截止日：2025/10/01。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 12,800，並部署到staging。時限為 48 小時內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 68,000，並部署到正式環境。時限為 48 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 2,450，並部署到預備環境。時限為 48 小時內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 68,000，並部署到staging。時限為 3 個工作天內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 5,000，並部署到預備環境。時限為 24 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 12,800，並部署到正式環境。時限為 3 個工作天內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 39, "label": "sla"}, {"start": 44, "end": 54, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 5,000，並部署到staging。時限為 48 小時內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 29, "label": "env"}, {"start": 34, "end": 40, "label": "sla"}, {"start": 45, "end": 55, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 2,450，並部署到沙箱環境。時限為 今晚 20:00 前，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 5,000，並部署到staging。時限為 24 小時內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 29, "label": "env"}, {"start": 34, "end": 40, "label": "sla"}, {"start": 45, "end": 55, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 5,000，並部署到沙箱環境。時限為 3 個工作天內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 2,450，並部署到staging。時限為 24 小時內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 29, "label": "env"}, {"start": 34, "end": 40, "label": "sla"}, {"start": 45, "end": 55, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 5,000，並部署到預備環境。時限為 48 小時內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 5,000，並部署到預備環境。時限為 24 小時內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 12,800，並部署到沙箱環境。時限為 48 小時內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 2,450，並部署到沙箱環境。時限為 3 個工作天內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 68,000，並部署到staging。時限為 24 小時內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 68,000，並部署到staging。時限為 48 小時內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 68,000，並部署到預備環境。時限為 24 小時內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 5,000，並部署到staging。時限為 3 個工作天內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 29, "label": "env"}, {"start": 34, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 2,450，並部署到正式環境。時限為 3 個工作天內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 68,000，並部署到預備環境。時限為 今晚 20:00 前，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 12,800，並部署到staging。時限為 3 個工作天內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 5,000，並部署到預備環境。時限為 今晚 20:00 前，截止日：2026/01/15。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 5,000，並部署到staging。時限為 今晚 20:00 前，截止日：2026/01/15。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 29, "label": "env"}, {"start": 34, "end": 44, "label": "sla"}, {"start": 49, "end": 59, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 12,800，並部署到正式環境。時限為 48 小時內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 5,000，並部署到staging。時限為 48 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 29, "label": "env"}, {"start": 34, "end": 40, "label": "sla"}, {"start": 45, "end": 55, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 2,450，並部署到正式環境。時限為 今晚 20:00 前，截止日：2026/01/15。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 5,000，並部署到沙箱環境。時限為 今晚 20:00 前，截止日：2026/01/15。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 68,000，並部署到沙箱環境。時限為 今晚 20:00 前，截止日：2025-11-20。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 68,000，並部署到staging。時限為 3 個工作天內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 68,000，並部署到沙箱環境。時限為 24 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 12,800，並部署到沙箱環境。時限為 48 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 68,000，並部署到預備環境。時限為 今晚 20:00 前，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 12,800，並部署到staging。時限為 3 個工作天內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 EUR 12,800，並部署到預備環境。時限為 3 個工作天內，截止日：2025-12-31。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 39, "label": "sla"}, {"start": 44, "end": 54, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 68,000，並部署到預備環境。時限為 3 個工作天內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 39, "label": "sla"}, {"start": 44, "end": 54, "label": "date_time"}]}
+{"text": "請儘速核撥款項 TWD 2,450，並部署到正式環境。時限為 24 小時內，截止日：2025-11-20。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 68,000，並部署到staging。時限為 24 小時內，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 30, "label": "env"}, {"start": 35, "end": 41, "label": "sla"}, {"start": 46, "end": 56, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 12,800，並部署到沙箱環境。時限為 今晚 20:00 前，截止日：2026/01/15。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 42, "label": "sla"}, {"start": 47, "end": 57, "label": "date_time"}]}
+{"text": "請儘速核撥款項 USD 5,000，並部署到預備環境。時限為 24 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 17, "label": "amount"}, {"start": 22, "end": 26, "label": "env"}, {"start": 31, "end": 37, "label": "sla"}, {"start": 42, "end": 52, "label": "date_time"}]}
+{"text": "請儘速核撥款項 RMB 68,000，並部署到沙箱環境。時限為 24 小時內，截止日：2025/10/01。", "spans": [{"start": 8, "end": 18, "label": "amount"}, {"start": 23, "end": 27, "label": "env"}, {"start": 32, "end": 38, "label": "sla"}, {"start": 43, "end": 53, "label": "date_time"}]}

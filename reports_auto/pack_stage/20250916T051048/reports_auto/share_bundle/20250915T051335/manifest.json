@@ -1,0 +1,31 @@
+{
+  "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+  "staged_root": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/share_bundle/20250915T051335/bundle_root",
+  "limit_mb": 256,
+  "big_threshold_mb": 5,
+  "include_dirs": [
+    "src",
+    "tools",
+    "scripts",
+    "vendor",
+    "intent",
+    "artifacts",
+    "data/intent_eval",
+    "data/kie_eval"
+  ],
+  "exclude_dirs": [
+    ".venv",
+    "__pycache__",
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    "reports_auto",
+    "artifacts_inbox",
+    "node_modules"
+  ],
+  "counts": {
+    "files_included": 18137,
+    "pointers": 7,
+    "errors": 0
+  }
+}

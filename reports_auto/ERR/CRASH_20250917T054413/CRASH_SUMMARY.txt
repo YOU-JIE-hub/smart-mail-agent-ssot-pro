@@ -1,0 +1,21 @@
+When   : 20250917T054413
+CWD    : /home/youjie/projects/smart-mail-agent-ssot-pro
+CMD    : python -m tools.api_server
+PID    : 198
+
+== api.out (tail) ==
+[API] http://127.0.0.1:8088
+
+== api.err (tail) ==
+nohup: ignoring input
+127.0.0.1 - - [17/Sep/2025 05:44:13] "POST /classify HTTP/1.1" 200 -
+
+== ports(ss) ==
+State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+LISTEN 0      5           127.0.0.1:8088      0.0.0.0:*    users:(("python",pid=198,fd=3))
+
+== ps ==
+youjie     198    99  0 05:44 pts/0    00:00:00 python -u -m tools.api_server
+
+== dmesg(post) (grep kill) ==

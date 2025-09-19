@@ -1,0 +1,47 @@
+from __future__ import annotations
+import os, sys, json
+from pathlib import Path
+
+DEFAULT_ML_PKL = Path(os.environ.get("SMA_INTENT_ML_PKL") or "artifacts/intent_pro_cal.pkl")
+LABEL_MAP      = Path("artifacts_prod/intent_label_map.json")
+
+def _alias_main_to_sma_features():
+    import importlib, types
+    src = Path("src").resolve()
+    if str(src) not in sys.path: sys.path.insert(0, str(src))
+    try:
+        sf = importlib.import_module("sma_features")
+    except Exception:
+        sf = types.ModuleType("sma_features")
+    sys.modules["sma_features"]=sf
+    sys.modules["__main__"]=sf
+
+def _load_joblib(p):
+    import joblib; return joblib.load(p)
+
+def _email_to_text(x):
+    if isinstance(x, str): return x
+    if isinstance(x, dict): return f"{x.get('subject','')} {x.get('body','')} {x.get('text','')}".strip()
+    if isinstance(x, (list, tuple)): return " ".join(map(str, x))
+    return str(x)
+
+def predict(email: dict, pkl: Path = DEFAULT_ML_PKL) -> dict:
+    if not Path(pkl).exists(): raise FileNotFoundError(f"找不到模型：{pkl}")
+    _alias_main_to_sma_features()
+    pipe = _load_joblib(pkl)
+    X = [_email_to_text(email)]
+    try:
+        try:
+            probs = pipe.predict_proba(X)[0]
+            classes = pipe.classes_ if hasattr(pipe,"classes_") else pipe.named_steps["clf"].classes_
+            import numpy as np
+            i = int(np.argmax(probs)); raw = str(classes[i]); conf = float(probs[i])
+        except Exception:
+            pred = pipe.predict(X)[0]; raw = str(pred); conf = 1.0
+    except Exception as e:
+        raise RuntimeError(f"predict 失敗：{e}")
+    lm = {}
+    try: lm = json.loads(LABEL_MAP.read_text(encoding="utf-8"))
+    except Exception: pass
+    name = lm.get(raw, raw)
+    return {"intent_raw": raw, "intent_name": name, "confidence": conf}

@@ -1,0 +1,9 @@
+{
+  "subject": "技術支援 - 1757692576648",
+  "body": "{\"severity\": \"P3\", \"tags\": [\"tech_support\"]}",
+  "tags": [
+    "技術支援"
+  ],
+  "severity": "P3",
+  "dry": true
+}

@@ -1,0 +1,213 @@
+=== TRAP ===
+TIME: 2025-09-14T20:20:45+08:00
+BASH_COMMAND: python - <<'PY'
+import os, sys, json, traceback, types, importlib, importlib.util
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+import joblib
+
+LOGDIR = Path(os.environ["R"])
+def w(p, txt): Path(p).write_text(txt, encoding="utf-8")
+def log(*a): print(*a, flush=True)
+
+# --- 寫環境快照 ---
+try:
+    import sklearn, scipy
+    env = {
+        "python": sys.version.split()[0],
+        "numpy": np.__version__,
+        "scipy": scipy.__version__,
+        "sklearn": sklearn.__version__,
+        "joblib": joblib.__version__,
+        "cwd": str(Path.cwd()),
+    }
+    w(LOGDIR/"env.json", json.dumps(env, ensure_ascii=False, indent=2))
+except Exception:
+    pass
+
+# --- 尋找 PKL（優先 intent/intent/artifacts/intent_pro_cal.pkl） ---
+cands = [
+    Path("intent/intent/artifacts/intent_pro_cal.pkl"),
+    Path("intent/artifacts/intent_pro_cal.pkl"),
+    Path("intent/intent/artifacts/intent_pipeline_fixed.pkl"),
+    Path("intent/artifacts/intent_pipeline_fixed.pkl"),
+]
+pkl = next((p for p in cands if p.exists()), None)
+if not pkl:
+    print("[FATAL] 找不到 intent/**/artifacts/*.pkl")
+    sys.exit(2)
+print("[PKL]", pkl)
+
+# --- 找 code root（拿 rules_feat） ---
+code_roots = [Path("intent/intent"), Path("intent")]
+CODE_ROOT = next((cr for cr in code_roots if cr.exists()), None)
+print("[CODE_ROOT]", CODE_ROOT if CODE_ROOT else "<missing>")
+
+# 將壓縮包 code root 放進 sys.path（讓內部 import 可用）
+if CODE_ROOT:
+    sys.path.insert(0, str(CODE_ROOT.resolve()))
+
+# --- 掃描出真正的 rules_feat 來源檔 ---
+rules_file = None
+if CODE_ROOT:
+    for py in CODE_ROOT.rglob("*.py"):
+        try:
+            txt = py.read_text(encoding="utf-8", errors="ignore")
+            if "def rules_feat" in txt:
+                rules_file = py
+                break
+        except Exception:
+            pass
+
+# 動態載入 rules_feat 並註冊多個別名，避免 unpickle/pickle 都找不到
+def import_rules_feat(py_path: Path):
+    if not py_path: return None
+    # 統一載入一次
+    spec = importlib.util.spec_from_file_location("intent_bundle.threshold_router_runtime", py_path)
+    mod = importlib.util.module_from_spec(spec)  # type: ignore
+    assert spec and spec.loader
+    spec.loader.exec_module(mod)                 # type: ignore
+    # 常見別名：pickle 可能掛在這幾個名字其一
+    aliases = [
+        "intent_bundle_intent__sma_tools_runtime_threshold_router_py",
+        "intent_bundle.threshold_router_runtime",
+        "threshold_router",
+        "sma_tools.threshold_router",   # 若管線上寫這個
+    ]
+    for name in aliases:
+        sys.modules[name] = mod
+    # 也塞進 __main__，解掉 "__main__.rules_feat" 取不到的案例
+    import __main__ as M
+    if hasattr(mod, "rules_feat"):
+        setattr(M, "rules_feat", getattr(mod, "rules_feat"))
+        try:
+            # 幫 function 標記比較穩的模組名，之後 dump 也不會報 can't pickle
+            getattr(mod, "rules_feat").__module__ = aliases[0]
+        except Exception:
+            pass
+        return getattr(mod, "rules_feat")
+    return None
+
+RULES_OK = bool(import_rules_feat(rules_file)) if rules_file else False
+print("[rules_feat]", "OK" if RULES_OK else "MISSING", rules_file if rules_file else "")
+
+# --- 載入 PKL（此時 rules_feat / sma_tools.ZeroPad 都就位了） ---
+try:
+    obj = joblib.load(pkl)
+except Exception as e:
+    w(LOGDIR/"last_trace.txt", traceback.format_exc())
+    print("[LOAD_FAIL]", type(e).__name__, e)
+    sys.exit(3)
+
+# unwrap：有些是 dict 包起來的
+est = obj
+if isinstance(obj, dict):
+    for k in ("pipe","pipeline","estimator","clf","model"):
+        if k in obj and hasattr(obj[k], "predict"):
+            est = obj[k]; break
+if not hasattr(est, "predict"):
+    print("[FATAL] 不是可推論的 estimator"); sys.exit(4)
+
+# --- 找 features union 與分類器、期望維度 ---
+pre = None
+clf = est
+if hasattr(est, "steps"):
+    print("steps:", [(n, s.__class__.__name__) for n,s in est.steps])
+    pre = dict(est.steps).get("features") or dict(est.steps).get("pre") or dict(est.steps).get("union")
+    clf = est.steps[-1][1]
+
+expected = None
+if hasattr(clf, "n_features_in_"):
+    expected = int(clf.n_features_in_)
+elif hasattr(clf, "base_estimator") and hasattr(clf.base_estimator, "n_features_in_"):
+    expected = int(clf.base_estimator.n_features_in_)
+
+print("[EXPECTED]", expected)
+
+# --- 估各分支輸出維度 ---
+def as_csr(Y):
+    if sp.issparse(Y): return Y.tocsr()
+    if isinstance(Y, np.ndarray): return sp.csr_matrix(Y if Y.ndim==2 else Y.reshape(1,-1))
+    # 某些 rules 可能回 list；這裡只做 shape 診斷，不做語意轉換
+    if isinstance(Y, list): return sp.csr_matrix((len(Y), 1))
+    raise TypeError(f"non-numeric output: {type(Y).__name__}")
+
+branch_dims = {}
+xs = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+if pre and hasattr(pre, "transformer_list"):
+    for name, sub in pre.transformer_list:
+        try:
+            Y = as_csr(sub.transform(xs))
+            branch_dims[name] = int(Y.shape[1])
+        except Exception as e:
+            branch_dims[name] = f"ERR:{type(e).__name__}"
+print("[BRANCH_DIMS]", json.dumps(branch_dims, ensure_ascii=False))
+num_sum = sum(v for v in branch_dims.values() if isinstance(v,int))
+print("[SUM_BEFORE]", num_sum)
+
+# --- 對齊：若總和 != expected → 補/調整 pad 寬度 ---
+delta = None if expected is None or not num_sum else (expected - num_sum)
+fixed = False
+if delta and pre and hasattr(pre, "transformer_list"):
+    # 先找已有 width 的分支（如 ZeroPad）
+    for i,(name, sub) in enumerate(pre.transformer_list):
+        if hasattr(sub, "width"):
+            try:
+                old = int(getattr(sub, "width", 1) or 1)
+                setattr(sub, "width", old + int(delta))
+                pre.transformer_list[i] = (name, sub)
+                print(f"[PAD_ADD] {name}: +{int(delta)} (from {old} -> {old+int(delta)})")
+                fixed = True
+                break
+            except Exception as e:
+                print("[PAD_FIX_FAIL]", name, type(e).__name__, e)
+    # 沒有就新增 pad_auto
+    if not fixed:
+        try:
+            from sma_tools.sk_zero_pad import ZeroPad
+            pre.transformer_list.append(("pad_auto", ZeroPad(width=int(delta))))
+            print(f"[PAD_ADD] pad_auto: +{int(delta)}")
+            fixed = True
+        except Exception as e:
+            print("[PAD_NEW_FAIL]", type(e).__name__, e)
+
+# --- 診斷落地 ---
+diag = {
+    "pkl_path": str(pkl),
+    "code_root": (str(CODE_ROOT) if CODE_ROOT else None),
+    "rules_file": (str(rules_file) if rules_file else None),
+    "rules_feat_injected": RULES_OK,
+    "expected_dim": expected,
+    "branch_dims": branch_dims,
+    "sum_before": num_sum,
+    "delta": (int(delta) if isinstance(delta, (int, np.integer)) else None),
+    "fixed": fixed,
+}
+w(LOGDIR/"diagnostics.json", json.dumps(diag, ensure_ascii=False, indent=2))
+
+# --- 存 aligned 版本（只動 pad/對齊，不改其他邏輯） ---
+out = Path("artifacts/intent_pipeline_aligned.pkl")
+try:
+    joblib.dump(est, out)
+    print("[SAVED]", out)
+except Exception as e:
+    w(LOGDIR/"last_trace.txt", traceback.format_exc())
+    print("[SAVE_FAIL]", type(e).__name__, e)
+
+# --- 中文煙囪測 ---
+to_zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+probes = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    yp = est.predict(probes)
+    for s,y in zip(probes, yp):
+        print("   ", s, "->", f"{y} / {to_zh.get(str(y), str(y))}")
+    w(LOGDIR/"sample_pred.json", json.dumps({"samples":probes,"pred":[str(x) for x in yp]}, ensure_ascii=False, indent=2))
+except Exception as e:
+    w(LOGDIR/"last_trace.txt", traceback.format_exc())
+    print("[PRED_FAIL]", type(e).__name__, e)
+
+print("[DONE] see:", LOGDIR)
+PY
+
+EXIT_CODE: 1

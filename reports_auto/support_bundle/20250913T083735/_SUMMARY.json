@@ -1,0 +1,273 @@
+{
+  "bundle": "reports_auto/support_bundle/20250913T083735",
+  "env": {
+    "python": "3.10.12 (main, May 27 2025, 17:12:29) [GCC 11.4.0]",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.1",
+    "joblib": "1.5.2",
+    "transformers": "not_installed (No module named 'transformers')",
+    "torch": "not_installed (No module named 'torch')",
+    "env.SMA_INTENT_ML_PKL": "",
+    "env.KIE_MODEL_DIR": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model"
+  },
+  "db": {
+    "db": "/home/youjie/projects/smart-mail-agent-ssot-pro/db/sma.sqlite",
+    "tables": [
+      {
+        "name": "actions",
+        "count": 72
+      },
+      {
+        "name": "messages",
+        "count": 0
+      }
+    ],
+    "views": {
+      "v_intent_daily": {
+        "cols": [
+          "day",
+          "intent",
+          "n"
+        ],
+        "rows": [
+          [
+            "2025-09-13",
+            "報價",
+            13
+          ],
+          [
+            "2025-09-13",
+            "資料異動",
+            10
+          ],
+          [
+            "2025-09-13",
+            "技術支援",
+            10
+          ],
+          [
+            "2025-09-13",
+            "規則詢問",
+            7
+          ],
+          [
+            "2025-09-13",
+            "投訴",
+            4
+          ],
+          [
+            "2025-09-13",
+            "一般回覆",
+            4
+          ],
+          [
+            "2025-09-12",
+            "技術支援",
+            2
+          ],
+          [
+            "2025-09-12",
+            "報價",
+            2
+          ],
+          [
+            "2025-09-12",
+            "資料異動",
+            1
+          ],
+          [
+            "2025-09-12",
+            "規則詢問",
+            1
+          ]
+        ]
+      },
+      "v_hitl_rate": {
+        "cols": [
+          "day",
+          "total",
+          "hitl",
+          "rate"
+        ],
+        "rows": [
+          [
+            "2025-09-13",
+            66,
+            31,
+            0.47
+          ],
+          [
+            "2025-09-12",
+            6,
+            3,
+            0.5
+          ]
+        ]
+      }
+    }
+  },
+  "tri_brief": {
+    "ts": "20250913T083737",
+    "intent_rule": {
+      "n": 6,
+      "acc": 1.0,
+      "confusion": {
+        "一般回覆": {
+          "一般回覆": 1
+        },
+        "報價": {
+          "報價": 1
+        },
+        "投訴": {
+          "投訴": 1
+        },
+        "技術支援": {
+          "技術支援": 1
+        },
+        "規則詢問": {
+          "規則詢問": 1
+        },
+        "資料異動": {
+          "資料異動": 1
+        }
+      }
+    },
+    "intent_ml": {
+      "n": 6,
+      "acc": 0.0,
+      "confusion": {
+        "一般回覆": {
+          "報價": 1
+        },
+        "報價": {
+          "技術支援": 1
+        },
+        "投訴": {
+          "規則詢問": 1
+        },
+        "技術支援": {
+          "投訴": 1
+        },
+        "規則詢問": {
+          "報價": 1
+        },
+        "資料異動": {
+          "投訴": 1
+        }
+      }
+    },
+    "intent_boosted": {
+      "n": 6,
+      "acc": 1.0,
+      "confusion": {
+        "一般回覆": {
+          "一般回覆": 1
+        },
+        "報價": {
+          "報價": 1
+        },
+        "投訴": {
+          "投訴": 1
+        },
+        "技術支援": {
+          "技術支援": 1
+        },
+        "規則詢問": {
+          "規則詢問": 1
+        },
+        "資料異動": {
+          "資料異動": 1
+        }
+      }
+    }
+  },
+  "spam_present": true,
+  "ml_models": [
+    {
+      "path": "artifacts/intent_pro_cal.pkl",
+      "exists": true,
+      "load_ok": false,
+      "classes": null,
+      "probes": [],
+      "note": "AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>"
+    },
+    {
+      "path": "artifacts_prod/model_pipeline.pkl",
+      "exists": true,
+      "load_ok": true,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "probes": [
+        {
+          "text": "報價 請提供 單價:100 數量:2",
+          "pred": "1",
+          "conf": 0.7078363236964246
+        },
+        {
+          "text": "技術支援 ticket:TS-1234",
+          "pred": "0",
+          "conf": 0.8148763388632422
+        },
+        {
+          "text": "我要修改地址\n新的地址是台北…",
+          "pred": "0",
+          "conf": 0.6146583934157672
+        }
+      ],
+      "note": null
+    }
+  ],
+  "kie_brief": {
+    "input": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/kie/test_real.jsonl",
+    "pred_head": [
+      {
+        "text": "請問 9/30 前能提供報價？25 位，預算 NT$12,500，含稅與場地嗎？",
+        "spans": [
+          {
+            "start": 3,
+            "end": 7,
+            "label": "date_time"
+          },
+          {
+            "start": 23,
+            "end": 33,
+            "label": "amount"
+          }
+        ]
+      },
+      {
+        "text": "若 2025/09/15 前成交，可否給早鳥價 ＄9,800？",
+        "spans": [
+          {
+            "start": 2,
+            "end": 12,
+            "label": "date_time"
+          },
+          {
+            "start": 7,
+            "end": 12,
+            "label": "date_time"
+          },
+          {
+            "start": 24,
+            "end": 30,
+            "label": "amount"
+          }
+        ]
+      },
+      {
+        "text": "我們預估本季採購 USD 1,200，10/5 前請出 formal quote。",
+        "spans": [
+          {
+            "start": 19,
+            "end": 23,
+            "label": "date_time"
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

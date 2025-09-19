@@ -1,0 +1,101 @@
+[*] ENV
+  SMA_INTENT_ML_PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  SMA_RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  SMA_ERR_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  PORT=8000
+[OK] API ready :8000
+[*] Using API_DIR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456
+[*] PORT=8000
+[*] smoke rule -> reports_auto/api/20250915T201456/sanity_smoke_rule.json
+{
+  "pred": [
+    "biz_quote",
+    "tech_support"
+  ],
+  "latency_ms": 0,
+  "route": "rule"
+}
+[*] smoke ml -> reports_auto/api/20250915T201456/sanity_smoke_ml.json
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 188, in do_POST\n    yp=route_ml(texts); tag=\"ml\"\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 115, in route_ml\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+[*] /tri-eval -> reports_auto/api/20250915T201456/sanity_tri_eval.json
+{
+  "error": "server_error",
+  "trace": "Traceback (most recent call last):\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 223, in do_POST\n    t1=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t1)*1000)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py\", line 115, in route_ml\n    proba=est.predict_proba(texts)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py\", line 905, in predict_proba\n    return self.steps[-1][1].predict_proba(Xt, **params)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 513, in predict_proba\n    proba = calibrated_classifier.predict_proba(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py\", line 743, in predict_proba\n    predictions, _ = _get_response_values(\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py\", line 214, in _get_response_values\n    y_pred = prediction_method(X)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py\", line 352, in decision_function\n    X = validate_data(self, X, accept_sparse=\"csr\", reset=False)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2975, in validate_data\n    _check_n_features(_estimator, X, reset=reset)\n  File \"/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py\", line 2839, in _check_n_features\n    raise ValueError(\nValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.\n"
+}
+[PATHS]
+  RUN_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/run.log
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/api.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/py_last_trace.txt
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/server.log
+  SMOKE_R = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_smoke_rule.json
+  SMOKE_M = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_smoke_ml.json
+  TRI_OUT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T201456/sanity_tri_eval.json
+[*] PYBIN=./.venv/bin/python
+[*] DATA=data/intent_eval/dataset.cleaned.jsonl
+[*] PKL=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+[*] RULES_SRC=/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py (bind to __main__.rules_feat)
+[OK] wrote: reports_auto/eval_fix/20250916T000944/tri_results_fixed.json
+[PATHS]
+  RUN = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944
+  LOG = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944/run.log
+  ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944/tri_eval.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944/py_last_trace.txt
+  RESULT = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944/tri_results_fixed.json
+reports_auto/status/INTENTS_SUMMARY_20250916T000944.md
+[PATHS]
+  LAST_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944
+  RESULT   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_fix/20250916T000944/tri_results_fixed.json
+  SUMMARY  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/status/INTENTS_SUMMARY_20250916T000944.md
+[GATE][INTENT] OK acc=0.954386 mf1=0.945322
+no predictor
+[GATE][SPAM] smoke_pred=
+---- GATE RESULT ----
+{"ok":false,"reasons":["KIE F1=0 未達門檻(F1>=0.85)"]}
+[WHERE] /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+  SERVER  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/server.log
+  RUNLOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  API_ERR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/api.err
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/py_last_trace.txt
+[DONE] 可用： make up | make smoke | make eval && make intent_report | make gate | make e2e
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ #!/usr/bin/env bash
+# scripts/pack_light.sh — 一鍵打包（<256MB）：大模型用「同名指示檔」替換 + 產出 manifest
+set -Eeuo pipefail -o errtrace
+
+# === 固定根目錄（可自行改，但預設用你專案路徑） ===
+ROOT="/home/youjie/projects/smart-mail-agent-ssot-pro"; cd "$ROOT"
+
+TS="$(date +%Y%m%dT%H%M%S)"
+OUT_DIR="$ROOT/reports_auto/export/${TS}"
+STAGE="$OUT_DIR/stage"
+ARCH="$OUT_DIR/sma_pro_${TS}.tar.gz"
+LOG="$OUT_DIR/pack.log"
+ERR="$OUT_DIR/pack.err"
+MANIFEST_JSON="$OUT_DIR/manifest.json"
+MANIFEST_TXT="$OUT_DIR/MANIFEST.txt"
+
+# 打包尺寸上限（避免 >256MB）
+MAX_ARCH_MB="${MAX_ARCH_MB:-256}"
+# 只要超過此閾值就轉成同名指示檔（單檔大小）
+THRESHOLD_MB="${THRESHOLD_MB:-10}"
+
+mkdir -p "$OUT_DIR"
+exec > >(tee -a "$LOG") 2>&1
+on_err(){ ec=${1:-$?}; echo "exit_code=$ec" > "$ERR"; echo "[ERR] see: $ERR"; exit "$ec"; }
+trap 'on_err $?' ERR
+
+echo "[*] PACK start @ $TS"
+echo "[*] STAGE = $STAGE"
+echo "[*] OUT   = $ARCH"
+echo "[*] LIMIT = ${MAX_ARCH_MB}MB, pointerize if > ${THRESHOLD_MB}MB"# --- 收集 env.default 中已知的模型/規則路徑，方便寫進指示檔 ---declare -A KNOWN_PATHS=()if [ -f scripts/env.default ]; then  while IFS='=' read -r k v; do    case "$k" in      SMA_INTENT_ML_PKL|SMA_RULES_SRC|SMA_SPAM_PKL|SMA_KIE_GOLD|SMA_KIE_FOR)        KNOWN_PATHS["$k"]="${v}";;    esac  done < <(grep -E '^(SMA_INTENT_ML_PKL|SMA_RULES_SRC|SMA_SPAM_PKL|SMA_KIE_GOLD|SMA_KIE_FOR)=' scripts/env.default || true)fi# --- 先做乾淨 staging（排除超大/沒必要的目錄） ---# 1) 全拷貝到 staging，但排除：.git, .venv, reports_auto（稍後選擇性加入 status）, __pycache__, *.pyc 等# 2) 之後再把 reports_auto/status/*.md 與最近一次 tri_results 複製進來rm -rf "$STAGE"mkdir -p "$STAGE"rsync -a \  --exclude '.git/' \  --exclude '.venv/' \  --exclude 'reports_auto/**' \  --exclude '__pycache__/' \  --exclude '.mypy_cache/' \  --exclude '.pytest_cache/' \  --exclude '*.pyc' \  --exclude '*.pyo' \  --exclude '*.ipynb_checkpoints/' \  ./ "$STAGE/"# 追加狀態/報告：保留「可閱讀」成果但不把整個 reports_auto 打進包mkdir -p "$STAGE/reports_auto/status"cp -f reports_auto/status/*.md "$STAGE/reports_auto/status/" 2>/dev/null || true# 常見 tri-eval 結果find reports_auto -maxdepth 4 -type f -name 'tri_results*.json' -exec bash -c '  for f in "$@"; do    dst="'"$STAGE"'/${f#./}"; mkdir -p "$(dirname "$dst")"; cp -f "$f" "$dst";  done' bash {} + 2>/dev/null || true# --- 掃描 staging 內「超過 THRESHOLD_MB 的檔案」→ 同名指示檔 ---# 支援模式：模型/權重/壓縮大檔常見副檔名，亦會以大小判斷為主mapfile -t LARGE_FILES < <(  find "$STAGE" -type f -size +"${THRESHOLD_MB}"M \    \( -iname '*.pkl' -o -iname '*.pt' -o -iname '*.bin' -o -iname '*.ckpt' -o -iname '*.onnx' -o -iname '*.h5' -o -iname '*.model' -o -iname '*.tar' -o -iname '*.tar.gz' -o -iname '*.zip' \) \    | sort)POINTER_LIST=()pointerize(){  local abs_stage_file="$1"  local rel="${abs_stage_file#$STAGE/}"  local abs_repo="$ROOT/$rel"  local size_bytes; size_bytes="$(stat -c%s "$abs_stage_file" 2>/dev/null || stat -f%z "$abs_stage_file" 2>/dev/null || echo 0)"  local size_human; size_human="$(du -h "$abs_stage_file" | awk '{print $1}')"  # 以同名覆蓋為「指示檔」：保留相同檔名與副檔名  cat > "$abs_stage_file".tmp <<EOF[POINTER FILE — NOT THE REAL WEIGHT]This file is intentionally replaced to keep the archive under ${MAX_ARCH_MB}MB.Original path (in repo): $abs_repoOriginal size (approx) : $size_human (${size_bytes} bytes)How to retrieve:- You previously used this path on your machine. If it exists locally, copy it back to this location.- Or set via scripts/env.default (SMA_* vars). Known env now:$(for k in "${!KNOWN_PATHS[@]}"; do printf "  - %s=%s\n" "$k" "${KNOWN_PATHS[$k]}"; done)Generated at: $(date -Is)EOF  # 用同名替換（覆蓋原檔）  rm -f "$abs_stage_file"  mv "$abs_stage_file".tmp "$abs_stage_file"  POINTER_LIST+=("$rel|$size_human")}echo "[*] pointerize if > ${THRESHOLD_MB}MB ..."for f in "${LARGE_FILES[@]:-}"; do  echo "  - pointerize: ${f#$STAGE/}"  pointerize "$f"done# --- 產生 manifest（包含被指示化與被排除規則） ---{  echo "{"  echo '  "generated_at": "'$(date -Is)'",'  echo '  "root": "'$ROOT'",'  echo '  "threshold_mb": '$THRESHOLD_MB','  echo '  "max_archive_mb": '$MAX_ARCH_MB','  echo '  "excluded_rules": [".git/", ".venv/", "reports_auto/** (except status & tri_results*.json)", "__pycache__/", "*.pyc"],'  echo '  "pointerized_files": ['  if [ ${#POINTER_LIST[@]} -gt 0 ]; then    for i in "${!POINTER_LIST[@]}"; do      rel="${POINTER_LIST[$i]%%|*}"; sz="${POINTER_LIST[$i]##*|}"      printf '    { "path": "%s", "approx_size": "%s" }' "$rel" "$sz"      [ "$i" -lt $((${#POINTER_LIST[@]}-1)) ] && printf ','      printf '\n'    done  fi  echo '  ]'  echo "}"} > "$MANIFEST_JSON"{  echo "# PACK MANIFEST ($TS)"  echo  echo "ROOT: $ROOT"  echo "ARCHIVE: $ARCH"  echo "THRESHOLD_MB: $THRESHOLD_MB"  echo "MAX_ARCH_MB : $MAX_ARCH_MB"  echo  echo "Excluded Rules:"  echo "  - .git/, .venv/, reports_auto/** (except status & tri_results*.json), __pycache__/, *.pyc"  echo  echo "Pointerized Files (> ${THRESHOLD_MB}MB):"  if [ ${#POINTER_LIST[@]} -eq 0 ]; then    echo "  (none)"  else    for x in "${POINTER_LIST[@]}"; do      rel="${x%%|*}"; sz="${x##*|}"      echo "  - $rel  (~$sz)"    done  fi  echo[7m  echo "Known env from scripts/env.default:"[27m[7m  for k in "${!KNOWN_PATHS[@]}"; do[27m[7m    printf "  - %s=%s\n" "$k" "${KNOWN_PATHS[$k]}"[27m[7m  done[27m[7m} > "$MANIFEST_TXT"[27m[7m# --- 打包 ---[27m[7mecho "[*] tar.gz ..."[27m[7mmkdir -p "$(dirname "$ARCH")"[27m[7mtar -C "$STAGE" -czf "$ARCH" .[27m[7m# --- 尺寸檢查 ---[27m[7mARCH_MB="$(du -m "$ARCH" | awk '{print $1}')"[27m[7mecho "[*] archive size = ${ARCH_MB} MB"[27m[7mif [ "$ARCH_MB" -ge "$MAX_ARCH_MB" ]; then[27m[7m  echo "[FATAL] archive exceeds ${MAX_ARCH_MB}MB (now ${ARCH_MB}MB). Increase THRESHOLD_MB or exclude more." >&2[27m[7m  exit 3[27m[7mfi[27m[7m# --- 列出重點路徑 ---[27m[7mecho[27m[7mecho "[OK] PACK DONE."[27m[7mecho "[PATHS]"[27m[7mecho "  OUT_DIR = $OUT_DIR"[27m[7mecho "  STAGE   = $STAGE"[27m[7mecho "  ARCHIVE = $ARCH"[27m[7mecho "  LOG     = $LOG"[27m[7mecho "  MANIFEST_JSON = $MANIFEST_JSON"[27m[7mecho "  MANIFEST_TXT  = $MANIFEST_TXT"[27m  echo "Known env from scripts/env.default:"  for k in "${!KNOWN_PATHS[@]}"; do    printf "  - %s=%s\n" "$k" "${KNOWN_PATHS[$k]}"  done} > "$MANIFEST_TXT"# --- 打包 ---echo "[*] tar.gz ..."mkdir -p "$(dirname "$ARCH")"tar -C "$STAGE" -czf "$ARCH" .# --- 尺寸檢查 ---ARCH_MB="$(du -m "$ARCH" | awk '{print $1}')"echo "[*] archive size = ${ARCH_MB} MB"if [ "$ARCH_MB" -ge "$MAX_ARCH_MB" ]; then  echo "[FATAL] archive exceeds ${MAX_ARCH_MB}MB (now ${ARCH_MB}MB). Increase THRESHOLD_MB or exclude more." >&2  exit 3fi# --- 列出重點路徑 ---echoecho "[OK] PACK DONE."echo "[PATHS]"echo "  OUT_DIR = $OUT_DIR"echo "  STAGE   = $STAGE"echo "  ARCHIVE = $ARCH"echo "  LOG     = $LOG"echo "  MANIFEST_JSON = $MANIFEST_JSON"echo "  MANIFEST_TXT  = $MANIFEST_TXT"
+[?2004l[*] PACK start @ 20250916T005124
+[*] STAGE = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage
+[*] OUT   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/sma_pro_20250916T005124.tar.gz
+[*] LIMIT = 256MB, pointerize if > 10MB
+[*] pointerize if > 10MB ...
+  - pointerize: 
+du: invalid zero-length file name
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/pack.err

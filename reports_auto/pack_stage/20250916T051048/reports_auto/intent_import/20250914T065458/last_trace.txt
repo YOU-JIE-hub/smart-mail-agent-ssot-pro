@@ -1,0 +1,83 @@
+Traceback (most recent call last):
+  File "<stdin>", line 155, in main
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 600, in dump
+    NumpyPickler(f, protocol=protocol).dump(value)
+  File "/usr/lib/python3.10/pickle.py", line 487, in dump
+    self.save(obj)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 603, in save
+    self.save_reduce(obj=obj, *rv)
+  File "/usr/lib/python3.10/pickle.py", line 717, in save_reduce
+    save(state)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 972, in save_dict
+    self._batch_setitems(obj.items())
+  File "/usr/lib/python3.10/pickle.py", line 998, in _batch_setitems
+    save(v)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 932, in save_list
+    self._batch_appends(obj)
+  File "/usr/lib/python3.10/pickle.py", line 956, in _batch_appends
+    save(x)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 887, in save_tuple
+    save(element)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 603, in save
+    self.save_reduce(obj=obj, *rv)
+  File "/usr/lib/python3.10/pickle.py", line 717, in save_reduce
+    save(state)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 972, in save_dict
+    self._batch_setitems(obj.items())
+  File "/usr/lib/python3.10/pickle.py", line 998, in _batch_setitems
+    save(v)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 932, in save_list
+    self._batch_appends(obj)
+  File "/usr/lib/python3.10/pickle.py", line 956, in _batch_appends
+    save(x)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 887, in save_tuple
+    save(element)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 603, in save
+    self.save_reduce(obj=obj, *rv)
+  File "/usr/lib/python3.10/pickle.py", line 717, in save_reduce
+    save(state)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 972, in save_dict
+    self._batch_setitems(obj.items())
+  File "/usr/lib/python3.10/pickle.py", line 998, in _batch_setitems
+    save(v)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+  File "/usr/lib/python3.10/pickle.py", line 560, in save
+    f(self, obj)  # Call unbound method with explicit self
+  File "/usr/lib/python3.10/pickle.py", line 1071, in save_global
+    raise PicklingError(
+_pickle.PicklingError: Can't pickle <function rules_feat at 0x74aaf42fa050>: it's not found as intent_bundle_intent__sma_tools_runtime_threshold_router_py.rules_feat

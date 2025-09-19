@@ -1,0 +1,37 @@
+[
+  {
+    "path": "artifacts/intent_pro_cal.pkl",
+    "exists": true,
+    "load_ok": false,
+    "classes": null,
+    "probes": [],
+    "note": "AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>"
+  },
+  {
+    "path": "artifacts_prod/model_pipeline.pkl",
+    "exists": true,
+    "load_ok": true,
+    "classes": [
+      "0",
+      "1"
+    ],
+    "probes": [
+      {
+        "text": "報價 請提供 單價:100 數量:2",
+        "pred": "1",
+        "conf": 0.7078363236964246
+      },
+      {
+        "text": "技術支援 ticket:TS-1234",
+        "pred": "0",
+        "conf": 0.8148763388632422
+      },
+      {
+        "text": "我要修改地址\n新的地址是台北…",
+        "pred": "0",
+        "conf": 0.6146583934157672
+      }
+    ],
+    "note": null
+  }
+]

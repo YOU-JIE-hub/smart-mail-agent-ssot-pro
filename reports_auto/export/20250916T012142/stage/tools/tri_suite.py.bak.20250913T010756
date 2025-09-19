@@ -1,0 +1,63 @@
+from __future__ import annotations
+import json, time
+from pathlib import Path
+from collections import Counter, defaultdict
+
+FX = Path("fixtures/eval_set.jsonl")
+OUT_DIR = Path(f"reports_auto/eval/{time.strftime('%Y%m%dT%H%M%S')}")
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+def _load_fx():
+    if not FX.exists():
+        raise SystemExit("[TRI] fixtures/eval_set.jsonl missing")
+    samples=[]
+    for line in FX.read_text(encoding="utf-8").splitlines():
+        if not line.strip(): continue
+        s=json.loads(line); samples.append((s["intent"], s["email"]))
+    return samples
+
+def _eval_backend(samples, which:str):
+    if which=="rule":
+        from tools.pipeline_baseline import classify as cls
+    elif which=="ml":
+        from tools.pipeline_ml import classify_ml as cls
+    elif which=="boosted":
+        from tools.pipeline_ml_boosted import classify_boosted as cls
+    else:
+        raise ValueError(which)
+    y_true=[]; y_pred=[]; cm=defaultdict(Counter)
+    for gt,email in samples:
+        r=cls(email)
+        if isinstance(r,tuple):
+            pred = r[0]
+        elif isinstance(r,dict):
+            pred = r.get("intent_name") or r.get("intent") or r.get("label") or ""
+        else:
+            pred = str(r)
+        y_true.append(gt); y_pred.append(pred); cm[gt][pred]+=1
+    acc=sum(1 for a,b in zip(y_true,y_pred) if a==b)/len(y_true)
+    return {"n":len(y_true), "acc":acc, "confusion":{k:dict(cm[k]) for k in cm}}
+
+def main():
+    samples=_load_fx()
+    out={"ts":OUT_DIR.name}
+    # spam（若已有 quick report，就抄抬頭，否則略過）
+    spam_md=Path("reports_auto/prod_quick_report.md")
+    if spam_md.exists():
+        head=spam_md.read_text(encoding="utf-8").splitlines()[1:4]
+        try:
+            out["spam"]={
+                "TEXT_F1": float(head[0].split(":")[1].strip()),
+                "RULE_F1": float(head[1].split(":")[1].strip()),
+                "ENS_F1" : float(head[2].split(":")[1].strip()),
+            }
+        except Exception:
+            pass
+    out["intent_rule"]=_eval_backend(samples,"rule")
+    out["intent_ml"]=_eval_backend(samples,"ml")
+    out["intent_boosted"]=_eval_backend(samples,"boosted")
+    (OUT_DIR/"tri_suite.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[TRI] wrote {OUT_DIR/'tri_suite.json'}")
+
+if __name__=="__main__":
+    main()

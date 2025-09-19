@@ -1,0 +1,13 @@
+# 外部系統連線（DRY：只落地檔案）
+email:
+  from: "noreply@example.com"
+  to:   "demo-recipient@example.com"
+slack:
+  channel: "#ops-demo"
+ticket:
+  vendor: "stub"         # 可換 jira/zen（未接真機）
+crm:
+  vendor: "stub"
+erp:
+  vendor: "stub"
+artifacts_dir: "reports_auto/actions"

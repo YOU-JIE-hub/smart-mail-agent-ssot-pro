@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 130, in <module>
+    if __name__=="__main__": run()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 129, in run
+    srv=HTTPServer(("0.0.0.0",PORT),H); print(f"[*] API on :{PORT}"); srv.serve_forever()
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use

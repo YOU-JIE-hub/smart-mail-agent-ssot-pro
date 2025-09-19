@@ -1,0 +1,52 @@
+from __future__ import annotations
+import os, json, hashlib, pathlib
+from pathlib import Path
+import numpy as np
+from langchain_community.vectorstores import FAISS
+from langchain.text_splitters import RecursiveCharacterTextSplitter
+from langchain.docstore.document import Document
+from langchain_core.embeddings import Embeddings
+from typing import List
+
+class HashEmb(Embeddings):
+    """離線簡易 embedding：MD5 → 16 維向量（float32）"""
+    def embed_documents(self, texts: List[str]):
+        vecs=[]
+        for t in texts:
+            h=hashlib.md5(t.encode("utf-8","ignore")).digest()
+            vecs.append(np.frombuffer(h, dtype=np.uint8).astype("float32"))
+        return vecs
+    def embed_query(self, text: str):
+        return self.embed_documents([text])[0]
+    def __call__(self, text: str):
+        # 某些舊版 FAISS 封裝會直接當函式呼叫
+        return self.embed_query(text)
+
+def _choose_embeddings():
+    if os.getenv("OPENAI_API_KEY"):
+        from langchain_openai import OpenAIEmbeddings
+        # 輕量模型足夠；需要更高品質可改 large
+        return OpenAIEmbeddings(model="text-embedding-3-small")
+    return HashEmb()
+
+def build_index(kb_dir="kb_docs", out_dir="reports_auto/kb/faiss_index"):
+    emb = _choose_embeddings()
+    kb = Path(kb_dir)
+    docs=[]
+    for p in kb.rglob("*"):
+        if p.is_file() and p.suffix.lower() in (".md", ".txt"):
+            docs.append(Document(page_content=p.read_text(encoding="utf-8", errors="ignore"),
+                                 metadata={"source": str(p)}))
+    # 若沒有 KB，寫一份示例以確保可建索引
+    if not docs:
+        demo = Path(kb_dir)/"demo.txt"
+        demo.parent.mkdir(parents=True, exist_ok=True)
+        demo.write_text("採購條款：付款條件 30 天內，逾期利息 5% 年率。退貨需在 7 天內提出。", encoding="utf-8")
+        docs.append(Document(page_content=demo.read_text(encoding="utf-8"),
+                             metadata={"source": str(demo)}))
+    splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
+    chunks = splitter.split_documents(docs)
+    vs = FAISS.from_documents(chunks, emb)
+    Path(out_dir).parent.mkdir(parents=True, exist_ok=True)
+    vs.save_local(out_dir, index_name="kb")
+    return {"built": len(chunks), "index": out_dir}

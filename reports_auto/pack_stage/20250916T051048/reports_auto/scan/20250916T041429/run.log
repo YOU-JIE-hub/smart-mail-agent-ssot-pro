@@ -1,0 +1,28 @@
+[*] tree_now start @ 20250916T041429
+[*] PWD=/home/youjie/projects/smart-mail-agent-ssot-pro whoami=youjie
+[*] uname: Linux DESKTOP-MP3QVS6 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+[*] df -h (top 10):
+Filesystem      Size  Used Avail Use% Mounted on
+none            7.8G     0  7.8G   0% /usr/lib/modules/6.6.87.2-microsoft-standard-WSL2
+none            7.8G  4.0K  7.8G   1% /mnt/wsl
+drivers         477G  365G  112G  77% /usr/lib/wsl/drivers
+/dev/sdd       1007G   41G  915G   5% /
+none            7.8G   84K  7.8G   1% /mnt/wslg
+none            7.8G     0  7.8G   0% /usr/lib/wsl/lib
+rootfs          7.8G  2.7M  7.8G   1% /init
+none            7.8G     0  7.8G   0% /run
+none            7.8G     0  7.8G   0% /run/lock
+[*] ulimit -n: 10240
+[*] env SMA_* / PORT:
+-bash: eval: line 414: syntax error near unexpected token `('
+[OK] scan done.
+[PATHS]
+  OUT_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/scan/20250916T041429
+  TREE=reports_auto/scan/20250916T041429/tree.txt
+  MANIFEST=reports_auto/scan/20250916T041429/manifest.jsonl
+  HUGE=reports_auto/scan/20250916T041429/huge_files.txt
+  TOPN=reports_auto/scan/20250916T041429/top50_by_size.txt
+  STATS=reports_auto/scan/20250916T041429/stats.json
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/scan.err
+  RUNLOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/run.log
+  WHERE=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/where.txt

@@ -1,0 +1,208 @@
+127.0.0.1 - - [15/Sep/2025 20:14:56] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 20:14:56] "POST /classify HTTP/1.1" 200 -
+127.0.0.1 - - [15/Sep/2025 20:14:56] "POST /tri-eval HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 261, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 253, in main
+    srv=HTTPServer(("127.0.0.1", port), Handler)
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+127.0.0.1 - - [15/Sep/2025 20:14:57] "POST /debug/proba HTTP/1.1" 404 -
+127.0.0.1 - - [15/Sep/2025 20:14:57] "POST /extract HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 261, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 253, in main
+    srv=HTTPServer(("127.0.0.1", port), Handler)
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 29, in audit_llm
+    cur.execute("INSERT INTO llm_calls(tag,route,latency_ms,cost_usd,request_id,created_at) VALUES(?,?,?,?,?,datetime('now'))",
+sqlite3.OperationalError: table llm_calls has no column named tag
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 188, in do_POST
+    yp=route_ml(texts); tag="ml"
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 115, in route_ml
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 223, in do_POST
+    t1=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t1)*1000)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 115, in route_ml
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 237, in do_POST
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 29, in audit_llm
+    cur.execute("INSERT INTO llm_calls(tag,route,latency_ms,cost_usd,request_id,created_at) VALUES(?,?,?,?,?,datetime('now'))",
+sqlite3.OperationalError: table llm_calls has no column named tag
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 188, in do_POST
+    yp=route_ml(texts); tag="ml"
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 115, in route_ml
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 223, in do_POST
+    t1=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t1)*1000)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 115, in route_ml
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 237, in do_POST
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 29, in audit_llm
+    cur.execute("INSERT INTO llm_calls(tag,route,latency_ms,cost_usd,request_id,created_at) VALUES(?,?,?,?,?,datetime('now'))",
+sqlite3.OperationalError: table llm_calls has no column named tag
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 188, in do_POST
+    yp=route_ml(texts); tag="ml"
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 115, in route_ml
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 223, in do_POST
+    t1=time.perf_counter(); yp=fn(texts); ms=int((time.perf_counter()-t1)*1000)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/http_api_min.py", line 115, in route_ml
+    proba=est.predict_proba(texts)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/pipeline.py", line 905, in predict_proba
+    return self.steps[-1][1].predict_proba(Xt, **params)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 513, in predict_proba
+    proba = calibrated_classifier.predict_proba(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/calibration.py", line 743, in predict_proba
+    predictions, _ = _get_response_values(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/_response.py", line 214, in _get_response_values
+    y_pred = prediction_method(X)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/linear_model/_base.py", line 352, in decision_function
+    X = validate_data(self, X, accept_sparse="csr", reset=False)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2975, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/sklearn/utils/validation.py", line 2839, in _check_n_features
+    raise ValueError(
+ValueError: X has 29227 features, but LinearSVC is expecting 29233 features as input.
+

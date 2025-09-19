@@ -1,0 +1,151 @@
+=== BASH_TRAP(ERR) ===
+TIME: 2025-09-15T05:00:06+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, json, glob, types, importlib.util, traceback, faulthandler
+from pathlib import Path
+import joblib, numpy as np
+from scipy import sparse as sp
+
+R=Path(sys.argv[1]); R.mkdir(parents=True,exist_ok=True)
+pylog=open(R/"py_run.log","w",encoding="utf-8"); faulthandler.enable(pylog)
+def log(*a): print(*a); print(*a,file=pylog,flush=True)
+
+# ========== 0) 環境快照 ==========
+env={
+ "cwd": os.getcwd(),
+ "python": sys.version.split()[0],
+ "numpy": __import__("numpy").__version__,
+ "scipy": __import__("scipy").__version__,
+ "sklearn": __import__("sklearn").__version__,
+ "joblib": __import__("joblib").__version__,
+ "SMA_INTENT_ML_PKL": os.environ.get("SMA_INTENT_ML_PKL",""),
+ "PYTHONPATH": os.environ.get("PYTHONPATH","")
+}
+(R/"env.json").write_text(json.dumps(env,ensure_ascii=False,indent=2),encoding="utf-8")
+
+# ========== 1) 綁訓練 rules_feat（整模組）==========
+def bind_rules_from_bundle():
+    # 優先使用：intent/**/.sma_tools/runtime_threshold_router.py
+    cands=sorted(glob.glob("intent/**/.sma_tools/runtime_threshold_router.py",recursive=True))
+    if not cands: return None
+    src=Path(cands[-1]); code=src.read_text(encoding="utf-8")
+    # 把整個模組以多個歷史名字註冊，避免 pickled ref 找不到
+    names=[
+      "train_pro_fresh","train_pro",
+      "intent_bundle_intent__sma_tools_runtime_threshold_router_py",
+      "sma_tools.runtime_threshold_router","runtime_threshold_router",
+      "vendor.rules_features"
+    ]
+    for nm in names:
+        mod=types.ModuleType(nm); sys.modules[nm]=mod
+        exec(compile(code,str(src),"exec"),mod.__dict__,mod.__dict__)
+    # 另外把 rules_feat 綁到 __main__（少數 pickle 會指到 __main__.rules_feat）
+    import __main__ as M
+    M.rules_feat=sys.modules[names[-1]].__dict__.get("rules_feat",None)
+    return str(src)
+
+rules_src=bind_rules_from_bundle()
+log("[rules_feat]", rules_src or "not found")
+
+# ========== 2) 選模型（優先環境變數 → artifacts → bundle）==========
+cands=[]
+if env["SMA_INTENT_ML_PKL"]: cands.append(env["SMA_INTENT_ML_PKL"])
+cands+=sorted(glob.glob("artifacts/intent_*.pkl"))
+cands+=sorted(glob.glob("intent/**/artifacts/intent_pro_cal.pkl",recursive=True))
+cands=[p for p in cands if os.path.exists(p)]
+if not cands:
+    (R/"last_trace.txt").write_text("No PKL found under artifacts/ or intent/**/artifacts/\n",encoding="utf-8")
+    print("[FATAL] no pkl"); sys.exit(2)
+PKL=cands[0]; log("[PKL]",PKL)
+
+# ========== 3) 載入 + 嚴格特徵檢查 ==========
+def unwrap(obj):
+    if hasattr(obj,"predict"): return obj
+    if isinstance(obj,dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            if k in obj and hasattr(obj[k],"predict"): return obj[k]
+    return obj
+
+try:
+    obj=joblib.load(PKL)
+except Exception as e:
+    (R/"py_last_trace.txt").write_text(traceback.format_exc(),encoding="utf-8")
+    raise
+
+est=unwrap(obj)
+steps=[(n, s.__class__.__name__) for n,s in getattr(est,"steps",[])]
+clf=est.steps[-1][1] if hasattr(est,"steps") else est
+expected=getattr(clf,"n_features_in_",None)
+if expected is None and hasattr(clf,"base_estimator"):
+    expected=getattr(clf.base_estimator,"n_features_in_",None)
+expected=int(expected) if expected is not None else None
+
+def to_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X,np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(f"non-numeric output: {type(X).__name__}")
+
+feats=None
+if hasattr(est,"steps"):
+    d=dict(est.steps); feats=d.get("features") or d.get("pre") or d.get("union")
+dims={}
+if feats and hasattr(feats,"transformer_list"):
+    xs=["報價與交期","技術支援","發票抬頭","退訂連結"]
+    for name,sub in feats.transformer_list:
+        try:
+            Y=to_csr(sub.transform(xs)); dims[name]=int(Y.shape[1])
+        except Exception as e:
+            dims[name]=f"ERR:{type(e).__name__}"
+
+sum_branch=sum(v for v in dims.values() if isinstance(v,int))
+diag={"path":PKL,"steps":steps,"expected_dim":expected,"branch_dims":dims,"sum_branch":sum_branch}
+(R/"diagnostics.json").write_text(json.dumps(diag,ensure_ascii=False,indent=2),encoding="utf-8")
+log("[DIAG]",json.dumps(diag,ensure_ascii=False))
+
+# 嚴格模式：不相等就 fail（不修改 ZeroPad）
+if expected and sum_branch and expected!=sum_branch:
+    msg=f"FEATURE_MISMATCH: expected {expected}, got {sum_branch} | {dims}"
+    (R/"last_trace.txt").write_text(msg+"\n",encoding="utf-8")
+    print("[FAIL]", msg); sys.exit(3)
+
+# ========== 4) 驗證 / 取樣 ==========
+zh={"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+samples=["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    pred=est.predict(samples)
+    spj={"samples":samples,"pred":[f"{y}/{zh.get(str(y),str(y))}" for y in pred]}
+    (R/"sample_pred.json").write_text(json.dumps(spj,ensure_ascii=False,indent=2),encoding="utf-8")
+    log("[SAMPLE]",spj)
+except Exception:
+    (R/"py_last_trace.txt").write_text(traceback.format_exc(),encoding="utf-8")
+    raise
+
+# ========== 5) 若有 570 驗證集就粗測 ==========
+DS=Path("data/intent_eval/dataset.cleaned.jsonl")
+if DS.exists():
+    xs,ys=[],[]
+    for l in DS.read_text(encoding="utf-8").splitlines():
+        if not l.strip(): continue
+        import json as _json
+        d=_json.loads(l)
+        xs.append(d.get("text") or d.get("content") or d.get("utterance") or "")
+        ys.append(str(d.get("label") or d.get("intent") or ""))
+    yp=est.predict(xs)
+    yp_zh=[zh.get(str(y),str(y)) for y in yp]
+    acc=sum(int(a==b) for a,b in zip(yp_zh,ys))/len(ys) if ys else 0.0
+    bylab={}
+    from collections import Counter
+    C=Counter(yp_zh)
+    for k in sorted(set(ys)):
+        pairs=[]
+        for i,(g,p) in enumerate(zip(ys,yp_zh)):
+            if g==k: pairs.append(p)
+        from collections import Counter as C2
+        top=C2(pairs).most_common(3)
+        bylab[k]=top
+    val={"n":len(ys),"acc_zh":round(acc,4),"pred_top":C.most_common(6),"by_label":bylab}
+    (R/"val_summary.json").write_text(json.dumps(val,ensure_ascii=False,indent=2),encoding="utf-8")
+    log("[VAL]",val)
+PY
+
+EXIT_CODE: 1

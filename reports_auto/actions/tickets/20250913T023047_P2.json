@@ -1,0 +1,9 @@
+{
+  "subject": "技術支援 ticket:TS-1234",
+  "body": "",
+  "tags": [
+    "tech_support"
+  ],
+  "severity": "P2",
+  "dry": true
+}

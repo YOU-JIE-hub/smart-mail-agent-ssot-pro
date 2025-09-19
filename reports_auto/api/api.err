@@ -1,0 +1,126 @@
+127.0.0.1 - - [18/Sep/2025 11:50:58] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:58] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:58] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:58] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:58] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:58] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:58] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:58] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:58] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:58] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:59] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:59] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:59] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:59] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:59] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:59] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:59] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:59] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:50:59] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:50:59] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:00] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:00] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:00] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:00] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:00] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:00] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:00] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:00] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:00] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:00] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:01] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:01] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:01] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:01] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:01] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:01] "GET /debug/model_meta HTTP/1.1" 501 -
+127.0.0.1 - - [18/Sep/2025 11:51:01] code 501, message Unsupported method ('GET')
+127.0.0.1 - - [18/Sep/2025 11:51:01] "GET /debug/model_meta HTTP/1.1" 501 -
+nohup: ignoring input
+INFO:     Started server process [35]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Started server process [102]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Started server process [129]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Started server process [457]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Started server process [3177]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3177]
+INFO:     Started server process [4836]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+INFO:     Shutting down
+nohup: ignoring input
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4836]
+INFO:     Started server process [4912]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4912]
+INFO:     Started server process [5245]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5245]
+INFO:     Started server process [5345]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5345]
+INFO:     Started server process [5419]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5419]
+INFO:     Started server process [5495]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)
+nohup: ignoring input
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5495]
+INFO:     Started server process [5626]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8088 (Press CTRL+C to quit)

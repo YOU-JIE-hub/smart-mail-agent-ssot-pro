@@ -1,0 +1,205 @@
+[
+  {
+    "path": "tools/e2e_route_actions.py",
+    "exists": true,
+    "size": 3773,
+    "md5": "644f2faeaf9f83bcbecf250929cb17de",
+    "head": "from __future__ import annotations\nimport os, sys, json, time, re\nfrom pathlib import Path\n\ndef _call_rule(email:dict):\n    # 相容兩種 baseline：classify_rule(email, contract) / classify_rule(email)\n    from tools import pipeline_baseline as base\n    cls = getattr(base, \"classify_rule\", None) o"
+  },
+  {
+    "path": "tools/tri_suite.py",
+    "exists": true,
+    "size": 3581,
+    "md5": "a6998cc57f11e239bd5e5651d826b687",
+    "head": "from __future__ import annotations\nimport json, time, inspect\nfrom pathlib import Path\nfrom collections import defaultdict\n\nFIXTURES = Path(\"fixtures/eval_set.jsonl\")\nOUTROOT  = Path(\"reports_auto/eval\")\n\n# ─── 通用：把不同後端的回傳統一成 (intent:str, conf:float) ───\ndef _"
+  },
+  {
+    "path": "tools/pipeline_ml.py",
+    "exists": true,
+    "size": 3125,
+    "md5": "e99ac1d0acdbb88b6060dbb9fc1e12e7",
+    "head": "from __future__ import annotations\nfrom pathlib import Path\nimport os, sys, json, typing as T\n\nMAP_PATH = Path(\"configs/intent_label_map.json\")\nINTENT_PKL = Path(os.environ.get(\"SMA_INTENT_ML_PKL\") or \"artifacts/intent_pro_cal.pkl\")\n\ndef _alias_main_for_legacy():\n    # 舊 pickle 會到 __main__ 找"
+  },
+  {
+    "path": "tools/pipeline_ml_boosted.py",
+    "exists": true,
+    "size": 1330,
+    "md5": "18c3ec5b55d4817bceaa0381e3ebc1eb",
+    "head": "from __future__ import annotations\nfrom tools.ml_io import predict as _ml_predict\nimport sma_features as F  # 規則特徵\n# 你的 IDX2NAME 如需客製可從外部載；先以簡化範例示意\nIDX2NAME = {\n    0:\"報價\",1:\"投訴\",2:\"一般回覆\",3:\"規則詢問\",4:\"資料異動\",5:\"技術支�"
+  },
+  {
+    "path": "tools/pipeline_baseline.py",
+    "exists": true,
+    "size": 2078,
+    "md5": "cbc612104c4e51af1b8f5190b90960ed",
+    "head": "from __future__ import annotations\nimport json, re, os\nfrom pathlib import Path\nfrom typing import Dict, Any\nROOT = Path(os.environ.get(\"ROOT\") or Path.cwd())\ndef load_contract() -> Dict[str,Any]:\n    return json.loads((ROOT/\"artifacts_prod/intent_contract.json\").read_text(encoding=\"utf-8\"))\ndef cla"
+  },
+  {
+    "path": "tools/ml_io.py",
+    "exists": true,
+    "size": 4649,
+    "md5": "9fc4427f9bfa06ef27fd0af530fa8167",
+    "head": "from __future__ import annotations\nimport os, sys, json, re, types\nfrom pathlib import Path\n\nDEFAULT_ML_PKL = Path(os.environ.get(\"SMA_INTENT_ML_PKL\") or \"artifacts/intent_pro_cal.pkl\")\nLABEL_MAP      = Path(\"artifacts_prod/intent_label_map.json\")\n\n# ---- import helpers (kept simple & robust) ----\nd"
+  },
+  {
+    "path": "tools/kie/hf_kie.py",
+    "exists": true,
+    "size": 4556,
+    "md5": "49001cd1e1d9e97837ab8c0d4655739d",
+    "head": "\nfrom __future__ import annotations\nimport os, re\nfrom pathlib import Path\nfrom typing import List, Dict, Any\n\n# 盡力載入 HF；若失敗 → Regex-only\nHAS_HF = True\ntry:\n    from transformers import AutoTokenizer, AutoModelForTokenClassification  # type: ignore\n    import torch  # type: ignore\n"
+  },
+  {
+    "path": "tools/kie/eval.py",
+    "exists": true,
+    "size": 1832,
+    "md5": "15d550adbfcfd8f33494dd66e14bda8d",
+    "head": "\nfrom __future__ import annotations\nimport sys, json, pathlib\nfrom typing import Any\nfrom tools.kie.hf_kie import decode\n\ndef _to_text(o: Any) -> str:\n    if isinstance(o, str):\n        return o\n    if isinstance(o, dict):\n        if \"text\" in o:\n            return _to_text(o[\"text\"])\n        if \"em"
+  },
+  {
+    "path": "data/kie/test_real.jsonl",
+    "exists": true,
+    "size": 4003,
+    "md5": "5e9c2a45fcbee63c1d54f19270fe600d",
+    "head": "{\"text\": \"請問 9/30 前能提供報價？25 位，預算 NT$12,500，含稅與場地嗎？\", \"spans\": [{\"start\": 23, \"end\": 33, \"label\": \"amount\"}, {\"start\": 3, \"end\": 7, \"label\": \"date_time\"}]}\n{\"text\": \"若 2025/09/15 前成交，可否給早鳥價 ＄9,800？\", \"spans\": [{\"start\": 24, \"end\": 30"
+  },
+  {
+    "path": "data/kie/test.jsonl",
+    "exists": true,
+    "size": 7750,
+    "md5": "ad88c3be205372b490f79721e6c0ab81",
+    "head": "{\"text\": \"請問 9/30 前能提供報價？11 位，約 NT$1,2010。\", \"spans\": [{\"start\": 3, \"end\": 7, \"label\": \"date_time\"}, {\"start\": 22, \"end\": 31, \"label\": \"amount\"}]}\n{\"text\": \"請問 9/30 前能提供報價？12 位，約 NT$1,2020。\", \"spans\": [{\"start\": 3, \"end\": 7, \"label\": \"date_time\"}, "
+  },
+  {
+    "path": "tools/orch/planner_bridge.py",
+    "exists": true,
+    "size": 3508,
+    "md5": "c73aa67944acde10d9434a09b51c0c0b",
+    "head": "from __future__ import annotations\nimport os, importlib\nfrom typing import Any, Dict\n\ndef _load_thresholds() -> Dict[str,float]:\n    try:\n        pe = importlib.import_module(\"tools.orch.policy_engine\")\n        return pe.load_thresholds()\n    except Exception:\n        # fallback，之後可改到 co"
+  },
+  {
+    "path": "tools/orch/policy_engine.py",
+    "exists": true,
+    "size": 461,
+    "md5": "8be6b461f629d0f6b8dcd0671e2342f7",
+    "head": "from __future__ import annotations\nimport json, pathlib, os\nINTENT_THR = pathlib.Path(\"reports_auto/intent/reports_auto/intent_thresholds.json\")\ndef load_thresholds():\n    if INTENT_THR.exists():\n        return json.loads(INTENT_THR.read_text(encoding=\"utf-8\"))\n    # fallback\n    return {\"p1\":0.52, "
+  },
+  {
+    "path": "tools/actions/action_bus.py",
+    "exists": true,
+    "size": 7327,
+    "md5": "ee8058e28c5ec4512ba3aceaafb079e8",
+    "head": "from __future__ import annotations\nimport os, time, json, sqlite3\nfrom pathlib import Path\nfrom typing import Dict, Any, Optional\n\nDB_PATH = Path(\"db/sma.sqlite\")\nART_ROOT = Path(\"reports_auto/actions\")\n\ndef _ensure_db():\n    DB_PATH.parent.mkdir(parents=True, exist_ok=True)\n    con = sqlite3.connec"
+  },
+  {
+    "path": "tools/adapters/email_smtp.py",
+    "exists": true,
+    "size": 494,
+    "md5": "dc9023e4159102e2b4296235580cf99f",
+    "head": "from __future__ import annotations\nimport os, time, pathlib\ndef send_email(subject:str, body:str, to:str, out_dir=\"reports_auto/actions/email\"):\n    dry = os.environ.get(\"SMA_DRY_RUN\",\"1\")!=\"0\"\n    od = pathlib.Path(out_dir); od.mkdir(parents=True, exist_ok=True)\n    fn = od / f\"{time.strftime('%Y%m"
+  },
+  {
+    "path": "tools/adapters/slack.py",
+    "exists": true,
+    "size": 469,
+    "md5": "fdb1b63f3c274af45e25c5b71a4fa8f9",
+    "head": "from __future__ import annotations\nimport os, time, pathlib, json\ndef notify(channel:str, text:str, out_dir=\"reports_auto/actions/slack\"):\n    dry = os.environ.get(\"SMA_DRY_RUN\",\"1\")!=\"0\"\n    od=pathlib.Path(out_dir); od.mkdir(parents=True, exist_ok=True)\n    fn=od/f\"{time.strftime('%Y%m%dT%H%M%S')}"
+  },
+  {
+    "path": "tools/adapters/ticket_stub.py",
+    "exists": true,
+    "size": 572,
+    "md5": "d3996a621fb1adb4197f582d330d3f6f",
+    "head": "from __future__ import annotations\nimport os, time, pathlib, json\ndef create_ticket(subject:str, body:str, tags=None, severity:str=\"P3\", out_dir=\"reports_auto/actions/tickets\"):\n    dry = os.environ.get(\"SMA_DRY_RUN\",\"1\")!=\"0\"\n    od=pathlib.Path(out_dir); od.mkdir(parents=True, exist_ok=True)\n    f"
+  },
+  {
+    "path": "tools/adapters/crm_stub.py",
+    "exists": true,
+    "size": 523,
+    "md5": "e8905b21733a2f9ed8fb686be22a7def",
+    "head": "from __future__ import annotations\nimport os, time, pathlib, json\ndef upsert_deal(title:str, total:int, meta:dict=None, out_dir=\"reports_auto/actions/crm\"):\n    dry = os.environ.get(\"SMA_DRY_RUN\",\"1\")!=\"0\"\n    od=pathlib.Path(out_dir); od.mkdir(parents=True, exist_ok=True)\n    fn=od/f\"{time.strftime"
+  },
+  {
+    "path": "tools/adapters/pdf_placeholder.py",
+    "exists": true,
+    "size": 321,
+    "md5": "f60f52053ed01c5dcc513aef8c7f87e6",
+    "head": "from __future__ import annotations\nimport time, pathlib\ndef write_quote_txt(summary:str, out_dir=\"reports_auto/actions/quotes\"):\n    od=pathlib.Path(out_dir); od.mkdir(parents=True, exist_ok=True)\n    fn=od/f\"{time.strftime('%Y%m%dT%H%M%S')}.txt\"\n    fn.write_text(summary, encoding=\"utf-8\")\n    retu"
+  },
+  {
+    "path": "src/sma_features.py",
+    "exists": true,
+    "size": 2521,
+    "md5": "85319c1a17937b4111bb86bfc8f7ec42",
+    "head": "from __future__ import annotations\nfrom pathlib import Path\nfrom typing import Any, List\nimport json, re\nimport numpy as np\nfrom scipy import sparse as sp\n\n_SPEC = Path(\"artifacts_prod/intent_feature_spec.json\")\n\ndef _spec():\n    if _SPEC.exists():\n        try: return json.loads(_SPEC.read_text(enco"
+  },
+  {
+    "path": "fixtures/eval_set.jsonl",
+    "exists": true,
+    "size": 506,
+    "md5": "e893373c5c4ba44f7f5589ab9dcdc9c8",
+    "head": "{\"intent\":\"一般回覆\",\"email\":{\"subject\":\"[一般回覆] 測試\",\"body\":\"hello\"}}\n{\"intent\":\"報價\",\"email\":{\"subject\":\"報價 請提供 單價:100 數量:2\",\"body\":\"\"}}\n{\"intent\":\"投訴\",\"email\":{\"subject\":\"投訴\",\"body\":\"客訴\"}}\n{\"intent\":\"技術支援\",\"email\":{\"subject\":\"技術支援 tic"
+  },
+  {
+    "path": "configs/integrations.yaml",
+    "exists": true,
+    "size": 303,
+    "md5": "148a18dc783277373d585a7e86cd08ff",
+    "head": "# 外部系統連線（DRY：只落地檔案）\nemail:\n  from: \"noreply@example.com\"\n  to:   \"demo-recipient@example.com\"\nslack:\n  channel: \"#ops-demo\"\nticket:\n  vendor: \"stub\"         # 可換 jira/zen（未接真機）\ncrm:\n  vendor: \"stub\"\nerp:\n  vendor: \"stub\"\nartifacts_dir: \"reports_auto/action"
+  },
+  {
+    "path": "configs/policy/pricing.yaml",
+    "exists": true,
+    "size": 153,
+    "md5": "7f831e94740d21f393d51d0a2a018002",
+    "head": "currency: \"TWD\"\ntax_rate: 0.05\ndiscount_rules:\n  - if_qty_gte: 100\n    discount: 0.1\nvalid_days: 14\napproval_threshold: 200000   # ≥此金額需審批\n"
+  },
+  {
+    "path": "configs/templates/reply_generic.md",
+    "exists": true,
+    "size": 175,
+    "md5": "40f698b14cc5a661bca3acb65df19b53",
+    "head": "您好，\n\n已收到您的來信。我們會儘速處理並回覆您。\n如需即時協助，可參考自助資源頁面或來信補充更多細節。\n\n此致  \n{{signature}}\n"
+  },
+  {
+    "path": "configs/templates/quote_email.md",
+    "exists": true,
+    "size": 385,
+    "md5": "8dfa9c2ad8a1c7c720ff97866d19f07f",
+    "head": "主旨：{{subject}}\n\n您好，\n\n以下為本次報價摘要：\n- 品項：{{item}}\n- 單價：{{unit_price}} {{currency}}\n- 數量：{{qty}}\n- 小計：{{subtotal}} {{currency}}\n- 稅額：{{tax}} {{currency}}\n- 總額：{{total}} {{currency}}\n- 報價有效期：{{valid_until}}\n\n若金額超過審"
+  },
+  {
+    "path": "configs/templates/policy_footer.md",
+    "exists": true,
+    "size": 135,
+    "md5": "90d493c711ae760da3f388c609e9932e",
+    "head": "——  \n此回覆包含依據公司政策文件之摘錄，僅供參考。若涉及法規/合約，請以正式合約/公告為準。\n"
+  },
+  {
+    "path": "configs/intent_label_map.json",
+    "exists": true,
+    "size": 180,
+    "md5": "f257919da88b972b84d22a379c4d9f59",
+    "head": "{\n  \"biz_quote\": \"報價\",\n  \"complaint\": \"投訴\",\n  \"other\": \"一般回覆\",\n  \"policy_qa\": \"規則詢問\",\n  \"profile_update\": \"資料異動\",\n  \"tech_support\": \"技術支援\"\n}"
+  },
+  {
+    "path": "reports_auto/prod_quick_report.md",
+    "exists": true,
+    "size": 97,
+    "md5": "a0d1841432ae40e97409fb0c78f9fdbc",
+    "head": "# Spam quick report\n\n- TEXT Macro-F1: 0.9737\n- RULE Macro-F1: 0.4028\n- ENSEMBLE Macro-F1: 0.9646\n"
+  },
+  {
+    "path": "artifacts/intent_pro_cal.pkl",
+    "exists": true,
+    "size": 4924369,
+    "md5": "1bc20adf51e1bb9582ad9b4334b3767f",
+    "head": "�\u0004�\u001a\u0000\u0001\u0000\u0000\u0000\u0000\u0000}��\bpipeline��\u0010sklearn.pipeline��\bPipeline���)��}�(�\u0005steps�]�(�\bfeatures�h\u0002�\fFeatureUnion���)��}�(�\u0010transformer_list�]�(�\u0004word��\u001fsklearn.feature_extraction.text��\u000fTfidfVectorizer���)��}�(�\u0005input��\u0007content��\bencoding��\u0005utf-8��\fdecode_error��\u0006strict��\rstrip_accents�N�\fpreprocessor�N�\ttokeni"
+  },
+  {
+    "path": "artifacts_prod/model_pipeline.pkl",
+    "exists": true,
+    "size": 39332648,
+    "md5": "2af07758a834b7e7721b83a3fc5402b8",
+    "head": "�\u0004��\u0002\u0000\u0000\u0000\u0000\u0000\u0000�\u0010sklearn.pipeline��\bPipeline���)��}�(�\u0005steps�]�(�\u000ftfidfvectorizer��\u001fsklearn.feature_extraction.text��\u000fTfidfVectorizer���)��}�(�\u0005input��\u0007content��\bencoding��\u0005utf-8��\fdecode_error��\u0006strict��\rstrip_accents�N�\fpreprocessor�N�\ttokenizer�N�\banalyzer��\u0004char��\tlowercase���\rtoken_pattern��\r(?u)\\b"
+  }
+]

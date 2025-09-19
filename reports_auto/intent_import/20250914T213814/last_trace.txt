@@ -1,0 +1,178 @@
+Traceback (most recent call last):
+  File "<stdin>", line 80, in <module>
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/usr/lib/python3.10/pickle.py", line 1582, in find_class
+    return _getattribute(sys.modules[module], name)[0]
+  File "/usr/lib/python3.10/pickle.py", line 331, in _getattribute
+    raise AttributeError("Can't get attribute {!r} on {!r}"
+AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>
+=== TRAP ===
+TIME: 2025-09-14T21:38:15+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, json, time, types, importlib, joblib, traceback, numpy as np
+from pathlib import Path
+from scipy import sparse as sp
+from sklearn.pipeline import FeatureUnion
+R = Path(sys.argv[1]); LOG = (R/'diagnostics.json')
+
+def logj(d): LOG.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding='utf-8')
+
+def find_pkl():
+    cands = [
+        "intent/intent/artifacts/intent_pro_cal.pkl",
+        "intent/artifacts/intent_pro_cal.pkl",
+        "intent/intent/artifacts/intent_pipeline_fixed.pkl",
+        "intent/artifacts/intent_pipeline_fixed.pkl",
+    ]
+    for p in cands:
+        if Path(p).exists(): return Path(p)
+    return None
+
+def inject_rules_module():
+    # 把 vendor 下的原始檔名（例：intent_bundle_intent__sma_tools_runtime_threshold_router_py.py）加入 sys.path
+    sys.path.insert(0, str(Path("vendor").resolve()))
+    # 試著 import 每個 vendor/*.py，使其中的 rules_feat 以「原模組路徑」存在
+    for p in Path("vendor").glob("*.py"):
+        modname = p.stem  # 保留原 basename 就能對上舊 pickle 的 module path
+        try:
+            if modname not in sys.modules:
+                import importlib.util
+                spec = importlib.util.spec_from_file_location(modname, p)
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[modname] = m
+                spec.loader.exec_module(m)
+        except Exception as e:
+            pass
+
+def unwrap(obj):
+    if hasattr(obj,'predict'): return obj, None
+    if isinstance(obj, dict):
+        for k in ('pipe','pipeline','estimator','clf','model'):
+            v = obj.get(k)
+            if hasattr(v,'predict'): return v, obj
+    return obj, None
+
+def n_features_expected(clf):
+    if hasattr(clf, 'n_features_in_'): return int(clf.n_features_in_)
+    if hasattr(clf,'base_estimator') and hasattr(clf.base_estimator,'n_features_in_'):
+        return int(clf.base_estimator.n_features_in_)
+    return None
+
+def as_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    import numpy as np
+    if isinstance(X,np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(f'non-numeric branch output: {type(X).__name__}')
+
+def branch_dims(pre, xs):
+    dims={}
+    if isinstance(pre, FeatureUnion):
+        for name, sub in pre.transformer_list:
+            try:
+                M = as_csr(sub.transform(xs))
+                dims[name] = int(M.shape[1])
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}"
+    return dims
+
+# 1) 找 PKL
+pkl = find_pkl()
+if not pkl:
+    print("[FATAL] 找不到 intent/**/artifacts/*.pkl")
+    (R/'last_trace.txt').write_text('Missing PKL under intent/**', encoding='utf-8')
+    sys.exit(2)
+print("[PKL]", pkl)
+
+# 2) 綁定舊 rules 模組（讓 unpickle/repickle 都能找到）
+inject_rules_module()
+
+# 3) 載入
+try:
+    obj = joblib.load(pkl)
+except Exception as e:
+    (R/'last_trace.txt').write_text(traceback.format_exc(), encoding='utf-8'); raise
+
+est, meta = unwrap(obj)
+if not hasattr(est,'predict'):
+    print("[FATAL] 非 estimator"); sys.exit(3)
+
+# 4) 找 features 與最末端分類器
+clf = est.steps[-1][1] if hasattr(est,'steps') else est
+pre = None
+if hasattr(est,'steps'):
+    names = dict(est.steps)
+    pre = names.get('features') or names.get('pre') or names.get('union')
+
+expected = n_features_expected(clf)
+print("[EXPECTED]", expected)
+xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+dims = branch_dims(pre, xs) if pre else {}
+num_sum = sum(v for v in dims.values() if isinstance(v,int))
+print("[BRANCH_DIMS]", dims); print("[SUM_BEFORE]", num_sum)
+
+# 5) 對齊：若合計 < 期望，先找 pad/zero 分支調整；找不到就動態新增一條 ZeroPad
+delta = (expected - num_sum) if (expected and num_sum) else 0
+pad_added = False
+if delta != 0 and isinstance(pre, FeatureUnion):
+    # 5a) 先調既有 pad/zero 分支
+    for i,(n,sub) in enumerate(pre.transformer_list):
+        if any(k in n.lower() for k in ('pad','zero')) and hasattr(sub,'width') and isinstance(dims.get(n), int):
+            try:
+                old = int(getattr(sub,'width',1) or 1)
+                setattr(sub,'width', old + delta)
+                pre.transformer_list[i] = (n, sub)
+                print(f"[PAD_FIX] {n}: {old} -> {old+delta}")
+                pad_added = True
+                delta = 0
+                break
+            except Exception as e:
+                print("[PAD_FIX_FAIL]", n, type(e).__name__, e)
+
+    # 5b) 仍有缺口 → 動態新增一條 ZeroPad（穩定語意分支、只補列數）
+    if delta != 0:
+        from sma_tools.sk_zero_pad import ZeroPad
+        name = 'pad_auto'
+        pre.transformer_list.append((name, ZeroPad(width=delta)))
+        print(f"[PAD_ADD] {name}: +{delta}")
+        pad_added = True
+        delta = 0
+
+# 6) 存 aligned
+OUT = Path('artifacts/intent_pipeline_aligned.pkl')
+try:
+    joblib.dump(est, OUT)
+    print("[SAVED]", OUT)
+except Exception as e:
+    (R/'last_trace.txt').write_text(traceback.format_exc(), encoding='utf-8'); raise
+
+# 7) 抽樣煙囪
+to_zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+try:
+    pred = est.predict(tests)
+    for s,y in zip(tests,pred):
+        print("   ", s, "->", f"{y} / {to_zh.get(str(y),str(y))}")
+    (R/'sample_pred.json').write_text(json.dumps({"samples":tests,"pred":[str(x) for x in pred]},ensure_ascii=False,indent=2),encoding='utf-8')
+except Exception as e:
+    (R/'last_trace.txt').write_text(traceback.format_exc(), encoding='utf-8')
+
+# 8) 落地診斷
+diag = {
+  "pkl": str(pkl),
+  "expected_dim": expected,
+  "branch_dims": dims,
+  "sum_before": num_sum,
+  "pad_added_or_fixed": pad_added,
+  "out_path": str(OUT)
+}
+logj(diag)
+PY
+
+EXIT_CODE: 1

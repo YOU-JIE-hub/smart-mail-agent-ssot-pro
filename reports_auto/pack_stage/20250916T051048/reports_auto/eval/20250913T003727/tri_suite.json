@@ -1,0 +1,19 @@
+{
+  "ts": "20250913T003727",
+  "spam": {
+    "TEXT_F1": 0.9737,
+    "RULE_F1": 0.4028,
+    "ENS_F1": 0.9646
+  },
+  "intent_rule": {
+    "n": 6,
+    "acc": 1.0
+  },
+  "intent_ml": {
+    "n": 6,
+    "acc": 0.333
+  },
+  "intent_boosted": {
+    "note": "folder=20250913T003727"
+  }
+}

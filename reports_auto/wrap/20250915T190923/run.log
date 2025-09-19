@@ -1,0 +1,143 @@
++ wrap:15: '[' 3 -eq 0 ']'
++ wrap:16: bash -x -o pipefail -c 'bash -lc echo hi && exit 9'
++ bash -lc echo hi
+
++ exit 9
+++ wrap:16: on_err 9
+++ wrap:9: ec=9
+++ wrap:9: echo '=== BASH_TRAP(sink_wrap) ==='
++++ wrap:9: date -Is
+++ wrap:9: echo 'TIME: 2025-09-15T19:09:23+08:00'
+++ wrap:9: echo 'LAST:bash -x -o pipefail -c "$*"'
+++ wrap:9: echo CODE:9
+++ wrap:9: echo exit_code=9
+++ wrap:9: sink_err reports_auto/wrap/20250915T190923 reports_auto/wrap/20250915T190923/wrap.err reports_auto/wrap/20250915T190923/py_last_trace.txt
+++ wrap:6: local d=reports_auto/wrap/20250915T190923 e=reports_auto/wrap/20250915T190923/wrap.err py=reports_auto/wrap/20250915T190923/py_last_trace.txt slog=
+++ wrap:7: error_sink::init
+++ wrap:3: mkdir -p reports_auto/ERR
+++ wrap:8: error_sink::copy reports_auto/wrap/20250915T190923/wrap.err reports_auto/ERR/api.err
+++ wrap:4: local src=reports_auto/wrap/20250915T190923/wrap.err dst=reports_auto/ERR/api.err
+++ wrap:4: '[' -n reports_auto/wrap/20250915T190923/wrap.err ']'
+++ wrap:4: '[' -f reports_auto/wrap/20250915T190923/wrap.err ']'
+++ wrap:4: cp -f reports_auto/wrap/20250915T190923/wrap.err reports_auto/ERR/api.err
+++ wrap:9: error_sink::copy reports_auto/wrap/20250915T190923/run.log reports_auto/ERR/run.log
+++ wrap:4: local src=reports_auto/wrap/20250915T190923/run.log dst=reports_auto/ERR/run.log
+++ wrap:4: '[' -n reports_auto/wrap/20250915T190923/run.log ']'
+++ wrap:4: '[' -f reports_auto/wrap/20250915T190923/run.log ']'
+++ wrap:4: cp -f reports_auto/wrap/20250915T190923/run.log reports_auto/ERR/run.log
+++ wrap:10: error_sink::copy '' reports_auto/ERR/server.log
+++ wrap:4: local src= dst=reports_auto/ERR/server.log
+++ wrap:4: '[' -n '' ']'
+++ wrap:4: true
+++ wrap:11: error_sink::copy reports_auto/wrap/20250915T190923/py_last_trace.txt reports_auto/ERR/py_last_trace.txt
+++ wrap:4: local src=reports_auto/wrap/20250915T190923/py_last_trace.txt dst=reports_auto/ERR/py_last_trace.txt
+++ wrap:4: '[' -n reports_auto/wrap/20250915T190923/py_last_trace.txt ']'
+++ wrap:4: '[' -f reports_auto/wrap/20250915T190923/py_last_trace.txt ']'
+++ wrap:4: true
++++ wrap:12: cd reports_auto/wrap/20250915T190923
++++ wrap:12: pwd
+++ wrap:12: echo RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923
++++ wrap:13: cd reports_auto/wrap/20250915T190923
++++ wrap:13: pwd
+++ wrap:13: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923 reports_auto/ERR/LATEST_RUN
+++ wrap:9: print_paths
+++ wrap:8: echo '[PATHS]'
+[PATHS]
++++ wrap:8: cd reports_auto/wrap/20250915T190923
++++ wrap:8: pwd
+++ wrap:8: echo '  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923'
+  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923
++++ wrap:8: cd reports_auto/wrap/20250915T190923
++++ wrap:8: pwd
+++ wrap:8: echo '  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/run.log'
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/run.log
++++ wrap:8: cd reports_auto/wrap/20250915T190923
++++ wrap:8: pwd
+++ wrap:8: echo '  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/wrap.err'
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/wrap.err
++++ wrap:8: cd reports_auto/wrap/20250915T190923
++++ wrap:8: pwd
+++ wrap:8: echo '  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/py_last_trace.txt'
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/py_last_trace.txt
+++ wrap:9: exit 9
++ wrap:1: on_exit
++ wrap:10: sink_run reports_auto/wrap/20250915T190923
++ wrap:16: local d=reports_auto/wrap/20250915T190923
++ wrap:17: error_sink::init
++ wrap:3: mkdir -p reports_auto/ERR
++ wrap:18: error_sink::copy reports_auto/wrap/20250915T190923/run.log reports_auto/ERR/run.log
++ wrap:4: local src=reports_auto/wrap/20250915T190923/run.log dst=reports_auto/ERR/run.log
++ wrap:4: '[' -n reports_auto/wrap/20250915T190923/run.log ']'
++ wrap:4: '[' -f reports_auto/wrap/20250915T190923/run.log ']'
++ wrap:4: cp -f reports_auto/wrap/20250915T190923/run.log reports_auto/ERR/run.log
+++ wrap:19: cd reports_auto/wrap/20250915T190923
+++ wrap:19: pwd
++ wrap:19: echo RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923
+++ wrap:20: cd reports_auto/wrap/20250915T190923
+++ wrap:20: pwd
++ wrap:20: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923 reports_auto/ERR/LATEST_RUN
++ wrap:10: print_paths
++ wrap:8: echo '[PATHS]'
+[PATHS]
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923'
+  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/run.log'
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/run.log
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/wrap.err'
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/wrap.err
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/py_last_trace.txt'
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/py_last_trace.txt
++ wrap:15: '[' 1 -eq 0 ']'
++ wrap:16: bash -x -o pipefail -c scripts/api_up.sh
++ scripts/api_up.sh
+[*] no running PID
+[*] DRY_RUN=1  PORT=8000
+[OK] API ready
+[PATHS]
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T190923
+  LOG   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T190923/run.log
+  ERR   = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T190923/api.err
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T190923/py_last_trace.txt
++ wrap:1: on_exit
++ wrap:10: sink_run reports_auto/wrap/20250915T190923
++ wrap:16: local d=reports_auto/wrap/20250915T190923
++ wrap:17: error_sink::init
++ wrap:3: mkdir -p reports_auto/ERR
++ wrap:18: error_sink::copy reports_auto/wrap/20250915T190923/run.log reports_auto/ERR/run.log
++ wrap:4: local src=reports_auto/wrap/20250915T190923/run.log dst=reports_auto/ERR/run.log
++ wrap:4: '[' -n reports_auto/wrap/20250915T190923/run.log ']'
++ wrap:4: '[' -f reports_auto/wrap/20250915T190923/run.log ']'
++ wrap:4: cp -f reports_auto/wrap/20250915T190923/run.log reports_auto/ERR/run.log
+++ wrap:19: cd reports_auto/wrap/20250915T190923
+++ wrap:19: pwd
++ wrap:19: echo RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923
+++ wrap:20: cd reports_auto/wrap/20250915T190923
+++ wrap:20: pwd
++ wrap:20: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923 reports_auto/ERR/LATEST_RUN
++ wrap:10: print_paths
++ wrap:8: echo '[PATHS]'
+[PATHS]
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923'
+  RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/run.log'
+  LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/run.log
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/wrap.err'
+  ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/wrap.err
+++ wrap:8: cd reports_auto/wrap/20250915T190923
+++ wrap:8: pwd
++ wrap:8: echo '  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/py_last_trace.txt'
+  PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/wrap/20250915T190923/py_last_trace.txt

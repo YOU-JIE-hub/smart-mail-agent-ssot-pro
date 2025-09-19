@@ -1,0 +1,6 @@
+{"intent": "一般回覆", "slots": {"price": null, "qty": null, "id": null}, "plan": {"action": "generic_reply", "template": "plain_v1", "required": [], "ok": true}, "email": {"subject": "[一般回覆] 測試", "body": "hello"}}
+{"intent": "報價", "slots": {"price": 100, "qty": 2, "id": null}, "plan": {"action": "quote_reply", "template": "quote_v1", "required": ["price", "qty"], "ok": true}, "email": {"subject": "報價 請提供 單價:100 數量:2", "body": ""}}
+{"intent": "投訴", "slots": {"price": null, "qty": null, "id": null}, "plan": {"action": "escalate_cs", "template": "cs_v1", "required": [], "ok": true}, "email": {"subject": "投訴", "body": "客訴"}}
+{"intent": "技術支援", "slots": {"price": null, "qty": null, "id": "TS-1234"}, "plan": {"action": "create_ticket", "template": "ts_v1", "required": ["id"], "ok": true}, "email": {"subject": "技術支援 ticket:TS-1234", "body": ""}}
+{"intent": "規則詢問", "slots": {"price": null, "qty": null, "id": null}, "plan": {"action": "policy_reply", "template": "policy_v1", "required": [], "ok": true}, "email": {"subject": "請問規則", "body": "這是規則詢問"}}
+{"intent": "資料異動", "slots": {"price": null, "qty": null, "id": "ORD-9"}, "plan": {"action": "update_record", "template": "update_v1", "required": ["id"], "ok": true}, "email": {"subject": "請協助資料異動 order:ORD-9", "body": ""}}

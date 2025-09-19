@@ -1,0 +1,8 @@
+{
+  "expected_dim": 29233,
+  "branch_dims": {
+    "word": 3834,
+    "char": 25392,
+    "rules": 1
+  }
+}

@@ -1,0 +1,110 @@
++ tri-eval:19: echo '[*] tri-eval TS=20250915T085652'
+[*] tri-eval TS=20250915T085652
++ tri-eval:19: print_paths
++ tri-eval:12: echo '[PATHS]'
+[PATHS]
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652'
+  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/run.log'
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/run.log
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/tri_eval.err'
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/tri_eval.err
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/py_last_trace.txt'
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/py_last_trace.txt
++ tri-eval:20: GATE_TXT=reports_auto/eval/20250915T085652/gate_scan.txt
++ tri-eval:21: find . -path ./.venv -prune -o -path ./reports_auto -prune -o -type f '(' -name '*.py' -o -name '*.sh' ')' -print0
++ tri-eval:22: xargs -0 grep -nP '^\s*from\s+pathlib\s+import[^#\n]*\bjson\b'
++ tri-eval:22: true
++ tri-eval:22: tee reports_auto/eval/20250915T085652/gate_scan.txt
++ tri-eval:23: '[' -s reports_auto/eval/20250915T085652/gate_scan.txt ']'
++ tri-eval:30: PYBIN=
+++ tri-eval:31: command -v python
++ tri-eval:31: for cand in "$ROOT/.venv/bin/python" "/home/youjie/projects/smart-mail-agent_ssot/.venv/bin/python" "$(command -v python || true)"
++ tri-eval:32: '[' -x /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python ']'
++ tri-eval:33: need_deps_check /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ tri-eval:25: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python -
++ tri-eval:33: PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ tri-eval:33: break
++ tri-eval:35: '[' -n /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python ']'
++ tri-eval:36: echo '[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python'
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ tri-eval:38: DATA_INTENT=data/intent_eval/dataset.cleaned.jsonl
++ tri-eval:39: '[' '!' -f data/intent_eval/dataset.cleaned.jsonl ']'
++ tri-eval:49: : /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
++ tri-eval:50: : 0
++ tri-eval:50: : 1
++ tri-eval:50: : 0
++ tri-eval:50: : 1
++ tri-eval:52: export PYTHONPATH=src:vendor:
++ tri-eval:52: PYTHONPATH=src:vendor:
++ tri-eval:54: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python - data/intent_eval/dataset.cleaned.jsonl reports_auto/eval/20250915T085652 reports_auto/eval/20250915T085652/py_run.log reports_auto/eval/20250915T085652/py_last_trace.txt
+++ tri-eval:121: basename reports_auto/eval/20250915T085652
++ tri-eval:121: RUN_NAME=20250915T085652
++ tri-eval:122: MD=reports_auto/status/INTENTS_20250915T085652.md
++ tri-eval:124: echo '# INTENTS 20250915T085652'
+++ tri-eval:125: realpath -m data/intent_eval/dataset.cleaned.jsonl
++ tri-eval:125: echo '- DATA: /home/youjie/projects/smart-mail-agent-ssot-pro/data/intent_eval/dataset.cleaned.jsonl'
+++ tri-eval:126: realpath -m /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
++ tri-eval:126: echo '- ML_PKL: /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl'
+++ tri-eval:127: cd reports_auto/eval/20250915T085652
+++ tri-eval:127: pwd
++ tri-eval:127: echo '- LOG: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/run.log'
+++ tri-eval:128: cd reports_auto/eval/20250915T085652
+++ tri-eval:128: pwd
++ tri-eval:128: echo '- ERR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/tri_eval.err'
+++ tri-eval:129: cd reports_auto/eval/20250915T085652
+++ tri-eval:129: pwd
++ tri-eval:129: echo '- PY_LAST: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/py_last_trace.txt'
+++ tri-eval:130: cd reports_auto/eval/20250915T085652
+++ tri-eval:130: pwd
++ tri-eval:130: echo '- RESULTS: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/tri_results.json'
++ tri-eval:1: on_exit
++ tri-eval:14: ln -sfn reports_auto/eval/20250915T085652 reports_auto/LATEST
++ tri-eval:14: beacon_record_run reports_auto/eval/20250915T085652
++ tri-eval:2: local d=reports_auto/eval/20250915T085652
++ tri-eval:2: beacon_init
++ tri-eval:1: : reports_auto
++ tri-eval:1: mkdir -p reports_auto
+++ tri-eval:2: cd reports_auto/eval/20250915T085652
+++ tri-eval:2: pwd
++ tri-eval:2: d=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652
++ tri-eval:2: printf '%s\n' /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652
++ tri-eval:2: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652 reports_auto/LATEST
++ tri-eval:2: command -v wslpath
+++ tri-eval:2: wslpath -w /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652
++ tri-eval:2: printf 'file://%s\n' '\\wsl.localhost\Ubuntu-22.04\home\youjie\projects\smart-mail-agent-ssot-pro\reports_auto\eval\20250915T085652'
++ tri-eval:14: print_paths
++ tri-eval:12: echo '[PATHS]'
+[PATHS]
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652'
+  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/run.log'
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/run.log
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/tri_eval.err'
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/tri_eval.err
+++ tri-eval:12: cd reports_auto/eval/20250915T085652
+++ tri-eval:12: pwd
++ tri-eval:12: echo '  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/py_last_trace.txt'
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652/py_last_trace.txt
++ tri-eval:14: echo '[*] REPORT DIR ready'
+[*] REPORT DIR ready
++ tri-eval:14: command -v explorer.exe
++++ tri-eval:14: cd reports_auto/eval/20250915T085652
++++ tri-eval:14: pwd
+++ tri-eval:14: wslpath -w /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T085652
++ tri-eval:14: explorer.exe '\\wsl.localhost\Ubuntu-22.04\home\youjie\projects\smart-mail-agent-ssot-pro\reports_auto\eval\20250915T085652'
++ tri-eval:14: true

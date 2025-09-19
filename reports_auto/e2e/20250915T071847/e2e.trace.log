@@ -1,0 +1,65 @@
+OK
++ set -Eeuo pipefail
++ ROOT=/home/youjie/projects/smart-mail-agent_ssot
++ cd /home/youjie/projects/smart-mail-agent_ssot
++ source .sma_tools/env_guard.sh
+++ set -euo pipefail
+++++ dirname .sma_tools/env_guard.sh
++++ cd .sma_tools/..
++++ pwd
+++ PROJ_ROOT=/home/youjie/projects/smart-mail-agent_ssot
+++ '[' -d /home/youjie/projects/smart-mail-agent_ssot/.venv ']'
+++ source /home/youjie/projects/smart-mail-agent_ssot/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ '[' -n /usr/bin/bash -o -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ VIRTUAL_ENV=/home/youjie/projects/smart-mail-agent_ssot/.venv
++++ export VIRTUAL_ENV
++++ _OLD_VIRTUAL_PATH='/home/youjie/.local/bin:/home/youjie/bin:/home/youjie/projects/smart-mail-agent/bin:/home/youjie/.local/bin:/home/youjie/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/libnvvp:/mnt/c/Windows/System32:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/hurry/OneDrive/桌面/cudnn-windows-x86_64-8.9.6.50_cuda11-archive/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2022.3.0/:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.2/bin:/mnt/c/Users/hurry/OneDrive/桌面/ffmpeg-7.1.1-essentials_build/bin:/mnt/c/Users/hurry/TikTokDownload-1.4.2.2/TikTokTool.exe:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/hurry/anaconda3:/mnt/c/Users/hurry/anaconda3/Library/mingw-w64/bin:/mnt/c/Users/hurry/anaconda3/Library/usr/bin:/mnt/c/Users/hurry/anaconda3/Library/bin:/mnt/c/Users/hurry/anaconda3/Scripts:/mnt/c/Users/hurry/.cargo/bin:/mnt/c/Users/hurry/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/hurry/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Anaconda (anaconda3):/mnt/c/Users/hurry/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Anaconda3 (64-bit):/mnt/c/Users/hurry/AppData/Local/Programs/Eclipse Adoptium/jdk-17.0.8.101-hotspot/bin:/mnt/c/Users/hurry/AppData/Local/Muse Hub/lib:/mnt/c/Users/hurry/OneDrive/桌面/cudnn-windows-x86_64-9.5.0.50_cuda12-archive/bin:/mnt/c/users/hurry/.local/bin:/mnt/c/Users/hurry/AppData/Local/Microsoft/WindowsApps:/snap/bin'
++++ PATH='/home/youjie/projects/smart-mail-agent_ssot/.venv/bin:/home/youjie/.local/bin:/home/youjie/bin:/home/youjie/projects/smart-mail-agent/bin:/home/youjie/.local/bin:/home/youjie/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python312/:/mnt/c/Users/hurry/AppData/Local/Programs/Python/Python312/Scripts/:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/libnvvp:/mnt/c/Windows/System32:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/hurry/OneDrive/桌面/cudnn-windows-x86_64-8.9.6.50_cuda11-archive/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2022.3.0/:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.2/bin:/mnt/c/Users/hurry/OneDrive/桌面/ffmpeg-7.1.1-essentials_build/bin:/mnt/c/Users/hurry/TikTokDownload-1.4.2.2/TikTokTool.exe:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/hurry/anaconda3:/mnt/c/Users/hurry/anaconda3/Library/mingw-w64/bin:/mnt/c/Users/hurry/anaconda3/Library/usr/bin:/mnt/c/Users/hurry/anaconda3/Library/bin:/mnt/c/Users/hurry/anaconda3/Scripts:/mnt/c/Users/hurry/.cargo/bin:/mnt/c/Users/hurry/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/hurry/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Anaconda (anaconda3):/mnt/c/Users/hurry/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Anaconda3 (64-bit):/mnt/c/Users/hurry/AppData/Local/Programs/Eclipse Adoptium/jdk-17.0.8.101-hotspot/bin:/mnt/c/Users/hurry/AppData/Local/Muse Hub/lib:/mnt/c/Users/hurry/OneDrive/桌面/cudnn-windows-x86_64-9.5.0.50_cuda12-archive/bin:/mnt/c/users/hurry/.local/bin:/mnt/c/Users/hurry/AppData/Local/Microsoft/WindowsApps:/snap/bin'
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ '[' -n /usr/bin/bash -o -n '' ']'
++++ hash -r
+++ export PYTHONNOUSERSITE=1
+++ PYTHONNOUSERSITE=1
+++ export PYTHONUNBUFFERED=1
+++ PYTHONUNBUFFERED=1
+++ export PYTHONPATH=/home/youjie/projects/smart-mail-agent_ssot/src:/home/youjie/projects/smart-mail-agent_ssot:/home/youjie/projects/smart-mail-agent_ssot/scripts:/home/youjie/projects/smart-mail-agent_ssot/.sma_tools:
+++ PYTHONPATH=/home/youjie/projects/smart-mail-agent_ssot/src:/home/youjie/projects/smart-mail-agent_ssot:/home/youjie/projects/smart-mail-agent_ssot/scripts:/home/youjie/projects/smart-mail-agent_ssot/.sma_tools:
+++ export SMA_DB_PATH=db/sma.sqlite
+++ SMA_DB_PATH=db/sma.sqlite
+++ export SMA_DB_URL=sqlite:///db/sma.sqlite
+++ SMA_DB_URL=sqlite:///db/sma.sqlite
+++ export OPENAI_API_KEY=
+++ OPENAI_API_KEY=
+++ export OPENAI_BASE_URL=
+++ OPENAI_BASE_URL=
+++ export SMTP_HOST=
+++ SMTP_HOST=
+++ export SMTP_PORT=
+++ SMTP_PORT=
+++ export SMTP_USER=
+++ SMTP_USER=
+++ export SMTP_PASS=
+++ SMTP_PASS=
+++ export SMTP_SENDER=
+++ SMTP_SENDER=
+++ export SMA_OUTBOX_DIR=rpa_out/email_outbox
+++ SMA_OUTBOX_DIR=rpa_out/email_outbox
++++ dirname db/sma.sqlite
+++ mkdir -p /home/youjie/projects/smart-mail-agent_ssot/reports_auto/logs /home/youjie/projects/smart-mail-agent_ssot/reports_auto/status /home/youjie/projects/smart-mail-agent_ssot/rpa_out/email_outbox /home/youjie/projects/smart-mail-agent_ssot/rpa_out/tickets /home/youjie/projects/smart-mail-agent_ssot/rpa_out/diffs /home/youjie/projects/smart-mail-agent_ssot/rpa_out/faq_replies /home/youjie/projects/smart-mail-agent_ssot/rpa_out/quotes /home/youjie/projects/smart-mail-agent_ssot/legacy db
++ guard::at_root
+scripts/sma_e2e_all.sh: line 6: guard::at_root: command not found

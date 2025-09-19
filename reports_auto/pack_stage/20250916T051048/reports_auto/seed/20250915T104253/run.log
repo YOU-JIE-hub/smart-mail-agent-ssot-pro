@@ -1,0 +1,49 @@
+[OK] EML ready (2 files) at /home/youjie/projects/smart-mail-agent-ssot-pro/sample_eml
+[?2004h]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ [7m# -*- coding: utf-8 -*-[27m
+[7mimport os, importlib.util, sys, types[27m
+[7mSRC = os.environ.get("SMA_RULES_SRC")[27m
+[7mif not SRC or not os.path.isfile(SRC):[27m
+[7m    raise FileNotFoundError("SMA_RULES_SRC not set or invalid: %r" % SRC)[27m
+[7mspec = importlib.util.spec_from_file_location("runtime_threshold_router_impl", SRC)[27m
+[7mm = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)[27m
+
+[7m# 將整個模組以多個歷史名字註冊，避免舊 pickle 的 module 路徑漂移[27m
+[7maliases = [[27m
+[7m    "train_pro_fresh", "train_pro", "sma_tools.runtime_threshold_router",[27m
+[7m    "runtime_threshold_router", "vendor.rules_features"[27m
+[7m][27m
+[7mfor nm in aliases:[27m
+[7m    sys.modules[nm] = m[27m
+
+[7m# 同時把 rules_feat 掛到 __main__ 以滿足 "__main__.rules_feat" 反序列化[27m
+[7mimport __main__ as MAIN[27m
+[7mif hasattr(m, "rules_feat"):[27m
+[7m    MAIN.rules_feat = m.rules_feat[27m
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C# -*- coding: utf-8 -*-
+import os, importlib.util, sys, types
+SRC = os.environ.get("SMA_RULES_SRC")
+if not SRC or not os.path.isfile(SRC):
+    raise FileNotFoundError("SMA_RULES_SRC not set or invalid: %r" % SRC)
+spec = importlib.util.spec_from_file_location("runtime_threshold_router_impl", SRC)
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+
+# 將整個模組以多個歷史名字註冊，避免舊 pickle 的 module 路徑漂移
+aliases = [
+    "train_pro_fresh", "train_pro", "sma_tools.runtime_threshold_router",
+    "runtime_threshold_router", "vendor.rules_features"
+]
+for nm in aliases:
+    sys.modules[nm] = m
+
+# 同時把 rules_feat 掛到 __main__ 以滿足 "__main__.rules_feat" 反序列化
+import __main__ as MAIN
+if hasattr(m, "rules_feat"):
+    MAIN.rules_feat = m.rules_feat
+[A
+[?2004lCommand 'import' not found, but can be installed with:
+sudo apt install graphicsmagick-imagemagick-compat  # version 1.4+really1.3.38-1ubuntu0.1, or
+sudo apt install imagemagick-6.q16                  # version 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5
+sudo apt install imagemagick-6.q16hdri              # version 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/seed/20250915T104253/seed.err
+[ERR] see: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/seed/20250915T104253/seed.err
+[*] REPORT: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/seed/20250915T104253

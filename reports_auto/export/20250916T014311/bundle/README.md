@@ -1,0 +1,54 @@
+# Smart Mail Agent — SSOT 重構版
+
+## 專案目標與用途
+打造結合 NLP/LLM 與 RPA 的全自動處理平台，支援 OCR、網頁擷取、分類與文字分析，啟動後自動進行智慧決策與資料串接，支援 CLI 操作與 Linux 排程部署，對應 AI/RPA 工程師職能展示需求。
+
+## 快速開始（三行）
+```bash
+cd ~/projects/smart-mail-agent_ssot
+. .venv/bin/activate
+OFFLINE=0 scripts/sma_e2e_all_safe.sh
+目錄結構（核心）
+bash
+Copy code
+src/smart_mail_agent/
+├─ cli/                # CLI 入口（含 e2e_safe 包裝）
+├─ pipeline/           # run_action_handler.py, action_handler.py
+├─ spam/               # spam_filter_orchestrator.py, spam_filter_pipeline.py, ml_spam_filter.py, ens.py, rules.yaml
+├─ intent/             # classifier.py, infer(shim), intent_model.py
+├─ kie/                # loader.py, model/ (KIE 權重)
+├─ rpa/                # quotation.py, policy.py
+├─ transport/          # mail.py
+├─ observability/      # audit.py, log_writer.py
+├─ utils/              # logger.py, config.py, pdf_safe.py
+└─ __init__.py
+主要指令
+環境體檢：scripts/sma_env_doctor.sh
+
+安全 E2E（會自動補參數與 sample EML）：scripts/sma_e2e_all_safe.sh
+
+單元測試：scripts/test_fast.sh
+
+格式檢查：scripts/sma_fmt_check.sh
+
+環境變數
+OFFLINE：1=不連網；0=允許 pip 安裝
+
+SMA_EML_DIR：.eml 目錄；未設時會自動建立 sample_eml/
+
+SMA_OUT_ROOT：E2E 輸出根目錄（預設 reports_auto/e2e_mail）
+
+SMA_FONT_TTF：PDF 字型路徑（如 assets/fonts/NotoSansTC-Regular.ttf）
+
+驗收輸出
+reports_auto/e2e_mail/<ts>/：E2E 輸出（SUMMARY.md、actions.jsonl、rpa_out/*）
+
+reports_auto/status/*：審計、狀態報告
+
+reports_auto/logs/*：執行日誌與崩潰報告
+
+## Quick Start (One-shot)
+python -m venv .venv && . .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pytest -q -rA
+python -m smart_mail_agent.cli.e2e_safe

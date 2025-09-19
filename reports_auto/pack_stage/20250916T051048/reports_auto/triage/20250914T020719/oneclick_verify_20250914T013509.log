@@ -1,0 +1,7 @@
+[01:35:09] Python: Python 3.10.12
+[01:35:09] Which python: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
+[01:35:09] PWD: /home/youjie/projects/smart-mail-agent-ssot-pro
+[01:35:09] ----- STEP: doctor -----
+[01:35:09] CMD : bash scripts/sma_env_doctor.sh
+scripts/sma_env_doctor.sh: line 5: .sma_tools/env_guard.sh: No such file or directory
+[01:35:09] RESULT: FAIL (rc=1) — 不中斷後續步驟，將記錄為失敗

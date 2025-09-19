@@ -1,0 +1,3 @@
+[PICK] api_server = tools/api_server.py
+[DEEPDOCTOR ERR] ec=1
+[CRASH_DIR] reports_auto/ERR/CRASH_20250916T082348

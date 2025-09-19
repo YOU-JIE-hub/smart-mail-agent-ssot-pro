@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+if [ -f "$ROOT/.venv/bin/activate" ]; then . "$ROOT/.venv/bin/activate"; else echo "[FATAL] .venv not found"; exit 2; fi
+command -v python >/dev/null 2>&1 || { echo "[FATAL] python not available after venv activate"; exit 2; }
+python - <<'PY'
+import sys
+missing=[]
+for m in ("numpy","scipy","sklearn","joblib"):
+    try: __import__(m)
+    except Exception: missing.append(m)
+if missing: raise SystemExit(f"[FATAL] missing python deps in venv: {','.join(missing)}")
+print("OK")
+PY

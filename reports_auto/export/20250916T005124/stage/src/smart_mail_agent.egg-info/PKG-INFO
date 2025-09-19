@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: smart-mail-agent
+Version: 0.0.0
+Summary: Smart Mail Agent (SSOT) — dev layout
+Author: SSOT
+Requires-Python: >=3.10

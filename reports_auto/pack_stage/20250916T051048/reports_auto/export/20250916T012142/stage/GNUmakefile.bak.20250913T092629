@@ -1,0 +1,8 @@
+e2e-dry:
+	SMA_DRY_RUN=1 python tools/e2e_route_actions.py rule
+	SMA_DRY_RUN=1 python tools/e2e_route_actions.py ml
+	SMA_DRY_RUN=1 python tools/e2e_route_actions.py boosted
+
+tri-suite:
+	python tools/tri_suite.py
+	@ls -t reports_auto/eval/*/tri_suite.json | head -n1 | xargs sed -n '1,120p'

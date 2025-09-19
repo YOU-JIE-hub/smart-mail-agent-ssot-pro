@@ -1,0 +1,4 @@
+=== BASH_TRAP(oneclick) ===
+TIME: 2025-09-15T12:43:01+08:00
+LAST:scripts/tri_eval_fixlabels.sh
+CODE:127

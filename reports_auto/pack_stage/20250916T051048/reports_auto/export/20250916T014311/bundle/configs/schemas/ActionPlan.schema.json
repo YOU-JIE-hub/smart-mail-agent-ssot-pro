@@ -1,0 +1,15 @@
+{
+  "type":"object",
+  "required":["action","ok","route"],
+  "properties":{
+    "action":{"type":"string"},
+    "template":{"type":"string"},
+    "params":{"type":"object"},
+    "required":{"type":"array","items":{"type":"string"}},
+    "ok":{"type":"boolean"},
+    "route":{"type":"object","required":["channel"],"properties":{
+      "channel":{"enum":["email","ticket","pdf","crm","slack","erp","hitl"]},
+      "dry_run":{"type":"boolean"}
+    }}
+  }
+}

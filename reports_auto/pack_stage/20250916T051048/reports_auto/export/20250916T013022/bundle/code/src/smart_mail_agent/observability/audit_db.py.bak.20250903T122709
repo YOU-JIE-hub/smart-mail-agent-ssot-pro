@@ -1,0 +1,55 @@
+from __future__ import annotations
+
+import sqlite3
+from pathlib import Path
+from typing import Any
+
+DEFAULT_DB = "reports_auto/audit.sqlite3"
+
+SCHEMA = r"""
+PRAGMA journal_mode=WAL;
+PRAGMA synchronous=NORMAL;
+PRAGMA foreign_keys=ON;
+
+CREATE TABLE IF NOT EXISTS runs     (ts INTEGER PRIMARY KEY, note TEXT);
+CREATE TABLE IF NOT EXISTS mails    (mail_id TEXT PRIMARY KEY, subject TEXT, ts INTEGER);
+CREATE TABLE IF NOT EXISTS actions  (ts INTEGER, mail_id TEXT, intent TEXT, action TEXT,
+                                     idempotency_key TEXT UNIQUE, priority TEXT, queue TEXT, status TEXT DEFAULT 'queued');
+
+CREATE TABLE IF NOT EXISTS metrics  (ts INTEGER, stage TEXT, duration_ms INTEGER, ok INTEGER, extra TEXT);
+
+CREATE TABLE IF NOT EXISTS tickets  (ts INTEGER, mail_id TEXT, type TEXT, status TEXT, payload TEXT);
+CREATE TABLE IF NOT EXISTS quotes   (ts INTEGER, mail_id TEXT, file_path TEXT, amount REAL, status TEXT);
+CREATE TABLE IF NOT EXISTS answers  (ts INTEGER, mail_id TEXT, source TEXT, kb_hits INTEGER, latency_ms INTEGER, content TEXT);
+CREATE TABLE IF NOT EXISTS changes  (ts INTEGER, mail_id TEXT, diff_json TEXT, status TEXT);
+CREATE TABLE IF NOT EXISTS alerts   (ts INTEGER, mail_id TEXT, severity TEXT, channel TEXT, message TEXT);
+CREATE TABLE IF NOT EXISTS triage   (ts INTEGER, mail_id TEXT, reason TEXT);
+
+CREATE INDEX IF NOT EXISTS idx_actions_mail ON actions(mail_id);
+CREATE INDEX IF NOT EXISTS idx_actions_time ON actions(ts);
+"""
+
+class AuditDB:
+    def __init__(self, db_path: str|Path = DEFAULT_DB) -> None:
+        self.path = Path(db_path)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self._ensure()
+
+    def _ensure(self) -> None:
+        con = sqlite3.connect(self.path)
+        try:
+            con.executescript(SCHEMA)
+            con.commit()
+        finally:
+            con.close()
+
+    def insert(self, table: str, rec: dict[str, Any]) -> None:
+        keys = ",".join(rec.keys())
+        qs   = ",".join(["?"]*len(rec))
+        sql  = f"INSERT OR IGNORE INTO {table}({keys}) VALUES({qs})"
+        con = sqlite3.connect(self.path)
+        try:
+            con.execute(sql, tuple(rec.values()))
+            con.commit()
+        finally:
+            con.close()

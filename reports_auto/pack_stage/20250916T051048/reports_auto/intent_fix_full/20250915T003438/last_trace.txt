@@ -1,0 +1,108 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T00:34:38+08:00
+BASH_COMMAND: python - "$R" <<'PY'
+import os, sys, json, glob, traceback, faulthandler
+from pathlib import Path
+import joblib, numpy as np
+from scipy import sparse as sp
+
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+py_log = (R/"py_run.log").open("w", encoding="utf-8")
+faulthandler.enable(py_log)
+
+def pick_pkl():
+    cands = []
+    for pat in ["intent/**/artifacts/intent_pro_cal.pkl",
+                "intent/**/artifacts/intent_pipeline*.pkl",
+                "intent/artifacts/*.pkl"]:
+        cands += [Path(p) for p in glob.glob(pat, recursive=True)]
+    cands = [p for p in cands if p.is_file()]
+    cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return cands[0] if cands else None
+
+def unwrap(obj):
+    if hasattr(obj, "predict"): return obj
+    if isinstance(obj, dict):
+        for k in ("pipe","pipeline","estimator","clf","model"):
+            v = obj.get(k); 
+            if hasattr(v, "predict"): return v
+    return obj
+
+def to_csr(X):
+    if sp.issparse(X): return X.tocsr()
+    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+    raise TypeError(f"non-numeric branch output: {type(X)}")
+
+def feature_dims(feat, xs):
+    dims = {}
+    if hasattr(feat, "transformer_list"):
+        for name, sub in feat.transformer_list:
+            try:
+                Y = to_csr(sub.transform(xs))
+                dims[name] = int(Y.shape[1])
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}"
+    return dims
+
+try:
+    pkl = pick_pkl()
+    if not pkl:
+        (R/"py_last_trace.txt").write_text("No PKL under intent/**/artifacts\n", encoding="utf-8")
+        print("[FATAL] 找不到 intent/**/artifacts/*.pkl"); sys.exit(2)
+    print("[PKL]", pkl)
+
+    est = unwrap(joblib.load(pkl))
+    pre = dict(est.steps).get("features") if hasattr(est, "steps") else None
+    clf = est.steps[-1][1] if hasattr(est, "steps") else est
+
+    expected = getattr(clf, "n_features_in_", None)
+    if expected is None and hasattr(clf, "base_estimator"):
+        expected = getattr(clf.base_estimator, "n_features_in_", None)
+    expected = int(expected) if expected is not None else None
+
+    xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+    dims = feature_dims(pre, xs) if pre is not None else {}
+    sum_before = sum(v for v in dims.values() if isinstance(v,int))
+
+    print("[PIPELINE_STEPS]", [(n, s.__class__.__name__) for n,s in getattr(est, "steps", [])])
+    print("[EXPECTED]", expected)
+    print("[BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False))
+    print("[SUM_BEFORE]", sum_before)
+
+    # pad 對齊（找名含 pad/zero 的 transformer 並調整 width）
+    if expected and sum_before and expected != sum_before and hasattr(pre, "transformer_list"):
+        delta = expected - sum_before
+        for i, (name, sub) in enumerate(pre.transformer_list):
+            n = name.lower()
+            if any(k in n for k in ("pad","zero")) and hasattr(sub, "width"):
+                old = int(getattr(sub, "width", 1) or 1)
+                setattr(sub, "width", int(old + delta))
+                pre.transformer_list[i] = (name, sub)
+                print("[PAD_ADD]", name, f"+{delta}")
+                break
+
+    out = Path("artifacts")/"intent_pipeline_aligned.pkl"
+    joblib.dump(est, out)
+    print("[SAVED]", out)
+
+    zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    try:
+        pred = est.predict(tests)
+        for s,y in zip(tests,pred):
+            print("   ", s, "->", f"{y} / {zh.get(str(y), str(y))}")
+        (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in pred]}, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+        raise
+    # 診斷檔
+    (R/"diagnostics.json").write_text(json.dumps({
+        "steps": [(n, s.__class__.__name__) for n,s in getattr(est,"steps",[])],
+        "branch_dims": dims, "expected_dim": expected, "sum_before": sum_before
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+except Exception:
+    (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")
+    raise
+PY
+
+EXIT_CODE: 1

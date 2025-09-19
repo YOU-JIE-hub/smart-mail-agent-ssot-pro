@@ -1,0 +1,4 @@
+RUN_DIR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T100841
+LOG=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T100841/run.log
+ERR=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T100841/api.err
+PY_LAST=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/api/20250915T100841/py_last_trace.txt

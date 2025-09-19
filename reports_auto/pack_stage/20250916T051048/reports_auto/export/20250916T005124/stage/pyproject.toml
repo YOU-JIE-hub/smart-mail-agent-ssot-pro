@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-mail-agent"
+version = "0.0.0"
+requires-python = ">=3.10"
+description = "Smart Mail Agent (SSOT) — dev layout"
+authors = [{name="SSOT"}]
+
+[tool.setuptools]
+package-dir = {""="src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E","F","I","UP","B","W","A","C4"]
+ignore = ["E501"]
+fixable = ["ALL"]
+unsafe-fixes = true
+
+[tool.ruff.format]
+quote-style = "preserve"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true

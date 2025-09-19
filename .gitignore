@@ -1,0 +1,15 @@
+.venv/
+venv/
+__pycache__/
+node_modules/
+.cache/
+dist/
+build/
+artifacts/
+artifacts_prod/
+artifacts_inbox/
+models/
+weights/
+datasets/
+data/
+reports_auto/logs/

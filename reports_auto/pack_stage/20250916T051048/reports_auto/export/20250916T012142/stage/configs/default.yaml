@@ -1,0 +1,10 @@
+paths:
+  artifacts_prod: artifacts_prod
+  artifacts_intent: artifacts
+  reports_root: reports_auto
+  db: db/sma.sqlite
+intent:
+  labels: ["報價","技術支援","投訴","規則詢問","資料異動","其他"]
+  thresholds_file: reports_auto/intent_thresholds.json
+routing:
+  rules_file: configs/intent_rules.yml

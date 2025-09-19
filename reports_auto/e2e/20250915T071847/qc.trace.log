@@ -1,0 +1,32 @@
+OK
++ set -Eeuo pipefail
++ ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
++ cd /home/youjie/projects/smart-mail-agent-ssot-pro
++ DB=reports_auto/audit.sqlite3
++ echo '=== [OPS QUICKCHECK] ==='
+=== [OPS QUICKCHECK] ===
++ [[ -f reports_auto/audit.sqlite3 ]]
++ echo '[ACTIONS HIST]'
+[ACTIONS HIST]
++ sqlite3 reports_auto/audit.sqlite3 'SELECT status, COUNT(*) FROM actions GROUP BY status;'
++ echo '[ERRORS TOP5]'
+[ERRORS TOP5]
++ sqlite3 reports_auto/audit.sqlite3 'SELECT datetime(ts,'\''unixepoch'\''), stage, mail_id, message FROM errors ORDER BY ts DESC LIMIT 5;'
++ echo '[VIEWS CHECK]'
+[VIEWS CHECK]
++ sqlite3 reports_auto/audit.sqlite3 'SELECT '\''tickets'\'', (SELECT COUNT(*) FROM v_tickets), '\''answers'\'', (SELECT COUNT(*) FROM v_answers);'
++ echo '[WARN] views not present (ok if phase12 didn'\''t create)'
+[WARN] views not present (ok if phase12 didn't create)
++ echo '[TRIGGER CHECK]'
+[TRIGGER CHECK]
++ sqlite3 reports_auto/audit.sqlite3 'SELECT COUNT(*) FROM sqlite_master WHERE type='\''trigger'\'' AND name='\''trg_actions_status'\'';'
+0
+++ sqlite3 reports_auto/audit.sqlite3 'SELECT COUNT(*) FROM actions WHERE status='\''error'\'';'
++ ERR=0
+++ sqlite3 reports_auto/audit.sqlite3 'SELECT COUNT(*) FROM actions WHERE status='\''queued'\'';'
++ QUE=0
++ [[ 0 -eq 0 ]]
++ [[ 0 -eq 0 ]]
++ echo '[GATE] CLEAN ✅ (error=0, queued=0)'
+[GATE] CLEAN ✅ (error=0, queued=0)
++ exit 0

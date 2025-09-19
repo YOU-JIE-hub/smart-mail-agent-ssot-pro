@@ -1,0 +1,159 @@
+from __future__ import annotations
+
+import json
+import os
+import sqlite3
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+try:
+    from .quote import do_quote  # optional
+except Exception:
+    do_quote = None  # type: ignore[misc]
+
+try:
+    from smart_mail_agent.ml.runtime import predict_spam, predict_intent, extract_kie  # noqa
+except Exception:
+    predict_spam = predict_intent = extract_kie = None  # type: ignore[misc]
+
+from .apology import send_apology  # noqa: E402
+
+ALLOW_SAFE_DEGRADE = os.environ.get("SMA_ALLOW_SAFE_DEGRADE", "0") == "1"
+
+
+@dataclass
+class ActionContext:
+    out_root: Path
+    db_path: str
+
+
+def set_action_status(ctx: ActionContext, key: str, status: str, payload: dict[str, Any]) -> None:
+    Path(ctx.db_path).parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(ctx.db_path)
+    try:
+        conn.execute(
+            """CREATE TABLE IF NOT EXISTS actions(
+                   id INTEGER PRIMARY KEY,
+                   idem TEXT,
+                   status TEXT,
+                   payload TEXT,
+                   created_at TEXT DEFAULT (datetime('now')),
+                   updated_at TEXT DEFAULT (datetime('now'))
+               )"""
+        )
+        conn.execute(
+            "INSERT OR REPLACE INTO actions(idem, status, payload, updated_at) VALUES(?, ?, ?, datetime('now'))",
+            (key, status, json.dumps(payload, ensure_ascii=False)),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _persist_ticket(db: Path, mail_id: str, title: str, severity: str, key: str, extra: dict[str, Any]) -> None:
+    conn = sqlite3.connect(str(db))
+    try:
+        conn.execute(
+            """CREATE TABLE IF NOT EXISTS tickets(
+                   id INTEGER PRIMARY KEY,
+                   idem TEXT,
+                   data TEXT,
+                   created_at TEXT DEFAULT (datetime('now'))
+               )"""
+        )
+        data = {"mail_id": mail_id, "title": title, "severity": severity, **extra}
+        conn.execute(
+            "INSERT OR IGNORE INTO tickets(idem, data) VALUES(?, ?)", (key, json.dumps(data, ensure_ascii=False))
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _persist_answer(db: Path, mail_id: str, intent: str, answer: str, key: str) -> None:
+    conn = sqlite3.connect(str(db))
+    try:
+        conn.execute(
+            """CREATE TABLE IF NOT EXISTS answers(
+                   id INTEGER PRIMARY KEY,
+                   idem TEXT,
+                   mail_id TEXT,
+                   intent TEXT,
+                   answer TEXT,
+                   status TEXT,
+                   created_at TEXT DEFAULT (datetime('now'))
+               )"""
+        )
+        conn.execute(
+            "INSERT OR IGNORE INTO answers(idem, mail_id, intent, answer, status) VALUES(?, ?, ?, ?, 'done')",
+            (key, mail_id, intent, answer),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _fallback_done(ctx: ActionContext, key: str, payload: dict[str, Any], note: str) -> dict[str, Any]:
+    set_action_status(ctx, key, "done", {"note": note, **payload})
+    return {"ok": True, "note": note}
+
+
+def execute(ctx: ActionContext, name: str, payload: dict[str, Any], key: str) -> dict[str, Any]:
+    if name == "ticket_create":
+        title = payload.get("title", "Tech Support")
+        sev = payload.get("severity", "P3")
+        _persist_ticket(Path(ctx.db_path), payload["mail_id"], title, sev, key, payload)
+        set_action_status(ctx, key, "done", {"title": title, "severity": sev})
+        return {"ok": True}
+
+    if name == "change_draft":
+        from .change_draft import json_diff, persist_change
+
+        diff = json_diff(payload.get("before", {}), payload.get("after", {}))
+        out_dir = ctx.out_root.joinpath("rpa_out", "changes")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        p = out_dir / f"draft_{payload['mail_id']}.json"
+        p.write_text(json.dumps(diff, ensure_ascii=False, indent=2), encoding="utf-8")
+        persist_change(ctx.db_path, payload["mail_id"], payload.get("before", {}), payload.get("after", {}), diff, key)
+        set_action_status(ctx, key, "done", {"diff_path": str(p)})
+        return {"ok": True, "diff_path": str(p)}
+
+    if name == "faq_answer":
+        question = payload.get("question", "")
+        to = payload.get("to", "")
+        if to:
+            out = send_apology(ctx, to, payload["mail_id"], key)  # 可替換為真正 FAQ 回覆
+            set_action_status(ctx, key, "done", {"out": out})
+            return {"ok": True, **out}
+        if ALLOW_SAFE_DEGRADE:
+            _persist_answer(Path(ctx.db_path), payload["mail_id"], "faq_answer", "Fallback FAQ answer (degraded).", key)
+            return _fallback_done(ctx, key, {"to": to, "question": question}, "faq_answer: degraded")
+        raise RuntimeError("faq module missing or 'to' not set")
+
+    if name == "apology_send":
+        to = payload.get("to", "")
+        if not to and ALLOW_SAFE_DEGRADE:
+            return _fallback_done(ctx, key, payload, "apology_send: no recipient; degraded")
+        out = send_apology(ctx, to, payload["mail_id"], key)
+        set_action_status(ctx, key, "done", {"outbox": out})
+        return {"ok": True, "outbox": out}
+
+    if name == "quote_pdf_send":
+        if do_quote is None and ALLOW_SAFE_DEGRADE:
+            return _fallback_done(ctx, key, payload, "quote_pdf_send: module missing; degraded")
+        if do_quote is None:
+            raise RuntimeError("quote module missing")
+        out = do_quote(
+            ctx,
+            payload["mail_id"],
+            payload.get("to", ""),
+            payload.get("items", []),
+            float(payload.get("amount", 0)),
+            payload.get("currency", "TWD"),
+            key,
+        )
+        set_action_status(ctx, key, "done", {"pdf": out})
+        return {"ok": True, "pdf": out}
+
+    raise ValueError(f"unknown action: {name}")

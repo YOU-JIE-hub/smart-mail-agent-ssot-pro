@@ -1,0 +1,113 @@
+++ tri-sum:21: last_of reports_auto/eval
+++ tri-sum:20: head -n1
+++ tri-sum:20: ls -1dt reports_auto/eval/20250912T055335 reports_auto/eval/20250912T063722 reports_auto/eval/20250912T063723 reports_auto/eval/20250912T064708 reports_auto/eval/20250912T064709 reports_auto/eval/20250912T070151 reports_auto/eval/20250912T070152 reports_auto/eval/20250912T072559 reports_auto/eval/20250912T074007 reports_auto/eval/20250912T183209 reports_auto/eval/20250912T183818 reports_auto/eval/20250912T184838 reports_auto/eval/20250912T185559 reports_auto/eval/20250912T190836 reports_auto/eval/20250912T191716 reports_auto/eval/20250912T191720 reports_auto/eval/20250912T201346 reports_auto/eval/20250912T201348 reports_auto/eval/20250912T201349 reports_auto/eval/20250912T220804 reports_auto/eval/20250912T220806 reports_auto/eval/20250912T224012 reports_auto/eval/20250912T224014 reports_auto/eval/20250912T224024 reports_auto/eval/20250912T224026 reports_auto/eval/20250912T224236 reports_auto/eval/20250912T224237 reports_auto/eval/20250913T003727 reports_auto/eval/20250913T004458 reports_auto/eval/20250913T004500 reports_auto/eval/20250913T004501 reports_auto/eval/20250913T004954 reports_auto/eval/20250913T004956 reports_auto/eval/20250913T004957 reports_auto/eval/20250913T005825 reports_auto/eval/20250913T010756 reports_auto/eval/20250913T010758_snapshot.json reports_auto/eval/20250913T010805 reports_auto/eval/20250913T013842 reports_auto/eval/20250913T020701 reports_auto/eval/20250913T021222 reports_auto/eval/20250913T023748 reports_auto/eval/20250913T024459 reports_auto/eval/20250913T025515 reports_auto/eval/20250913T034103 reports_auto/eval/20250913T034629 reports_auto/eval/20250913T044756 reports_auto/eval/20250913T050721 reports_auto/eval/20250913T072955 reports_auto/eval/20250913T073943 reports_auto/eval/20250913T075919 reports_auto/eval/20250913T083737 reports_auto/eval/20250913T101459 reports_auto/eval/20250913T183508 reports_auto/eval/20250913T183821 reports_auto/eval/20250913T184334 reports_auto/eval/20250913T184512 reports_auto/eval/20250913T184959 reports_auto/eval/20250913T185000 reports_auto/eval/20250913T185749 reports_auto/eval/20250913T185908 reports_auto/eval/20250913T190655 reports_auto/eval/20250913T190656 reports_auto/eval/20250913T192819 reports_auto/eval/20250913T192852 reports_auto/eval/20250913T194546 reports_auto/eval/20250913T204101 reports_auto/eval/20250913T204110 reports_auto/eval/20250913T204122 reports_auto/eval/20250913T205253 reports_auto/eval/20250913T210745 reports_auto/eval/20250913T212753 reports_auto/eval/20250913T215430 reports_auto/eval/20250913T221827 reports_auto/eval/20250914T014511 reports_auto/eval/20250914T015008 reports_auto/eval/20250915T073941 reports_auto/eval/20250915T074713 reports_auto/eval/20250915T075613 reports_auto/eval/20250915T080546 reports_auto/eval/20250915T081704 reports_auto/eval/20250915T083042 reports_auto/eval/20250915T083506 reports_auto/eval/20250915T084052 reports_auto/eval/20250915T084458 reports_auto/eval/20250915T085652 reports_auto/eval/debug_dump reports_auto/eval/model_inventory.json
++ tri-sum:21: INT_DIR=reports_auto/eval/20250915T085652
+++ tri-sum:22: last_of reports_auto/eval_kie
+++ tri-sum:20: head -n1
+++ tri-sum:20: ls -1dt reports_auto/eval_kie/20250915T090558
++ tri-sum:22: KIE_DIR=reports_auto/eval_kie/20250915T090558
+++ tri-sum:23: last_of reports_auto/eval_planact
+++ tri-sum:20: ls -1dt 'reports_auto/eval_planact/*'
+++ tri-sum:20: head -n1
+++ tri-sum:20: true
++ tri-sum:23: PA_DIR=
++ tri-sum:24: echo '[*] INT_DIR=reports_auto/eval/20250915T085652'
+[*] INT_DIR=reports_auto/eval/20250915T085652
++ tri-sum:25: echo '[*] KIE_DIR=reports_auto/eval_kie/20250915T090558'
+[*] KIE_DIR=reports_auto/eval_kie/20250915T090558
++ tri-sum:26: echo '[*] PA_DIR=<none>'
+[*] PA_DIR=<none>
++ tri-sum:30: INT_JSON=reports_auto/eval/20250915T085652/tri_results.json
++ tri-sum:31: KIE_JSON=reports_auto/eval_kie/20250915T090558/tri_results_kie.json
++ tri-sum:32: PA_JSON=
++ tri-sum:35: python - reports_auto/eval/20250915T085652/tri_results.json reports_auto/eval_kie/20250915T090558/tri_results_kie.json '' reports_auto/tri_summary/20250915T091825 reports_auto/tri_summary/20250915T091825/py_last_trace.txt
+++ tri-sum:62: basename reports_auto/tri_summary/20250915T091825
++ tri-sum:62: RUN_NAME=20250915T091825
++ tri-sum:62: MD=reports_auto/status/TRI_SUMMARY_20250915T091825.md
++ tri-sum:64: echo '# TRI-SUMMARY 20250915T091825'
++ tri-sum:65: echo '## 分類（INTENTS）'
++ tri-sum:66: '[' -f reports_auto/eval/20250915T085652/tri_results.json ']'
++ tri-sum:73: echo '- 未找到 tri_results.json'
++ tri-sum:75: echo '## 抽取（KIE）'
++ tri-sum:76: '[' -f reports_auto/eval_kie/20250915T090558/tri_results_kie.json ']'
+++ tri-sum:77: cd reports_auto/eval_kie/20250915T090558
+++ tri-sum:77: pwd
++ tri-sum:77: echo '- RUN: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558'
+++ tri-sum:78: cd reports_auto/eval_kie/20250915T090558
+++ tri-sum:78: pwd
++ tri-sum:78: echo '- RESULTS: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/tri_results_kie.json'
+++ tri-sum:79: cd reports_auto/eval_kie/20250915T090558
+++ tri-sum:79: pwd
++ tri-sum:79: echo '- LOG: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/run.log'
+++ tri-sum:80: cd reports_auto/eval_kie/20250915T090558
+++ tri-sum:80: pwd
++ tri-sum:80: echo '- ERR: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/kie_eval.err'
+++ tri-sum:81: cd reports_auto/eval_kie/20250915T090558
+++ tri-sum:81: pwd
++ tri-sum:81: echo '- PY_LAST: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval_kie/20250915T090558/py_last_trace.txt'
++ tri-sum:85: echo '## 規劃+動作（PLAN/ACT）'
++ tri-sum:86: '[' -f /tri_results_planact.json ']'
++ tri-sum:93: echo '- 未找到 tri_results_planact.json'
++ tri-sum:95: echo '## 健康檢查'
+++ tri-sum:96: cd reports_auto/tri_summary/20250915T091825
+++ tri-sum:96: pwd
++ tri-sum:96: echo '- tri_summary.json: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/tri_summary.json'
++ tri-sum:99: echo '[OK] TRI summary generated -> reports_auto/status/TRI_SUMMARY_20250915T091825.md'
+[OK] TRI summary generated -> reports_auto/status/TRI_SUMMARY_20250915T091825.md
++ tri-sum:1: on_exit
++ tri-sum:14: ln -sfn reports_auto/tri_summary/20250915T091825 reports_auto/LATEST
++ tri-sum:14: print_paths
++ tri-sum:12: echo '[PATHS]'
+[PATHS]
++ tri-sum:12: for k in RUN_DIR LOG ERR PY_LAST
+++ tri-sum:12: eval echo '$RUN_DIR'
++++ tri-sum:12: echo reports_auto/tri_summary/20250915T091825
++ tri-sum:12: v=reports_auto/tri_summary/20250915T091825
+++ tri-sum:12: printf %-7s RUN_DIR
++++ tri-sum:12: dirname reports_auto/tri_summary/20250915T091825
+++ tri-sum:12: cd reports_auto/tri_summary
+++ tri-sum:12: pwd
+++ tri-sum:12: basename reports_auto/tri_summary/20250915T091825
++ tri-sum:12: echo '  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825'
+  RUN_DIR= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825
++ tri-sum:12: for k in RUN_DIR LOG ERR PY_LAST
+++ tri-sum:12: eval echo '$LOG'
++++ tri-sum:12: echo reports_auto/tri_summary/20250915T091825/run.log
++ tri-sum:12: v=reports_auto/tri_summary/20250915T091825/run.log
+++ tri-sum:12: printf %-7s LOG
++++ tri-sum:12: dirname reports_auto/tri_summary/20250915T091825/run.log
+++ tri-sum:12: cd reports_auto/tri_summary/20250915T091825
+++ tri-sum:12: pwd
+++ tri-sum:12: basename reports_auto/tri_summary/20250915T091825/run.log
++ tri-sum:12: echo '  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/run.log'
+  LOG    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/run.log
++ tri-sum:12: for k in RUN_DIR LOG ERR PY_LAST
+++ tri-sum:12: eval echo '$ERR'
++++ tri-sum:12: echo reports_auto/tri_summary/20250915T091825/tri_summary.err
++ tri-sum:12: v=reports_auto/tri_summary/20250915T091825/tri_summary.err
+++ tri-sum:12: printf %-7s ERR
++++ tri-sum:12: dirname reports_auto/tri_summary/20250915T091825/tri_summary.err
+++ tri-sum:12: cd reports_auto/tri_summary/20250915T091825
+++ tri-sum:12: pwd
+++ tri-sum:12: basename reports_auto/tri_summary/20250915T091825/tri_summary.err
++ tri-sum:12: echo '  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/tri_summary.err'
+  ERR    = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/tri_summary.err
++ tri-sum:12: for k in RUN_DIR LOG ERR PY_LAST
+++ tri-sum:12: eval echo '$PY_LAST'
++++ tri-sum:12: echo reports_auto/tri_summary/20250915T091825/py_last_trace.txt
++ tri-sum:12: v=reports_auto/tri_summary/20250915T091825/py_last_trace.txt
+++ tri-sum:12: printf %-7s PY_LAST
++++ tri-sum:12: dirname reports_auto/tri_summary/20250915T091825/py_last_trace.txt
+++ tri-sum:12: cd reports_auto/tri_summary/20250915T091825
+++ tri-sum:12: pwd
+++ tri-sum:12: basename reports_auto/tri_summary/20250915T091825/py_last_trace.txt
++ tri-sum:12: echo '  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/py_last_trace.txt'
+  PY_LAST= /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825/py_last_trace.txt
++ tri-sum:14: echo '[*] REPORT DIR ready'
+[*] REPORT DIR ready
++ tri-sum:14: command -v explorer.exe
++++ tri-sum:14: cd reports_auto/tri_summary/20250915T091825
++++ tri-sum:14: pwd
+++ tri-sum:14: wslpath -w /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/tri_summary/20250915T091825
++ tri-sum:14: explorer.exe '\\wsl.localhost\Ubuntu-22.04\home\youjie\projects\smart-mail-agent-ssot-pro\reports_auto\tri_summary\20250915T091825'
++ tri-sum:14: true

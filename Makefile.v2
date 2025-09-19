@@ -1,0 +1,40 @@
+.PHONY: bundle preflight upv2 smoke down clean-old
+
+bundle:
+	@python scripts/train_intent_bundle.py
+
+preflight:
+	@python scripts/preflight_check.py
+
+upv2:
+	@fuser -k -n tcp 8088 2>/dev/null || true
+	@. scripts/env.default; nohup python -u tools/api_server_v2.py \
+	 > reports_auto/api/manual.out 2> reports_auto/api/manual.err & echo $$! > reports_auto/api/manual.pid
+	@python - <<'PPY'
+import json,time,urllib.request,sys
+base="http://127.0.0.1:8088"
+for i in range(60):
+    try:
+        r=urllib.request.Request(base+"/classify",
+            data=json.dumps({"texts":["ping"],"route":"rule"}).encode(),
+            headers={"Content-Type":"application/json"})
+        urllib.request.urlopen(r,timeout=1).read()
+        print("[READY] API listening"); sys.exit(0)
+    except Exception: time.sleep(0.5)
+print("[FATAL] API not ready after 30s"); sys.exit(1)
+PPY
+
+smoke:
+	@echo "[RULE]"; curl -s -X POST http://127.0.0.1:8088/classify -H 'Content-Type: application/json' -d '{"texts":["請幫我報價 120000"],"route":"rule"}'; echo
+	@echo "[ML]";   curl -s -X POST http://127.0.0.1:8088/classify -H 'Content-Type: application/json' -d '{"texts":["請幫我報價 120000"],"route":"ml"}'; echo
+	@echo "[KIE]";  curl -s -X POST http://127.0.0.1:8088/extract  -H 'Content-Type: application/json' -d '{"text":"請報價 $120000，聯絡 0912345678"}'; echo
+	@echo "[TAIL err]"; tail -n 60 reports_auto/api/manual.err || true
+
+down:
+	@[ -f reports_auto/api/manual.pid ] && kill `cat reports_auto/api/manual.pid` 2>/dev/null || true
+	@fuser -k -n tcp 8088 2>/dev/null || true
+	@echo "[*] api_8088_down done"
+
+clean-old:
+	@find bundles/intent_v1 -maxdepth 1 -type d -name '20????????????' -mtime +14 -exec rm -rf {} \; || true
+	@find reports_auto/status -maxdepth 1 -type d -name 'PREFLIGHT_*' -mtime +14 -exec rm -rf {} \; || true

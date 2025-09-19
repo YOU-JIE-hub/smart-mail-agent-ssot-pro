@@ -1,0 +1,4 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T11:11:24+08:00
+LAST:scripts/api_up.sh
+CODE:2

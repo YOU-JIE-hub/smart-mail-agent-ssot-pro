@@ -1,0 +1,6 @@
+{"email": {"subject": "[一般回覆] 測試", "body": "hello"}, "ml_boosted": {"intent_name": "報價", "intent_raw": "biz_quote", "confidence": 0.2803776583586695, "source": "ml", "rules_on": [5]}}
+{"email": {"subject": "報價 請提供 單價:100 數量:2", "body": ""}, "ml_boosted": {"intent_name": "報價", "intent_raw": "tech_support", "confidence": 0.39294460051241775, "source": "rules>ml", "rules_on": [0]}}
+{"email": {"subject": "投訴", "body": "客訴"}, "ml_boosted": {"intent_name": "投訴", "intent_raw": "policy_qa", "confidence": 0.5784636683720469, "source": "rules>ml", "rules_on": [1]}}
+{"email": {"subject": "技術支援 ticket:TS-1234", "body": ""}, "ml_boosted": {"intent_name": "技術支援", "intent_raw": "tech_support", "confidence": 0.5391761439925099, "source": "rules>ml", "rules_on": [2, 6]}}
+{"email": {"subject": "請問規則", "body": "這是規則詢問"}, "ml_boosted": {"intent_name": "規則詢問", "intent_raw": "biz_quote", "confidence": 0.8834352894141743, "source": "rules>ml", "rules_on": [3, 5]}}
+{"email": {"subject": "請協助資料異動 order:ORD-9", "body": ""}, "ml_boosted": {"intent_name": "資料異動", "intent_raw": "profile_update", "confidence": 0.4874369456579037, "source": "rules>ml", "rules_on": [4, 6]}}

@@ -1,0 +1,46 @@
+from __future__ import annotations
+import os, time, json
+from tools.actions import audit
+from tools.adapters import email_smtp, ticket_stub, slack, crm_stub, pdf_placeholder
+
+audit.migrate()
+
+def _exec(route:dict, plan:dict, mail_id:str, intent:str):
+    ch = route.get("channel")
+    if ch=="email":
+        subject = f"[{intent}] 自動回覆"
+        body = json.dumps(plan.get("params"), ensure_ascii=False, indent=2)
+        r = email_smtp.send_email(subject, body, to=os.environ.get("SMA_EMAIL_WHITELIST","demo@example.com"))
+        return r.get("path"), None
+    if ch=="ticket":
+        r = ticket_stub.create_ticket(subject=f"{intent} - {mail_id}", body=json.dumps(plan.get("params"), ensure_ascii=False), tags=[intent])
+        return r.get("path"), r.get("id")
+    if ch=="crm":
+        r = crm_stub.upsert_deal(title=f"{intent}-{mail_id}", total=int(plan.get("params",{}).get("total",0)), meta=plan.get("params"))
+        return r.get("path"), r.get("deal_id")
+    if ch=="slack":
+        r = slack.notify(channel="#ops-demo", text=json.dumps(plan, ensure_ascii=False))
+        return r.get("path"), None
+    if ch=="pdf":
+        r = pdf_placeholder.write_quote_txt(summary=json.dumps(plan.get("params"), ensure_ascii=False))
+        return r.get("path"), None
+    if ch=="hitl":
+        return None, None
+    raise RuntimeError(f"unknown route channel: {ch}")
+
+def execute(mail_id:str, intent:str, plan:dict):
+    ts=time.strftime("%Y-%m-%dT%H:%M:%S")
+    h = audit.action_hash(mail_id, intent, plan.get("action",""), plan.get("params") or {})
+    if audit.already_done(h):
+        audit.record(ts=ts, mail_id=mail_id, intent=intent, action=plan.get("action",""), hash=h, status="ok", artifact_path=None, external_ref=None, error=None, latency_ms=0.0)
+        return {"status":"ok","idempotent":True}
+    t0=time.time()
+    try:
+        path, ext = _exec(plan.get("route",{}), plan, mail_id, intent)
+        dt = (time.time()-t0)*1000
+        audit.record(ts=ts, mail_id=mail_id, intent=intent, action=plan.get("action",""), hash=h, status="ok", artifact_path=path, external_ref=ext, error=None, latency_ms=dt)
+        return {"status":"ok","artifact": path, "ext": ext, "latency_ms": dt}
+    except Exception as e:
+        audit.dead_letter(mail_id=mail_id, intent=intent, action=plan.get("action",""), hash=h, error=str(e), payload=plan)
+        audit.record(ts=ts, mail_id=mail_id, intent=intent, action=plan.get("action",""), hash=h, status="dead", artifact_path=None, external_ref=None, error=str(e), latency_ms=0.0)
+        return {"status":"dead","error": str(e)}

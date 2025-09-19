@@ -1,0 +1,61 @@
+[*] LOGDIR = reports_auto/intent_fix_full/20250915T002517
+[PKL] intent/intent/artifacts/intent_pro_cal.pkl
+[rules_feat] vendor: vendor/rules_features.py
+[PIPELINE_STEPS] [('features', 'FeatureUnion'), ('clf', 'CalibratedClassifierCV')]
+[EXPECTED] 29233
+[BRANCH_DIMS] {"word": 3834, "char": 25392, "rules": "ERR:NameError"}
+[SUM_BEFORE] 29226
+[SAVED] artifacts/intent_pipeline_aligned.pkl
+[PRED_FAIL] NameError name '_sp' is not defined
+
+[*] 報告資料夾：reports_auto/intent_fix_full/20250915T002517
+切到這顆： export SMA_INTENT_ML_PKL="$PWD/artifacts/intent_pipeline_aligned.pkl"
+[?2004h(.venv) ]0;youjie@DESKTOP-MP3QVS6: ~/projects/smart-mail-agent-ssot-pro[01;32myoujie@DESKTOP-MP3QVS6[00m:[01;34m~/projects/smart-mail-agent-ssot-pro[00m$ # scripts/intent_import_and_align.sh
+# 用途：從 intent/** 找回舊模型 → 綁訓練時 rules_feat（shim 會自載）→ 對齊 ZeroPad → 全程落地
+set -Eeuo pipefail -o errtrace
+
+ROOT="${ROOT:-$HOME/projects/smart-mail-agent-ssot-pro}"
+cd "$ROOT"; [ -f .venv/bin/activate ] && . .venv/bin/activate || true
+export PYTHONNOUSERSITE=1
+export PYTHONPATH="src:vendor:${PYTHONPATH:-}"
+
+TS="$(date +%Y%m%dT%H%M%S)"
+R="reports_auto/intent_fix_full/${TS}"
+mkdir -p "$R" artifacts vendor/sma_tools vendor
+exec > >(tee "$R/run.log") 2>&1
+
+open_dir() {
+  if command -v explorer.exe >/dev/null 2>&1; then
+    explorer.exe "$(wslpath -w "$R")" >/dev/null 2>&1 || true
+  elif command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$R" >/dev/null 2>&1 || true
+  fi
+  echo "[*] 報告資料夾：$R"
+}
+
+trap 'code=$?; {
+  echo "=== BASH_TRAP ==="
+  echo "TIME: $(date -Is)"
+  echo "BASH_COMMAND: ${BASH_COMMAND:-<none>}"
+  echo "EXIT_CODE: ${code}"
+} >> "$R/last_trace.txt"; open_dir; exit $code' ERR INT TERM
+
+echo "[*] LOGDIR = $R"# 0) 最小 sma_tools.ZeroPad（舊管線會 import 到）mkdir -p vendor/sma_toolscat > vendor/sma_tools/__init__.py <<'PY'__all__ = ["sk_zero_pad"]PYcat > vendor/sma_tools/sk_zero_pad.py <<'PY'from __future__ import annotationsimport numpy as npfrom scipy import sparse as spfrom sklearn.base import BaseEstimator, TransformerMixinclass ZeroPad(BaseEstimator, TransformerMixin):    def __init__(self, width: int = 1, dtype=np.float64, **kwargs):        try: self.width = int(width) if width else 1        except Exception: self.width = 1        self.dtype = dtype        self._extra = dict(kwargs)    def __setstate__(self, state):        self.__dict__.update(state or {})        if not hasattr(self, "width"): self.width = 1        if not hasattr(self, "dtype"): self.dtype = np.float64    def fit(self, X, y=None): return self    def transform(self, X): return sp.csr_matrix((len(X), self.width), dtype=self.dtype)PY# 1) rules_feat shim：先嘗試載入壓縮包內的 runtime_threshold_router.py；失敗才退回 1 維 zerocat > vendor/rules_features.py <<'PY'# auto-generated shim: map vendor.rules_features.rules_feat -> bundle's runtime_threshold_router.rules_featimport sys, glob, importlib.util as _iluimport numpy as _npfrom scipy import sparse as _spdef _load_rules_from_bundle():    # 找 intent/**/.sma_tools/runtime_threshold_router.py（取時間最新）    paths = sorted(glob.glob("intent/**/.sma_tools/runtime_threshold_router.py", recursive=True),                   key=lambda p: (__import__("os").path.getmtime(p)), reverse=True)    for p in paths:        spec = _ilu.spec_from_file_location("intent_bundle.rules_runtime", p)        if spec and spec.loader:            mod = _ilu.module_from_spec(spec)            try:                spec.loader.exec_module(mod)                if hasattr(mod, "rules_feat"):                    return mod.rules_feat            except Exception:                continue    return None_rules = _load_rules_from_bundle()if _rules is not None:    rules_feat = _ruleselse:    # 安全後備：1 維 zero（後續由對齊器補 pad 寬度）    def rules_feat(texts):        return _sp.csr_matrix(_np.zeros((len(texts), 1), dtype=_np.float64))PY# 2) 對齊器：載入舊 PKL → 檢出分支維度 → 與 clf.n_features_in_ 對齊 → 落地 + 煙囪測python - <<'PY' "$R"import os, sys, json, glob, traceback, faulthandlerfrom pathlib import Pathimport joblib, numpy as npfrom scipy import sparse as spR = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)py_log = (R/"py_run.log").open("w", encoding="utf-8")faulthandler.enable(py_log)def pick_pkl():    cands = []    for pat in ["intent/**/artifacts/intent_pro_cal.pkl",                "intent/**/artifacts/intent_pipeline*.pkl",                "intent/artifacts/*.pkl"]:        cands += [Path(p) for p in glob.glob(pat, recursive=True)]    cands = [p for p in cands if p.is_file()]    cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)    return cands[0] if cands else Nonedef unwrap(obj):    if hasattr(obj, "predict"): return obj    if isinstance(obj, dict):        for k in ("pipe","pipeline","estimator","clf","model"):            v = obj.get(k);             if hasattr(v, "predict"): return v    return objdef to_csr(X):    if sp.issparse(X): return X.tocsr()    if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))    raise TypeError(f"non-numeric branch output: {type(X)}")def feature_dims(feat, xs):    dims = {}    if hasattr(feat, "transformer_list"):        for name, sub in feat.transformer_list:            try:                Y = to_csr(sub.transform(xs))                dims[name] = int(Y.shape[1])            except Exception as e:                dims[name] = f"ERR:{type(e).__name__}"    return dimstry:    pkl = pick_pkl()    if not pkl:        (R/"py_last_trace.txt").write_text("No PKL under intent/**/artifacts\n", encoding="utf-8")        print("[FATAL] 找不到 intent/**/artifacts/*.pkl"); sys.exit(2)    print("[PKL]", pkl)    est = unwrap(joblib.load(pkl))    pre = dict(est.steps).get("features") if hasattr(est, "steps") else None    clf = est.steps[-1][1] if hasattr(est, "steps") else est    expected = getattr(clf, "n_features_in_", None)    if expected is None and hasattr(clf, "base_estimator"):        expected = getattr(clf.base_estimator, "n_features_in_", None)    expected = int(expected) if expected is not None else None    xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]    dims = feature_dims(pre, xs) if pre is not None else {}    sum_before = sum(v for v in dims.values() if isinstance(v,int))    print("[PIPELINE_STEPS]", [(n, s.__class__.__name__) for n,s in getattr(est, "steps", [])])    print("[EXPECTED]", expected)    print("[BRANCH_DIMS]", json.dumps(dims, ensure_ascii=False))    print("[SUM_BEFORE]", sum_before)    # pad 對齊（找名含 pad/zero 的 transformer 並調整 width）    if expected and sum_before and expected != sum_before and hasattr(pre, "transformer_list"):        delta = expected - sum_before        for i, (name, sub) in enumerate(pre.transformer_list):            n = name.lower()            if any(k in n for k in ("pad","zero")) and hasattr(sub, "width"):                old = int(getattr(sub, "width", 1) or 1)                setattr(sub, "width", int(old + delta))                pre.transformer_list[i] = (name, sub)                print("[PAD_ADD]", name, f"+{delta}")                break[7m    out = Path("artifacts")/"intent_pipeline_aligned.pkl"[27m[7m    joblib.dump(est, out)[27m[7m    print("[SAVED]", out)[27m[7m    zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料 [27m[7m異動","other":"其他"}[27m[7m    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"][27m[7m    try:[27m[7m        pred = est.predict(tests)[27m[7m        for s,y in zip(tests,pred):[27m[7m            print("   ", s, "->", f"{y} / {zh.get(str(y), str(y))}")[27m[7m        (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in pred]}, ensure_ascii=False[27m[7m, indent=2), encoding="utf-8")[27m[7m    except Exception:[27m[7m        (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")[27m[7m        raise[27m[7m    # 診斷檔[27m[7m    (R/"diagnostics.json").write_text(json.dumps({[27m[7m        "steps": [(n, s.__class__.__name__) for n,s in getattr(est,"steps",[])],[27m[7m        "branch_dims": dims, "expected_dim": expected, "sum_before": sum_before[27m[7m    }, ensure_ascii=False, indent=2), encoding="utf-8")[27m[7mexcept Exception:[27m[7m    (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")[27m[7m    raise[27m[7mPY[27m[7m# 3) 成功或失敗都開資料夾[27m[7mopen_dir[27m[7mecho "切到這顆： export SMA_INTENT_ML_PKL=\"$PWD/artifacts/intent_pipeline_aligned.pkl\""[27m    out = Path("artifacts")/"intent_pipeline_aligned.pkl"    joblib.dump(est, out)    print("[SAVED]", out)    zh = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料 異動","other":"其他"}    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]    try:        pred = est.predict(tests)        for s,y in zip(tests,pred):            print("   ", s, "->", f"{y} / {zh.get(str(y), str(y))}")        (R/"sample_pred.json").write_text(json.dumps({"samples":tests,"pred":[str(x) for x in pred]}, ensure_ascii=False, indent=2), encoding="utf-8")    except Exception:        (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")        raise    # 診斷檔    (R/"diagnostics.json").write_text(json.dumps({        "steps": [(n, s.__class__.__name__) for n,s in getattr(est,"steps",[])],        "branch_dims": dims, "expected_dim": expected, "sum_before": sum_before    }, ensure_ascii=False, indent=2), encoding="utf-8")except Exception:    (R/"py_last_trace.txt").write_text(traceback.format_exc(), encoding="utf-8")    raisePY# 3) 成功或失敗都開資料夾open_direcho "切到這顆： export SMA_INTENT_ML_PKL=\"$PWD/artifacts/intent_pipeline_aligned.pkl\""
+[?2004l[*] LOGDIR = reports_auto/intent_fix_full/20250915T003438
+[PKL] intent/intent/artifacts/intent_pro_cal.pkl
+Traceback (most recent call last):
+  File "<stdin>", line 51, in <module>
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/usr/lib/python3.10/pickle.py", line 1582, in find_class
+    return _getattribute(sys.modules[module], name)[0]
+  File "/usr/lib/python3.10/pickle.py", line 331, in _getattribute
+    raise AttributeError("Can't get attribute {!r} on {!r}"
+AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>
+[*] 報告資料夾：reports_auto/intent_fix_full/20250915T003438

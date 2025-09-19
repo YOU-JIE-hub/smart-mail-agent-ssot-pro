@@ -1,0 +1,7 @@
+currency: "TWD"
+tax_rate: 0.05
+discount_rules:
+  - if_qty_gte: 100
+    discount: 0.1
+valid_days: 14
+approval_threshold: 200000   # ≥此金額需審批

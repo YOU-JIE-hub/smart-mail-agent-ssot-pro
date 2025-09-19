@@ -1,0 +1,5 @@
+from __future__ import annotations
+import json
+def jsonable(obj):
+    try: json.dumps(obj); return True
+    except Exception: return False

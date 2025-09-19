@@ -1,0 +1,29 @@
+from __future__ import annotations
+import os, argparse, json
+from pathlib import Path
+from smart_mail_agent.rag.compat import FAISS
+from langchain_core.embeddings import Embeddings
+from smart_mail_agent.cli.rag_build import HashEmb
+def _choose_embeddings()->Embeddings:
+    if os.getenv("OPENAI_API_KEY"):
+        from langchain_openai import OpenAIEmbeddings
+        return OpenAIEmbeddings(model="text-embedding-3-small")
+    return HashEmb()
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--index", default="reports_auto/kb/faiss_index")
+    ap.add_argument("question")
+    args=ap.parse_args()
+
+    emb=_choose_embeddings()
+    vs = FAISS.load_local(args.index, embeddings=emb, index_name="kb", allow_dangerous_deserialization=True)
+    retriever = vs.as_retriever(search_kwargs={"k":4})
+    hits = retriever.invoke(args.question)
+    snippets = [ (h.metadata.get("source","?"), h.page_content[:200].replace("\n"," ")) for h in hits ]
+    mode = "OpenAI Embeddings" if (emb.__class__.__name__!="HashEmb") else "離線 HashEmb"
+    ans = f"({mode}) 命中 {len(snippets)} 段：\n" + "\n".join([f"- {src}: {txt}" for src,txt in snippets])
+    print(json.dumps({"kb_hits": len(snippets), "answer": ans}, ensure_ascii=False))
+
+if __name__=="__main__":
+    main()

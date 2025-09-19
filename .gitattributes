@@ -1,0 +1,15 @@
+*.pkl binary
+*.joblib binary
+*.safetensors binary
+*.pt binary
+*.bin binary
+*.onnx binary
+*.parquet binary
+*.gz binary
+*.zip binary
+*.xz binary
+*.7z binary
+*.tar binary
+*.npz binary
+*.npy binary
+*.h5 binary

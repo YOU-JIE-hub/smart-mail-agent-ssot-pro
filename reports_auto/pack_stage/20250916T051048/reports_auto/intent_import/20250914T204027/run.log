@@ -1,0 +1,5 @@
+[*] LOGDIR = reports_auto/intent_import/20250914T204027
+[PKL] intent/intent/artifacts/intent_pro_cal.pkl
+[CODE_ROOT] intent/intent
+[rules_feat] copied -> vendor/rules_features.py
+[LOAD_FAIL] AttributeError Can't get attribute 'rules_feat' on <module '__main__' (built-in)>

@@ -1,0 +1,3 @@
+TIME: 2025-09-15T06:29:12+08:00
+EXIT_CODE: 1
+CMD: chmod +x scripts/sma_oneclick_strict.sh

@@ -1,0 +1,35 @@
+from __future__ import annotations
+import json, hashlib, time
+from pathlib import Path
+ACTIONS = {
+    "biz_quote": "create_quote_ticket",
+    "tech_support": "create_support_ticket",
+    "complaint": "escalate_to_CX",
+    "policy_qa": "send_policy_docs",
+    "profile_update": "update_profile",
+    "other": "manual_triage",
+    "quarantine": "quarantine",
+}
+PRIORITY = {
+    "quarantine": "P1/Security","create_support_ticket":"P2/Support","escalate_to_CX":"P2/Support",
+    "create_quote_ticket":"P1/Sales","send_policy_docs":"P3/Compliance","update_profile":"P3/CRM","manual_triage":"P3/Ops",
+}
+def _ide_key(x): return hashlib.sha256(json.dumps(x,sort_keys=True,ensure_ascii=False).encode("utf-8")).hexdigest()[:16]
+def plan_actions(cases, outdir: Path)->None:
+    outdir.mkdir(parents=True, exist_ok=True)
+    tickets = outdir/"tickets"; emails = outdir/"email_outbox"; scripts=outdir
+    tickets.mkdir(exist_ok=True); emails.mkdir(exist_ok=True)
+    (scripts/"do_quarantine.sh").write_text("#!/usr/bin/env bash\nset -euo pipefail\necho \"[do_quarantine] idempotency_key=${IDEMPOTENCY_KEY:-unset}\" \ntrue\n", encoding="utf-8")
+    (scripts/"do_manual_triage.sh").write_text("#!/usr/bin/env bash\nset -euo pipefail\necho \"[do_manual_triage] idempotency_key=${IDEMPOTENCY_KEY:-unset}\" \ntrue\n", encoding="utf-8")
+    plan = outdir.parent/"actions_plan.ndjson"; jl=[]
+    for c in cases:
+        a = ACTIONS.get(c.get("intent","other"), "manual_triage")
+        meta={"mail_id":c.get("id"),"intent":c.get("intent"),"action":a,"ts":int(time.time())}
+        meta["idempotency_key"]=_ide_key(meta); meta["priority"]=PRIORITY.get(a,"P3/Ops"); meta["queue"]=meta["priority"]
+        jl.append(meta)
+        plan.open("a",encoding="utf-8").write(json.dumps(meta,ensure_ascii=False)+"\n")
+        if a=="quarantine":
+            (emails/f"{meta['idempotency_key']}.quarantine.json").write_text(json.dumps({"meta":meta,"mail_to":"security-queue@example.com","subject":f"[Quarantine] mail:{c.get('id')}","body":"ENS=1 quarantined."},ensure_ascii=False,indent=2),encoding="utf-8")
+        else:
+            (tickets/f"{c.get('id')}.{a}.json").write_text(json.dumps({"meta":meta,"fields":c.get("fields",{})},ensure_ascii=False,indent=2),encoding="utf-8")
+    (outdir.parent/"actions.jsonl").write_text("\n".join(json.dumps(x,ensure_ascii=False) for x in jl), encoding="utf-8")

@@ -1,0 +1,46 @@
+from __future__ import annotations
+from pathlib import Path
+import json
+
+# 借用現有 ML 分類器
+from tools.pipeline_ml import classify_ml
+# 規則 7 維 to 中文意圖（與 label_map 對齊）
+try:
+    import sma_features as F  # 你專案中已建立（7 維 CSR）
+except Exception:
+    F = None
+
+IDX2NAME = {
+    0:"報價", 1:"投訴", 2:"一般回覆", 3:"規則詢問", 4:"資料異動", 5:"技術支援", 6:"技術支援"
+}
+
+def _rules_hit(email: dict):
+    if not F: return []
+    X = [email]
+    try:
+        import numpy as np
+        M = F.rules_feat(X)  # 1 x 7 CSR/ndarray
+        arr = M.toarray()[0] if hasattr(M, "toarray") else (M[0] if isinstance(M, list) else M)
+        on = [i for i, v in enumerate(arr) if float(v) > 0]
+        return on
+    except Exception:
+        return []
+
+def classify_boosted(email: dict) -> dict:
+    """
+    規則優先：若 rules 單一命中 → 直接輸出；多/無命中 → fallback 到 ML。
+    回傳統一 dict: {intent, confidence, slots}
+    """
+    hits = _rules_hit(email)
+    if len(hits) == 1:
+        name = IDX2NAME.get(hits[0], "一般回覆")
+        return {"intent": name, "intent_name": name, "confidence": 0.95, "slots": {}}
+    # fallback ML
+    r = classify_ml(email)
+    intent = r.get("intent_name") or r.get("intent")
+    conf   = float(r.get("confidence", 1.0))
+    return {"intent": intent, "intent_name": intent, "confidence": conf, "slots": {}}
+
+# 舊腳本相容
+def classify_ml_boosted(email: dict):
+    return classify_boosted(email)

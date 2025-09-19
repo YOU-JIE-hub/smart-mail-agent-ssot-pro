@@ -1,0 +1,9 @@
+{
+  "pkl": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl",
+  "expected_dim": 21376,
+  "branch_dims": {
+    "word": 2787,
+    "char": 18578,
+    "pad": 11
+  }
+}

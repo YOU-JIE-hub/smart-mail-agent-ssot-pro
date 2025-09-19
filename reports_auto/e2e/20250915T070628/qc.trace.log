@@ -1,0 +1,10 @@
++ set -Eeuo pipefail
++ ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
++ cd /home/youjie/projects/smart-mail-agent-ssot-pro
++ DB=reports_auto/audit.sqlite3
++ echo '=== [OPS QUICKCHECK] ==='
+=== [OPS QUICKCHECK] ===
++ [[ -f reports_auto/audit.sqlite3 ]]
++ echo '[FATAL] missing DB: reports_auto/audit.sqlite3'
+[FATAL] missing DB: reports_auto/audit.sqlite3
++ exit 97

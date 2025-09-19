@@ -1,0 +1,11 @@
+===== CRASH SUMMARY =====
+When   : 20250916T121654
+CWD    : /home/youjie/projects/smart-mail-agent-ssot-pro
+Exit   : 2
+OutDir : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR/CRASH_20250916T121654
+
+----- tail run.err -----
+<empty>
+
+----- tail run.out -----
+<empty>

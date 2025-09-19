@@ -1,0 +1,13 @@
+from __future__ import annotations
+import argparse
+from pathlib import Path
+from smart_mail_agent.pipeline.run_action_handler import run_e2e_mail
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--eml-dir", required=True)
+    ap.add_argument("--out-root", required=True)
+    args=ap.parse_args()
+    out_dir=Path(args.out_root); out_dir.mkdir(parents=True, exist_ok=True)
+    summary = run_e2e_mail(Path(args.eml_dir), out_dir)
+    (out_dir/"LATEST_SUMMARY.md").write_text(summary, encoding="utf-8")
+if __name__=="__main__": main()

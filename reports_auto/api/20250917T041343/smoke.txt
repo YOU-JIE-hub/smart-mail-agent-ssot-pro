@@ -1,0 +1,6 @@
+[RULE]
+{"intent": "一般回覆"}
+[ML]
+{"intent": "一般回覆"}
+[KIE]
+{"slots": {"price": "120000", "qty": 3, "id": "AB-99127"}}

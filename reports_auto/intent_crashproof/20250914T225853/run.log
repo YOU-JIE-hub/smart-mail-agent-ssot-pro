@@ -1,0 +1,114 @@
+[*] LOGDIR = reports_auto/intent_crashproof/20250914T225853
+Traceback (most recent call last):
+  File "<stdin>", line 31, in <module>
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+  File "/usr/lib/python3.10/pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "/usr/lib/python3.10/pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+  File "/usr/lib/python3.10/pickle.py", line 1582, in find_class
+    return _getattribute(sys.modules[module], name)[0]
+  File "/usr/lib/python3.10/pickle.py", line 331, in _getattribute
+    raise AttributeError("Can't get attribute {!r} on {!r}"
+AttributeError: Can't get attribute 'rules_feat' on <module '__main__' (built-in)>
+++ on_die
+++ code=1
+++ echo '=== TRAP ==='
++++ date -Is
+++ echo 'TIME: 2025-09-14T22:58:54+08:00'
+++ echo 'CMD : python - "$R" <<'\''PY'\''
+import os, sys, json, traceback, time, glob, inspect, signal, faulthandler
+from pathlib import Path
+import numpy as np
+from scipy import sparse as sp
+import joblib
+
+R = Path(sys.argv[1]); R.mkdir(parents=True, exist_ok=True)
+py_log = open(R/"py_run.log", "a", encoding="utf-8")
+faulthandler.enable(py_log)
+for sig in (signal.SIGSEGV, signal.SIGABRT, signal.SIGFPE, signal.SIGILL, getattr(signal, "SIGBUS", None)):
+    if sig is None: continue
+    try: faulthandler.register(sig, file=py_log, all_threads=True)
+    except Exception: pass
+
+def write_trace(e=None):
+    with open(R/"py_last_trace.txt","w",encoding="utf-8") as f:
+        if e is None:
+            traceback.print_exc(file=f)
+        else:
+            f.write("EXC: %s: %s\n" % (type(e).__name__, e))
+            f.write(traceback.format_exc())
+
+try:
+    # 1) 找舊包（intent/**/artifacts/intent_pro_cal.pkl）
+    cands = sorted(glob.glob("intent/**/artifacts/intent_pro_cal.pkl", recursive=True))
+    if not cands:
+        raise FileNotFoundError("找不到 intent/**/artifacts/intent_pro_cal.pkl")
+    PKL = cands[0]
+
+    # 2) 載入（__main__.rules_feat 由舊包路由檔提供；ZeroPad 由 vendor 提供）
+    obj = joblib.load(PKL)
+    pipe = obj.get("pipe") if isinstance(obj, dict) and "pipe" in obj else obj
+    # 找 features union
+    pre = None
+    if hasattr(pipe, "steps"):
+        pre = dict(pipe.steps).get("features") or dict(pipe.steps).get("pre") or dict(pipe.steps).get("union")
+    # 3) 檢查維度與對齊
+    def as_csr(X):
+        if sp.issparse(X): return X.tocsr()
+        if isinstance(X, np.ndarray): return sp.csr_matrix(X if X.ndim==2 else X.reshape(1,-1))
+        raise TypeError(type(X).__name__)
+    xs = ["報價與交期","技術支援","發票抬頭","退訂連結"]
+    dims = {}
+    if hasattr(pre, "transformer_list"):
+        for name, sub in pre.transformer_list:
+            try:
+                Y = as_csr(sub.transform(xs))
+                dims[name] = int(Y.shape[1])
+            except Exception as e:
+                dims[name] = f"ERR:{type(e).__name__}:{e}"
+    # 期望維度
+    clf = pipe.steps[-1][1] if hasattr(pipe, "steps") else pipe
+    expected = getattr(clf, "n_features_in_", None) \
+        or getattr(getattr(clf, "base_estimator", None), "n_features_in_", None)
+
+    rep = {
+        "pkl": PKL,
+        "branch_dims": dims,
+        "expected_dim": int(expected) if expected is not None else None,
+        "sum_before": sum(v for v in dims.values() if isinstance(v,int)),
+    }
+    (R/"diagnostics.json").write_text(json.dumps(rep, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 4) 煙囪測
+    TO_ZH = {"biz_quote":"報價","tech_support":"技術支援","complaint":"投訴","policy_qa":"規則詢問","profile_update":"資料異動","other":"其他"}
+    tests = ["您好，想詢問報價與交期","請協助開立三聯發票抬頭","需要技術支援協助，附件連不上","退訂連結在此"]
+    try:
+        pred = pipe.predict(tests)
+        (R/"sample_pred.json").write_text(json.dumps(
+            {"samples":tests,"pred":[f"{s} -> {TO_ZH.get(str(y),str(y))}" for s,y in zip(tests,pred)]},
+            ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as e:
+        (R/"sample_pred.json").write_text(json.dumps({"error":f"{type(e).__name__}: {e}"},
+            ensure_ascii=False, indent=2), encoding="utf-8")
+        write_trace(e)
+        raise
+
+except SystemExit:
+    raise
+except Exception as e:
+    write_trace(e)
+    raise
+finally:
+    py_log.flush()
+PY
+'
+++ echo 'EXIT: 1'
+++ exit 1
++++ '[' 1 = 1 ']'
++++ '[' -x /usr/bin/clear_console ']'
++++ /usr/bin/clear_console -q
++ echo '=== EXIT ==='

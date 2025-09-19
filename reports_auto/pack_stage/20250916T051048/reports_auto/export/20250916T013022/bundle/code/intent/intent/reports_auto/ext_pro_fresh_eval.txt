@@ -1,0 +1,9 @@
+pairs=120
+Accuracy=0.8583
+MacroF1=0.8438
+biz_quote: P=0.8333 R=1.0000 F1=0.9091 (tp=20,fp=4,fn=0)
+complaint: P=0.7037 R=0.9500 F1=0.8085 (tp=19,fp=8,fn=1)
+other: P=1.0000 R=0.4000 F1=0.5714 (tp=8,fp=0,fn=12)
+policy_qa: P=0.9412 R=0.8000 F1=0.8649 (tp=16,fp=1,fn=4)
+profile_update: P=1.0000 R=1.0000 F1=1.0000 (tp=20,fp=0,fn=0)
+tech_support: P=0.8333 R=1.0000 F1=0.9091 (tp=20,fp=4,fn=0)

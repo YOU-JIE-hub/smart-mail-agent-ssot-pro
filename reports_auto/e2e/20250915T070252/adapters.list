@@ -1,0 +1,6 @@
+tools/adapters/crm_stub.py
+tools/adapters/pdf_placeholder.py
+tools/adapters/ticket_stub.py
+tools/adapters/email_smtp.py
+tools/adapters/slack.py
+tools/adapters/pdf_quote.py

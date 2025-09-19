@@ -1,0 +1,15 @@
+[*] PACK start @ 20250916T014311
+[*] OUT_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311
+[*] ERR_DIR = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/ERR
+[*] LIMITS  = part<=256m, parts<=10, pointer>10MiB
+[*] PATHS:
+  MODEL = /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl
+  RULES = /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/.sma_tools/runtime_threshold_router.py
+  DATA  = /home/youjie/projects/smart-mail-agent-ssot-pro/data/intent_eval/dataset.cleaned.jsonl
+[*] stage code → reports_auto/export/20250916T014311/bundle
+[*] write manifest
+reports_auto/export/20250916T014311/meta/MANIFEST.json
+[*] tar.gz primary
+tar: reports_auto/export/20250916T014311/bundle: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+-bash: reports_auto/export/20250916T014311/last_trace.txt: No such file or directory

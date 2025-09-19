@@ -1,0 +1,10 @@
+2025-09-13T023049|資料異動|change_request|ok|reports_auto/actions/change_requests/20250913T023049.json
+2025-09-13T023049|規則詢問|policy_reply|ok|reports_auto/actions/email/20250913T023049.eml
+2025-09-13T023049|技術支援|create_ticket|ok|reports_auto/actions/tickets/20250913T023049_P3.json
+2025-09-13T023049|投訴|create_ticket|ok|reports_auto/actions/tickets/20250913T023049_P3.json
+2025-09-13T023049|報價|quote_reply|ok|reports_auto/actions/quotes/20250913T023049.pdf
+2025-09-13T023049|一般回覆|reply_email|ok|reports_auto/actions/email/20250913T023049.eml
+2025-09-13T023049||hitl_queue|ok|
+2025-09-13T023049||hitl_queue|ok|
+2025-09-13T023049||hitl_queue|ok|
+2025-09-13T023049||hitl_queue|ok|

@@ -1,0 +1,10 @@
+[*] OneClick TS=20250915T061728
+[*] ROOT=/home/youjie/projects/smart-mail-agent-ssot-pro
+[*] SMA_DRY_RUN=1
+[*] Gate scan…
+./scripts/sma_probe_all.sh:86:# ---------- Python 盤點主程式（嚴禁「from pathlib import Path, json」） ----------
+[FATAL] SMA_EML_DIR missing or not dir: 'fixtures/eml'
+logout
+[FATAL] code=1 (see reports_auto/e2e/20250915T061728/oneclick.err reports_auto/e2e/20250915T061728/last_trace.txt)
+[FATAL] code=1 (see reports_auto/e2e/20250915T061728/oneclick.err reports_auto/e2e/20250915T061728/last_trace.txt)
+[*] REPORT DIR: reports_auto/e2e/20250915T061728

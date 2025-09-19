@@ -1,0 +1,6 @@
+[RULE]
+{"intent": "一般回覆"}
+[ML]
+{"intent": "一般回覆"}
+[KIE]
+{"slots": {"price": null, "qty": null, "id": null}}

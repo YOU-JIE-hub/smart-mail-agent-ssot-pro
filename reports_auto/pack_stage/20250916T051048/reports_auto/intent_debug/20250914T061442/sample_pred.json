@@ -1,0 +1,14 @@
+{
+  "samples": [
+    "您好，想詢問報價與交期",
+    "請協助開立三聯發票抬頭",
+    "需要技術支援協助，附件連不上",
+    "退訂連結在此"
+  ],
+  "pred": [
+    "tech_support",
+    "tech_support",
+    "tech_support",
+    "tech_support"
+  ]
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "gold": "一般回覆",
+    "rule": {
+      "intent": "一般回覆",
+      "confidence": 1.0
+    },
+    "ml": {
+      "intent": "",
+      "confidence": 0.0,
+      "pkl": "artifacts/intent_pro_cal.pkl"
+    },
+    "boosted": {
+      "intent": "一般回覆",
+      "confidence": 0.88,
+      "slots": {}
+    },
+    "text": "[一般回覆] 測試\nhello"
+  },
+  {
+    "gold": "報價",
+    "rule": {
+      "intent": "報價",
+      "confidence": 1.0
+    },
+    "ml": {
+      "intent": "",
+      "confidence": 0.0,
+      "pkl": "artifacts/intent_pro_cal.pkl"
+    },
+    "boosted": {
+      "intent": "報價",
+      "confidence": 0.88,
+      "slots": {}
+    },
+    "text": "報價 請提供 單價:100 數量:2"
+  },
+  {
+    "gold": "投訴",
+    "rule": {
+      "intent": "投訴",
+      "confidence": 1.0
+    },
+    "ml": {
+      "intent": "",
+      "confidence": 0.0,
+      "pkl": "artifacts/intent_pro_cal.pkl"
+    },
+    "boosted": {
+      "intent": "投訴",
+      "confidence": 0.88,
+      "slots": {}
+    },
+    "text": "投訴\n客訴"
+  },
+  {
+    "gold": "技術支援",
+    "rule": {
+      "intent": "技術支援",
+      "confidence": 1.0
+    },
+    "ml": {
+      "intent": "",
+      "confidence": 0.0,
+      "pkl": "artifacts/intent_pro_cal.pkl"
+    },
+    "boosted": {
+      "intent": "技術支援",
+      "confidence": 0.88,
+      "slots": {}
+    },
+    "text": "技術支援 ticket:TS-1234"
+  },
+  {
+    "gold": "規則詢問",
+    "rule": {
+      "intent": "規則詢問",
+      "confidence": 1.0
+    },
+    "ml": {
+      "intent": "",
+      "confidence": 0.0,
+      "pkl": "artifacts/intent_pro_cal.pkl"
+    },
+    "boosted": {
+      "intent": "規則詢問",
+      "confidence": 0.88,
+      "slots": {}
+    },
+    "text": "請問規則\n這是規則詢問"
+  },
+  {
+    "gold": "資料異動",
+    "rule": {
+      "intent": "資料異動",
+      "confidence": 1.0
+    },
+    "ml": {
+      "intent": "",
+      "confidence": 0.0,
+      "pkl": "artifacts/intent_pro_cal.pkl"
+    },
+    "boosted": {
+      "intent": "資料異動",
+      "confidence": 0.88,
+      "slots": {}
+    },
+    "text": "請協助資料異動 order:ORD-9"
+  }
+]

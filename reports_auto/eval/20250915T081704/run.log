@@ -1,0 +1,119 @@
++ tri-eval:34: echo '[*] tri-eval TS=20250915T081704'
+[*] tri-eval TS=20250915T081704
++ tri-eval:34: print_paths
++ tri-eval:1: echo '[PATHS]'
+[PATHS]
++ tri-eval:1: echo '  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704'
+  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704
++ tri-eval:1: echo '  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log'
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log
++ tri-eval:1: echo '  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err'
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err
++ tri-eval:1: echo '  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log'
+  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log
++ tri-eval:1: echo '  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt'
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt
++ tri-eval:37: GATE_TXT=/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/gate_scan.txt
++ tri-eval:39: xargs -0 grep -nP 'from\s+pathlib\s+import[^#\n]*\bjson\b'
++ tri-eval:38: find . -path ./.venv -prune -o -path ./reports_auto -prune -o -type f '(' -name '*.py' -o -name '*.sh' ')' -print0
+./scripts/sma_probe_all.sh:86:# ---------- Python 盤點主程式（嚴禁「from pathlib import Path, json」） ----------
++ tri-eval:39: true
++ tri-eval:39: tee /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/gate_scan.txt
++ tri-eval:40: '[' -s /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/gate_scan.txt ']'
++ tri-eval:49: PYBIN=
+++ tri-eval:1: command -v python
++ tri-eval:50: for cand in "$ROOT/.venv/bin/python" "/home/youjie/projects/smart-mail-agent_ssot/.venv/bin/python" "$(command -v python || true)"
++ tri-eval:54: '[' -x /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python ']'
++ tri-eval:55: need_deps_check /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ tri-eval:55: PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ tri-eval:55: break
++ tri-eval:58: '[' -z /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python ']'
++ tri-eval:68: echo '[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python'
+[*] PYBIN=/home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python
++ tri-eval:71: DATA_INTENT=data/intent_eval/dataset.cleaned.jsonl
++ tri-eval:72: '[' '!' -f data/intent_eval/dataset.cleaned.jsonl ']'
++ tri-eval:83: : artifacts/intent_pipeline_aligned.pkl
++ tri-eval:84: : 0
++ tri-eval:84: : 1
++ tri-eval:84: : 0
++ tri-eval:84: : 1
++ tri-eval:87: export PYTHONPATH=src:vendor:
++ tri-eval:87: PYTHONPATH=src:vendor:
++ tri-eval:88: mkdir -p vendor/sma_tools
++ tri-eval:89: '[' -f vendor/sma_tools/__init__.py ']'
++ tri-eval:90: '[' -f vendor/sma_tools/sk_zero_pad.py ']'
++ tri-eval:109: /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python - data/intent_eval/dataset.cleaned.jsonl /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704 /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt
+Traceback (most recent call last):
+  File "<stdin>", line 56, in <module>
+  File "<stdin>", line 35, in ml_predict
+RuntimeError: ML PKL not found: 
++ tri-eval:109: echo 'exec: tri_eval_py'
++ tri-eval:109: on_err 10
++ tri-eval:1: c=10
++ tri-eval:1: echo '=== BASH_TRAP ==='
+++ tri-eval:1: date -Is
++ tri-eval:1: echo 'TIME: 2025-09-15T08:17:10+08:00'
++ tri-eval:1: echo 'LAST: echo "LAST: ${BASH_COMMAND:-<none>}"'
++ tri-eval:1: echo 'CODE: 10'
++ tri-eval:1: echo exit_code=10
++ tri-eval:1: print_paths
++ tri-eval:1: echo '[PATHS]'
+[PATHS]
++ tri-eval:1: echo '  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704'
+  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704
++ tri-eval:1: echo '  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log'
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log
++ tri-eval:1: echo '  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err'
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err
++ tri-eval:1: echo '  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log'
+  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log
++ tri-eval:1: echo '  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt'
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt
++ tri-eval:1: echo '[FATAL] tri-eval failed (code=10) — see files above'
+[FATAL] tri-eval failed (code=10) — see files above
++ tri-eval:1: exit 10
+logout
+++ tri-eval:5: '[' 1 = 1 ']'
+++ tri-eval:6: '[' -x /usr/bin/clear_console ']'
+++ tri-eval:6: /usr/bin/clear_console -q
++++ tri-eval:6: on_err 1
++++ tri-eval:28: c=1
++++ tri-eval:28: echo '=== BASH_TRAP ==='
+++++ tri-eval:28: date -Is
++++ tri-eval:28: echo 'TIME: 2025-09-15T08:17:10+08:00'
++++ tri-eval:28: echo 'LAST: /usr/bin/clear_console -q'
++++ tri-eval:28: echo 'CODE: 1'
++++ tri-eval:28: echo exit_code=1
++++ tri-eval:28: print_paths
++++ tri-eval:26: echo '[PATHS]'
+[PATHS]
++++ tri-eval:26: echo '  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704'
+  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704
++++ tri-eval:26: echo '  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log'
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log
++++ tri-eval:26: echo '  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err'
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err
++++ tri-eval:26: echo '  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log'
+  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log
++++ tri-eval:26: echo '  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt'
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt
++++ tri-eval:28: echo '[FATAL] tri-eval failed (code=1) — see files above'
+[FATAL] tri-eval failed (code=1) — see files above
++++ tri-eval:28: exit 1
++ tri-eval:1: on_exit
++ tri-eval:29: ln -sfn /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704 reports_auto/LATEST
++ tri-eval:29: print_paths
++ tri-eval:26: echo '[PATHS]'
+[PATHS]
++ tri-eval:26: echo '  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704'
+  RUN_DIR  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704
++ tri-eval:26: echo '  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log'
+  LOG     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/run.log
++ tri-eval:26: echo '  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err'
+  ERR     = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/tri_eval.err
++ tri-eval:26: echo '  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log'
+  PY_LOG  = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_run.log
++ tri-eval:26: echo '  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt'
+  PY_LAST = /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/eval/20250915T081704/py_last_trace.txt
++ tri-eval:29: echo '[*] REPORT DIR ready'
+[*] REPORT DIR ready

@@ -1,0 +1,4 @@
+=== BASH_TRAP ===
+TIME: 2025-09-15T10:08:45+08:00
+LAST:tee "$OUT/rule.json" > /dev/null
+CODE:7
