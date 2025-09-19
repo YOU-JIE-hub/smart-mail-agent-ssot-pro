@@ -2,7 +2,6 @@
 venv/
 __pycache__/
 node_modules/
-.cache/
 dist/
 build/
 artifacts/
@@ -13,3 +12,18 @@ weights/
 datasets/
 data/
 reports_auto/logs/
+*.pkl
+*.joblib
+*.safetensors
+*.pt
+*.bin
+*.onnx
+*.parquet
+*.gz
+*.zip
+*.xz
+*.7z
+*.tar
+*.npz
+*.npy
+*.h5
