@@ -4,30 +4,11 @@ __pycache__/
 node_modules/
 dist/
 build/
-artifacts*/ 
+artifacts*/
 models/
 weights/
 datasets/
 data/
 reports_auto/logs/
-reports_auto/code_capsule_*/
-reports_auto/context_200m/
-reports_auto/status/CODE_MANIFEST_*.json
-reports_auto/status/CODE_INVENTORY_*.md
-reports_auto/scan/*/manifest.jsonl
-reports_auto/textbundle_*/TABLE_OF_CONTENTS_*.json
-*.pkl
-*.joblib
-*.safetensors
-*.pt
-*.bin
-*.onnx
-*.parquet
-*.gz
-*.zip
-*.xz
-*.7z
-*.tar
-*.npz
-*.npy
-*.h5
+*.pkl *.joblib *.safetensors *.pt *.bin *.onnx *.parquet
+*.gz *.zip *.xz *.7z *.tar *.npz *.npy *.h5
