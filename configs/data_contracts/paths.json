@@ -1,0 +1,92 @@
+{
+  "trec_val": {
+    "key": "trec_val",
+    "path": "/home/youjie/projects/smart-mail-agent/data/trec06c_zip/val.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\trec06c_zip\\val.jsonl"
+  },
+  "spam_sa_train": {
+    "key": "spam_sa_train",
+    "path": "/home/youjie/projects/smart-mail-agent/data/spam_sa/train.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\spam_sa\\train.jsonl"
+  },
+  "trec_test": {
+    "key": "trec_test",
+    "path": "/home/youjie/projects/smart-mail-agent/data/trec06c_zip/test.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\trec06c_zip\\test.jsonl"
+  },
+  "spam_test": {
+    "key": "spam_test",
+    "path": "/home/youjie/projects/smart-mail-agent/data/spam/test.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\spam\\test.jsonl"
+  },
+  "spam_train": {
+    "key": "spam_train",
+    "path": "/home/youjie/projects/smart-mail-agent/data/spam/train.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\spam\\train.jsonl"
+  },
+  "trec_train": {
+    "key": "trec_train",
+    "path": "/home/youjie/projects/smart-mail-agent/data/trec06c_zip/train.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\trec06c_zip\\train.jsonl"
+  },
+  "spam_ens_thresholds": {
+    "key": "spam_ens_thresholds",
+    "path": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/artifacts_prod/ens_thresholds.json",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\reports_auto\\spam\\artifacts_prod\\ens_thresholds.json"
+  },
+  "intent_data_full": {
+    "key": "intent_data_full",
+    "path": "/home/youjie/projects/smart-mail-agent/data/intent/i_20250901_full.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\intent\\i_20250901_full.jsonl"
+  },
+  "spam_text_model": {
+    "key": "spam_text_model",
+    "path": "/home/youjie/projects/smart-mail-agent/artifacts_prod/text_lr_platt.pkl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\artifacts_prod\\text_lr_platt.pkl"
+  },
+  "spam_val": {
+    "key": "spam_val",
+    "path": "/home/youjie/projects/smart-mail-agent/data/spam/val.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\spam\\val.jsonl"
+  },
+  "spam_sa_test": {
+    "key": "spam_sa_test",
+    "path": "/home/youjie/projects/smart-mail-agent/data/spam_sa/test.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\spam_sa\\test.jsonl"
+  },
+  "kie_model_dir": {
+    "key": "kie_model_dir",
+    "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\versions\\kie_20250830T054845Z\\model_xlmr"
+  },
+  "intent_svm_base": {
+    "key": "intent_svm_base",
+    "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_svm_plus.pkl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\artifacts\\intent_svm_plus.pkl"
+  },
+  "spam_model_pipeline": {
+    "key": "spam_model_pipeline",
+    "path": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/artifacts_prod/model_pipeline.pkl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\reports_auto\\spam\\artifacts_prod\\model_pipeline.pkl"
+  },
+  "spam_sa_val": {
+    "key": "spam_sa_val",
+    "path": "/home/youjie/projects/smart-mail-agent/data/spam_sa/val.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\spam_sa\\val.jsonl"
+  },
+  "kie_train": {
+    "key": "kie_train",
+    "path": "/home/youjie/projects/smart-mail-agent/data/kie/train.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\kie\\train.jsonl"
+  },
+  "intent_pro_cal": {
+    "key": "intent_pro_cal",
+    "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_pro_cal.pkl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\artifacts\\intent_pro_cal.pkl"
+  },
+  "intent_data_merged": {
+    "key": "intent_data_merged",
+    "path": "/home/youjie/projects/smart-mail-agent/data/intent/i_20250901_merged.jsonl",
+    "win": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\youjie\\projects\\smart-mail-agent\\data\\intent\\i_20250901_merged.jsonl"
+  }
+}

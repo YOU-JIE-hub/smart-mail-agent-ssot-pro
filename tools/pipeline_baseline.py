@@ -1,33 +1,106 @@
 from __future__ import annotations
-import json, re, os
-from pathlib import Path
-from typing import Dict, Any
-ROOT = Path(os.environ.get("ROOT") or Path.cwd())
-def load_contract() -> Dict[str,Any]:
-    return json.loads((ROOT/"artifacts_prod/intent_contract.json").read_text(encoding="utf-8"))
-def classify_rule(email: Dict[str,Any], contract: Dict[str,Any]) -> str:
-    subject=email.get("subject",""); body=email.get("body","")
-    for it in contract.get("intents", []):
-        name=it.get("name",""); tag=it.get("subject_tag","")
-        if tag and tag in subject: return name
-        if name and (name in subject or name in body): return name
-    return "一般回覆"
-def extract_slots_rule(email: Dict[str,Any], intent: str) -> Dict[str,Any]:
-    text=f"{email.get('subject','')}\n{email.get('body','')}"
-    slots={}
-    m=re.search(r"(?:單價|price)[:：]\s*([0-9]+)", text);  slots["price"]=int(m.group(1)) if m else None
-    m=re.search(r"(?:數量|qty)[:：]\s*([0-9]+)", text);    slots["qty"]=int(m.group(1)) if m else None
-    m=re.search(r"(?:單號|order|ticket)[:：]?\s*([A-Za-z0-9-]{4,})", text); slots["id"]=m.group(1) if m else None
-    return slots
-def plan_actions_rule(intent: str, slots: Dict[str,Any]) -> Dict[str,Any]:
-    if intent=="報價":       return {"action":"quote_reply","template":"quote_v1","required":["price","qty"],"ok": all(slots.get(k) for k in ("price","qty"))}
-    if intent=="技術支援":   return {"action":"create_ticket","template":"ts_v1","required":["id"],"ok": bool(slots.get("id"))}
-    if intent=="投訴":       return {"action":"escalate_cs","template":"cs_v1","required":[],"ok":True}
-    if intent=="規則詢問":   return {"action":"policy_reply","template":"policy_v1","required":[],"ok":True}
-    if intent=="資料異動":   return {"action":"update_record","template":"update_v1","required":["id"],"ok": bool(slots.get("id"))}
-    return {"action":"generic_reply","template":"plain_v1","required":[],"ok":True}
+import os, json, pathlib, hashlib
+from typing import Any, Dict, Tuple, List, Optional
 
+import joblib
+from sklearn.pipeline import Pipeline, FeatureUnion
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+from sklearn.metrics import classification_report, f1_score
 
-def classify(email):
-    from .pipeline_baseline import classify_rule as _c
-    return _c(email)
+from vendor.rules_features import rules_feat, feature_schema_from_fitted
+
+# ---- utils ----
+def _exists(p: Optional[str]) -> bool:
+    return bool(p and pathlib.Path(p).exists())
+
+def _sha256_head(path: pathlib.Path, n: int = 1024*1024) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        h.update(f.read(n))
+    return h.hexdigest()
+
+# ---- public: load_model ----
+def load_model(path: str | None, task: str) -> Tuple[Any, Dict]:
+    """
+    回傳 (model_or_pipeline, meta)
+    - intent: 期望 Pipeline([('features', FeatureUnion), ('clf', CalibratedClassifierCV/LinearSVC/LogReg)])
+    - spam  : 期望 Pipeline([('vec', TfidfVectorizer), ('clf', ...)])
+    - kie   : 期望 HF 目錄，可 forward；這裡只負責存在性與最小載入（避免重吃顯存）
+    """
+    meta: Dict[str, Any] = {"task": task, "path": path, "status": "error"}
+
+    if task in ("intent", "spam"):
+        if not _exists(path):
+            meta.update(error="path_missing")
+            return None, meta
+        p = pathlib.Path(path)
+        meta["sha256_head"] = _sha256_head(p)
+        obj = joblib.load(p)
+
+        # 支援老格式 dict['pipeline'] 與直接 Pipeline
+        if isinstance(obj, dict) and "pipeline" in obj:
+            pipe = obj["pipeline"]
+        else:
+            pipe = obj
+
+        if not hasattr(pipe, "predict"):
+            meta.update(error="no_predict_on_loaded_object")
+            return None, meta
+
+        # ----- 任務特定校驗 -----
+        if task == "intent":
+            # 需要 features block；若沒有，嘗試修復；仍無 → 報錯
+            try:
+                steps = dict(pipe.steps)
+            except Exception:
+                meta.update(error="not_a_sklearn_pipeline")
+                return None, meta
+
+            if "features" not in steps:
+                # 嘗試補：把 rules_feat 接上
+                feat = rules_feat()
+                # 猜測分類器名稱
+                clf_name = next((k for k,_ in pipe.steps if k != "features"), "clf")
+                clf = steps.get(clf_name)
+                if clf is None:
+                    meta.update(error="no_clf_found_to_rewire")
+                    return None, meta
+                pipe = Pipeline([("features", feat), (clf_name, clf)])
+
+            # 若已 fit，可以取 n_features_in_
+            try:
+                nfin = getattr(dict(pipe.steps)["features"], "n_features_in_", None)
+            except Exception:
+                nfin = None
+            meta.update(status="ok", is_pipeline=True, n_features=nfin)
+            return pipe, meta
+
+        elif task == "spam":
+            # 如果不是 Pipeline（例如只有 LR），拒跑
+            if not isinstance(pipe, Pipeline):
+                meta.update(error="spam_model_not_pipeline_missing_vectorizer")
+                return None, meta
+            # 粗檢向量器
+            try:
+                _ = pipe.named_steps  # type: ignore
+            except Exception:
+                meta.update(error="spam_pipeline_has_no_steps")
+                return None, meta
+            meta.update(status="ok", is_pipeline=True)
+            return pipe, meta
+
+    elif task == "kie":
+        # 只做存在性與檔案檢查，forward 交給 eval_kie
+        d = pathlib.Path(path or "")
+        if not d.exists():
+            meta.update(error="dir_missing")
+            return None, meta
+        needed = ["config.json", "model.safetensors", "tokenizer.json"]
+        flags = {k: (d / k).exists() for k in needed}
+        meta.update(status="ok" if all(flags.values()) else "incomplete", ready_flags=flags)
+        return str(d), meta
+
+    meta.update(error="unsupported_task")
+    return None, meta

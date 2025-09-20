@@ -1,0 +1,4 @@
+# 你可改成你的權威位置，或用環境變數 INTENT_PKL / SPAM_PKL / KIE_DIR 覆蓋
+intent_pkl: models/intent/artifacts/v1/intent_pro_cal.pkl
+spam_pkl:   models/spam/artifacts/v1/spam_rules_lr.pkl
+kie_dir:    models/kie/artifacts/v1/

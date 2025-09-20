@@ -1,8 +1,9 @@
-faiss-cpu
-langchain
-langchain-community
-langchain-openai
-langchain-text-splitters
-openai
-tiktoken
-reportlab
+joblib==1.4.2
+scikit-learn==1.7.1
+scipy==1.11.4
+numpy<2.0.0
+pandas>=2.0.0
+pyyaml>=6.0.1
+# KIE（如需）
+transformers>=4.41.0
+# Torch 請依你的環境安裝適配版本；WSL 建議手動：pip3 install torch==2.2.2+cpu -f https://download.pytorch.org/whl/cpu
