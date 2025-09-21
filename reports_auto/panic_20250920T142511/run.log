@@ -1,0 +1,46 @@
+{
+  "intent": {
+    "path": "models/intent/artifacts/model_pipeline.pkl",
+    "steps": [
+      "tfidf",
+      "lr"
+    ],
+    "classes": [
+      "ham",
+      "spam"
+    ],
+    "vocab_size": 200000,
+    "smoke": [
+      "spam",
+      "ham",
+      "ham"
+    ]
+  },
+  "spam": {
+    "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl",
+    "steps": [
+      "tfidfvectorizer",
+      "calibratedclassifiercv"
+    ],
+    "classes": [
+      "0",
+      "1"
+    ],
+    "vocab_size": 1248936,
+    "smoke": [
+      "1",
+      "0",
+      "0"
+    ]
+  }
+}
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250920T142511/REPORT.md
+reports_auto/panic_20250920T142511/run.log
+reports_auto/panic_20250920T142511/run.err
+reports_auto/panic_20250920T142511/python_stderr.txt
+reports_auto/panic_20250920T142511/xtrace.sh
+reports_auto/panic_20250920T142511/system.txt
+reports_auto/panic_20250920T142511/oom.txt
+

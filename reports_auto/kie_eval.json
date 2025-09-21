@@ -1,0 +1,40 @@
+{
+  "task": "kie",
+  "dir": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model",
+  "status": "ok",
+  "files": {
+    "config.json": true,
+    "tokenizer.json": true,
+    "model.safetensors": true
+  },
+  "sample_tensors": {
+    "classifier.bias": [
+      9
+    ],
+    "classifier.weight": [
+      9,
+      768
+    ],
+    "roberta.embeddings.LayerNorm.bias": [
+      768
+    ],
+    "roberta.embeddings.LayerNorm.weight": [
+      768
+    ],
+    "roberta.embeddings.position_embeddings.weight": [
+      514,
+      768
+    ],
+    "roberta.embeddings.token_type_embeddings.weight": [
+      1,
+      768
+    ],
+    "roberta.embeddings.word_embeddings.weight": [
+      250002,
+      768
+    ],
+    "roberta.encoder.layer.0.attention.output.LayerNorm.bias": [
+      768
+    ]
+  }
+}

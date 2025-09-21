@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/_available_if.py", line 32, in _check
+    check_result = self.check(obj)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/pipeline.py", line 77, in check
+    getattr(self._final_estimator, attr)
+AttributeError: 'TfidfVectorizer' object has no attribute 'predict'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/eval_intent.py", line 67, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/eval_intent.py", line 44, in main
+    y_pred = pipe.predict(X)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/_available_if.py", line 43, in __get__
+    self._check(obj, owner=owner)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/_available_if.py", line 34, in _check
+    raise AttributeError(attr_err_msg) from e
+AttributeError: This 'Pipeline' has no attribute 'predict'

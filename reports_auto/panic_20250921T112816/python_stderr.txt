@@ -1,0 +1,24 @@
+bash: line 1: bad substitution: no closing "`" in `bash
+# 先進專案根與 venv
+cd ~/projects/smart-mail-agent-ssot-pro
+[ -f .venv/bin/activate ] && . .venv/bin/activate || true
+export PYTHONNOUSERSITE=1 PYTHONPATH="$PWD:${PYTHONPATH:-}"
+
+# 三個環境變數（綁定你的本機模型）
+export INTENT_PKL="$HOME/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl"   # Intent=6類
+export SPAM_PKL="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl"  # Spam=0/1
+export KIE_DIR="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model"
+
+# 任何指令一律用 panic 包起來
+bash tools/panic.sh "python scripts/eval_all.py --cfg configs/model_paths.yaml"
+可用指令
+make env：建立虛擬環境並安裝相依
+
+make eval-all：匯整 Intent/Spam/KIE 檢查，輸出 reports_auto/summary.json
+
+make api：啟動 uvicorn scripts.api_meta:app --port 8088
+
+注意：train-* 目標目前為安全占位；此專案以「外部提供模型＋ENV 綁定」為主。
+""", encoding="utf-8")
+print("[OK] Makefile patched and README.md created. Backup:", bakdir)
+

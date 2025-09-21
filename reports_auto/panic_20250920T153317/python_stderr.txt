@@ -1,0 +1,4 @@
+  File "<stdin>", line 188
+    ((d.get(sha256_head) or )[:16])
+                            ^
+SyntaxError: f-string: invalid syntax

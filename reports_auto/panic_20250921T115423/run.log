@@ -1,0 +1,16 @@
+{
+  "task": "spam",
+  "path": null,
+  "status": "error",
+  "error": "path_missing"
+}
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T115423/REPORT.md
+reports_auto/panic_20250921T115423/run.log
+reports_auto/panic_20250921T115423/run.err
+reports_auto/panic_20250921T115423/python_stderr.txt
+reports_auto/panic_20250921T115423/xtrace.sh
+reports_auto/panic_20250921T115423/system.txt
+reports_auto/panic_20250921T115423/oom.txt
+

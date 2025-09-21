@@ -1,0 +1,15 @@
+[use] intent: /home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl
+[use] spam  : /home/youjie/projects/smart-mail-agent-ssot-pro/data/val.jsonl
+[out] env  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train_rebuild_20250920T113836/MODEL_PATHS.auto.env
+[out] pkl  : models/intent/artifacts/model_pipeline.pkl ; models/spam/artifacts/model_pipeline.pkl
+[out] rep  : /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/train_rebuild_20250920T113836/report.json
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250920T113835/REPORT.md
+reports_auto/panic_20250920T113835/run.log
+reports_auto/panic_20250920T113835/run.err
+reports_auto/panic_20250920T113835/python_stderr.txt
+reports_auto/panic_20250920T113835/xtrace.sh
+reports_auto/panic_20250920T113835/system.txt
+reports_auto/panic_20250920T113835/oom.txt
+

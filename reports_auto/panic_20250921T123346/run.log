@@ -1,0 +1,14 @@
+intent classes: ['其他' '報價' '技術支援' '投訴' '規則詢問' '資料異動']
+intent pred   : 報價
+spam classes  : [0 1]
+spam pred     : 1
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T123346/REPORT.md
+reports_auto/panic_20250921T123346/run.log
+reports_auto/panic_20250921T123346/run.err
+reports_auto/panic_20250921T123346/python_stderr.txt
+reports_auto/panic_20250921T123346/xtrace.sh
+reports_auto/panic_20250921T123346/system.txt
+reports_auto/panic_20250921T123346/oom.txt
+

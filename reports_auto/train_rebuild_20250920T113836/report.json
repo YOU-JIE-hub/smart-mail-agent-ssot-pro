@@ -1,0 +1,86 @@
+{
+  "intent": {
+    "src": "/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl",
+    "report": {
+      "ham": {
+        "precision": 0.9574062301335029,
+        "recall": 0.9875409836065574,
+        "f1-score": 0.9722401549386701,
+        "support": 1525.0
+      },
+      "spam": {
+        "precision": 0.9865343727852587,
+        "recall": 0.95407813570939,
+        "f1-score": 0.9700348432055749,
+        "support": 1459.0
+      },
+      "accuracy": 0.9711796246648794,
+      "macro avg": {
+        "precision": 0.9719703014593808,
+        "recall": 0.9708095596579738,
+        "f1-score": 0.9711374990721224,
+        "support": 2984.0
+      },
+      "weighted avg": {
+        "precision": 0.9716481738764358,
+        "recall": 0.9711796246648794,
+        "f1-score": 0.9711618875731922,
+        "support": 2984.0
+      }
+    }
+  },
+  "spam": {
+    "src": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/val.jsonl",
+    "report": {
+      "其他": {
+        "precision": 0.8461538461538461,
+        "recall": 1.0,
+        "f1-score": 0.9166666666666666,
+        "support": 11.0
+      },
+      "報價": {
+        "precision": 0.9230769230769231,
+        "recall": 1.0,
+        "f1-score": 0.96,
+        "support": 36.0
+      },
+      "技術支援": {
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "f1-score": 0.9523809523809523,
+        "support": 22.0
+      },
+      "投訴": {
+        "precision": 1.0,
+        "recall": 0.9411764705882353,
+        "f1-score": 0.9696969696969697,
+        "support": 17.0
+      },
+      "規則詢問": {
+        "precision": 0.9230769230769231,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.8888888888888888,
+        "support": 14.0
+      },
+      "資料異動": {
+        "precision": 0.9230769230769231,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.8888888888888888,
+        "support": 14.0
+      },
+      "accuracy": 0.9385964912280702,
+      "macro avg": {
+        "precision": 0.935897435897436,
+        "recall": 0.9274255156608097,
+        "f1-score": 0.9294203944203945,
+        "support": 114.0
+      },
+      "weighted avg": {
+        "precision": 0.941970310391363,
+        "recall": 0.9385964912280702,
+        "f1-score": 0.9383285233285232,
+        "support": 114.0
+      }
+    }
+  }
+}

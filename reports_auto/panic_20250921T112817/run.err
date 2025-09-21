@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/eval_all.py", line 22, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/eval_all.py", line 15, in main
+    s["intent"] = run([sys.executable, "scripts/eval_intent.py"])
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/eval_all.py", line 6, in run
+    out = sp.check_output(cmd, text=True, stderr=sp.STDOUT)
+  File "/usr/lib/python3.10/subprocess.py", line 421, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/youjie/bin/python3', 'scripts/eval_intent.py']' returned non-zero exit status 1.

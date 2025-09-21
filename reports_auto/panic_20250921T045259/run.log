@@ -1,0 +1,11 @@
+panic smoke ok
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T045259/REPORT.md
+reports_auto/panic_20250921T045259/run.log
+reports_auto/panic_20250921T045259/run.err
+reports_auto/panic_20250921T045259/python_stderr.txt
+reports_auto/panic_20250921T045259/xtrace.sh
+reports_auto/panic_20250921T045259/system.txt
+reports_auto/panic_20250921T045259/oom.txt
+

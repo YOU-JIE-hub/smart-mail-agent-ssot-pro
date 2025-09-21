@@ -1,0 +1,11 @@
++ /home/youjie/projects/smart-mail-agent-ssot-pro/.venv/bin/python3 scripts/eval_intent.py
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T114754/REPORT.md
+reports_auto/panic_20250921T114754/run.log
+reports_auto/panic_20250921T114754/run.err
+reports_auto/panic_20250921T114754/python_stderr.txt
+reports_auto/panic_20250921T114754/xtrace.sh
+reports_auto/panic_20250921T114754/system.txt
+reports_auto/panic_20250921T114754/oom.txt
+

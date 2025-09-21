@@ -1,0 +1,10 @@
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250920T114801/REPORT.md
+reports_auto/panic_20250920T114801/run.log
+reports_auto/panic_20250920T114801/run.err
+reports_auto/panic_20250920T114801/python_stderr.txt
+reports_auto/panic_20250920T114801/xtrace.sh
+reports_auto/panic_20250920T114801/system.txt
+reports_auto/panic_20250920T114801/oom.txt
+

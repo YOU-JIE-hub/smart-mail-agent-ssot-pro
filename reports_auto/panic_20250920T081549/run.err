@@ -1,0 +1,89 @@
+tools/panic.sh: line 31: BASH_XTRACEFD: 5: invalid value for trace file descriptor
++ export PYTHONFAULTHANDLER=1
++ PYTHONFAULTHANDLER=1
++ export PYTHONWARNINGS=default
++ PYTHONWARNINGS=default
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
++ export PYTHONHASHSEED=0
++ PYTHONHASHSEED=0
++ CMD='python3 scripts/canuse_scan_and_train.py'
++ '[' -z 'python3 scripts/canuse_scan_and_train.py' ']'
++ dmesg
++ egrep -i 'killed process|out of memory|oom'
++ tail -n 120
++ true
++ set +e
++ timeout --preserve-status 3h bash -lc 'python3 scripts/canuse_scan_and_train.py'
+++ tee -a reports_auto/panic_20250920T081549/python_stderr.txt
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_scan_and_train.py", line 270, in <module>
+    main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_scan_and_train.py", line 222, in main
+    out, rep = train_and_eval(pick_intent["path"], out_pkl)
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_scan_and_train.py", line 135, in train_and_eval
+    pipe.fit(Xtr,ytr)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/pipeline.py", line 663, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/calibration.py", line 424, in fit
+    self.calibrated_classifiers_ = parallel(
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+  File "/home/youjie/lib/python3.10/site-packages/joblib/parallel.py", line 1918, in __call__
+    return output if self.return_generator else list(output)
+  File "/home/youjie/lib/python3.10/site-packages/joblib/parallel.py", line 1847, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/calibration.py", line 626, in _fit_classifier_calibrator_pair
+    estimator.fit(X_train, y_train, **fit_params_train)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/svm/_classes.py", line 321, in fit
+    self.coef_, self.intercept_, n_iter_ = _fit_liblinear(
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/svm/_base.py", line 1187, in _fit_liblinear
+    raise ValueError(
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.str_('ham')
++ ec=1
++ set -e
++ echo '# Panic Report'
++ echo '- Exit code: 1'
++ echo '- CMD: python3 scripts/canuse_scan_and_train.py'
++ echo '- LOG : reports_auto/panic_20250920T081549/run.log'
++ echo '- ERR : reports_auto/panic_20250920T081549/run.err'
++ echo '- PY  : reports_auto/panic_20250920T081549/python_stderr.txt'
++ echo '- OOM : reports_auto/panic_20250920T081549/oom.txt'
++ echo '- TRACE: reports_auto/panic_20250920T081549/xtrace.sh'
++ echo '- SYS : reports_auto/panic_20250920T081549/system.txt'
++ echo
++ echo '## Heuristics'
++ grep -qi Killed reports_auto/panic_20250920T081549/run.err reports_auto/panic_20250920T081549/python_stderr.txt
++ echo '- 可能 **OOM 被系統殺掉**（stderr 有 Killed）'
++ grep -qi 'out of memory' reports_auto/panic_20250920T081549/oom.txt
++ echo '- dmesg 顯示 **Out of memory**'
++ grep -qi rules_feat reports_auto/panic_20250920T081549/run.err reports_auto/panic_20250920T081549/python_stderr.txt
++ echo '- 舊 intent .pkl 需要 __main__.rules_feat（反序列化相容性問題）'
++ grep -qi 'has .* features, but .* expecting' reports_auto/panic_20250920T081549/run.err reports_auto/panic_20250920T081549/python_stderr.txt
++ echo '- 特徵維度不對齊（向量器詞彙不同）'
++ grep -qi 'No such file or directory' reports_auto/panic_20250920T081549/run.err reports_auto/panic_20250920T081549/python_stderr.txt
++ echo '- 路徑不存在'
++ grep -qi 'Permission denied' reports_auto/panic_20250920T081549/run.err reports_auto/panic_20250920T081549/python_stderr.txt
++ echo '- 權限問題'
++ finish
++ local ec=0
++ echo
++ echo '=== DIAG OUTPUTS ==='
++ echo reports_auto/panic_20250920T081549/REPORT.md
++ echo reports_auto/panic_20250920T081549/run.log
++ echo reports_auto/panic_20250920T081549/run.err
++ echo reports_auto/panic_20250920T081549/python_stderr.txt
++ echo reports_auto/panic_20250920T081549/xtrace.sh
++ echo reports_auto/panic_20250920T081549/system.txt
++ echo reports_auto/panic_20250920T081549/oom.txt
++ echo
++ tee -a reports_auto/panic_20250920T081549/run.log
++ return 0

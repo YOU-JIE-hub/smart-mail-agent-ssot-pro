@@ -1,0 +1,22 @@
+{
+  "intent": {
+    "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl",
+    "load_err": "Can't get attribute 'rules_feat' on <module '__main__' from '/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_scan_and_train.py'>"
+  },
+  "spam": {
+    "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl",
+    "type": "dict"
+  },
+  "kie": {
+    "dir": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model",
+    "present": {
+      "config.json": true,
+      "model.safetensors": true,
+      "tokenizer.json": true,
+      "special_tokens_map.json": true,
+      "tokenizer_config.json": true,
+      "sentencepiece.bpe.model": true
+    },
+    "ok": true
+  }
+}

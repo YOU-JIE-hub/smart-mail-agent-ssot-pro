@@ -1,0 +1,36 @@
+{
+  "intent": {
+    "path": "models/intent/artifacts/model_pipeline.pkl",
+    "steps": [
+      "tfidf",
+      "lr"
+    ],
+    "classes": [
+      "ham",
+      "spam"
+    ],
+    "vocab_size": 200000,
+    "smoke": [
+      "spam",
+      "ham",
+      "ham"
+    ]
+  },
+  "spam": {
+    "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl",
+    "steps": [
+      "tfidfvectorizer",
+      "calibratedclassifiercv"
+    ],
+    "classes": [
+      "0",
+      "1"
+    ],
+    "vocab_size": 1248936,
+    "smoke": [
+      "1",
+      "0",
+      "0"
+    ]
+  }
+}

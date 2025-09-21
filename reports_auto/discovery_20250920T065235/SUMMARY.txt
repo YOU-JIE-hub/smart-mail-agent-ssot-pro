@@ -1,0 +1,211 @@
+# Discovery summary @ 2025-09-20T06:56:17
+## Authoritative assets
+- INTENT_PKL: OK  /home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl (size=4.7MB)
+- SPAM_PKL: OK  /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl (size=960.0B)
+- KIE_DIR: OK  /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model (size=-)
+
+## Top dataset-like files (by size, top 30)
+-  793.6MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/share/export/PROJECT_CODE_20250901T074130Z.txt
+-  199.1MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/REPORT/CODE_DUMP.txt
+-   49.5MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/scan/20250916T041856/manifest.jsonl
+-   44.2MB  .json   unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_audit_20250919T204142/data_path_audit.json
+-   37.8MB  .txt    unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/context/FILELIST_20250919T053549.txt
+-   34.8MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/share/export/20250822T204915Z/code_snapshot.txt
+-   34.8MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/snapshot/share/export/20250822T204915Z/code_snapshot.txt
+-   33.5MB  .json   unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/MANIFEST.json
+-   29.7MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/share/export/20250822T204332Z/code_snapshot.txt
+-   29.7MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/snapshot/share/export/20250822T204332Z/code_snapshot.txt
+-   29.6MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/share/export/20250822T204527Z/code_snapshot.txt
+-   29.6MB  .txt    unknown  /home/youjie/projects/smart-mail-agent/snapshot/share/export/20250822T204527Z/code_snapshot.txt
+-   23.9MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/scan/20250916T044434/manifest.jsonl
+-   22.6MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl
+-   18.3MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/scan/20250916T043734/manifest.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/28__dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl
+-   15.8MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl
+-   15.6MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/data/benchmarks/spamassassin.jsonl
+-   15.6MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/8__spamassassin.jsonl
+-   15.6MB  .jsonl  unknown  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.jsonl
+
+## Top model/weight files (by size, top 30)
+-    1.0GB  .safetensors model       /home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/snapshots/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/model.safetensors
+-    1.0GB  .safetensors model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/model.safetensors
+-    1.0GB  .safetensors model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/model.safetensors
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/models/spam_model_pipeline__model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent/reports_auto/bundle_tmp/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent/reports_auto/spam/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/spam/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_spam_1757223221/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_spam_1757223693/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/release_staging/full_source_20250907T215644/tree/artifacts_prod/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent_ssot/release_staging/full_source_20250907T215644/tree/artifacts_prod/model_pipeline.pkl
+-   37.5MB  .pkl       model       /home/youjie/projects/smart-mail-agent-ssot-pro/models/spam_text_model__text_lr_platt.pkl
+
+## Code → path references (top 20 by count)
+- 276 refs  /home/youjie/projects/smart-mail-agent_ssot/.rebuild_rollback_20250912T022126/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent_ssot/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent_ssot/.restore_stage_20250911T061643/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent_ssot/.rebuild_stage_20250912T022126/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T013022/bundle/code/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T013022/bundle/code/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 276 refs  /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_transformers___init__.py
+    • data
+    • data.data_collator
+    • data.datasets
+    • data.metrics
+    • data.processors
+    • models
+- 167 refs  /home/youjie/projects/smart-mail-agent_ssot/.rebuild_rollback_20250912T022126/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_pygments_lexers_apdlexer.py
+    • /AN3D
+    • /ANFILE
+    • /ANGLE
+    • /ANNOT
+    • /ANUM
+    • /ASSIGN
+- 167 refs  /home/youjie/projects/smart-mail-agent_ssot/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_pygments_lexers_apdlexer.py
+    • /AN3D
+    • /ANFILE
+    • /ANGLE
+    • /ANNOT
+    • /ANUM
+    • /ASSIGN
+- 167 refs  /home/youjie/projects/smart-mail-agent_ssot/.restore_stage_20250911T061643/scripts/_backup/._.venv_clean_lib_python3.10_site-packages_pygments_lexers_apdlexer.py
+    • /AN3D
+    • /ANFILE
+    • /ANGLE
+    • /ANNOT
+    • /ANUM
+    • /ASSIGN

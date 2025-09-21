@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/forensics_20250921T031856/forensics.py", line 177, in <module>
+    f.write(f"{i}\t{float(s):.6f}\t{e[path]}\t{int(e[n])}\t{json.dumps(e[labels],ensure_ascii=False)}\t{e[size_mb]}\n")
+NameError: name 'path' is not defined. Did you mean: 'Path'?

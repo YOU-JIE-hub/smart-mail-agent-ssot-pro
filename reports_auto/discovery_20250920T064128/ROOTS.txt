@@ -1,0 +1,3 @@
+/home/youjie/projects/smart-mail-agent
+/home/youjie/projects/smart-mail-agent_ssot
+/home/youjie/projects/smart-mail-agent-ssot-pro

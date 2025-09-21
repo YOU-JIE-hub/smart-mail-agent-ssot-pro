@@ -1,0 +1,11 @@
+[OK] wrote reports_auto/eval/summary.md
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T123204/REPORT.md
+reports_auto/panic_20250921T123204/run.log
+reports_auto/panic_20250921T123204/run.err
+reports_auto/panic_20250921T123204/python_stderr.txt
+reports_auto/panic_20250921T123204/xtrace.sh
+reports_auto/panic_20250921T123204/system.txt
+reports_auto/panic_20250921T123204/oom.txt
+

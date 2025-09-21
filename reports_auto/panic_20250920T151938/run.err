@@ -1,0 +1,6 @@
+<stdin>:12: DeprecationWarning: invalid escape sequence '\.'
+<stdin>:12: DeprecationWarning: invalid escape sequence '\.'
+  File "<stdin>", line 111
+    outdir=Path("reports_auto")/f"forensics_{datetime.now().strftime("%Y%m%dT%H%M%S")}"
+                                                                      ^
+SyntaxError: f-string: unmatched '('

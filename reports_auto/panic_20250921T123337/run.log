@@ -1,0 +1,22 @@
+[OK] summary.json updated with KIE files: {'config.json': True, 'model.safetensors': True, 'tokenizer.json': True}
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T123337/REPORT.md
+reports_auto/panic_20250921T123337/run.log
+reports_auto/panic_20250921T123337/run.err
+reports_auto/panic_20250921T123337/python_stderr.txt
+reports_auto/panic_20250921T123337/xtrace.sh
+reports_auto/panic_20250921T123337/system.txt
+reports_auto/panic_20250921T123337/oom.txt
+
+[OK] wrote reports_auto/eval/summary.md
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T123337/REPORT.md
+reports_auto/panic_20250921T123337/run.log
+reports_auto/panic_20250921T123337/run.err
+reports_auto/panic_20250921T123337/python_stderr.txt
+reports_auto/panic_20250921T123337/xtrace.sh
+reports_auto/panic_20250921T123337/system.txt
+reports_auto/panic_20250921T123337/oom.txt
+

@@ -1,0 +1,11 @@
+[OK] Makefile reset. Backup at: /home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/makefix_20250921T132827
+
+=== DIAG OUTPUTS ===
+reports_auto/panic_20250921T132826/REPORT.md
+reports_auto/panic_20250921T132826/run.log
+reports_auto/panic_20250921T132826/run.err
+reports_auto/panic_20250921T132826/python_stderr.txt
+reports_auto/panic_20250921T132826/xtrace.sh
+reports_auto/panic_20250921T132826/system.txt
+reports_auto/panic_20250921T132826/oom.txt
+

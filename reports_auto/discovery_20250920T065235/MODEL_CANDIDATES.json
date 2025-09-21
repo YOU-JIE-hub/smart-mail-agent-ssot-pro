@@ -1,0 +1,4005 @@
+{
+  "count": 400,
+  "items": [
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.1226168,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.1426167,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.7746162,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756527207.662088,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756527207.6700878,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/scheduler.pt",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "scheduler.pt",
+      "ext": ".pt",
+      "kind": "model",
+      "size": 1064,
+      "mtime": 1756527238.8460965,
+      "sha256_head": "07008e41cba2eb2681ad43d9fe4c9edd945c25189bb0e48006a95c5ccf2f2db8"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756527207.7220879,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756527207.662088,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756527203.5740864,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-38/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756527207.7340877,
+      "sha256_head": "8446f8b04d36250a72f489509aae47f6dde90e501b8fc3a710cf8f27cce9f5c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756527453.4421158,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756527453.4461157,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/scheduler.pt",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "scheduler.pt",
+      "ext": ".pt",
+      "kind": "model",
+      "size": 1064,
+      "mtime": 1756527459.9261165,
+      "sha256_head": "d191bd3f80da153f0c38e8730c57d2826d2731a741554b315f2bf3a0edbd34b7"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756527453.4861157,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756527453.4421158,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756527445.470117,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-76/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756527453.5021157,
+      "sha256_head": "8446f8b04d36250a72f489509aae47f6dde90e501b8fc3a710cf8f27cce9f5c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756527705.4141417,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756527705.4541416,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/scheduler.pt",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "scheduler.pt",
+      "ext": ".pt",
+      "kind": "model",
+      "size": 1064,
+      "mtime": 1756527682.554139,
+      "sha256_head": "6fb88c19182ccd643ad5db0f21b6ce9eaecba36f510a654d03299092c56b0c78"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756527705.4821417,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756527705.4141417,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756527682.810139,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/optimizer.pt",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "optimizer.pt",
+      "ext": ".pt",
+      "kind": "model",
+      "size": 680,
+      "mtime": 1756527711.5461423,
+      "sha256_head": "157c866846b011db4f362d969a1b58f544405f744270709cb62cf16e9a4999f3"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/versions/kie_20250830T054845Z/model_xlmr/checkpoint-114/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756527705.8141418,
+      "sha256_head": "8446f8b04d36250a72f489509aae47f6dde90e501b8fc3a710cf8f27cce9f5c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts_sa_text/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 12732448,
+      "mtime": 1756560774.2528934,
+      "sha256_head": "0bb606e8b1c59bad73da42019e4581e0fa82642774e0057f464c070fb2eab302"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts_sa/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1756557830.7311575,
+      "sha256_head": "6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_svm_plus.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_svm_plus.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1641744,
+      "mtime": 1756417468.0123308,
+      "sha256_head": "6b1ceaeb4e38a12664fa419812f1d4df66cba332de818a71f1046e5fbf825a97"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_svm_plus_auto_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_svm_plus_auto_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 6291489,
+      "mtime": 1756611864.4265926,
+      "sha256_head": "986fbc49f254bca00545c158c39365f53cdb632f8563c4202cbf108ca02c1554"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_svm_plus_auto.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_svm_plus_auto.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 2060061,
+      "mtime": 1756442491.4711423,
+      "sha256_head": "7102985d714a5470e0a1ac5d697322892d7ab2569b4dcb9714c22f2590d77ca2"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.1269605,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1756424302.6129866,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/intent_svm_plus_boost.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_svm_plus_boost.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1778135,
+      "mtime": 1756420115.696061,
+      "sha256_head": "4defae3e40118f3142518693f87686fb2315b2972d04cbb875e4017f4cc3608a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1756549797.837421,
+      "sha256_head": "2e0c75ea502b432d5a6a9106d56be9dfeb68d9d8089f545ad665891fbbbe0d55"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.1226168,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.1426167,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.7746162,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/kie_xlmr.stub.2025-08-30_110841/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 27,
+      "mtime": 1756466754.8604567,
+      "sha256_head": "dc2cfad14621a65222a4d8632fa9d4fac6f193d25798856337102c95b81d3e76"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/kie_xlmr/kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.1226168,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.1426167,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/kie_xlmr/kie_xlmr/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/kie_xlmr/kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.7746162,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/kie_xlmr/kie_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1756570555.455948,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1756547837.8492386,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf_raw.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_clf_raw.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 855958,
+      "mtime": 1756569149.8391497,
+      "sha256_head": "67ee9027c7b474e08d821fca747a4e28aa25e81db5fe944017008f2f84c40b02"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1756573672.0938642,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts/releases/intent/20250831T045019Z-pro/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615819.0669606,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts_prod/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332472,
+      "mtime": 1756572313.2121074,
+      "sha256_head": "024370d43eb8ec935e25d021777c4524c4cebd82260b3898bdeaa3a97cbc061b"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756609855.7062476,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756609856.0,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/_kie_bundle_tmp/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756629885.5167065,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/_kie_bundle_tmp/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756629885.5247064,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/_kie_bundle_tmp/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756629885.5167065,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/_kie_bundle_tmp/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756629885.4927063,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/models/kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/models/kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.1226168,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/models/kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.1426167,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/models/kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.7746162,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/models/kie_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/kie/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/reports_auto/bundle_tmp/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756610887.2517252,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/snapshots/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 25,
+      "mtime": 1756526424.642023,
+      "sha256_head": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/snapshots/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756526427.1180232,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/snapshots/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/model.safetensors",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "model.safetensors",
+      "ext": ".safetensors",
+      "kind": "model",
+      "size": 1115567652,
+      "mtime": 1756526539.0100415,
+      "sha256_head": "e03d3dd71a458e184ce9febd6bb27f66263ddf62b35431f2b05212b3dabf8a57"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/snapshots/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 9096718,
+      "mtime": 1756526430.3740234,
+      "sha256_head": "8dcf3ce401811a6909e4f18fda55264c8f2fa57c028279d989eefbb9942c95e7"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/snapshots/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 615,
+      "mtime": 1756526425.050023,
+      "sha256_head": "d66ed8cd4f2a93b358c245e50736fa389ed4f35c0bae7aad0b32abb20c62b579"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/.hf_cache/hub/models--xlm-roberta-base/.no_exist/e73636d4f797dec63c3081bb6ed5c7b0bb3f2089/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 0,
+      "mtime": 1756526430.7740235,
+      "sha256_head": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts_zip_text/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 14165136,
+      "mtime": 1756569980.9872346,
+      "sha256_head": "753e05ca7ba6fe8bf346a2d595c260cf536dfcd78abfcc6ea8c058cafc9f5474"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent/artifacts_zh_text/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 14216024,
+      "mtime": 1756570768.8759599,
+      "sha256_head": "b06ab1bbd632f0580a52799e1296ee332fd13f228cad6d761a4c69fd16ca2cf2"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/release_staging/full_source_20250907T215644/tree/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/release_staging/full_source_20250907T215644/tree/artifacts_prod/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756609856.0,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/model.safetensors",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model.safetensors",
+      "ext": ".safetensors",
+      "kind": "model",
+      "size": 1109863956,
+      "mtime": 1756628954.0,
+      "sha256_head": "6ba10118d9b995476d1121bb246bc3de4e2a554072bef5932ca39baeca05c945"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_kie/model/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.6346166,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757190920.0909543,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757190919.8109543,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757190918.038955,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757190920.3389542,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757193668.5819018,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1756557830.0,
+      "sha256_head": "6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/intent_svm_plus.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1641744,
+      "mtime": 1756417468.0,
+      "sha256_head": "6b1ceaeb4e38a12664fa419812f1d4df66cba332de818a71f1046e5fbf825a97"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/intent_svm_plus_auto_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 6291489,
+      "mtime": 1756611864.0,
+      "sha256_head": "986fbc49f254bca00545c158c39365f53cdb632f8563c4202cbf108ca02c1554"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/intent_svm_plus_auto.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 2060061,
+      "mtime": 1756442490.0,
+      "sha256_head": "7102985d714a5470e0a1ac5d697322892d7ab2569b4dcb9714c22f2590d77ca2"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1756424302.0,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/intent_svm_plus_boost.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_boost.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1778135,
+      "mtime": 1756420114.0,
+      "sha256_head": "4defae3e40118f3142518693f87686fb2315b2972d04cbb875e4017f4cc3608a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1756549796.0,
+      "sha256_head": "2e0c75ea502b432d5a6a9106d56be9dfeb68d9d8089f545ad665891fbbbe0d55"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/kie_xlmr.stub.2025-08-30_110841/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 27,
+      "mtime": 1756466754.0,
+      "sha256_head": "dc2cfad14621a65222a4d8632fa9d4fac6f193d25798856337102c95b81d3e76"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/kie_xlmr/kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/kie_xlmr/kie_xlmr/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.0,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/kie_xlmr/kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/kie_xlmr/kie_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.0,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1756570554.0,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1756547836.0,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf_raw.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf_raw.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 855958,
+      "mtime": 1756569148.0,
+      "sha256_head": "67ee9027c7b474e08d821fca747a4e28aa25e81db5fe944017008f2f84c40b02"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1756573672.0,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts/releases/intent/20250831T045019Z-pro/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_prod/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332472,
+      "mtime": 1756572312.0,
+      "sha256_head": "024370d43eb8ec935e25d021777c4524c4cebd82260b3898bdeaa3a97cbc061b"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756609854.0,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie_min_bundle/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756629886.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie_min_bundle/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756629886.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie_min_bundle/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756629886.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie_min_bundle/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756629886.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756609856.0,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/model.safetensors",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model.safetensors",
+      "ext": ".safetensors",
+      "kind": "model",
+      "size": 1109863956,
+      "mtime": 1756532728.0,
+      "sha256_head": "6ba10118d9b995476d1121bb246bc3de4e2a554072bef5932ca39baeca05c945"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.0,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.0,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/spam/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757218690.9603117,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1558/model/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757218662.1763227,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1558/model/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757218662.2043226,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1558/model/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757218690.7203119,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1558/model/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1757218690.7203119,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1558/model/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757218690.7203119,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1558/model/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1757218690.7203119,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757218662.1723228,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757218655.7203252,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757218655.752325,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757218662.1523228,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757218662.1523228,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1644/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757218655.6283252,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1644/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757218655.656325,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1644/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757218655.7203252,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/.unpacked/kie_min_bundle_20250831-1644/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757218655.7203252,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/releases/kie_xlmr/20250904T154454Z-kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756971894.357026,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/releases/kie_xlmr/20250904T154454Z-kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756971894.365026,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/releases/kie_xlmr/20250904T154454Z-kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756971895.8050256,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts/releases/kie_xlmr/20250904T154454Z-kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756971895.8050256,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757191181.1788542,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757191181.1868544,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757191181.1788542,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/model/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756532728.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/model/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756532730.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/model/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756532730.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/model/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1756532728.0,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/model/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756532726.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/model/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1756532728.0,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts_sa/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1757223679.9544003,
+      "sha256_head": "6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/intent_svm_plus.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1641744,
+      "mtime": 1757223679.4664004,
+      "sha256_head": "6b1ceaeb4e38a12664fa419812f1d4df66cba332de818a71f1046e5fbf825a97"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/intent_svm_plus_auto_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 6291489,
+      "mtime": 1757223679.4904003,
+      "sha256_head": "986fbc49f254bca00545c158c39365f53cdb632f8563c4202cbf108ca02c1554"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/intent_svm_plus_auto.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 2060061,
+      "mtime": 1757223679.4744005,
+      "sha256_head": "7102985d714a5470e0a1ac5d697322892d7ab2569b4dcb9714c22f2590d77ca2"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223679.4624004,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1757223679.5024004,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/intent_svm_plus_boost.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_boost.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1778135,
+      "mtime": 1757223679.4984004,
+      "sha256_head": "4defae3e40118f3142518693f87686fb2315b2972d04cbb875e4017f4cc3608a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1757223679.6264005,
+      "sha256_head": "2e0c75ea502b432d5a6a9106d56be9dfeb68d9d8089f545ad665891fbbbe0d55"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/kie_xlmr.stub.2025-08-30_110841/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 27,
+      "mtime": 1757223679.5024004,
+      "sha256_head": "dc2cfad14621a65222a4d8632fa9d4fac6f193d25798856337102c95b81d3e76"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223679.6224003,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/kie_xlmr/kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223679.5624003,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223679.6224003,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/kie_xlmr/kie_xlmr/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1757223679.5624003,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/kie_xlmr/kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223679.5344005,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/kie_xlmr/kie_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1757223679.6224003,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757223679.5064003,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1757223679.5184004,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf_raw.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf_raw.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 855958,
+      "mtime": 1757223679.5064003,
+      "sha256_head": "67ee9027c7b474e08d821fca747a4e28aa25e81db5fe944017008f2f84c40b02"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757223679.5144005,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts/releases/intent/20250831T045019Z-pro/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223679.5344005,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts_prod/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332472,
+      "mtime": 1757223679.9544003,
+      "sha256_head": "024370d43eb8ec935e25d021777c4524c4cebd82260b3898bdeaa3a97cbc061b"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223679/77/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223679.7904003,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757164080.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_svm_plus.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1641744,
+      "mtime": 1757164080.0,
+      "sha256_head": "6b1ceaeb4e38a12664fa419812f1d4df66cba332de818a71f1046e5fbf825a97"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757164082.0,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_svm_plus_auto_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 6291489,
+      "mtime": 1757164082.0,
+      "sha256_head": "986fbc49f254bca00545c158c39365f53cdb632f8563c4202cbf108ca02c1554"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_svm_plus_auto.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 2060061,
+      "mtime": 1757164080.0,
+      "sha256_head": "7102985d714a5470e0a1ac5d697322892d7ab2569b4dcb9714c22f2590d77ca2"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1757164082.0,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332472,
+      "mtime": 1757164084.0,
+      "sha256_head": "024370d43eb8ec935e25d021777c4524c4cebd82260b3898bdeaa3a97cbc061b"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_svm_plus_boost.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_boost.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1778135,
+      "mtime": 1757164082.0,
+      "sha256_head": "4defae3e40118f3142518693f87686fb2315b2972d04cbb875e4017f4cc3608a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_clf_raw.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf_raw.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 855958,
+      "mtime": 1757164082.0,
+      "sha256_head": "67ee9027c7b474e08d821fca747a4e28aa25e81db5fe944017008f2f84c40b02"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1757164082.0,
+      "sha256_head": "2e0c75ea502b432d5a6a9106d56be9dfeb68d9d8089f545ad665891fbbbe0d55"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts/extra/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757164082.0,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757164084.0,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_intent_1757223679/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223680.0064003,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_intent_1757223188/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223188.2425892,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223693/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223693.2583952,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223693/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223693.286395,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223693/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223693.3543952,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223693/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223693.3543952,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_spam_1757223693/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9583945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223188/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223188.2465894,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223188/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223188.2745893,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223188/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223197.106586,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223188/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223197.106586,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223686/model/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223686.230398,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223686/model/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223686.2583978,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223686/model/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223693.2543952,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223686/model/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1757223693.2543952,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223686/model/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223693.2543952,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223686/model/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1757223693.2543952,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223197/model/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223197.110586,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223197/model/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223197.1385858,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223197/model/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223220.9585764,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223197/model/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1757223220.9585764,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223197/model/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223220.9585764,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1558_1757223197/model/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1757223220.9585764,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_spam_1757223221/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223221.2545764,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223220/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223220.9625766,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223220/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223220.9945765,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223220/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223221.0625765,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_min_bundle_20250831-1644_1757223220/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223221.0625765,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223680/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223680.0104003,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223680/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223680.0384002,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223680/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223686.230398,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_kie_1757223680/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223686.230398,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts_sa/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1757223188.1825893,
+      "sha256_head": "6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/intent_svm_plus.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1641744,
+      "mtime": 1757223187.6985896,
+      "sha256_head": "6b1ceaeb4e38a12664fa419812f1d4df66cba332de818a71f1046e5fbf825a97"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/intent_svm_plus_auto_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 6291489,
+      "mtime": 1757223187.7185895,
+      "sha256_head": "986fbc49f254bca00545c158c39365f53cdb632f8563c4202cbf108ca02c1554"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/intent_svm_plus_auto.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_auto.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 2060061,
+      "mtime": 1757223187.7025895,
+      "sha256_head": "7102985d714a5470e0a1ac5d697322892d7ab2569b4dcb9714c22f2590d77ca2"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223187.6905894,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1757223187.7305896,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/intent_svm_plus_boost.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_boost.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1778135,
+      "mtime": 1757223187.7265894,
+      "sha256_head": "4defae3e40118f3142518693f87686fb2315b2972d04cbb875e4017f4cc3608a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1757223187.8545895,
+      "sha256_head": "2e0c75ea502b432d5a6a9106d56be9dfeb68d9d8089f545ad665891fbbbe0d55"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/kie_xlmr.stub.2025-08-30_110841/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 27,
+      "mtime": 1757223187.7305896,
+      "sha256_head": "dc2cfad14621a65222a4d8632fa9d4fac6f193d25798856337102c95b81d3e76"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1757223187.8505895,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/kie_xlmr/kie_xlmr/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1757223187.7905896,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/kie_xlmr/kie_xlmr/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1757223187.8465896,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/kie_xlmr/kie_xlmr/special_tokens_map.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "special_tokens_map.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 280,
+      "mtime": 1757223187.7905896,
+      "sha256_head": "06e405a36dfe4b9604f484f6a1e619af1a7f7d09e34a8555eb0b77b66318067f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/kie_xlmr/kie_xlmr/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1757223187.7625895,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/kie_xlmr/kie_xlmr/training_args.bin",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "training_args.bin",
+      "ext": ".bin",
+      "kind": "model",
+      "size": 5112,
+      "mtime": 1757223187.8505895,
+      "sha256_head": "fd3094a3663b6b82935c13f671bac8b27716f56bf718344794d56091d12222c1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757223187.7345896,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_svm_plus_split.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_svm_plus_split.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1364151,
+      "mtime": 1757223187.7465894,
+      "sha256_head": "48fa1e5477945065ea765dc2cba8a6402381ec3c04170830fc9fabd1dbc7a5ee"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_clf_raw.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_clf_raw.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 855958,
+      "mtime": 1757223187.7385895,
+      "sha256_head": "67ee9027c7b474e08d821fca747a4e28aa25e81db5fe944017008f2f84c40b02"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/intent/20250830T095717Z-intent-pro/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757223187.7425895,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts/releases/intent/20250831T045019Z-pro/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223187.7625895,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts_prod/text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332472,
+      "mtime": 1757223188.1825893,
+      "sha256_head": "024370d43eb8ec935e25d021777c4524c4cebd82260b3898bdeaa3a97cbc061b"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/unzipped_77_1757223187/77/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent_ssot",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223188.0185895,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam_text_model__text_lr_platt.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "spam_text_model__text_lr_platt.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332472,
+      "mtime": 1756572313.2121074,
+      "sha256_head": "024370d43eb8ec935e25d021777c4524c4cebd82260b3898bdeaa3a97cbc061b"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/intent_svm_base__intent_svm_plus.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_svm_base__intent_svm_plus.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1641744,
+      "mtime": 1756417468.0123308,
+      "sha256_head": "6b1ceaeb4e38a12664fa419812f1d4df66cba332de818a71f1046e5fbf825a97"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam_model_pipeline__model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "spam_model_pipeline__model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1756609856.0,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/intent_pro_cal__intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal__intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.1269605,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/intent/artifacts/v2025-09-19/model.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3636910,
+      "mtime": 1758226747.524594,
+      "sha256_head": "27f98f0b96c7a7e0c236bcbc718ab41014b1007487153b479380765831cb9cdb"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757958194.8960402,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T013022/bundle/code/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757958194.8960402,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T013022/bundle/code/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4926032,
+      "mtime": 1757016282.3955507,
+      "sha256_head": "eb6f278dd48ca3c49d25c1e3f755942e64ad806bee0f6fa6cd381cb954a472b9"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363751,
+      "mtime": 1757193668.6299016,
+      "sha256_head": "ce70b4fdb024b987d57bacb31c73354316e4a1bc077c15ddd6ab1eeb30776028"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757223721.9903839,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 3736460,
+      "mtime": 1757908383.9584448,
+      "sha256_head": "9d9b1da784b1fea2f07a1bcbde928ebb22743bf94b577573fbf029e3256d16c6"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363920,
+      "mtime": 1757799046.3228412,
+      "sha256_head": "6aab127f91f9ac578ca657b44236f517681aba6ae996ad090bc6d14461750300"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 1363778,
+      "mtime": 1757193668.6219018,
+      "sha256_head": "0ecf0c10746553084b1d369c1535e8216f3d70208822505dfa5a223ea8098b51"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/artifacts_prod/model_pipeline.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "model_pipeline.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 39332648,
+      "mtime": 1757223694.9943945,
+      "sha256_head": "faf47bfbe72bd0bec19ae6c02545e64bfae8780fa6cfa65c893ee6c61401085a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/artifacts/intent_pro_cal_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 361,
+      "mtime": 1757884426.2749994,
+      "sha256_head": "401d1864087d63b1fae3b5419471acfdb419f81de71f2b09574c9eac2f14757c"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/artifacts/intent_clf.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_clf.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 351,
+      "mtime": 1757884426.2789993,
+      "sha256_head": "cbc1e97349e1885edecea6e511ed47111658efb745dc8242afe6c1eff8cdcc65"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 355,
+      "mtime": 1757884426.2829993,
+      "sha256_head": "48a938104501923503440c8cbc06a11798aac34fea8bdc3cd0b1f2b4ef49c004"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/artifacts/intent_pipeline_aligned.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_aligned.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 364,
+      "mtime": 1757884426.2909994,
+      "sha256_head": "4c3e17e456d68169ca32092a2a614e7a9e3a99c0f96c3da961bea5cf71925568"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/artifacts/intent_pipeline_fixed_wide.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed_wide.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 367,
+      "mtime": 1757884426.2949994,
+      "sha256_head": "a63481b3b70697497a35c853bd02c8aa037b594a06b663ead11b0fc04d91abf1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/artifacts/intent_pipeline_fixed.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pipeline_fixed.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 362,
+      "mtime": 1757884426.2989993,
+      "sha256_head": "436db56290be2ecc6bf5174ffb5a14fd26f84a6321228ccaf0af759623621ccf"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/share_bundle/20250915T051335/bundle_root/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 369,
+      "mtime": 1757884426.2549994,
+      "sha256_head": "c0946a1d5f6dc6978c8fa2fb34d604825aedb0718cc83dea5988e2b631890b69"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/kie/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_out/project_payload_20250916T023315/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1757961195.088649,
+      "sha256_head": "6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_out/project_payload_20250916T023315/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1757961195.028649,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_out/project_payload_20250918T061319/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "spam_rules_lr.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 960,
+      "mtime": 1758147199.521837,
+      "sha256_head": "6d0c2acb44f955c6f503602d1a375692385e2cf8f9a03eda89215def9c22cd48"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_out/project_payload_20250918T061319/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1758147199.469837,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/kie/kie/tokenizer.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 17082832,
+      "mtime": 1756628954.0,
+      "sha256_head": "0fd75bcede433b136abacc1db563b2d2ff20fa27c8739fa8731376a45f112b5a"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "intent_pro_cal.pkl",
+      "ext": ".pkl",
+      "kind": "model",
+      "size": 4924369,
+      "mtime": 1756615818.0,
+      "sha256_head": "77cbd98660015405bec5b66a12a0336d0f284ace47f2838908b75e207aa4d86f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/kie/kie/tokenizer_config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "tokenizer_config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1147,
+      "mtime": 1756628954.0,
+      "sha256_head": "f90024142df07163e5e6c5b9a6ad7c8c68b22a9112af11e3db4559a9ff90f737"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/kie/kie/sentencepiece.bpe.model",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "sentencepiece.bpe.model",
+      "ext": ".model",
+      "kind": "model-asset",
+      "size": 5069051,
+      "mtime": 1756628954.0,
+      "sha256_head": "5ae858c3efa4f4985c4f280fc58f83ade492a3ed1b034fd898e6df522aa29f6f"
+    },
+    {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/kie/kie/config.json",
+      "root": "/home/youjie/projects/smart-mail-agent-ssot-pro",
+      "name": "config.json",
+      "ext": ".json",
+      "kind": "model-asset",
+      "size": 1092,
+      "mtime": 1756628954.0,
+      "sha256_head": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1"
+    }
+  ]
+}

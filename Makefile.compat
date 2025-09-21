@@ -1,0 +1,10 @@
+.PHONY: eval-compat summary-md smoke
+
+eval-compat:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/eval_all_compat.py --out reports_auto/summary.json'
+
+summary-md:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/build_summary_md.py'
+
+smoke:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/eval_all_compat.py --smoke --print-classes'

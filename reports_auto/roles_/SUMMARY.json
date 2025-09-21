@@ -1,0 +1,23 @@
+{
+  "picked": {
+    "intent": null,
+    "spam": null
+  },
+  "final_paths": {
+    "intent_pkl": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/intent/artifacts/model_pipeline.pkl",
+    "spam_pkl": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl"
+  },
+  "smoke": {
+    "intent": [
+      "spam",
+      "ham",
+      "ham"
+    ],
+    "spam": [
+      "投訴",
+      "報價",
+      "報價"
+    ]
+  },
+  "notes": []
+}

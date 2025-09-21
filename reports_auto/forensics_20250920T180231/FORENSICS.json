@@ -1,0 +1,974 @@
+{
+  "ts": "20250921T031913",
+  "models": {
+    "intent": {
+      "path": "models/intent/artifacts/model_pipeline.pkl",
+      "ok": true,
+      "steps": [
+        "tfidf",
+        "lr"
+      ],
+      "vocab_size": 200000,
+      "classes": [
+        "ham",
+        "spam"
+      ]
+    },
+    "spam": {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl",
+      "ok": true,
+      "steps": [
+        "tfidfvectorizer",
+        "calibratedclassifiercv"
+      ],
+      "vocab_size": 1248936,
+      "classes": [
+        0,
+        1
+      ]
+    }
+  },
+  "top_intent": [
+    {
+      "score": 0.143265,
+      "path": "/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl",
+      "n": 3999,
+      "labels": {
+        "ham": 3050,
+        "spam": 2941
+      },
+      "size_mb": 23.74
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14312,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/28__dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.14162,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/data/spam_eval/dataset.jsonl",
+      "n": 3893,
+      "labels": {},
+      "size_mb": 14.62
+    },
+    {
+      "score": 0.141395,
+      "path": "/home/youjie/projects/smart-mail-agent/data/spam_sa/train.jsonl",
+      "n": 2942,
+      "labels": {
+        "ham": 1960,
+        "spam": 973
+      },
+      "size_mb": 11.68
+    },
+    {
+      "score": 0.141395,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam_sa_train__train.jsonl",
+      "n": 2942,
+      "labels": {
+        "ham": 1960,
+        "spam": 973
+      },
+      "size_mb": 11.68
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/9__spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.138535,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/8__spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125995,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.125935,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    }
+  ],
+  "top_spam": [
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.010135827616467136,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/28__dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    },
+    {
+      "score": 0.009942863365296541,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/staged_project/data/spam_eval/dataset.jsonl",
+      "n": 3893,
+      "labels": {},
+      "size_mb": 14.62
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/9__spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.00958015462761903,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/benchmarks/spamassassin_phish.jsonl",
+      "n": 3608,
+      "labels": {
+        "ham": 2351,
+        "spam": 1253
+      },
+      "size_mb": 15.25
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/data_scan/SCAN_20250917T084806/links/8__spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.009375980834886655,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/benchmarks/spamassassin.jsonl",
+      "n": 3996,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.41
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    },
+    {
+      "score": 0.00936957538256564,
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.clean.jsonl",
+      "n": 4000,
+      "labels": {
+        "ham": 2801,
+        "spam": 1392
+      },
+      "size_mb": 16.38
+    }
+  ],
+  "picked": {
+    "intent": {
+      "path": "/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl",
+      "n": 3999,
+      "labels": {
+        "ham": 3050,
+        "spam": 2941
+      },
+      "size_mb": 23.74
+    },
+    "spam": {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl",
+      "n": 4000,
+      "labels": {},
+      "size_mb": 16.56
+    }
+  }
+}

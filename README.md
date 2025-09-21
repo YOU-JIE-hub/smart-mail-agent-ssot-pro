@@ -1,54 +1,20 @@
-# Smart Mail Agent — SSOT 重構版
+# Smart Mail Agent — Minimal Ops README
 
-## 專案目標與用途
-打造結合 NLP/LLM 與 RPA 的全自動處理平台，支援 OCR、網頁擷取、分類與文字分析，啟動後自動進行智慧決策與資料串接，支援 CLI 操作與 Linux 排程部署，對應 AI/RPA 工程師職能展示需求。
+## 快速開始
+1) 先進專案根並啟用 venv（以下指令示例已內建這一步）。
+2) 三個環境變數綁定你本機的模型路徑（Intent/Spam/KIE）。
+3) 任何指令一律用 panic 包起來，錯誤匯流到 reports_auto/panic_*。
 
-## 快速開始（三行）
-```bash
-cd ~/projects/smart-mail-agent_ssot
-. .venv/bin/activate
-OFFLINE=0 scripts/sma_e2e_all_safe.sh
-目錄結構（核心）
-bash
-Copy code
-src/smart_mail_agent/
-├─ cli/                # CLI 入口（含 e2e_safe 包裝）
-├─ pipeline/           # run_action_handler.py, action_handler.py
-├─ spam/               # spam_filter_orchestrator.py, spam_filter_pipeline.py, ml_spam_filter.py, ens.py, rules.yaml
-├─ intent/             # classifier.py, infer(shim), intent_model.py
-├─ kie/                # loader.py, model/ (KIE 權重)
-├─ rpa/                # quotation.py, policy.py
-├─ transport/          # mail.py
-├─ observability/      # audit.py, log_writer.py
-├─ utils/              # logger.py, config.py, pdf_safe.py
-└─ __init__.py
-主要指令
-環境體檢：scripts/sma_env_doctor.sh
+### 三個環境變數（綁定你的本機模型）
+export INTENT_PKL="$HOME/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl"
+export SPAM_PKL="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl"
+export KIE_DIR="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model"
 
-安全 E2E（會自動補參數與 sample EML）：scripts/sma_e2e_all_safe.sh
+### 總評（會產生 reports_auto/summary.json）
+bash tools/panic.sh ". .venv/bin/activate; python3 scripts/eval_all.py --cfg configs/model_paths.yaml && echo --- summary --- && sed -n 1,200p reports_auto/summary.json"
 
-單元測試：scripts/test_fast.sh
+### API 啟動（如需）
+bash tools/panic.sh ". .venv/bin/activate; uvicorn scripts.api_meta:app --host 127.0.0.1 --port 8088"
 
-格式檢查：scripts/sma_fmt_check.sh
-
-環境變數
-OFFLINE：1=不連網；0=允許 pip 安裝
-
-SMA_EML_DIR：.eml 目錄；未設時會自動建立 sample_eml/
-
-SMA_OUT_ROOT：E2E 輸出根目錄（預設 reports_auto/e2e_mail）
-
-SMA_FONT_TTF：PDF 字型路徑（如 assets/fonts/NotoSansTC-Regular.ttf）
-
-驗收輸出
-reports_auto/e2e_mail/<ts>/：E2E 輸出（SUMMARY.md、actions.jsonl、rpa_out/*）
-
-reports_auto/status/*：審計、狀態報告
-
-reports_auto/logs/*：執行日誌與崩潰報告
-
-## Quick Start (One-shot)
-python -m venv .venv && . .venv/bin/activate
-python -m pip install -r requirements.txt
-python -m pytest -q -rA
-python -m smart_mail_agent.cli.e2e_safe
+### 注意
+- Makefile 的 train-* 目前為安全占位；此專案以「外部提供模型＋ENV 綁定」為主。
