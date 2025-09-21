@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "mail_id": "s3_reset_2fa",
+    "intent": "quarantine",
+    "action": "manual_triage",
+    "idempotency_key": "5e678989286b3f3b"
+  },
+  "fields": {}
+}

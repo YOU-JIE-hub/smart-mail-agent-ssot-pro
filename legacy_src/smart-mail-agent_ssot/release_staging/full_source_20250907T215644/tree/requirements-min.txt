@@ -1,0 +1,7 @@
+pip==25.2
+setuptools
+wheel==0.45.1
+joblib==1.5.2
+scikit-learn
+numpy==2.2.6
+scipy==1.15.3

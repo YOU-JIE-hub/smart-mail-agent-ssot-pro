@@ -1,0 +1,22 @@
+# 專案預設設定（示例，可在 .env 覆寫）
+app_env: dev
+timezone: Asia/Taipei
+offline: true
+
+smtp:
+  host: smtp.example.com
+  port: 587
+  user: user@example.com
+  pass: please-change
+  from: "Smart Mail Agent <noreply@example.com>"
+
+paths:
+  model_dir: outputs/roberta-zh-checkpoint
+  output_dir: data/output
+  log_dir: logs
+
+security:
+  allow_external_call: false
+
+spam:
+  threshold: 0.5

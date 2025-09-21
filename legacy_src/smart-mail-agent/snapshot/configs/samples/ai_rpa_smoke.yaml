@@ -1,0 +1,5 @@
+# 最小可跑（離線）
+tasks: "nlp,actions"
+output: "share/smoke_output/config_smoke.json"
+input_path: ""
+url: ""

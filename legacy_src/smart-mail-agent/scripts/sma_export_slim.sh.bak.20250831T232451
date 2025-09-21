@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="${ROOT_DIR:-$PWD}"
+OUTDIR="${OUT_DIR:-$ROOT/export}"
+mkdir -p "$OUTDIR"
+
+python - <<'PY'
+from __future__ import annotations
+import os, sys, math, pathlib, zipfile
+
+ROOT   = pathlib.Path(os.environ.get("ROOT_DIR", os.getcwd()))
+OUTDIR = pathlib.Path(os.environ.get("OUT_DIR", str(ROOT / "export"))); OUTDIR.mkdir(parents=True, exist_ok=True)
+
+# ---- 可調參數 ----
+INCLUDE_DIRS = [p for p in os.environ.get("INCLUDE_DIRS","src scripts .sma_tools").split() if p]
+ALLOW_EXT    = {e.strip().lower() for e in os.environ.get(
+    "ALLOW_EXT",".py,.sh,.yml,.yaml,.json,.toml,.ini,.cfg,.md"
+).split(",") if e.strip()}
+MAX_FILE_KB      = int(os.environ.get("MAX_FILE_KB","200"))
+TARGET_PART_MB   = float(os.environ.get("TARGET_PART_MB","2"))
+FORCE_PARTS      = os.environ.get("FORCE_PARTS","").strip()
+INCLUDE_EXTRA    = [p for p in os.environ.get("INCLUDE_EXTRA","").split(";") if p]
+
+EXCLUDE_DIRS = {
+    ".git",".svn",".hg",".venv","venv","node_modules","__pycache__",
+    "data","reports_auto","artifacts","artifacts_prod","artifacts_sa_text",
+    "export",".mypy_cache",".pytest_cache",".idea",".vscode",".DS_Store"
+}
+
+target_bytes = max(1, int(TARGET_PART_MB * 1024 * 1024))
+max_file_bytes = MAX_FILE_KB * 1024
+
+def in_whitelist(p: pathlib.Path)->bool:
+    rel = p.relative_to(ROOT).as_posix()
+    top = rel.split("/",1)[0]
+    if top in EXCLUDE_DIRS: return False
+    if any(seg in rel.split("/") for seg in EXCLUDE_DIRS): return False
+    if any(rel.startswith(d.rstrip("/")+"/") or rel==d.rstrip("/") for d in INCLUDE_DIRS):
+        return True
+    for extra in INCLUDE_EXTRA:
+        if rel.startswith(extra.rstrip("/")+"/") or rel==extra.rstrip("/"):
+            return True
+    return False
+
+files, skipped_big, skipped_ext, skipped_other = [], [], [], []
+for p in ROOT.rglob("*"):
+    if not p.is_file(): continue
+    if not in_whitelist(p): 
+        skipped_other.append(p); continue
+    if p.suffix.lower() not in ALLOW_EXT:
+        skipped_ext.append(p); continue
+    try:
+        content = p.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        skipped_other.append(p); continue
+    rel = p.relative_to(ROOT).as_posix()
+    lang = {
+        ".py":"python",".sh":"bash",".yml":"yaml",".yaml":"yaml",".json":"json",
+        ".toml":"toml",".ini":"ini",".cfg":"ini",".md":"md"
+    }.get(p.suffix.lower(),"")
+    block = f"## {rel}  \n```{lang}\n{content}\n```\n\n"
+    b = block.encode("utf-8")
+    if len(b) > max_file_bytes:
+        skipped_big.append((rel, len(b))); continue
+    files.append((rel, b))
+
+if not files:
+    print("[FATAL] 沒有可匯出的代碼（請調整 INCLUDE_DIRS / ALLOW_EXT / MAX_FILE_KB）", file=sys.stderr)
+    sys.exit(2)
+
+total = sum(len(b) for _,b in files)
+if FORCE_PARTS:
+    parts = max(1, int(FORCE_PARTS))
+else:
+    parts = max(1, math.ceil(total / target_bytes))
+
+# Greedy 裝箱
+buckets = [{"size":0,"items":[]} for _ in range(parts)]
+for rel, b in sorted(files, key=lambda x: len(x[1]), reverse=True):
+    tgt = min(buckets, key=lambda x: x["size"])
+    tgt["items"].append((rel, b))
+    tgt["size"] += len(b)
+
+# 寫檔
+manifest = []
+for i, bk in enumerate(buckets, start=1):
+    fname = OUTDIR / f"code_part_{i:03d}.md"
+    with open(fname, "wb") as w:
+        w.write(f"# Project Code Export (Part {i:03d}/{parts:03d})\n\n".encode())
+        for rel, b in sorted(bk["items"], key=lambda x:x[0]):
+            w.write(b)
+    manifest.append((fname.name, len(bk["items"]), bk["size"]))
+
+# MANIFEST
+with open(OUTDIR/"MANIFEST.txt","w",encoding="utf-8") as w:
+    w.write(f"TOTAL files={len(files)}, bytes={total}, parts={parts}, target_part_MB={TARGET_PART_MB}\n")
+    for name, cnt, size in manifest:
+        w.write(f"{name}\tfiles={cnt}\tsize_bytes={size}\n")
+    if skipped_big:
+        w.write("\n[SKIPPED_BIG] (超過 MAX_FILE_KB，未內嵌，請手動挑選需要者)\n")
+        for rel, sz in sorted(skipped_big):
+            w.write(f"{rel}\t{sz} bytes\n")
+    if skipped_ext:
+        w.write("\n[SKIPPED_EXT] (不在 ALLOW_EXT)\n")
+        for p in sorted(skipped_ext):
+            w.write(f"{p.relative_to(ROOT).as_posix()}\n")
+    if skipped_other:
+        w.write("\n[SKIPPED_OTHER] (非白名單目錄/或被排除)\n")
+        for p in sorted(skipped_other):
+            w.write(f"{p.relative_to(ROOT).as_posix()}\n")
+
+# ZIP
+zip_path = ROOT / "reports_auto" / "code_export_slim.zip"
+zip_path.parent.mkdir(parents=True, exist_ok=True)
+with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
+    for p in sorted(OUTDIR.glob("code_part_*.md")):
+        z.write(p, arcname=p.name)
+    z.write(OUTDIR/"MANIFEST.txt", arcname="MANIFEST.txt")
+
+print("[OK] export ->", OUTDIR.as_posix())
+print("[OK] bundle ->", zip_path.as_posix())
+for name, cnt, size in manifest:
+    print(f"{name}\tfiles={cnt}\tsize={size} bytes")
+PY

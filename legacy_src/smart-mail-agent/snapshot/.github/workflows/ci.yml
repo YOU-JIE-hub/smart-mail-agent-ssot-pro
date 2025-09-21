@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.10" }
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          pip install -e ".[ocr,llm,dev]" pre-commit
+      - name: Lint (ruff)
+        run: |
+          ruff --version
+          ruff src
+      - name: Tests
+        env:
+          OFFLINE: "1"
+          PYTHONUTF8: "1"
+        run: |
+          pytest -q

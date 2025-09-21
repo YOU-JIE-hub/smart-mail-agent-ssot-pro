@@ -1,0 +1,10 @@
+version: 1
+keywords:
+  block:
+    - "(?i)viagra"
+    - "(?i)free money"
+    - "(?i)act now"
+  review:
+    - "(?i)unsubscribe"
+    - "(?i)limited time"
+suspicious_tlds: [".top", ".xyz", ".zip", ".click", ".work"]

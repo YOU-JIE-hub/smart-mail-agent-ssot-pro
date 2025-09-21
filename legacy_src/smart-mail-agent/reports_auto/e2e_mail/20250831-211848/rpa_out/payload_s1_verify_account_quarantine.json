@@ -1,0 +1,14 @@
+{
+  "id": "s1_verify_account",
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "due_at": "2025-08-31T14:19:02+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T13:19:02+00:00"
+  },
+  "idempotency_key": "0131ea476ea01708bdf77d9895e2d89845545d26",
+  "_note": ""
+}

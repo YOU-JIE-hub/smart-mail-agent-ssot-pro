@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "mail_id": "s3_reset_2fa",
+    "intent": "other",
+    "action": "manual_triage",
+    "ts": 1756747236,
+    "idempotency_key": "4f412a2a60f1b023",
+    "priority": "P3/Ops",
+    "queue": "P3/Ops"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 36,
+        "end": 55
+      }
+    ]
+  }
+}

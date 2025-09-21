@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "mail_id": "t2",
+    "intent": "other",
+    "action": "manual_triage",
+    "idempotency_key": "634774c7ed075732"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 34,
+        "end": 53
+      },
+      {
+        "label": "env",
+        "start": 0,
+        "end": 4
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+name: verify-actions
+on:
+  push: { branches: [ main ] }
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.10' }
+      - name: Create venv
+        run: python -m venv .venv_clean
+      - name: Install deps
+        run: |
+          . .venv_clean/bin/activate
+          python -m pip install -U pip wheel setuptools
+          pip install -r requirements.txt || true
+          pip install faiss-cpu langchain langchain-community langchain-openai openai tiktoken langchain-text-splitters reportlab
+      - name: Run one-click pipeline
+        run: |
+          . .venv_clean/bin/activate
+          python -m smart_mail_agent.cli.rag_build
+          python -m smart_mail_agent.cli.rag_query "付款條件是什麼？"
+          python -m smart_mail_agent.pipeline.pipe_run --inbox samples
+          python -m smart_mail_agent.cli.db_init
+      - name: Upload status
+        uses: actions/upload-artifact@v4
+        with: { name: reports_auto_status, path: reports_auto/status }
+      - name: Gate distribution
+        run: grep -R '"done": 10' -n reports_auto/status/PIPE_SUMMARY_*.json

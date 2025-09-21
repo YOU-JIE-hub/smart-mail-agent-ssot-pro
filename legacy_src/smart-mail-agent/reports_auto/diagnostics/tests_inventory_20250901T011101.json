@@ -1,0 +1,1128 @@
+{
+  "files": [
+    {
+      "path": "tests/ai_rpa_unit/test_actions_direct.py",
+      "tests": [
+        "test_both_order_and_dedup",
+        "test_sales_only",
+        "test_support_only",
+        "test_unknown_and_empty"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+      "tests": [
+        "test_actions_dry_run",
+        "test_actions_none",
+        "test_actions_sales_only",
+        "test_actions_support_only"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_actions_router.py",
+      "tests": [
+        "test_plan_from_categories_order_and_dedup",
+        "test_plan_from_intents_old_labels"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_actions_write_json.py",
+      "tests": [
+        "test_write_json_roundtrip"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+      "tests": [
+        "test_config_loader_safe",
+        "test_ocr_reads_text",
+        "test_scraper_requests_mock",
+        "test_spam_adapter_calls_mailguard"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_intent_map_categories.py",
+      "tests": [
+        "test_canonical_passthrough_and_unknown",
+        "test_old_labels_to_canonical"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_json_safe.py",
+      "tests": [
+        "test_jsonable_path_exception_dataclass"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "dataclasses",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_json_safe_more.py",
+      "tests": [
+        "test_jsonable_fallback_and_nested"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "dataclasses"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_mailguard_detector.py",
+      "tests": [
+        "test_allow_clean_text",
+        "test_allowlist_and_blocklist",
+        "test_block_suspicious",
+        "test_review_keywords"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_mailguard_gating_and_alias.py",
+      "tests": [
+        "test_mailguard_alias_spamcheck",
+        "test_mailguard_blocks_actions"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_main_classify_stdout.py",
+      "tests": [
+        "test_classify_only_stdout"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_main_contracts_generic.py",
+      "tests": [
+        "test_contract_always_has_steps",
+        "test_task_alias_normalization",
+        "test_unknown_task_ignored_but_logged"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_main_steps_and_unknown.py",
+      "tests": [
+        "test_unknown_task_kept_and_steps_present"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_nlp_rules_configurable.py",
+      "tests": [
+        "test_rules_all_and_none",
+        "test_rules_custom_yaml_override",
+        "test_rules_default_sales_and_support"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_nlp_rules_direct.py",
+      "tests": [
+        "test_none",
+        "test_sales_keywords_zh",
+        "test_support_keywords_zh"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_nlp_rules_golden.py",
+      "tests": [
+        "test_rules_golden_default"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_nlp_rules_synonyms.py",
+      "tests": [
+        "test_rules_default_synonyms_en"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/ai_rpa_unit/test_spam_task_via_main.py",
+      "tests": [
+        "test_spam_only_via_main",
+        "test_spam_with_nlp_pipeline"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/boost/test_cli_help.py",
+      "tests": [
+        "test_help_legacy_entry",
+        "test_help_routing_entry"
+      ],
+      "imports": [
+        "os",
+        "pathlib",
+        "subprocess",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/boost/test_core_shims_and_utils.py",
+      "tests": [
+        "test_jsonlog_dump_and_parse",
+        "test_logger_module_proxy",
+        "test_policy_engine_shim"
+      ],
+      "imports": [
+        "importlib",
+        "os",
+        "smart_mail_agent"
+      ]
+    },
+    {
+      "path": "tests/boost/test_importlib_sanity.py",
+      "tests": [
+        "test_importlib_util_importable"
+      ],
+      "imports": [
+        "importlib"
+      ]
+    },
+    {
+      "path": "tests/boost/test_reflective_execution.py",
+      "tests": [
+        "test_reflective_sweep"
+      ],
+      "imports": [
+        "importlib",
+        "inspect",
+        "os",
+        "pkgutil",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_actions_branches.py",
+      "tests": [
+        "test_actions_non_dryrun_branch"
+      ],
+      "imports": [
+        "__future__",
+        "importlib",
+        "inspect",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_actions_unit_smoke.py",
+      "tests": [
+        "test_actions_decision_smoke"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "inspect",
+        "pytest"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_ai_rpa_main_more_paths.py",
+      "tests": [
+        "test_main_actions_only_no_inputs",
+        "test_main_unknown_task"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_ai_rpa_main_more_stdout.py",
+      "tests": [
+        "test_stdout_allow_online",
+        "test_stdout_nlp_only"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_ai_rpa_main_stdout_and_bad_inputs.py",
+      "tests": [
+        "test_main_bad_input_path_stdout",
+        "test_main_stdout_no_output"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_cli_allow_online_no_tasks.py",
+      "tests": [
+        "test_allow_online_no_tasks_stdout"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "os",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_core_jsonlog_edges.py",
+      "tests": [
+        "test_jsonlog_empty_and_bad_lines"
+      ],
+      "imports": [
+        "__future__",
+        "pathlib",
+        "smart_mail_agent"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_dry_run_write_guard.py",
+      "tests": [
+        "test_dry_run_does_not_write"
+      ],
+      "imports": [
+        "ai_rpa",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_json_safe_cover.py",
+      "tests": [
+        "test_json_safe_handles_path"
+      ],
+      "imports": [
+        "ai_rpa",
+        "inspect",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_main_ocr_file_ok.py",
+      "tests": [
+        "test_ocr_on_file_success"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_main_spamcheck_only.py",
+      "tests": [
+        "test_spamcheck_only_allow"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_nlp_llm_env_paths.py",
+      "tests": [
+        "test_import_with_key",
+        "test_import_without_key"
+      ],
+      "imports": [
+        "__future__",
+        "importlib",
+        "inspect",
+        "os",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_nlp_llm_import_smoke.py",
+      "tests": [
+        "test_nlp_llm_import_and_callable"
+      ],
+      "imports": [
+        "__future__",
+        "ai_rpa",
+        "inspect"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_nlp_llm_smoke.py",
+      "tests": [
+        "test_nlp_llm_calls_all_simple_functions"
+      ],
+      "imports": [
+        "ai_rpa",
+        "inspect"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_scraper_offline_branch.py",
+      "tests": [
+        "test_scrape_offline_returns_list"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/coverage/test_stdout_contract.py",
+      "tests": [
+        "test_stdout_has_json_when_no_output"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/custom/test_dry_run_write_guard_custom.py",
+      "tests": [
+        "test_dry_run_no_file_write"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "os",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/custom/test_mailguard_gating_cli_custom.py",
+      "tests": [
+        "test_block_skips_actions"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "os",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/custom/test_playbook_router_end2end.py",
+      "tests": [
+        "test_general_flow",
+        "test_invoice_flow",
+        "test_quote_flow",
+        "test_refund_flow",
+        "test_sales_flow",
+        "test_support_flow"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json"
+      ]
+    },
+    {
+      "path": "tests/custom/test_scraper_offline_safe.py",
+      "tests": [
+        "test_scraper_offline_safe"
+      ],
+      "imports": [
+        "ai_rpa",
+        "os"
+      ]
+    },
+    {
+      "path": "tests/custom/test_spam_task_steps.py",
+      "tests": [
+        "test_spam_task_records_steps"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/custom/test_unknown_tasks_contract.py",
+      "tests": [
+        "test_unknown_kept_and_logged"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/integration/test_mail_online.py",
+      "tests": [
+        "test_imap_receive_online",
+        "test_smtp_send_online"
+      ],
+      "imports": [
+        "ai_rpa",
+        "os",
+        "pathlib",
+        "pytest"
+      ]
+    },
+    {
+      "path": "tests/models/test_cov_boost_ml.py",
+      "tests": [
+        "test_nlp_ml_branch",
+        "test_spam_adapter_ml_and_rule"
+      ],
+      "imports": [
+        "ai_rpa",
+        "importlib",
+        "os",
+        "sys",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/models/test_cov_pad.py",
+      "tests": [
+        "test_file_classifier_branches",
+        "test_json_safe_edges",
+        "test_mail_io_offline_and_logging",
+        "test_main_cli_paths",
+        "test_nlp_llm_available_and_chat",
+        "test_ocr_stub",
+        "test_scraper_and_config_loader_and_db_import"
+      ],
+      "imports": [
+        "ai_rpa",
+        "base64",
+        "contextlib",
+        "datetime",
+        "inspect",
+        "io",
+        "json",
+        "os",
+        "pathlib",
+        "runpy",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/models/test_intent_training_serving.py",
+      "tests": [
+        "test_intent_train_and_predict"
+      ],
+      "imports": [
+        "models",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/models/test_rag_build_and_query.py",
+      "tests": [
+        "test_rag_build_and_local_search",
+        "test_rag_gpt_fallback_without_key"
+      ],
+      "imports": [
+        "models",
+        "os"
+      ]
+    },
+    {
+      "path": "tests/models/test_spam_training_serving.py",
+      "tests": [
+        "test_spam_train_and_score"
+      ],
+      "imports": [
+        "models"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_end2end.py",
+      "tests": [
+        "test_actions_refund",
+        "test_actions_sales_with_scrape_context"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_executor_enterprise_more.py",
+      "tests": [
+        "test_executor_dryrun_and_real_side_effects"
+      ],
+      "imports": [
+        "ai_rpa",
+        "pathlib",
+        "sqlite3"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_playbook_plan.py",
+      "tests": [
+        "test_actions_module_write_json",
+        "test_plan_from_categories_general_fallback",
+        "test_plan_invoice_basic",
+        "test_plan_quote_basic",
+        "test_plan_refund_with_context",
+        "test_plan_sales_basic",
+        "test_plan_support_basic"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_router_gating.py",
+      "tests": [
+        "test_route_blocked_true"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_router_more.py",
+      "tests": [
+        "test_plan_refund_adds_context_when_scraped",
+        "test_route_blocked_returns_empty_steps"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_write_json_more.py",
+      "tests": [
+        "test_write_json_path_target",
+        "test_write_json_with_str_path_and_custom_type"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_write_json_more2.py",
+      "tests": [
+        "test_write_json_str_target_and_non_jsonables"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/pro/test_actions_write_json_path.py",
+      "tests": [
+        "test_write_json_serializes_path"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/pro/test_config_loader_smoke_pro.py",
+      "tests": [
+        "test_config_loader_smoke"
+      ],
+      "imports": [
+        "ai_rpa",
+        "inspect",
+        "json"
+      ]
+    },
+    {
+      "path": "tests/pro/test_cov_pad_more.py",
+      "tests": [
+        "test_cov_pad_more"
+      ],
+      "imports": [
+        "ai_rpa",
+        "datetime",
+        "importlib",
+        "os",
+        "pathlib",
+        "sys",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/pro/test_end2end_categories.py",
+      "tests": [
+        "test_biz_quote_flow",
+        "test_complaint_flow",
+        "test_other_flow",
+        "test_policy_qa_rag",
+        "test_profile_update_diff",
+        "test_tech_support"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json"
+      ]
+    },
+    {
+      "path": "tests/pro/test_file_classifier_smoke_pro.py",
+      "tests": [
+        "test_file_classifier_smoke"
+      ],
+      "imports": [
+        "ai_rpa",
+        "inspect"
+      ]
+    },
+    {
+      "path": "tests/pro/test_json_safe.py",
+      "tests": [
+        "test_path_and_set_serialization"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/pro/test_json_safe_pro.py",
+      "tests": [
+        "test_json_safe_has_convertor_and_handles_common_types"
+      ],
+      "imports": [
+        "ai_rpa",
+        "inspect",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/pro/test_mail_io_unit.py",
+      "tests": [
+        "test_receive_imap_offline_returns_empty",
+        "test_receive_imap_online_stub",
+        "test_send_email_offline_writes_eml_and_logs",
+        "test_send_email_smtp_success_with_starttls"
+      ],
+      "imports": [
+        "ai_rpa",
+        "email",
+        "json",
+        "os",
+        "pathlib",
+        "time",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/pro/test_mailguard_enterprise_more.py",
+      "tests": [
+        "test_adapter_high_score_blocks",
+        "test_header_flag_blocks",
+        "test_ruleset_export_contains_adapter_block"
+      ],
+      "imports": [
+        "ai_rpa",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/pro/test_mailguard_gating.py",
+      "tests": [
+        "test_allow_runs_actions",
+        "test_block_skips_actions"
+      ],
+      "imports": [
+        "ai_rpa",
+        "io",
+        "json",
+        "os",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_mailguard_layers.py",
+      "tests": [
+        "test_mailguard_allow_low_score",
+        "test_mailguard_block_by_adapter",
+        "test_mailguard_block_by_header",
+        "test_ruleset_export"
+      ],
+      "imports": [
+        "ai_rpa",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/pro/test_mailguard_variants.py",
+      "tests": [
+        "test_detect_allow_default_no_headers",
+        "test_detect_block_by_header_yes"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_main_allow_online_smoke.py",
+      "tests": [
+        "test_allow_online_smoke"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_main_cli_more.py",
+      "tests": [
+        "test_main_spam_alias_stdout",
+        "test_main_unknown_task_and_output"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_main_contracts.py",
+      "tests": [
+        "test_cli_noop_and_alias",
+        "test_dry_run_write_guard"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_main_contracts_pro.py",
+      "tests": [
+        "test_unknown_and_dry_run"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_main_gating_enterprise_more.py",
+      "tests": [
+        "test_allow_runs_actions",
+        "test_block_skips_actions",
+        "test_exec_flag_produces_exec_section"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "os",
+        "pathlib",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_main_unknown_stdout.py",
+      "tests": [
+        "test_main_unknown_task_stdout_contract"
+      ],
+      "imports": [
+        "ai_rpa",
+        "json",
+        "sys"
+      ]
+    },
+    {
+      "path": "tests/pro/test_nlp_llm_smoke_pro.py",
+      "tests": [
+        "test_nlp_llm_has_callable"
+      ],
+      "imports": [
+        "ai_rpa",
+        "inspect"
+      ]
+    },
+    {
+      "path": "tests/pro/test_ocr_smoke_pro.py",
+      "tests": [
+        "test_ocr_smoke"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_profile_update_diff_both.py",
+      "tests": [
+        "test_profile_update_diff_both_phone_and_email"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_router_categories_enterprise_more.py",
+      "tests": [
+        "test_biz_quote_flow",
+        "test_complaint_flow",
+        "test_other_flow",
+        "test_policy_qa_flow",
+        "test_profile_update_flow",
+        "test_support_flow"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_router_fallback_and_context.py",
+      "tests": [
+        "test_plan_from_categories_general_fallback_with_context"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/pro/test_scraper_offline.py",
+      "tests": [
+        "test_scrape_offline_handles_connection_error"
+      ],
+      "imports": [
+        "ai_rpa"
+      ]
+    },
+    {
+      "path": "tests/sma_core/test_jsonlog_extras.py",
+      "tests": [
+        "test_parse_and_read_jsonl_with_bad_lines"
+      ],
+      "imports": [
+        "__future__",
+        "pathlib",
+        "smart_mail_agent"
+      ]
+    },
+    {
+      "path": "tests/smoke/test_e2e_offline.py",
+      "tests": [
+        "test_e2e_outputs_exist"
+      ],
+      "imports": [
+        "os",
+        "pathlib",
+        "pytest"
+      ]
+    },
+    {
+      "path": "tests/test_actions_exec_and_audit.py",
+      "tests": [
+        "test_actions_exec_and_post_audit"
+      ],
+      "imports": [
+        "conftest",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/test_e2e_pipeline_fake.py",
+      "tests": [
+        "test_e2e_sma_e2e_run"
+      ],
+      "imports": [
+        "conftest",
+        "json",
+        "pathlib",
+        "sys",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/test_intent_router.py",
+      "tests": [
+        "test_intent_router_with_thresholds"
+      ],
+      "imports": [
+        "conftest",
+        "json",
+        "pathlib",
+        "sys",
+        "types"
+      ]
+    },
+    {
+      "path": "tests/test_kie_eval_strict.py",
+      "tests": [
+        "test_kie_eval_strict"
+      ],
+      "imports": [
+        "conftest",
+        "json",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/test_spam_quick_eval.py",
+      "tests": [
+        "test_spam_quick_eval_runs"
+      ],
+      "imports": [
+        "conftest",
+        "pathlib"
+      ]
+    },
+    {
+      "path": "tests/unit/test_log_writer_db_smoke.py",
+      "tests": [
+        "test_log_to_db_inserts_row"
+      ],
+      "imports": [
+        "__future__",
+        "pathlib",
+        "smart_mail_agent",
+        "sqlite3"
+      ]
+    },
+    {
+      "path": "tests/unit/test_logger_utils_smoke.py",
+      "tests": [
+        "test_get_logger_and_level"
+      ],
+      "imports": [
+        "__future__",
+        "importlib",
+        "logging",
+        "smart_mail_agent"
+      ]
+    },
+    {
+      "path": "tests/unit/test_pdf_safe_extra.py",
+      "tests": [
+        "test_escape_pdf_text_basic",
+        "test_write_pdf_or_txt_pdf_success",
+        "test_write_pdf_or_txt_txt_fallback"
+      ],
+      "imports": [
+        "__future__",
+        "pathlib",
+        "smart_mail_agent"
+      ]
+    },
+    {
+      "path": "tests/unit/test_sma_types_normalize_extra.py",
+      "tests": [
+        "test_normalize_result_branches"
+      ],
+      "imports": [
+        "__future__",
+        "smart_mail_agent"
+      ]
+    }
+  ],
+  "summary": {
+    "files": 92,
+    "test_functions": 170,
+    "test_methods": 0
+  },
+  "imports_missing": {
+    "conftest": 5
+  }
+}

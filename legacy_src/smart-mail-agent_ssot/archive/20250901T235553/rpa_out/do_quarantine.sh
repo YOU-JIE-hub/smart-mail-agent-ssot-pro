@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# idempotency: 82b78bb5068c270d
+echo '{"action": "quarantine", "priority": "P1", "queue": "Security", "idempotency_key": "82b78bb5068c270d", "payload": {"mail_id": "220f900f6538aeee", "subject": "Service delay complaint", "fields": {}, "intent": {"final": "quarantine", "p1": 1.0}, "ts": 1756742155}}'

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "mail_id": "p2",
+    "intent": "other",
+    "action": "manual_triage",
+    "idempotency_key": "70742d30645159c5"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 46,
+        "end": 65
+      }
+    ]
+  }
+}

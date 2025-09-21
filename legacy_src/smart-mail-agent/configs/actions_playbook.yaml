@@ -1,0 +1,23 @@
+# 可加可不加；只有在設定 ENABLE_PLAYBOOK=1 時，主程式才會載入此檔。
+rules:
+  - name: sales/quote
+    any: ["sales","quote","合作","報價","詢價","pricing"]
+    actions: ["send_quote"]
+  - name: refund
+    any: ["refund","退款","退貨","退費"]
+    actions: ["initiate_refund"]
+  - name: tech_support
+    any: ["tech_support","技術支援","故障","維修"]
+    actions: ["create_ticket"]
+  - name: invoice
+    any: ["invoice","發票","發票重寄"]
+    actions: ["resend_invoice"]
+  - name: cancel
+    any: ["cancel_order","取消訂單"]
+    actions: ["cancel_order_and_refund"]
+  - name: profile
+    any: ["update_profile","crm","客戶資料更新"]
+    actions: ["update_crm"]
+  - name: complaint
+    any: ["complaint","抱怨","申訴"]
+    actions: ["escalate_support"]

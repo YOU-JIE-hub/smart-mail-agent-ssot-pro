@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "mail_id": "s1_verify_account",
+    "intent": "quarantine",
+    "action": "manual_triage",
+    "idempotency_key": "18dfd79de4635423"
+  },
+  "fields": {}
+}

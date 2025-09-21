@@ -1,0 +1,11 @@
+{
+  "case_id": "s2_invoice_zip",
+  "diff": [
+    {
+      "field": "email",
+      "old": null,
+      "new": "customer@example.com"
+    }
+  ],
+  "status": "draft"
+}

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+mkdir -p reports_auto
+[[ -f artifacts_prod/ens_thresholds.json ]] || { echo "[FATAL] missing artifacts_prod/ens_thresholds.json"; exit 90; }
+MODEL=""
+for m in artifacts_prod/model_pipeline.pkl artifacts_prod/text_lr_platt.pkl; do
+  [[ -f "$m" ]] && MODEL="$m" && break
+done
+[[ -n "$MODEL" ]] || { echo "[FATAL] missing model pkl in artifacts_prod/"; exit 91; }
+
+# 產 quick report（如果沒有）
+if [[ ! -f reports_auto/prod_quick_report.md ]]; then
+  python scripts/sma_quick_eval.py || true
+fi
+
+TMP="reports_auto/bundle_tmp"; rm -rf "$TMP"; mkdir -p "$TMP"
+cp -f "$MODEL" "$TMP/"
+cp -f artifacts_prod/ens_thresholds.json "$TMP/"
+cp -f reports_auto/prod_quick_report.md "$TMP/" || true
+cp -f scripts/sma_infer_eml.py "$TMP/"
+
+cat > "$TMP/RUNME_demo.sh" <<'SH'
+#!/usr/bin/env bash
+set -Eeuo pipefail
+here="$(cd "$(dirname "$0")" && pwd)"
+python "$here/../scripts/sma_quick_eval.py" --model_dir "$here" --test "${1:-$(cd "$here/.." && pwd)/data/prod_merged/test.jsonl}" --out "$here/prod_quick_report_local.md" || true
+echo "[INFO] For EML inference:"
+echo "python sma_infer_eml.py <eml_dir_or_file> --model_dir \"$here\" --out predict_eml.tsv"
+SH
+chmod +x "$TMP/RUNME_demo.sh"
+
+stamp="$(date +%Y%m%d-%H%M)"
+ZIP="reports_auto/prod_bundle_${stamp}.zip"
+( cd "$TMP" && zip -q -r "../prod_bundle_${stamp}.zip" ./* )
+echo "[OK] bundle -> $ZIP"

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail; set -o errtrace; shopt -s nullglob dotglob
+TS="$(date +%Y%m%dT%H%M%S)"; LOG_DIR="reports_auto/logs"; STATUS_DIR="reports_auto/status"
+RUN_LOG="$LOG_DIR/status_run_${TS}.log"; ERR_LOG="$LOG_DIR/status_error_${TS}.log"
+REPORT_MD="$STATUS_DIR/STATUS_${TS}.md"; REPORT_JSON="$STATUS_DIR/status_${TS}.json"
+mkdir -p "$LOG_DIR" "$STATUS_DIR"
+on_err(){ ec=$?; { echo "----- STATUS ERROR @ $(date -Iseconds) -----"; echo "EXIT_CODE=$ec"; echo "LAST_CMD=${BASH_COMMAND}"; tail -n 200 "$RUN_LOG" 2>/dev/null || true; } >> "$ERR_LOG"; echo "ERROR: status failed; see $ERR_LOG"; exit "$ec"; }
+trap on_err ERR
+. ".sma_tools/env_guard.sh" | tee -a "$RUN_LOG"
+cat > "$REPORT_MD" <<MD
+# Smart Mail Agent — 現況盤點報告 (${TS})
+MD
+python - <<'PY' 2>&1 | tee -a "$RUN_LOG" | tee -a "$REPORT_MD"
+from __future__ import annotations
+import json, os, sqlite3, time
+from pathlib import Path
+from collections import Counter
+root=Path("."); out={"ts":int(time.time())}
+def load(p):
+    arr=[]; 
+    if not p.exists(): return arr
+    for line in p.read_text(encoding="utf-8").splitlines():
+        line=line.strip()
+        if not line: continue
+        import json as J
+        try: arr.append(J.loads(line))
+        except: pass
+    return arr
+print("## 模型與門檻")
+print("-", (root/"artifacts_prod/model_pipeline.pkl").exists(),
+      (root/"artifacts_prod/ens_thresholds.json").exists(),
+      (root/"artifacts/intent_pro_cal.pkl").exists())
+try:
+    last=sorted((root/"reports_auto"/"e2e_mail").glob("*"))[-1]
+    A=load(last/"actions.jsonl")
+    acts=Counter(a.get("action","") for a in A)
+    print("## E2E")
+    print("-", last.name, dict(acts))
+except Exception:
+    print("## E2E\n- NONE")
+db=root/"db"/"sma.sqlite"
+print("## DB")
+if db.exists():
+    con=sqlite3.connect(str(db)); cur=con.cursor()
+    try:
+        cur.execute("SELECT action,COUNT(*) FROM actions GROUP BY 1 ORDER BY 2 DESC")
+        print("-", cur.fetchall())
+    except Exception as e:
+        print("-", "DBERR", e)
+    con.close()
+else:
+    print("-", "MISSING")
+print("SMA PRINT OK :: STATUS V2")
+PY
+python - <<'PY' > "$REPORT_JSON"
+import json, time; print(json.dumps({"ts": int(time.time()), "ok": True}, indent=2))
+PY
+echo "SMA PRINT OK :: STATUS DONE → $REPORT_MD"

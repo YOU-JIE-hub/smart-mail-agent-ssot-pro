@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+source .sma_tools/env_guard.sh
+set -euo pipefail
+. .venv/bin/activate 2>/dev/null || true
+
+echo "[1/3] 合併資料 -> data/prod_merged"
+PYTHONPATH=src python scripts/sma_make_prod_dataset.py --out data/prod_merged
+
+echo "[2/3] 訓練生產模型 + 掃描門檻"
+PYTHONPATH=src python scripts/sma_train_prod_text.py --data_dir data/prod_merged --out_dir artifacts_prod
+
+echo "[3/3] 完成。可用以下指令做 .eml 推論（資料夾或單檔）："
+echo "  PYTHONPATH=src python scripts/sma_infer_eml.py --model_dir artifacts_prod <path_or_dir>"
+echo
+echo "產物："
+echo "  模型: artifacts_prod/text_lr_platt.pkl"
+echo "  門檻: artifacts_prod/ens_thresholds.json  # {threshold, signals_min} 已滿足 spam recall 優先"
+echo "  報告: reports_auto/prod_eval_text_only.txt / prod_eval_rule_only.txt / prod_eval_ensemble.txt"
+echo "  掃描: reports_auto/prod_sweep.tsv"

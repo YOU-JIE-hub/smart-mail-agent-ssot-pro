@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "artifacts": {
+    "output_path": "tmp_ap02_smoke/out.json"
+  },
+  "nlp": {
+    "labels": [],
+    "extracted": []
+  },
+  "steps": [
+    "nlp"
+  ]
+}

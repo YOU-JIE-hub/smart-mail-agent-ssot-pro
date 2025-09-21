@@ -1,0 +1,166 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+trap 'echo "[ERROR] fail at line $LINENO"; exit 1' ERR
+
+# === 配置 ===
+OUT_DIR="reports"
+ARCHIVE_DIR="$OUT_DIR/archive"
+STAMP="$(date +%Y%m%dT%H%M%S)"
+SNAP_MD="$OUT_DIR/ALL_FILES.$STAMP.md"
+MANIFEST="$OUT_DIR/MANIFEST.$STAMP.txt"
+ARCHIVE="$ARCHIVE_DIR/project_snapshot_$STAMP.tar.gz"
+MAX_BYTES=${MAX_BYTES:-200000}
+INCLUDE_UNTRACKED=${INCLUDE_UNTRACKED:-1}
+
+# === 位置與前置檢查 ===
+if ! git rev-parse --show-toplevel >/dev/null 2>&1; then
+  echo "[ERROR] 請在 Git 專案內執行"; exit 1
+fi
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+need_cmd() { command -v "$1" >/dev/null 2>&1; }
+HASH_CMD="sha256sum"
+need_cmd sha256sum || HASH_CMD="shasum -a 256"
+
+# === 準備輸出目錄 ===
+mkdir -p "$OUT_DIR" "$ARCHIVE_DIR"
+
+# === 蒐集檔案清單 ===
+if [[ "$INCLUDE_UNTRACKED" == "1" ]]; then
+  mapfile -d '' FILES < <(git ls-files -z --cached --others --exclude-standard)
+else
+  mapfile -d '' FILES < <(git ls-files -z)
+fi
+
+# 排除樣式
+EXCLUDES=(
+  ".git/"
+  ".venv/"
+  "node_modules/"
+  "dist/"
+  "build/"
+  "$OUT_DIR/"
+  ".pytest_cache/"
+  "__pycache__/"
+)
+
+should_exclude() {
+  local f="$1"
+  for pat in "${EXCLUDES[@]}"; do
+    [[ "$f" == "$pat"* ]] && return 0
+  done
+  return 1
+}
+
+# 判斷文字檔
+is_text() {
+  local f="$1"
+  if command -v file >/dev/null 2>&1; then
+    local mime
+    mime="$(file -b --mime "$f" 2>/dev/null || true)"
+    [[ "$mime" != *"charset=binary"* ]]
+  else
+    grep -Iq . "$f" 2>/dev/null
+  fi
+}
+
+# 推測語言
+lang_for() {
+  case "${1##*.}" in
+    py) echo "python" ;;
+    sh|bash) echo "bash" ;;
+    yml|yaml) echo "yaml" ;;
+    json) echo "json" ;;
+    md) echo "md" ;;
+    toml) echo "toml" ;;
+    ini|cfg|conf|env) echo "ini" ;;
+    html|htm) echo "html" ;;
+    css) echo "css" ;;
+    ts) echo "typescript" ;;
+    js|mjs|cjs) echo "javascript" ;;
+    sql) echo "sql" ;;
+    xml) echo "xml" ;;
+    txt|log) echo "text" ;;
+    *) echo "" ;;
+  esac
+}
+
+# === MANIFEST ===
+{
+  echo "# MANIFEST $STAMP"
+  echo "repo:   $REPO_ROOT"
+  echo "branch: $(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
+  echo "commit: $(git rev-parse --short HEAD 2>/dev/null || true)"
+  echo "files:  ${#FILES[@]}"
+  echo
+  for f in "${FILES[@]}"; do
+    should_exclude "$f" && { printf "[skip] %s\n" "$f"; continue; }
+    [[ -f "$f" ]] || continue
+    sz=$(wc -c < "$f" | tr -d ' ')
+    sha=$($HASH_CMD "$f" | awk '{print $1}')
+    printf "%8s  %s  %s\n" "$sz" "$sha" "$f"
+  done
+} > "$MANIFEST"
+
+# === 產生 ALL_FILES.md ===
+{
+  echo "# Project full code snapshot ($STAMP)"
+  echo
+  echo "- repo:   \`$REPO_ROOT\`"
+  echo "- branch: \`$(git rev-parse --abbrev-ref HEAD 2>/dev/null || true)\`"
+  echo "- commit: \`$(git rev-parse --short HEAD 2>/dev/null || true)\`"
+  echo "- files:  ${#FILES[@]}"
+  echo "- max inlined bytes per file: $MAX_BYTES"
+  echo
+  echo "## File list"
+  echo
+  for f in "${FILES[@]}"; do
+    should_exclude "$f" && continue
+    [[ -f "$f" ]] || continue
+    echo "- \`$f\`"
+  done
+
+  echo
+  echo "## Contents (text files only)"
+  for f in "${FILES[@]}"; do
+    should_exclude "$f" && continue
+    [[ -f "$f" ]] || continue
+    is_text "$f" || continue
+    sz=$(wc -c < "$f" | tr -d ' ')
+    echo
+    echo "### $f"
+    if (( sz > MAX_BYTES )); then
+      echo "> skipped embedding (size=$sz bytes > MAX_BYTES=$MAX_BYTES). Present in tarball."
+      continue
+    fi
+    lang="$(lang_for "$f")"
+    [[ -n "$lang" ]] && echo "\`\`\`$lang" || echo "\`\`\`"
+    cat "$f"
+    echo
+    echo "\`\`\`"
+  done
+} > "$SNAP_MD"
+
+# === 打包 tar.gz ===
+TMP_LIST="$(mktemp)"
+> "$TMP_LIST"
+for f in "${FILES[@]}"; do
+  should_exclude "$f" && continue
+  [[ -f "$f" ]] || continue
+  printf "%s\0" "$f" >> "$TMP_LIST"
+done
+
+mkdir -p "$ARCHIVE_DIR"
+if command -v pigz >/dev/null 2>&1; then
+  tar --null -cf - --files-from="$TMP_LIST" | pigz -9 > "$ARCHIVE"
+else
+  tar --null -czf "$ARCHIVE" --files-from="$TMP_LIST"
+fi
+rm -f "$TMP_LIST"
+
+echo
+echo "[OK] 產出完成："
+echo " - $SNAP_MD"
+echo " - $MANIFEST"
+echo " - $ARCHIVE"

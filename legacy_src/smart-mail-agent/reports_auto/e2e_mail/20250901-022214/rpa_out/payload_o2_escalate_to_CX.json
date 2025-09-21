@@ -1,0 +1,14 @@
+{
+  "id": "o2",
+  "action": "escalate_to_CX",
+  "priority": "P2",
+  "queue": "Support",
+  "due_at": "2025-09-01T18:22:27+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T18:22:27+00:00"
+  },
+  "idempotency_key": "20a9d2a8fb28f272a15e46d3c7d010be5172e1c7",
+  "_note": "notify=notify_slack_o2.sh"
+}

@@ -1,0 +1,16 @@
+{
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "idempotency_key": "65147c3617db5bac",
+  "payload": {
+    "mail_id": "3cd2d5cec9074549",
+    "subject": "Data retention clarification",
+    "fields": {},
+    "intent": {
+      "final": "quarantine",
+      "p1": 1.0
+    },
+    "ts": 1756743054
+  }
+}

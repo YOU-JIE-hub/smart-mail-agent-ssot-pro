@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "mail_id": "q2",
+    "intent": "other",
+    "action": "manual_triage",
+    "idempotency_key": "75e0b93724d1254b"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 42,
+        "end": 61
+      }
+    ]
+  }
+}

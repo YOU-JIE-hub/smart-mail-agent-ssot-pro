@@ -1,0 +1,11 @@
+{
+  "case_id": "s4_cn_phish",
+  "diff": [
+    {
+      "field": "email",
+      "old": null,
+      "new": "customer@example.com"
+    }
+  ],
+  "status": "draft"
+}

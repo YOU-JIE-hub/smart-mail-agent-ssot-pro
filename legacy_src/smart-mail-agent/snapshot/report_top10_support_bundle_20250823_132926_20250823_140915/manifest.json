@@ -1,0 +1,87 @@
+{
+  "source_file": "/home/youjie/projects/smart-mail-agent/support_bundle_20250823_132926/report.txt",
+  "total_chars": 66630045,
+  "num_parts": 10,
+  "parts": [
+    {
+      "index": 1,
+      "file": "part-001.txt",
+      "start": 0,
+      "end": 5046108,
+      "size": 5046108,
+      "sha1": "cb7b1950345ff4cc87741d87c21c127e93220694"
+    },
+    {
+      "index": 2,
+      "file": "part-002.txt",
+      "start": 5046108,
+      "end": 11557788,
+      "size": 6511680,
+      "sha1": "75b7d7e6285fad836cf0e7323d82ceb8b26c832d"
+    },
+    {
+      "index": 3,
+      "file": "part-003.txt",
+      "start": 11557788,
+      "end": 18089711,
+      "size": 6531923,
+      "sha1": "fd8a1dba1e6eb3d39a044c20bcbdceddcfbb376e"
+    },
+    {
+      "index": 4,
+      "file": "part-004.txt",
+      "start": 18089711,
+      "end": 24718482,
+      "size": 6628771,
+      "sha1": "8642bb428624c42256719020895d135ea4aad181"
+    },
+    {
+      "index": 5,
+      "file": "part-005.txt",
+      "start": 24718482,
+      "end": 31381471,
+      "size": 6662989,
+      "sha1": "3dfdd709646f700d8643074dc5b0007f8f93a1ae"
+    },
+    {
+      "index": 6,
+      "file": "part-006.txt",
+      "start": 31381471,
+      "end": 38044416,
+      "size": 6662945,
+      "sha1": "e7dd6afff99cd3d2619b772fdd2bb1cf9a60744b"
+    },
+    {
+      "index": 7,
+      "file": "part-007.txt",
+      "start": 38044416,
+      "end": 44707416,
+      "size": 6663000,
+      "sha1": "660e65bda53055465c74b2d99ea48b660f1ce69c"
+    },
+    {
+      "index": 8,
+      "file": "part-008.txt",
+      "start": 44707416,
+      "end": 51370347,
+      "size": 6662931,
+      "sha1": "955e6614738ba3e6592a8abf7386a58d5cd9f12a"
+    },
+    {
+      "index": 9,
+      "file": "part-009.txt",
+      "start": 51370347,
+      "end": 58033351,
+      "size": 6663004,
+      "sha1": "5c854f2995aedd4f760ca6fd848816d2ed8b3835"
+    },
+    {
+      "index": 10,
+      "file": "part-010.txt",
+      "start": 58033351,
+      "end": 66630045,
+      "size": 8596694,
+      "sha1": "9ef91796590ca2077dc8065db25fea0d52cf884c"
+    }
+  ]
+}

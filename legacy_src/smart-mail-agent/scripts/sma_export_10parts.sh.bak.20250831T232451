@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="${1:-$PWD}"
+OUTDIR="${2:-$ROOT/export}"
+mkdir -p "$OUTDIR"
+
+python - <<'PY'
+from __future__ import annotations
+import os, sys, math, mimetypes, pathlib, zipfile
+from collections import defaultdict
+
+ROOT = pathlib.Path(os.environ.get("ROOT_DIR", os.getcwd()))
+OUTDIR = pathlib.Path(os.environ.get("OUT_DIR", str(ROOT / "export")))
+OUTDIR.mkdir(parents=True, exist_ok=True)
+
+# 1) 掃描 & 篩選
+EXCLUDE_DIRS = {".git", ".venv", "__pycache__", "data", "reports_auto",
+                "artifacts", "artifacts_prod", "artifacts_sa_text", ".mypy_cache", ".pytest_cache"}
+# 允許的副檔名（視為 code / config）
+ALLOW_EXT = {
+    ".py",".sh",".bash",".zsh",
+    ".yml",".yaml",".json",".toml",".ini",".cfg",".conf",
+    ".md",".txt",".sql",".html",".htm",".xml",".csv",
+    ".js",".ts",".jsx",".tsx",".css",
+}
+
+# 2) 語法高亮對應
+LANG_MAP = {
+    ".py":"python", ".sh":"bash", ".bash":"bash", ".zsh":"bash",
+    ".yml":"yaml", ".yaml":"yaml", ".json":"json", ".toml":"toml",
+    ".ini":"ini", ".cfg":"ini", ".conf":"ini",
+    ".md":"md", ".txt":"text", ".sql":"sql",
+    ".html":"html", ".htm":"html", ".xml":"xml", ".csv":"csv",
+    ".js":"javascript", ".ts":"typescript", ".jsx":"jsx", ".tsx":"tsx", ".css":"css",
+}
+def lang_of(p: pathlib.Path)->str:
+    return LANG_MAP.get(p.suffix.lower(), "")
+
+def should_skip(path: pathlib.Path)->bool:
+    parts = set(part for part in path.parts)
+    if any(d in parts for d in EXCLUDE_DIRS):
+        return True
+    # 跳過明顯資料/模型產物
+    if any(s in path.as_posix() for s in ["/data/", "/reports_auto/", "/artifacts", "/__pycache__/"]):
+        return True
+    return False
+
+files = []
+for p in ROOT.rglob("*"):
+    if not p.is_file(): continue
+    if should_skip(p): continue
+    if p.suffix.lower() in ALLOW_EXT:
+        try:
+            txt = p.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+        block = []
+        block.append(f"## {p.relative_to(ROOT).as_posix()}  \n")
+        lang = lang_of(p)
+        block.append(f"```{lang}\n{txt}\n```\n\n")
+        content = "".join(block)
+        files.append({
+            "path": p,
+            "rel": p.relative_to(ROOT).as_posix(),
+            "size": len(content.encode("utf-8")),
+            "content": content
+        })
+
+# 若沒有掃到任何檔案，直接退出
+if not files:
+    print("[FATAL] 沒掃到任何代碼檔；請確認專案路徑與排除規則", file=sys.stderr)
+    sys.exit(2)
+
+# 3) 貪婪分桶：把檔案平均分配到 10 份
+PARTS = 10
+buckets = [{"size":0, "items":[]} for _ in range(PARTS)]
+for item in sorted(files, key=lambda x: x["size"], reverse=True):
+    # 放到目前最小的桶
+    b = min(buckets, key=lambda b: b["size"])
+    b["items"].append(item)
+    b["size"] += item["size"]
+
+# 4) 寫出 10 份 markdown
+manifest_lines = []
+total_size = sum(it["size"] for it in files)
+total_files = len(files)
+for i, b in enumerate(buckets, start=1):
+    fname = OUTDIR / f"code_part_{i:02d}.md"
+    with open(fname, "w", encoding="utf-8") as w:
+        w.write("# Project Code Export (Part %02d/10)\n\n" % i)
+        for it in sorted(b["items"], key=lambda x: x["rel"]):
+            w.write(it["content"])
+    manifest_lines.append(f"part {i:02d} -> {fname.name} | files={len(b['items'])} | bytes={b['size']}")
+
+# 5) 清單 + 總覽
+with open(OUTDIR/"MANIFEST.txt","w",encoding="utf-8") as w:
+    w.write("TOTAL files=%d, bytes=%d\n" % (total_files, total_size))
+    for line in manifest_lines:
+        w.write(line+"\n")
+    w.write("\nExcluded dirs: "+", ".join(sorted(EXCLUDE_DIRS))+"\n")
+    w.write("Allowed ext : "+", ".join(sorted(ALLOW_EXT))+"\n")
+
+# 6) 打壓縮包
+zip_path = ROOT / "reports_auto" / "code_export_10parts.zip"
+zip_path.parent.mkdir(parents=True, exist_ok=True)
+with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
+    for p in sorted(OUTDIR.glob("code_part_*.md")):
+        z.write(p, arcname=p.name)
+    z.write(OUTDIR/"MANIFEST.txt", arcname="MANIFEST.txt")
+
+print("[OK] export ->", OUTDIR.as_posix())
+print("[OK] bundle ->", zip_path.as_posix())
+print("\n".join(manifest_lines))
+PY

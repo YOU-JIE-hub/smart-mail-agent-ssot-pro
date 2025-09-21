@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "mail_id": "s1_verify_account",
+    "intent": "other",
+    "action": "manual_triage",
+    "ts": 1756747236,
+    "idempotency_key": "9200590424e2a916",
+    "priority": "P3/Ops",
+    "queue": "P3/Ops"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 49,
+        "end": 68
+      }
+    ]
+  }
+}

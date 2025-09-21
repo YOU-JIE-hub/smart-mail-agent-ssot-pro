@@ -1,0 +1,12 @@
+quote:
+  amount_threshold: "50000"
+  alert_level: "high"
+invoice:
+  require:
+    - invoice_title
+    - vat
+logistics:
+  require:
+    - tracking_no
+warranty:
+  auto_open: true

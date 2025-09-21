@@ -1,0 +1,966 @@
+[
+  {
+    "file": "tests/coverage/test_nlp_llm_smoke.py",
+    "type": "import",
+    "module": "ai_rpa.nlp_llm"
+  },
+  {
+    "file": "tests/coverage/test_scraper_offline_branch.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "scraper"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_cli_allow_online_no_tasks.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_stdout_contract.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/coverage/test_stdout_contract.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_json_safe_cover.py",
+    "type": "import",
+    "module": "ai_rpa.utils.json_safe"
+  },
+  {
+    "file": "tests/coverage/test_ai_rpa_main_stdout_and_bad_inputs.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_ai_rpa_main_stdout_and_bad_inputs.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/coverage/test_ai_rpa_main_more_stdout.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/coverage/test_ai_rpa_main_more_stdout.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/coverage/test_core_jsonlog_edges.py",
+    "type": "from",
+    "module": "smart_mail_agent.core.utils",
+    "names": [
+      "jsonlog"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_nlp_llm_import_smoke.py",
+    "type": "import",
+    "module": "ai_rpa.nlp_llm"
+  },
+  {
+    "file": "tests/coverage/test_ai_rpa_main_more_paths.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_ai_rpa_main_more_paths.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/coverage/test_dry_run_write_guard.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/coverage/test_dry_run_write_guard.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_actions_unit_smoke.py",
+    "type": "import",
+    "module": "ai_rpa.actions"
+  },
+  {
+    "file": "tests/coverage/test_main_ocr_file_ok.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_main_ocr_file_ok.py",
+    "type": "import",
+    "module": "ai_rpa.ocr"
+  },
+  {
+    "file": "tests/coverage/test_main_spamcheck_only.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/coverage/test_main_spamcheck_only.py",
+    "type": "import",
+    "module": "ai_rpa.mailguard.detector"
+  },
+  {
+    "file": "tests/pro/test_end2end_categories.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_end2end.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_end2end.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/pro/test_ocr_smoke_pro.py",
+    "type": "import",
+    "module": "ai_rpa.ocr"
+  },
+  {
+    "file": "tests/pro/test_json_safe_pro.py",
+    "type": "import",
+    "module": "ai_rpa.utils.json_safe"
+  },
+  {
+    "file": "tests/pro/test_main_unknown_stdout.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_main_contracts.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_router_more.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan",
+      "route"
+    ]
+  },
+  {
+    "file": "tests/pro/test_nlp_llm_smoke_pro.py",
+    "type": "import",
+    "module": "ai_rpa.nlp_llm"
+  },
+  {
+    "file": "tests/pro/test_cov_pad_more.py",
+    "type": "import",
+    "module": "ai_rpa.ocr"
+  },
+  {
+    "file": "tests/pro/test_cov_pad_more.py",
+    "type": "from",
+    "module": "ai_rpa.utils",
+    "names": [
+      "json_safe"
+    ]
+  },
+  {
+    "file": "tests/pro/test_cov_pad_more.py",
+    "type": "import",
+    "module": "ai_rpa.spam_adapter"
+  },
+  {
+    "file": "tests/pro/test_cov_pad_more.py",
+    "type": "import",
+    "module": "ai_rpa.file_classifier"
+  },
+  {
+    "file": "tests/pro/test_cov_pad_more.py",
+    "type": "import",
+    "module": "ai_rpa.nlp"
+  },
+  {
+    "file": "tests/pro/test_main_gating_enterprise_more.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_router_gating.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "route"
+    ]
+  },
+  {
+    "file": "tests/pro/test_json_safe.py",
+    "type": "from",
+    "module": "ai_rpa.utils.json_safe",
+    "names": [
+      "to_jsonable"
+    ]
+  },
+  {
+    "file": "tests/pro/test_router_fallback_and_context.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan_from_categories"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_executor_enterprise_more.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_executor_enterprise_more.py",
+    "type": "from",
+    "module": "ai_rpa.actions_executor",
+    "names": [
+      "Executor"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_write_json_path.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_playbook_plan.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_playbook_plan.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan",
+      "plan_from_categories"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mailguard_enterprise_more.py",
+    "type": "from",
+    "module": "ai_rpa.mailguard",
+    "names": [
+      "detect",
+      "load_default_ruleset"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mailguard_enterprise_more.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "spam_adapter"
+    ]
+  },
+  {
+    "file": "tests/pro/test_config_loader_smoke_pro.py",
+    "type": "import",
+    "module": "ai_rpa.utils.config_loader"
+  },
+  {
+    "file": "tests/pro/test_file_classifier_smoke_pro.py",
+    "type": "import",
+    "module": "ai_rpa.file_classifier"
+  },
+  {
+    "file": "tests/pro/test_main_allow_online_smoke.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mailguard_layers.py",
+    "type": "from",
+    "module": "ai_rpa.mailguard",
+    "names": [
+      "detect",
+      "load_default_ruleset"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mailguard_layers.py",
+    "type": "import",
+    "module": "ai_rpa.spam_adapter"
+  },
+  {
+    "file": "tests/pro/test_main_cli_more.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_write_json_more2.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions"
+    ]
+  },
+  {
+    "file": "tests/pro/test_profile_update_diff_both.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_write_json_more.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions"
+    ]
+  },
+  {
+    "file": "tests/pro/test_actions_write_json_more.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions"
+    ]
+  },
+  {
+    "file": "tests/pro/test_main_contracts_pro.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_router_categories_enterprise_more.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mail_io_unit.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "mail_io"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mailguard_variants.py",
+    "type": "from",
+    "module": "ai_rpa.mailguard.detector",
+    "names": [
+      "detect"
+    ]
+  },
+  {
+    "file": "tests/pro/test_mailguard_gating.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/pro/test_scraper_offline.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "scraper"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_boost_ml.py",
+    "type": "import",
+    "module": "ai_rpa.spam_adapter"
+  },
+  {
+    "file": "tests/models/test_cov_boost_ml.py",
+    "type": "import",
+    "module": "ai_rpa.nlp"
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "file_classifier"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "mail_io"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa.utils",
+    "names": [
+      "json_safe"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "ocr"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "nlp_llm"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "scraper"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "from",
+    "module": "ai_rpa.utils",
+    "names": [
+      "config_loader"
+    ]
+  },
+  {
+    "file": "tests/models/test_cov_pad.py",
+    "type": "import",
+    "module": "ai_rpa.utils.db"
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan",
+      "plan_from_categories",
+      "route"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa.actions_executor",
+    "names": [
+      "Executor"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "mail_io"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa.mailguard",
+    "names": [
+      "detector"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "nlp"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "scraper"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "ocr"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "nlp_llm"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa.utils",
+    "names": [
+      "json_safe"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "intent_map"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa.utils",
+    "names": [
+      "config_loader"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "file_classifier"
+    ]
+  },
+  {
+    "file": "tests/models/conftest.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/custom/test_spam_task_steps.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/custom/test_scraper_offline_safe.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "scraper"
+    ]
+  },
+  {
+    "file": "tests/custom/test_dry_run_write_guard_custom.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/custom/test_dry_run_write_guard_custom.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/custom/test_mailguard_gating_cli_custom.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/custom/test_unknown_tasks_contract.py",
+    "type": "from",
+    "module": "ai_rpa.main",
+    "names": [
+      "main"
+    ]
+  },
+  {
+    "file": "tests/custom/test_playbook_router_end2end.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_router.py",
+    "type": "from",
+    "module": "ai_rpa.actions_router",
+    "names": [
+      "plan_from_categories",
+      "plan"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_mailguard_gating_and_alias.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_mailguard_gating_and_alias.py",
+    "type": "import",
+    "module": "ai_rpa.mailguard.detector"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_mailguard_gating_and_alias.py",
+    "type": "import",
+    "module": "ai_rpa.mailguard.detector"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_intent_map_categories.py",
+    "type": "from",
+    "module": "ai_rpa.intent_map",
+    "names": [
+      "to_categories"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_nlp_rules_configurable.py",
+    "type": "from",
+    "module": "ai_rpa.nlp",
+    "names": [
+      "analyze_text"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_nlp_rules_configurable.py",
+    "type": "from",
+    "module": "ai_rpa.nlp",
+    "names": [
+      "analyze_text"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_nlp_rules_configurable.py",
+    "type": "from",
+    "module": "ai_rpa.nlp",
+    "names": [
+      "analyze_text"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_main_classify_stdout.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_nlp_rules_golden.py",
+    "type": "from",
+    "module": "ai_rpa.nlp",
+    "names": [
+      "analyze_text"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_json_safe.py",
+    "type": "from",
+    "module": "ai_rpa.utils.json_safe",
+    "names": [
+      "jsonable"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_nlp_rules_direct.py",
+    "type": "from",
+    "module": "ai_rpa.nlp",
+    "names": [
+      "analyze_text"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_write_json.py",
+    "type": "from",
+    "module": "ai_rpa.actions",
+    "names": [
+      "write_json"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_spam_task_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_spam_task_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.spam_adapter"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_spam_task_via_main.py",
+    "type": "import",
+    "module": "ai_rpa.spam_adapter"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+    "type": "from",
+    "module": "ai_rpa.ocr",
+    "names": [
+      "run_ocr"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+    "type": "import",
+    "module": "ai_rpa.spam_adapter"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+    "type": "import",
+    "module": "ai_rpa.utils.config_loader"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_nlp_rules_synonyms.py",
+    "type": "from",
+    "module": "ai_rpa.nlp",
+    "names": [
+      "analyze_text"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_main_steps_and_unknown.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_main_contracts_generic.py",
+    "type": "import",
+    "module": "ai_rpa.main"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_main_contracts_generic.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_main_contracts_generic.py",
+    "type": "import",
+    "module": "ai_rpa.scraper"
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_json_safe_more.py",
+    "type": "from",
+    "module": "ai_rpa.utils.json_safe",
+    "names": [
+      "jsonable"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_actions_direct.py",
+    "type": "from",
+    "module": "ai_rpa.actions",
+    "names": [
+      "plan_actions"
+    ]
+  },
+  {
+    "file": "tests/ai_rpa_unit/test_mailguard_detector.py",
+    "type": "from",
+    "module": "ai_rpa.mailguard",
+    "names": [
+      "detect",
+      "load_default_ruleset"
+    ]
+  },
+  {
+    "file": "tests/integration/test_mail_online.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "mail_io"
+    ]
+  },
+  {
+    "file": "tests/boost/test_core_shims_and_utils.py",
+    "type": "from",
+    "module": "smart_mail_agent.core.utils",
+    "names": [
+      "jsonlog"
+    ]
+  },
+  {
+    "file": "tests/boost/test_core_shims_and_utils.py",
+    "type": "from",
+    "module": "smart_mail_agent.utils",
+    "names": [
+      "logger"
+    ]
+  },
+  {
+    "file": "tests/boost/test_core_shims_and_utils.py",
+    "type": "from",
+    "module": "smart_mail_agent",
+    "names": [
+      "policy_engine"
+    ]
+  },
+  {
+    "file": "tests/unit/test_logger_utils_smoke.py",
+    "type": "import",
+    "module": "smart_mail_agent.utils.logger"
+  },
+  {
+    "file": "tests/unit/test_pdf_safe_extra.py",
+    "type": "import",
+    "module": "smart_mail_agent.utils.pdf_safe"
+  },
+  {
+    "file": "tests/unit/test_log_writer_db_smoke.py",
+    "type": "from",
+    "module": "smart_mail_agent.observability.log_writer",
+    "names": [
+      "log_to_db"
+    ]
+  },
+  {
+    "file": "tests/unit/test_sma_types_normalize_extra.py",
+    "type": "from",
+    "module": "smart_mail_agent.sma_types",
+    "names": [
+      "normalize_result"
+    ]
+  },
+  {
+    "file": "tests/sma_core/test_jsonlog_extras.py",
+    "type": "from",
+    "module": "smart_mail_agent.core.utils",
+    "names": [
+      "jsonlog"
+    ]
+  },
+  {
+    "file": "tests_smoke/test_imports_smoke.py",
+    "type": "import",
+    "module": "smart_mail_agent"
+  },
+  {
+    "file": "tests_smoke/test_imports_smoke.py",
+    "type": "from",
+    "module": "ai_rpa",
+    "names": [
+      "actions",
+      "main",
+      "nlp_llm"
+    ]
+  }
+]

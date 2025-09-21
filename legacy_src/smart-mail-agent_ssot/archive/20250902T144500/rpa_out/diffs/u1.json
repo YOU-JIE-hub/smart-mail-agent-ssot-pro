@@ -1,0 +1,11 @@
+{
+  "case_id": "u1",
+  "diff": [
+    {
+      "field": "email",
+      "old": null,
+      "new": "customer@example.com"
+    }
+  ],
+  "status": "draft"
+}

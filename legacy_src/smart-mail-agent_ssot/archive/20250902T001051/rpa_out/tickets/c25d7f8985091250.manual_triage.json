@@ -1,0 +1,27 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "b1f0240d42874b42",
+  "payload": {
+    "mail_id": "c25d7f8985091250",
+    "subject": "Prod API timeout",
+    "fields": [
+      {
+        "label": "env",
+        "start": 0,
+        "end": 4
+      },
+      {
+        "label": "sla",
+        "start": 38,
+        "end": 44
+      }
+    ],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

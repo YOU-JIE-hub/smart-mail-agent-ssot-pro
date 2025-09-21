@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "mail_id": "s4_cn_phish",
+    "intent": "other",
+    "action": "manual_triage",
+    "ts": 1756746733,
+    "idempotency_key": "86a409e19747890c",
+    "priority": "P3/Ops",
+    "queue": "P3/Ops"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 6,
+        "end": 7
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+# 注意：此 YAML 同時可被 JSON loader 解析（僅使用字典/陣列/字串/數字）
+keywords:
+  # 關鍵詞與分數
+  "GET RICH QUICK": 6
+  "FREE": 2
+  "GIVEAWAY": 3
+  "CRYPTO": 2
+  "PASSWORD RESET": 2
+  "VERIFY YOUR ACCOUNT": 3
+  "URGENT": 2
+
+suspicious_domains:
+  - "bit.ly"
+  - "tinyurl.com"
+  - "goo.gl"
+  - "is.gd"
+  - "t.co"
+
+suspicious_tlds:
+  - "tk"
+  - "gq"
+  - "ml"
+  - "cf"
+  - "ga"
+  - "top"
+
+bad_extensions:
+  - ".js"
+  - ".vbs"
+  - ".exe"
+  - ".bat"
+  - ".cmd"
+  - ".scr"
+
+whitelist_domains:
+  - "yourcompany.com"
+  - "example.com"
+
+weights:
+  url_suspicious: 4
+  tld_suspicious: 3
+  attachment_executable: 5
+  sender_black: 5
+
+thresholds:
+  suspect: 4
+  spam: 8

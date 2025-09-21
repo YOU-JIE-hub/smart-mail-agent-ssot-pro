@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "mail_id": "s4_cn_phish",
+    "intent": "quarantine",
+    "action": "quarantine",
+    "ts": 1756750924,
+    "idempotency_key": "b67149eb2c7fde9b",
+    "priority": "P1/Security",
+    "queue": "P1/Security"
+  },
+  "mail_to": "security-queue@example.com",
+  "subject": "[Quarantine] mail:s4_cn_phish",
+  "body": "ENS=1 quarantined."
+}

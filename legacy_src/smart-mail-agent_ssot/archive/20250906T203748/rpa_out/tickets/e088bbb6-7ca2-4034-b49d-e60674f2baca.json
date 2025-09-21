@@ -1,0 +1,14 @@
+{
+  "ticket_id": "e088bbb6-7ca2-4034-b49d-e60674f2baca",
+  "title": "Re: your inquiry",
+  "severity": "P3",
+  "status": "open",
+  "created_at": "20250906T203753",
+  "requester": "customer@example.com",
+  "assignee": null,
+  "tags": [
+    "auto-generated",
+    "placeholder"
+  ],
+  "description": ""
+}

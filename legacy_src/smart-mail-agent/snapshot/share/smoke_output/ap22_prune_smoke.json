@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "artifacts": [],
+  "steps": {
+    "nlp": {
+      "summary": "ap22-prune-smoke",
+      "ts": "2025-08-25T06:27:39.988479Z"
+    }
+  }
+}

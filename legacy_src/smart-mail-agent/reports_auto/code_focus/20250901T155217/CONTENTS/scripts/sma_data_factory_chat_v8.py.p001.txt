@@ -1,0 +1,47 @@
+�郵件備查。","如需協助請洽客服。"]
+        fillers = fillers_en if lang=="en" else fillers_zh
+        while words(subj+" "+body) < target_min: body += "\n"+random.choice(fillers)
+
+        if not uniq_ok(subj, body): continue
+        _id=("S"+f"{sid:06d}") if label=="spam" else ("H"+f"{hid:06d}")
+        if label=="spam": sid+=1
+        else: hid+=1
+        entries.append({"id":_id,"subject":subj,"body":body,"from":frm,"attachments":att,"label":label})
+    if len(entries)<TARGET: raise RuntimeError(f"only {len(entries)}/{TARGET} unique; try --seed")
+    return entries
+
+def split_and_save(entries, outdir:Path, seed=42):
+    random.seed(seed); outdir.mkdir(parents=True, exist_ok=True)
+    # save all
+    with (outdir/"all.jsonl").open("w",encoding="utf-8") as f:
+        for e in entries: f.write(json.dumps(e, ensure_ascii=False)+"\n")
+    # stratified 80/10/10 by label+lang
+    def lang_detect(e): return "zh" if re.search(r'[\u4e00-\u9fff]', e["subject"]+" "+e["body"]) else "en"
+    buckets=defaultdict(list)
+    for e in entries: buckets[(e["label"],lang_detect(e))].append(e)
+    train=[]; val=[]; test=[]
+    for _,lst in buckets.items():
+        random.shuffle(lst)
+        n=len(lst); ntr=int(n*0.80); nva=int(n*0.10); nte=n-ntr-nva
+        train+=lst[:ntr]; val+=lst[ntr:ntr+nva]; test+=lst[ntr+nva:]
+    for name,lst in [("train",train),("val",val),("test",test)]:
+        with (outdir/f"{name}.jsonl").open("w",encoding="utf-8") as f:
+            for e in lst: f.write(json.dumps(e, ensure_ascii=False)+"\n")
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--outdir", default="data/spam")
+    ap.add_argument("--total", type=int, default=1000)
+    ap.add_argument("--spam", type=float, default=0.55)
+    ap.add_argument("--zh",   type=float, default=0.50)
+    ap.add_argument("--multi", type=float, default=0.28)
+    ap.add_argument("--seed",  type=int, default=20250830)
+    ap.add_argument("--strict", type=int, default=1)  # 1=嚴格 ham
+    ap.add_argument("--min_spam_signals", type=int, default=2)
+    a=ap.parse_args()
+    es=build(total=a.total, spam_ratio=a.spam, zh_ratio=a.zh, multi_ratio=a.multi,
+             seed=a.seed, strict_ham=bool(a.strict), min_spam_signals=a.min_spam_signals)
+    split_and_save(es, Path(a.outdir))
+
+if __name__=="__main__":
+    main()

@@ -1,0 +1,17 @@
+[
+  {
+    "module": "ai_rpa.actions_router",
+    "symbol": "plan",
+    "file": "tests/pro/test_end2end_categories.py"
+  },
+  {
+    "module": "ai_rpa.utils",
+    "symbol": "json_safe",
+    "file": "tests/pro/test_cov_pad_more.py"
+  },
+  {
+    "module": "ai_rpa.actions_executor",
+    "symbol": "Executor",
+    "file": "tests/pro/test_actions_executor_enterprise_more.py"
+  }
+]

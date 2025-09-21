@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+printf "thr | macroF1 | ham(P/R/F1) | spam(P/R/F1)\n"
+for t in $(seq 0.10 0.01 0.60); do
+  printf '{"threshold": %.2f}\n' "$t" > artifacts/spam_thresholds.json
+  out=$(PYTHONPATH=src python scripts/run_spam_eval.py \
+    --data data/spam/val.jsonl \
+    --rules .sma_tools/spam_rules.yml \
+    --model artifacts/spam_rules_lr.pkl \
+    --thresholds artifacts/spam_thresholds.json 2>/dev/null | sed -n '1,6p')
+  echo "$t | $(echo "$out" | tr '\n' ' | ')"
+done

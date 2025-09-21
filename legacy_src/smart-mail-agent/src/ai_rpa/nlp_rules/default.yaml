@@ -1,0 +1,69 @@
+version: 1
+threshold: 0.0
+intents:
+  support:
+    any:
+      - "退款"
+      - "退貨"
+      - "客服"
+      - "維修"
+      - "保固"
+      - "抱怨"
+      - "發票"
+      - "錯帳"
+      - "取消訂單"
+      - "發票重寄"
+      - "\\bsupport\\b"
+      - "\\brefunds?\\b"
+      - "\\breturn(s|ing)?\\b"
+      - "\\bwarranty\\b"
+      - "\\binvoice\\b"
+      - "\\bcancel\\b"
+      - "\\b(issue|problem|bug)s?\\b"
+    all: []
+    none: []
+    weight: 1.0
+
+  sales:
+    any:
+      - "合作"
+      - "商務"
+      - "報價"
+      - "詢價"
+      - "比價"
+      - "採購"
+      - "導入"
+      - "試用"
+      - "方案"
+      - "\\bquote\\b"
+      - "\\bpricing\\b"
+      - "\\bprice\\b"
+      - "\\bsales?\\b"
+      - "\\brfq\\b"
+      - "\\bquotation\\b"
+      - "\\bpurchase\\b"
+    all: []
+    none: []
+    weight: 1.0
+
+  refund:
+    any:
+      - "退款"
+      - "退貨"
+      - "\\brefunds?\\b"
+      - "\\breturn(s|ing)?\\b"
+    all: []
+    none: []
+    weight: 1.0
+
+  quote:
+    any:
+      - "報價"
+      - "\\bquote\\b"
+      - "\\bquotation\\b"
+      - "\\bpricing\\b"
+      - "\\bprice\\b"
+      - "\\brfq\\b"
+    all: []
+    none: []
+    weight: 1.0

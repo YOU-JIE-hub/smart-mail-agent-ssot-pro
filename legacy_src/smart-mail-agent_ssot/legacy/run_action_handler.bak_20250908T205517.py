@@ -1,0 +1,22 @@
+from __future__ import annotations
+import os, sys, subprocess, time
+from pathlib import Path
+
+def run_e2e_mail(eml_dir: str, out_dir: str, db_path: str = "db/sma.sqlite",
+                 ndjson_path: str = "reports_auto/logs/pipeline.ndjson") -> None:
+    """
+    安全代理：不在 import 時做任何重活、不連網。
+    直接轉呼叫現有 legacy 執行器 scripts/sma_e2e_mail.py。
+    """
+    root = Path(__file__).resolve().parents[3]
+    py = sys.executable
+    env = os.environ.copy()
+    env.setdefault("SMA_ROOT", str(root))
+    env.setdefault("SMA_RUN_TS", time.strftime("%Y%m%dT%H%M%S"))
+    # 確保觀測路徑存在（即便 legacy 使用預設路徑也不會出錯）
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
+    Path(ndjson_path).parent.mkdir(parents=True, exist_ok=True)
+    legacy = root / "scripts" / "sma_e2e_mail.py"
+    if not legacy.exists():
+        raise RuntimeError(f"legacy runner not found: {legacy}")
+    subprocess.run([py, "-u", str(legacy), str(eml_dir)], check=True, env=env)

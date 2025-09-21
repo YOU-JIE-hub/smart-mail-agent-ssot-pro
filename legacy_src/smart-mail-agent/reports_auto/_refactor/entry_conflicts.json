@@ -1,0 +1,1288 @@
+[
+  {
+    "name": "run_action_handler.py",
+    "items": [
+      {
+        "rel": "run_action_handler.py",
+        "group": "normal",
+        "sha256": "42349b8bb4a6b3bd805b3b25e149237ee81f879ae8ae1e615f5393a244f46e05",
+        "entry": true,
+        "ast_sig": "def _assess_for_matrix(1)|def main(1)|if",
+        "size": 2476
+      },
+      {
+        "rel": "examples/legacy_lowcov/src/run_action_handler.py",
+        "group": "legacy",
+        "sha256": "23f4945ab7b30c188e0bee4e03622693d714971d2217f626356401ff74f9c096",
+        "entry": true,
+        "ast_sig": "def _read_json(1)|def _write_json(2)|def _req_id(0)|def _domain(1)|def decide_action(1)|def build_response(3)|def main(0)|if",
+        "size": 6664
+      },
+      {
+        "rel": "src/run_action_handler.py",
+        "group": "src",
+        "sha256": "4f1683cc7384771bd055142b7680758cd136a2d15a94f287b6596241aad423ef",
+        "entry": true,
+        "ast_sig": "",
+        "size": 303
+      },
+      {
+        "rel": "src/smart_mail_agent/routing/run_action_handler.py",
+        "group": "src",
+        "sha256": "5490fb31282222120d073af02f5e9633dfbf57161c825b0c1e40d68e8b7a2113",
+        "entry": true,
+        "ast_sig": "def _ext(1)|def _attachment_risks(1)|def _domain(1)|def _subject_prefix(1)|def _complaint_meta(1)|def _apply_policy(1)|def main(1)|if",
+        "size": 5958
+      },
+      {
+        "rel": "snapshot/run_action_handler.py",
+        "group": "normal",
+        "sha256": "42349b8bb4a6b3bd805b3b25e149237ee81f879ae8ae1e615f5393a244f46e05",
+        "entry": true,
+        "ast_sig": "def _assess_for_matrix(1)|def main(1)|if",
+        "size": 2476
+      },
+      {
+        "rel": "snapshot/examples/legacy_lowcov/src/run_action_handler.py",
+        "group": "normal",
+        "sha256": "23f4945ab7b30c188e0bee4e03622693d714971d2217f626356401ff74f9c096",
+        "entry": true,
+        "ast_sig": "def _read_json(1)|def _write_json(2)|def _req_id(0)|def _domain(1)|def decide_action(1)|def build_response(3)|def main(0)|if",
+        "size": 6664
+      },
+      {
+        "rel": "snapshot/src/run_action_handler.py",
+        "group": "normal",
+        "sha256": "4f1683cc7384771bd055142b7680758cd136a2d15a94f287b6596241aad423ef",
+        "entry": true,
+        "ast_sig": "",
+        "size": 303
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/routing/run_action_handler.py",
+        "group": "normal",
+        "sha256": "5490fb31282222120d073af02f5e9633dfbf57161c825b0c1e40d68e8b7a2113",
+        "entry": true,
+        "ast_sig": "def _ext(1)|def _attachment_risks(1)|def _domain(1)|def _subject_prefix(1)|def _complaint_meta(1)|def _apply_policy(1)|def main(1)|if",
+        "size": 5958
+      }
+    ]
+  },
+  {
+    "name": "action_handler.py",
+    "items": [
+      {
+        "rel": "action_handler.py",
+        "group": "normal",
+        "sha256": "ce2e674a4e7e3c6008f1495660a3a8c74bf0e9de1069d24f471dcd02932c77ec",
+        "entry": true,
+        "ast_sig": "def _mk_reply(3)|def handle(1)",
+        "size": 1375
+      },
+      {
+        "rel": "src/action_handler.py",
+        "group": "src",
+        "sha256": "791c95533023d90e8627affd5a6216c56032c0cb67f40ef1b98f662d11f5a5fe",
+        "entry": true,
+        "ast_sig": "",
+        "size": 295
+      },
+      {
+        "rel": "src/smart_mail_agent/routing/action_handler.py",
+        "group": "src",
+        "sha256": "7b6ed7ded2507e11fbad198970c60a1b26bd5173e346801b8c4ff48f7c96d974",
+        "entry": true,
+        "ast_sig": "def _attachment_risks(1)|def _ensure_attachment(2)|def _send(4)|def _action_send_quote(1)|def _action_reply_support(1)|def _action_apply_info_change(1)|def _action_reply_faq(1)|def _action_reply_apology(1)|def _action_reply_general(1)|def _normalize_label(1)|def handle(1)|def _load_payload(1)|def main(1)|def choose_package_override(2)|def _ensure_attachment(3)|def _ensure_attachment(3)|def __wrap_ok(1)",
+        "size": 10709
+      },
+      {
+        "rel": "snapshot/action_handler.py",
+        "group": "normal",
+        "sha256": "ce2e674a4e7e3c6008f1495660a3a8c74bf0e9de1069d24f471dcd02932c77ec",
+        "entry": true,
+        "ast_sig": "def _mk_reply(3)|def handle(1)",
+        "size": 1375
+      },
+      {
+        "rel": "snapshot/src/action_handler.py",
+        "group": "normal",
+        "sha256": "791c95533023d90e8627affd5a6216c56032c0cb67f40ef1b98f662d11f5a5fe",
+        "entry": true,
+        "ast_sig": "",
+        "size": 295
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/routing/action_handler.py",
+        "group": "normal",
+        "sha256": "7b6ed7ded2507e11fbad198970c60a1b26bd5173e346801b8c4ff48f7c96d974",
+        "entry": true,
+        "ast_sig": "def _attachment_risks(1)|def _ensure_attachment(2)|def _send(4)|def _action_send_quote(1)|def _action_reply_support(1)|def _action_apply_info_change(1)|def _action_reply_faq(1)|def _action_reply_apology(1)|def _action_reply_general(1)|def _normalize_label(1)|def handle(1)|def _load_payload(1)|def main(1)|def choose_package_override(2)|def _ensure_attachment(3)|def _ensure_attachment(3)|def __wrap_ok(1)",
+        "size": 10709
+      }
+    ]
+  },
+  {
+    "name": "run_pipeline.sh",
+    "items": [
+      {
+        "rel": "scripts/run_pipeline.sh",
+        "group": "normal",
+        "sha256": "e6234803508cf0af781cfd66e1c113d335388bc5577eab703e266ac5281eb05b",
+        "entry": true,
+        "ast_sig": "",
+        "size": 243
+      },
+      {
+        "rel": "snapshot/scripts/run_pipeline.sh",
+        "group": "normal",
+        "sha256": "055607b9e70c935ab0cf7386a5128b0e94559b999efcb5f70f53baa63db451cb",
+        "entry": true,
+        "ast_sig": "",
+        "size": 212
+      }
+    ]
+  },
+  {
+    "name": "__init__.py",
+    "items": [
+      {
+        "rel": "scripts/__init__.py",
+        "group": "normal",
+        "sha256": "475e6a61a1cd90ddcc3b3c924cfe005e0d81d802cb27a1466da12f20cd74a619",
+        "entry": false,
+        "ast_sig": "",
+        "size": 17
+      },
+      {
+        "rel": "Archive/ap24_prune2_20250825143933/src/policy_engine/__init__.py",
+        "group": "normal",
+        "sha256": "0387d6626b56f910d359eb740b48182e28258c216f6475034ff58da18fd8c3f0",
+        "entry": false,
+        "ast_sig": "",
+        "size": 69
+      },
+      {
+        "rel": "Archive/ap24_prune2_20250825143933/src/patches/__init__.py",
+        "group": "normal",
+        "sha256": "b88851d387cb486ff7ecf2dcc8bd3631bd9b182699eb2ebf276d304236835dd8",
+        "entry": false,
+        "ast_sig": "",
+        "size": 58
+      },
+      {
+        "rel": "smart_mail_agent/__init__.py",
+        "group": "root_pkg",
+        "sha256": "dc3dcbc1a71c8207abdbf160c1235f1e71e65f54a8369a9dd3cb4525a76a045a",
+        "entry": false,
+        "ast_sig": "",
+        "size": 122
+      },
+      {
+        "rel": "smart_mail_agent/sma_types/__init__.py",
+        "group": "root_pkg",
+        "sha256": "ca7d749f9870f866633403ed5ebb9600bb59f0d2f5535917e7b39fb2eaab829e",
+        "entry": false,
+        "ast_sig": "def _is_np_scalar(1)|def _np_to_py(1)|def jsonable(1)|def _try_sort_list(1)|def to_plain(1)|def normalize_result(1)",
+        "size": 3966
+      },
+      {
+        "rel": "smart_mail_agent/types/__init__.py",
+        "group": "root_pkg",
+        "sha256": "c0389b8afbe35a7b63ab96a0344111cc4073c711887ccbb9c17a07d6cc82f28f",
+        "entry": false,
+        "ast_sig": "",
+        "size": 177
+      },
+      {
+        "rel": "smart_mail_agent/utils/__init__.py",
+        "group": "root_pkg",
+        "sha256": "ca84b88fd00255aa42b8ac84b65146266b1860353a3c42462af05710df879efb",
+        "entry": false,
+        "ast_sig": "def _setup_root_once(0)|def logger(1)|def sha1_of_text(1)|def ensure_dir(1)|def utcnow_iso(0)|def read_jsonl(1)",
+        "size": 1682
+      },
+      {
+        "rel": "smart_mail_agent/core/__init__.py",
+        "group": "root_pkg",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "smart_mail_agent/observability/__init__.py",
+        "group": "root_pkg",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "smart_mail_agent/sma_core/__init__.py",
+        "group": "root_pkg",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "examples/legacy_lowcov/src/actions/__init__.py",
+        "group": "legacy",
+        "sha256": "12e6e3e13303c4671c6ea32a6f2bcbc34dc4aaa477fbb602fd3d91f0f296bd28",
+        "entry": false,
+        "ast_sig": "",
+        "size": 139
+      },
+      {
+        "rel": "src/__init__.py",
+        "group": "src",
+        "sha256": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb",
+        "entry": false,
+        "ast_sig": "",
+        "size": 13
+      },
+      {
+        "rel": "src/scripts/__init__.py",
+        "group": "src",
+        "sha256": "db169930e930f835ae9332150a44dc5f2278e9407605f3ac18199dadc4cd8361",
+        "entry": false,
+        "ast_sig": "",
+        "size": 62
+      },
+      {
+        "rel": "src/spam/__init__.py",
+        "group": "src",
+        "sha256": "055669260977641698b31043eb9aed1c51d81a8611c45cc704f9d5d909771db8",
+        "entry": false,
+        "ast_sig": "def _casefold(1)|def score_spam(3)|class SpamFilterOrchestrator|def run(3)",
+        "size": 2487
+      },
+      {
+        "rel": "src/smart_mail_agent/__init__.py",
+        "group": "src",
+        "sha256": "7fa412acfeb16403110c26815d3c4e38b6011108b9377e3e442af12de9926dd6",
+        "entry": false,
+        "ast_sig": "",
+        "size": 100
+      },
+      {
+        "rel": "src/smart_mail_agent/spam/__init__.py",
+        "group": "src",
+        "sha256": "ff4f5c7a759bff55a2b71a9dc405e99a7db9c59567608210c9e850792893b86a",
+        "entry": false,
+        "ast_sig": "",
+        "size": 42
+      },
+      {
+        "rel": "src/smart_mail_agent/spam/train/__init__.py",
+        "group": "src",
+        "sha256": "527c668d5ae4f9e34e46c8ad88ce3c5b4a41eb27ec684ace6a4f11621fc42edf",
+        "entry": false,
+        "ast_sig": "",
+        "size": 10
+      },
+      {
+        "rel": "src/smart_mail_agent/spam/orchestrator_offline/__init__.py",
+        "group": "src",
+        "sha256": "8e842aad3fdabef5a2f2060bb3711c1f67638ceb2da2eca70618a740ad92a3c1",
+        "entry": false,
+        "ast_sig": "",
+        "size": 207
+      },
+      {
+        "rel": "src/smart_mail_agent/spam/offline_orchestrator/__init__.py",
+        "group": "src",
+        "sha256": "8e842aad3fdabef5a2f2060bb3711c1f67638ceb2da2eca70618a740ad92a3c1",
+        "entry": false,
+        "ast_sig": "",
+        "size": 207
+      },
+      {
+        "rel": "src/smart_mail_agent/ingestion/__init__.py",
+        "group": "src",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "src/smart_mail_agent/ingestion/integrations/__init__.py",
+        "group": "src",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "src/smart_mail_agent/cli/__init__.py",
+        "group": "src",
+        "sha256": "d2e0ce3447527d1532d7f3c99524b55c943038aa2cec7b1e5cc25615df5836da",
+        "entry": true,
+        "ast_sig": "",
+        "size": 57
+      },
+      {
+        "rel": "src/smart_mail_agent/actions/__init__.py",
+        "group": "src",
+        "sha256": "5384bfdb2df380b6557cc7a71d16891415bccaa87699406e236f752c6415389f",
+        "entry": false,
+        "ast_sig": "",
+        "size": 35
+      },
+      {
+        "rel": "src/smart_mail_agent/utils/__init__.py",
+        "group": "src",
+        "sha256": "2467f69f904837b4ca23439f18ba012b25e1a11f32cd036eeb97b49984f3cd1b",
+        "entry": false,
+        "ast_sig": "",
+        "size": 267
+      },
+      {
+        "rel": "src/smart_mail_agent/routing/__init__.py",
+        "group": "src",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": true,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "src/smart_mail_agent/core/__init__.py",
+        "group": "src",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "src/smart_mail_agent/core/utils/__init__.py",
+        "group": "src",
+        "sha256": "5384bfdb2df380b6557cc7a71d16891415bccaa87699406e236f752c6415389f",
+        "entry": false,
+        "ast_sig": "",
+        "size": 35
+      },
+      {
+        "rel": "src/smart_mail_agent/observability/__init__.py",
+        "group": "src",
+        "sha256": "dc50552b8966224ded8c42f3948d9d7e1e671d33be6adb4e22e56ef2ba0f81c1",
+        "entry": false,
+        "ast_sig": "",
+        "size": 31
+      },
+      {
+        "rel": "src/smart_mail_agent/patches/__init__.py",
+        "group": "src",
+        "sha256": "7b06904a99a3d8d74d708532ffb4d212272d93aa57fed2839ea9a77ebd757f26",
+        "entry": false,
+        "ast_sig": "",
+        "size": 41
+      },
+      {
+        "rel": "src/smart_mail_agent/features/__init__.py",
+        "group": "src",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "src/smart_mail_agent/features/modules_legacy/__init__.py",
+        "group": "src",
+        "sha256": "31fe612ac1aa5d8861374a2ea357630b29e0bc1ced8d5d4d38ed331954e33f43",
+        "entry": false,
+        "ast_sig": "",
+        "size": 110
+      },
+      {
+        "rel": "src/ai_rpa/__init__.py",
+        "group": "src",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "src/ai_rpa/utils/__init__.py",
+        "group": "src",
+        "sha256": "70691fa9484f3d4a8ffcfaa33b28b36b0f21f10e147a8500192fe8ad9a30622a",
+        "entry": false,
+        "ast_sig": "",
+        "size": 165
+      },
+      {
+        "rel": "src/ai_rpa/mailguard/__init__.py",
+        "group": "src",
+        "sha256": "328303ffa1436a596d7c51afa1e415ea709726fbfd0c0e39929bb5eed7fefde9",
+        "entry": false,
+        "ast_sig": "",
+        "size": 131
+      },
+      {
+        "rel": "src/utils/__init__.py",
+        "group": "src",
+        "sha256": "e0bf29fea5bd4cc30fc451799dec55369a3a66e067db7b92fb1c8e6c9594a5f3",
+        "entry": false,
+        "ast_sig": "",
+        "size": 788
+      },
+      {
+        "rel": "src/features/__init__.py",
+        "group": "src",
+        "sha256": "8fc026940ac1b8a223984672aaf8448f7c6911c096608cecb3919ab35953d2cb",
+        "entry": false,
+        "ast_sig": "",
+        "size": 33
+      },
+      {
+        "rel": "tests_smoke/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/scripts/__init__.py",
+        "group": "normal",
+        "sha256": "475e6a61a1cd90ddcc3b3c924cfe005e0d81d802cb27a1466da12f20cd74a619",
+        "entry": false,
+        "ast_sig": "",
+        "size": 17
+      },
+      {
+        "rel": "snapshot/Archive/ap24_prune2_20250825143933/src/policy_engine/__init__.py",
+        "group": "normal",
+        "sha256": "0387d6626b56f910d359eb740b48182e28258c216f6475034ff58da18fd8c3f0",
+        "entry": false,
+        "ast_sig": "",
+        "size": 69
+      },
+      {
+        "rel": "snapshot/Archive/ap24_prune2_20250825143933/src/patches/__init__.py",
+        "group": "normal",
+        "sha256": "b88851d387cb486ff7ecf2dcc8bd3631bd9b182699eb2ebf276d304236835dd8",
+        "entry": false,
+        "ast_sig": "",
+        "size": 58
+      },
+      {
+        "rel": "snapshot/examples/legacy_lowcov/src/actions/__init__.py",
+        "group": "normal",
+        "sha256": "12e6e3e13303c4671c6ea32a6f2bcbc34dc4aaa477fbb602fd3d91f0f296bd28",
+        "entry": false,
+        "ast_sig": "",
+        "size": 139
+      },
+      {
+        "rel": "snapshot/src/__init__.py",
+        "group": "normal",
+        "sha256": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb",
+        "entry": false,
+        "ast_sig": "",
+        "size": 13
+      },
+      {
+        "rel": "snapshot/src/scripts/__init__.py",
+        "group": "normal",
+        "sha256": "db169930e930f835ae9332150a44dc5f2278e9407605f3ac18199dadc4cd8361",
+        "entry": false,
+        "ast_sig": "",
+        "size": 62
+      },
+      {
+        "rel": "snapshot/src/spam/__init__.py",
+        "group": "normal",
+        "sha256": "055669260977641698b31043eb9aed1c51d81a8611c45cc704f9d5d909771db8",
+        "entry": false,
+        "ast_sig": "def _casefold(1)|def score_spam(3)|class SpamFilterOrchestrator|def run(3)",
+        "size": 2487
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/__init__.py",
+        "group": "normal",
+        "sha256": "7fa412acfeb16403110c26815d3c4e38b6011108b9377e3e442af12de9926dd6",
+        "entry": false,
+        "ast_sig": "",
+        "size": 100
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/spam/__init__.py",
+        "group": "normal",
+        "sha256": "ff4f5c7a759bff55a2b71a9dc405e99a7db9c59567608210c9e850792893b86a",
+        "entry": false,
+        "ast_sig": "",
+        "size": 42
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/spam/orchestrator_offline/__init__.py",
+        "group": "normal",
+        "sha256": "8e842aad3fdabef5a2f2060bb3711c1f67638ceb2da2eca70618a740ad92a3c1",
+        "entry": false,
+        "ast_sig": "",
+        "size": 207
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/spam/offline_orchestrator/__init__.py",
+        "group": "normal",
+        "sha256": "8e842aad3fdabef5a2f2060bb3711c1f67638ceb2da2eca70618a740ad92a3c1",
+        "entry": false,
+        "ast_sig": "",
+        "size": 207
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/ingestion/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/ingestion/integrations/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/cli/__init__.py",
+        "group": "normal",
+        "sha256": "d2e0ce3447527d1532d7f3c99524b55c943038aa2cec7b1e5cc25615df5836da",
+        "entry": true,
+        "ast_sig": "",
+        "size": 57
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/actions/__init__.py",
+        "group": "normal",
+        "sha256": "5384bfdb2df380b6557cc7a71d16891415bccaa87699406e236f752c6415389f",
+        "entry": false,
+        "ast_sig": "",
+        "size": 35
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/utils/__init__.py",
+        "group": "normal",
+        "sha256": "2467f69f904837b4ca23439f18ba012b25e1a11f32cd036eeb97b49984f3cd1b",
+        "entry": false,
+        "ast_sig": "",
+        "size": 267
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/routing/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": true,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/core/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/core/utils/__init__.py",
+        "group": "normal",
+        "sha256": "5384bfdb2df380b6557cc7a71d16891415bccaa87699406e236f752c6415389f",
+        "entry": false,
+        "ast_sig": "",
+        "size": 35
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/observability/__init__.py",
+        "group": "normal",
+        "sha256": "dc50552b8966224ded8c42f3948d9d7e1e671d33be6adb4e22e56ef2ba0f81c1",
+        "entry": false,
+        "ast_sig": "",
+        "size": 31
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/patches/__init__.py",
+        "group": "normal",
+        "sha256": "7b06904a99a3d8d74d708532ffb4d212272d93aa57fed2839ea9a77ebd757f26",
+        "entry": false,
+        "ast_sig": "",
+        "size": 41
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/features/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/features/modules_legacy/__init__.py",
+        "group": "normal",
+        "sha256": "31fe612ac1aa5d8861374a2ea357630b29e0bc1ced8d5d4d38ed331954e33f43",
+        "entry": false,
+        "ast_sig": "",
+        "size": 110
+      },
+      {
+        "rel": "snapshot/src/ai_rpa/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/src/ai_rpa/utils/__init__.py",
+        "group": "normal",
+        "sha256": "70691fa9484f3d4a8ffcfaa33b28b36b0f21f10e147a8500192fe8ad9a30622a",
+        "entry": false,
+        "ast_sig": "",
+        "size": 165
+      },
+      {
+        "rel": "snapshot/src/ai_rpa/mailguard/__init__.py",
+        "group": "normal",
+        "sha256": "4d0a68062d2b5abb8ad8fb050cd3db52f8b4257bc64445f5207ae2c21801b57b",
+        "entry": false,
+        "ast_sig": "",
+        "size": 74
+      },
+      {
+        "rel": "snapshot/src/utils/__init__.py",
+        "group": "normal",
+        "sha256": "e0bf29fea5bd4cc30fc451799dec55369a3a66e067db7b92fb1c8e6c9594a5f3",
+        "entry": false,
+        "ast_sig": "",
+        "size": 788
+      },
+      {
+        "rel": "snapshot/src/features/__init__.py",
+        "group": "normal",
+        "sha256": "8fc026940ac1b8a223984672aaf8448f7c6911c096608cecb3919ab35953d2cb",
+        "entry": false,
+        "ast_sig": "",
+        "size": 33
+      },
+      {
+        "rel": "snapshot/utils/__init__.py",
+        "group": "normal",
+        "sha256": "616a4713f8b1456f575cb9c8f76deb29b123cc14189979cbfb37c1501d93ef61",
+        "entry": false,
+        "ast_sig": "",
+        "size": 665
+      },
+      {
+        "rel": "snapshot/modules/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/archive/legacy_modules_20250822T112711/__init__.py",
+        "group": "normal",
+        "sha256": "8bb41d10dc91cdd25cfc0f3a4eba8987b7b7a833f2683da9eae0999e3ef21ac9",
+        "entry": false,
+        "ast_sig": "",
+        "size": 60
+      },
+      {
+        "rel": "snapshot/patches/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "snapshot/features/__init__.py",
+        "group": "normal",
+        "sha256": "475e6a61a1cd90ddcc3b3c924cfe005e0d81d802cb27a1466da12f20cd74a619",
+        "entry": false,
+        "ast_sig": "",
+        "size": 17
+      },
+      {
+        "rel": "models/__init__.py",
+        "group": "normal",
+        "sha256": "b7fdd6a461db41f9a75a3c677bf6e758a9f38a06d69c06a4f04658f14aecf1e4",
+        "entry": false,
+        "ast_sig": "",
+        "size": 22
+      },
+      {
+        "rel": "models/spam/__init__.py",
+        "group": "normal",
+        "sha256": "2d8da7e00599293a88bf93fdd546cc9e5706402d519a0cf2a45d164906be2540",
+        "entry": false,
+        "ast_sig": "",
+        "size": 95
+      },
+      {
+        "rel": "models/rag/__init__.py",
+        "group": "normal",
+        "sha256": "7dcba53089db50f5754d14fc404d04629a94f3aec4141aaf61e25e3a85c07885",
+        "entry": false,
+        "ast_sig": "",
+        "size": 92
+      },
+      {
+        "rel": "models/common/__init__.py",
+        "group": "normal",
+        "sha256": "da77c5e7ffa4ce1819c940efb8f51fa7bd49348108840662a34810cd1627dc64",
+        "entry": false,
+        "ast_sig": "",
+        "size": 76
+      },
+      {
+        "rel": "models/intent/__init__.py",
+        "group": "normal",
+        "sha256": "2835473ee71eef7e4f01822450a4e97f1f1ffff8420bfa54c968963c05060fac",
+        "entry": false,
+        "ast_sig": "",
+        "size": 199
+      },
+      {
+        "rel": "ai_rpa/__init__.py",
+        "group": "root_pkg",
+        "sha256": "4dc027e22e94155b90009121cce5dcf3ee78234e9cf9b0ad2215b091d372c85f",
+        "entry": false,
+        "ast_sig": "def __getattr__(1)",
+        "size": 757
+      },
+      {
+        "rel": "ai_rpa/utils/__init__.py",
+        "group": "root_pkg",
+        "sha256": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb",
+        "entry": false,
+        "ast_sig": "",
+        "size": 13
+      },
+      {
+        "rel": "utils/__init__.py",
+        "group": "normal",
+        "sha256": "616a4713f8b1456f575cb9c8f76deb29b123cc14189979cbfb37c1501d93ef61",
+        "entry": false,
+        "ast_sig": "",
+        "size": 665
+      },
+      {
+        "rel": "modules/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "archive/legacy_modules_20250822T112711/__init__.py",
+        "group": "normal",
+        "sha256": "8bb41d10dc91cdd25cfc0f3a4eba8987b7b7a833f2683da9eae0999e3ef21ac9",
+        "entry": false,
+        "ast_sig": "",
+        "size": 60
+      },
+      {
+        "rel": "sma_tools/__init__.py",
+        "group": "normal",
+        "sha256": "4e8592b34982f30c4a17dd3d4b578abecac55117949727a988477865d186f363",
+        "entry": false,
+        "ast_sig": "class ZeroPad|class DictFeaturizer",
+        "size": 923
+      },
+      {
+        "rel": "patches/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/coverage/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/coverage/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/pro/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/pro/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/models/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/models/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/custom/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/custom/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/smoke/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/smoke/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/ai_rpa_unit/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/ai_rpa_unit/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/integration/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/integration/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/boost/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/boost/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/unit/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/unit/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/sma_core/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "tests/sma_core/__pycache__/__init__.py",
+        "group": "normal",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entry": false,
+        "ast_sig": "",
+        "size": 0
+      },
+      {
+        "rel": "features/__init__.py",
+        "group": "normal",
+        "sha256": "475e6a61a1cd90ddcc3b3c924cfe005e0d81d802cb27a1466da12f20cd74a619",
+        "entry": false,
+        "ast_sig": "",
+        "size": 17
+      }
+    ]
+  },
+  {
+    "name": "test_cli_main.py",
+    "items": [
+      {
+        "rel": "legacy_tests/ai_rpa/test_cli_main.py",
+        "group": "normal",
+        "sha256": "f84ba456ccb8fac5fa2aeb7faa22f284c3adf073e0cff338457ced91d7bab915",
+        "entry": true,
+        "ast_sig": "def test_cli_main_smoke(2)",
+        "size": 631
+      },
+      {
+        "rel": "snapshot/legacy_tests/ai_rpa/test_cli_main.py",
+        "group": "normal",
+        "sha256": "f84ba456ccb8fac5fa2aeb7faa22f284c3adf073e0cff338457ced91d7bab915",
+        "entry": true,
+        "ast_sig": "def test_cli_main_smoke(2)",
+        "size": 631
+      }
+    ]
+  },
+  {
+    "name": "spamcheck.py",
+    "items": [
+      {
+        "rel": "smart_mail_agent/cli/spamcheck.py",
+        "group": "root_pkg",
+        "sha256": "8669a0bdcf28695ee37aa0d19309d3716a869a1d9692443d821e73d9ee3c7016",
+        "entry": true,
+        "ast_sig": "def main(0)|if",
+        "size": 406
+      },
+      {
+        "rel": "src/smart_mail_agent/cli/spamcheck.py",
+        "group": "src",
+        "sha256": "542eaedf364e7c6d4dc332e818909ae1e406cc81e9875cdce01a83ed4b9302f0",
+        "entry": true,
+        "ast_sig": "def run(3)",
+        "size": 517
+      },
+      {
+        "rel": "snapshot/smart_mail_agent/cli/spamcheck.py",
+        "group": "normal",
+        "sha256": "8669a0bdcf28695ee37aa0d19309d3716a869a1d9692443d821e73d9ee3c7016",
+        "entry": true,
+        "ast_sig": "def main(0)|if",
+        "size": 406
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/cli/spamcheck.py",
+        "group": "normal",
+        "sha256": "542eaedf364e7c6d4dc332e818909ae1e406cc81e9875cdce01a83ed4b9302f0",
+        "entry": true,
+        "ast_sig": "def run(3)",
+        "size": 517
+      },
+      {
+        "rel": "snapshot/archive/legacy_modules/spamcheck.py",
+        "group": "normal",
+        "sha256": "161423f66f0cf3390a57ed5a097c1ac87afa1c55df6fa69cd339ef24055f8916",
+        "entry": true,
+        "ast_sig": "",
+        "size": 47
+      },
+      {
+        "rel": "archive/legacy_modules/spamcheck.py",
+        "group": "normal",
+        "sha256": "161423f66f0cf3390a57ed5a097c1ac87afa1c55df6fa69cd339ef24055f8916",
+        "entry": true,
+        "ast_sig": "",
+        "size": 47
+      }
+    ]
+  },
+  {
+    "name": "__main__.py",
+    "items": [
+      {
+        "rel": "examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+        "group": "legacy",
+        "sha256": "e44f5983bc06536f2debe56c1f17d023ee2a7dceb36b517e68f97d38eb62196b",
+        "entry": true,
+        "ast_sig": "def main(1)|if",
+        "size": 434
+      },
+      {
+        "rel": "src/smart_mail_agent/__main__.py",
+        "group": "src",
+        "sha256": "d1e344caa0d67e2022364ae669b97c1c3156dc33336319f3827dcdf379ab6a2e",
+        "entry": true,
+        "ast_sig": "if",
+        "size": 159
+      },
+      {
+        "rel": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+        "group": "normal",
+        "sha256": "e44f5983bc06536f2debe56c1f17d023ee2a7dceb36b517e68f97d38eb62196b",
+        "entry": true,
+        "ast_sig": "def main(1)|if",
+        "size": 434
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/__main__.py",
+        "group": "normal",
+        "sha256": "d1e344caa0d67e2022364ae669b97c1c3156dc33336319f3827dcdf379ab6a2e",
+        "entry": true,
+        "ast_sig": "if",
+        "size": 159
+      }
+    ]
+  },
+  {
+    "name": "cli_spamcheck.py",
+    "items": [
+      {
+        "rel": "examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+        "group": "legacy",
+        "sha256": "37bdb7b561c53dedcb9668c901190ba9981ebdeab68dadadeed32215ebf0e1bf",
+        "entry": true,
+        "ast_sig": "def _heuristic_spam_score(1)|def _classify(3)|def main(1)|if",
+        "size": 1957
+      },
+      {
+        "rel": "src/cli_spamcheck.py",
+        "group": "src",
+        "sha256": "dd51c66bef9aeaa20610b88fc1c389b91add6e675c3e385b27a7d965b507c0bd",
+        "entry": true,
+        "ast_sig": "",
+        "size": 285
+      },
+      {
+        "rel": "src/smart_mail_agent/cli_spamcheck.py",
+        "group": "src",
+        "sha256": "dd51c66bef9aeaa20610b88fc1c389b91add6e675c3e385b27a7d965b507c0bd",
+        "entry": true,
+        "ast_sig": "",
+        "size": 285
+      },
+      {
+        "rel": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+        "group": "normal",
+        "sha256": "37bdb7b561c53dedcb9668c901190ba9981ebdeab68dadadeed32215ebf0e1bf",
+        "entry": true,
+        "ast_sig": "def _heuristic_spam_score(1)|def _classify(3)|def main(1)|if",
+        "size": 1957
+      },
+      {
+        "rel": "snapshot/src/cli_spamcheck.py",
+        "group": "normal",
+        "sha256": "dd51c66bef9aeaa20610b88fc1c389b91add6e675c3e385b27a7d965b507c0bd",
+        "entry": true,
+        "ast_sig": "",
+        "size": 285
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/cli_spamcheck.py",
+        "group": "normal",
+        "sha256": "dd51c66bef9aeaa20610b88fc1c389b91add6e675c3e385b27a7d965b507c0bd",
+        "entry": true,
+        "ast_sig": "",
+        "size": 285
+      }
+    ]
+  },
+  {
+    "name": "sma_run.py",
+    "items": [
+      {
+        "rel": "src/smart_mail_agent/cli/sma_run.py",
+        "group": "src",
+        "sha256": "843d424327f883ef330059542d44eea9fba7e48961abb38cfdb86eb288654f3d",
+        "entry": true,
+        "ast_sig": "def main(0)|if",
+        "size": 325
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/cli/sma_run.py",
+        "group": "normal",
+        "sha256": "843d424327f883ef330059542d44eea9fba7e48961abb38cfdb86eb288654f3d",
+        "entry": true,
+        "ast_sig": "def main(0)|if",
+        "size": 325
+      }
+    ]
+  },
+  {
+    "name": "sma.py",
+    "items": [
+      {
+        "rel": "src/smart_mail_agent/cli/sma.py",
+        "group": "src",
+        "sha256": "14c777fc1124224c15610c1bf35e1dd223d0438b6d08ad790d8c639720b4a8fb",
+        "entry": true,
+        "ast_sig": "def main(1)|if",
+        "size": 378
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/cli/sma.py",
+        "group": "normal",
+        "sha256": "14c777fc1124224c15610c1bf35e1dd223d0438b6d08ad790d8c639720b4a8fb",
+        "entry": true,
+        "ast_sig": "def main(1)|if",
+        "size": 378
+      }
+    ]
+  },
+  {
+    "name": "sma_spamcheck.py",
+    "items": [
+      {
+        "rel": "src/smart_mail_agent/cli/sma_spamcheck.py",
+        "group": "src",
+        "sha256": "899e86be8111c22fcc69bd5debd35accb6650afec8d7624e0a523eb5309f30f9",
+        "entry": true,
+        "ast_sig": "def main(1)|if",
+        "size": 671
+      },
+      {
+        "rel": "snapshot/src/smart_mail_agent/cli/sma_spamcheck.py",
+        "group": "normal",
+        "sha256": "899e86be8111c22fcc69bd5debd35accb6650afec8d7624e0a523eb5309f30f9",
+        "entry": true,
+        "ast_sig": "def main(1)|if",
+        "size": 671
+      }
+    ]
+  },
+  {
+    "name": "main.py",
+    "items": [
+      {
+        "rel": "src/ai_rpa/main.py",
+        "group": "src",
+        "sha256": "95b316ca992cbcf64dd8f1d5138836876f46576153e0c0fbab43e991e550a40b",
+        "entry": true,
+        "ast_sig": "def _parse_args(1)|def _split_tasks(1)|def _read_text(1)|def main(1)|if",
+        "size": 4131
+      },
+      {
+        "rel": "snapshot/src/ai_rpa/main.py",
+        "group": "normal",
+        "sha256": "e45f210a70f1a550f3ce4b2870bd1fcfbe4b7f4a32e2033e41e05f4f0e51ddbe",
+        "entry": true,
+        "ast_sig": "def _parse_args(1)|def _as_list_tasks(1)|def _normalize_tasks_keep_unknown(1)|def _read_text_from_input(1)|def _serialize_paths_map(1)|def _plan_actions_from_nlp(2)|def main(1)|if",
+        "size": 12973
+      },
+      {
+        "rel": "ai_rpa/main.py",
+        "group": "root_pkg",
+        "sha256": "e3e25bb3d36226486a2ceab30a7fa8be5bc413328bcd9508ce607356100c7cf3",
+        "entry": true,
+        "ast_sig": "def _read_text(2)|def main(1)|if",
+        "size": 1577
+      }
+    ]
+  },
+  {
+    "name": "test_actions_matrix_via_main.py",
+    "items": [
+      {
+        "rel": "snapshot/tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+        "group": "normal",
+        "sha256": "09bdbff12e2251cf8f6e36e607fd6d37f1fd4eff3b98dd9aacf38e789583d48a",
+        "entry": true,
+        "ast_sig": "def _run(1)|def _read_stdout(1)|def test_actions_sales_only(3)|def test_actions_support_only(3)|def test_actions_none(3)|def test_actions_dry_run(3)",
+        "size": 2840
+      },
+      {
+        "rel": "tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+        "group": "normal",
+        "sha256": "09bdbff12e2251cf8f6e36e607fd6d37f1fd4eff3b98dd9aacf38e789583d48a",
+        "entry": true,
+        "ast_sig": "def _run(1)|def _read_stdout(1)|def test_actions_sales_only(3)|def test_actions_support_only(3)|def test_actions_none(3)|def test_actions_dry_run(3)",
+        "size": 2840
+      }
+    ]
+  },
+  {
+    "name": "test_spam_task_via_main.py",
+    "items": [
+      {
+        "rel": "snapshot/tests/ai_rpa_unit/test_spam_task_via_main.py",
+        "group": "normal",
+        "sha256": "73b1c076b8dec48d197dd933ff95757ac94b43a8a8fb2e8ddf700fb8f04dd05a",
+        "entry": true,
+        "ast_sig": "def _run(1)|def _out(1)|def test_spam_only_via_main(3)|def test_spam_with_nlp_pipeline(3)",
+        "size": 1297
+      },
+      {
+        "rel": "tests/ai_rpa_unit/test_spam_task_via_main.py",
+        "group": "normal",
+        "sha256": "73b1c076b8dec48d197dd933ff95757ac94b43a8a8fb2e8ddf700fb8f04dd05a",
+        "entry": true,
+        "ast_sig": "def _run(1)|def _out(1)|def test_spam_only_via_main(3)|def test_spam_with_nlp_pipeline(3)",
+        "size": 1297
+      }
+    ]
+  }
+]

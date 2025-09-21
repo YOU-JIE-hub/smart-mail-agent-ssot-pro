@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "mail_id": "o1",
+    "intent": "other",
+    "action": "manual_triage",
+    "ts": 1756746713,
+    "idempotency_key": "8e0a0c7d453b3579",
+    "priority": "P3/Ops",
+    "queue": "P3/Ops"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 24,
+        "end": 43
+      }
+    ]
+  }
+}

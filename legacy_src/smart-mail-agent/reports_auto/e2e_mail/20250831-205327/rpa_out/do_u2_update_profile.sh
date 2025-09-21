@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# demo：把 payload 當作入參；未接外部系統前可先 echo / curl 內網 API
+cat <<'JSON' > payload.json
+{
+  "id": "u2",
+  "action": "update_profile",
+  "priority": "P3",
+  "queue": "CRM",
+  "due_at": "2025-09-02T12:53:40+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "model_versions": {
+      "spam": "prod",
+      "intent": "pro_cal",
+      "kie": "xlmr"
+    },
+    "risk": "low",
+    "created_at": "2025-08-31T12:53:40+00:00"
+  },
+  "idempotency_key": "cdd69ef163f85f1b74dadc1977de7748ad69735b"
+}
+JSON
+echo '[RUN]' update_profile u2 priority=P3 queue=CRM due_at=2025-09-02T12:53:40+00:00

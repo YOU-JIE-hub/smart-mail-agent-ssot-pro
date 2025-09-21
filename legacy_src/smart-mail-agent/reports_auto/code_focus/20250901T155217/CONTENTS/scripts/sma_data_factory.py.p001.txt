@@ -1,0 +1,35 @@
+ntries: f.write(json.dumps(e, ensure_ascii=False)+"\n")
+    spam=[e for e in entries if e["label"]=="spam"]; ham=[e for e in entries if e["label"]=="ham"]
+    random.shuffle(spam); random.shuffle(ham)
+    def cut(lst):
+        n=len(lst); ntr=round(0.8*n); nva=round(0.1*n); return lst[:ntr], lst[ntr:ntr+nva], lst[ntr+nva:]
+    s_tr,s_va,s_te = cut(spam); h_tr,h_va,h_te = cut(ham)
+    tr=s_tr+h_tr; va=s_va+h_va; te=s_te+h_te
+    random.shuffle(tr); random.shuffle(va); random.shuffle(te)
+    def dump(lst,p):
+        with p.open("w",encoding="utf-8") as f:
+            for e in lst: f.write(json.dumps(e,ensure_ascii=False)+"\n")
+    dump(tr, outdir/"train.jsonl"); dump(va, outdir/"val.jsonl"); dump(te, outdir/"test.jsonl")
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--outdir", default="data/spam")
+    ap.add_argument("--total", type=int, default=DEF_TOTAL)
+    ap.add_argument("--spam", type=float, default=DEF_SPAM)
+    ap.add_argument("--zh", type=float, default=DEF_ZH)
+    ap.add_argument("--len_short", type=float, default=DEF_LEN["short"])
+    ap.add_argument("--len_medium", type=float, default=DEF_LEN["medium"])
+    ap.add_argument("--len_long", type=float, default=DEF_LEN["long"])
+    ap.add_argument("--multi", type=float, default=DEF_MULTI)
+    ap.add_argument("--seed", type=int, default=DEF_SEED)
+    args=ap.parse_args()
+    len_ratio={"short":args.len_short,"medium":args.len_medium,"long":args.len_long}
+    entries, stats = build(args.total, args.spam, args.zh, len_ratio, args.multi, args.seed)
+    split_and_save(entries, Path(args.outdir))
+    Path("reports_auto").mkdir(parents=True, exist_ok=True)
+    Path("reports_auto/sma_data_stats.txt").write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8")
+    print("[OUT] data/spam/{all,train,val,test}.jsonl")
+    print("[STATS]", json.dumps(stats, ensure_ascii=False))
+
+if __name__=="__main__":
+    main()
