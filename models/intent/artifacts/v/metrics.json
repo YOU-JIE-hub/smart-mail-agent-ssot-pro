@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "error": "Can't get attribute 'rules_feat' on <module '__main__' from 'scripts/eval_intent.py'>"
+}

@@ -1,0 +1,1 @@
+/home/youjie/projects/smart-mail-agent/reports_auto/spam/artifacts_prod/model_pipeline.pkl

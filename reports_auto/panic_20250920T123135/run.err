@@ -1,4 +1,0 @@
-  File "<stdin>", line 2
-    print(\"hello from test\")
-           ^
-SyntaxError: unexpected character after line continuation character

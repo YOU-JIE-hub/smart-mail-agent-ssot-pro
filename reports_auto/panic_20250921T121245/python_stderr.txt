@@ -1,4 +1,0 @@
-  File "<stdin>", line 3
-    try:
-    ^
-IndentationError: expected an indented block after function definition on line 2

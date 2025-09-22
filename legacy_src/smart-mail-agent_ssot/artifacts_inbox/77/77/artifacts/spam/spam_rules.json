@@ -1,0 +1,27 @@
+{
+  "spam_words": [
+    "暴富",
+    "大額補貼",
+    "free money",
+    "快速致富",
+    "usdt",
+    "空投",
+    "viagra",
+    "bitcoin",
+    "btc",
+    "返利"
+  ],
+  "ham_hints": [
+    "合作",
+    "報價",
+    "客服",
+    "條款",
+    "退款",
+    "申請",
+    "支援",
+    "發票"
+  ],
+  "thresholds": {
+    "adapter_block": 0.5
+  }
+}

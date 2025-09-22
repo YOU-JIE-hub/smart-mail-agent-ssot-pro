@@ -18,3 +18,20 @@ bash tools/panic.sh ". .venv/bin/activate; uvicorn scripts.api_meta:app --host 1
 
 ### 注意
 - Makefile 的 train-* 目前為安全占位；此專案以「外部提供模型＋ENV 綁定」為主。
+
+## API (FastAPI)
+```bash
+. .venv/bin/activate
+export INTENT_PKL="$HOME/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl"
+export SPAM_PKL="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl"
+export ABSTAIN_MIN_CONF=0.5   # 選用：低於即拒答
+make serve
+# -> POST http://localhost:8000/v1/predict
+範例請求
+bash
+Copy code
+curl -s localhost:8000/v1/predict -H 'content-type: application/json' -d '{
+  "task":"spam",
+  "text":"FREE $$$ CLICK HERE!!! http://spam",
+  "top_k":3
+}' | jq

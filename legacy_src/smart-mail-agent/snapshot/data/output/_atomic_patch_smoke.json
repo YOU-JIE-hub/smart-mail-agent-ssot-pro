@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "artifacts": {
+    "output_path": "data/output/_atomic_patch_smoke.json"
+  },
+  "nlp": {
+    "labels": []
+  },
+  "steps": [
+    "nlp"
+  ]
+}

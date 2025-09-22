@@ -1,0 +1,15 @@
+{
+  "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl",
+  "exists": true,
+  "size_bytes": 1304476,
+  "sha256": "4609111807863dcadf298d1b574d58f9cbcffcea3994b015ba211c67737424a8",
+  "sklearn_pipeline": "Pipeline",
+  "classes_": [
+    "其他",
+    "報價",
+    "技術支援",
+    "投訴",
+    "規則詢問",
+    "資料異動"
+  ]
+}

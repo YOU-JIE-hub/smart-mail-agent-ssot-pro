@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+source .sma_tools/env_guard.sh
+# sma_run_logged.sh — 用法：scripts/sma_run_logged.sh <cmd> [args...]
+# 先啟動日誌守門，再嘗試進專案與 venv，最後執行你的指令
+set -Eeuo pipefail
+set -o errtrace
+
+# 1) 開啟全程日誌
+# shellcheck disable=SC1091
+. .sma_tools/log_guard.sh || { echo "[FATAL] 無法載入 .sma_tools/log_guard.sh"; exit 98; }
+
+# 2) 先進專案、先進環境（若有 env_guard）
+if [[ -f ".sma_tools/env_guard.sh" ]]; then
+  # shellcheck disable=SC1091
+  . .sma_tools/env_guard.sh || { echo "[WARN] env_guard 執行失敗（持續記錄日誌）。"; }
+else
+  # 嘗試以 git 定位專案根
+  if git rev-parse --show-toplevel &>/dev/null; then
+    cd "$(git rev-parse --show-toplevel)" || true
+  fi
+fi
+
+# 3) 執行使用者指令（失敗不吞，讓 EXIT trap 產 crash.json）
+[[ $# -gt 0 ]] || { echo "用法：scripts/sma_run_logged.sh <command> [args...]"; exit 64; }
+echo "[RUN] $*"
+"$@"
+rc=$?
+echo "[DONE] rc=$rc"
+echo "[LOG]  $SMA_LAST_LOG"
+[[ $rc -eq 0 ]] || exit $rc

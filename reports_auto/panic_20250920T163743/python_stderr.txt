@@ -1,3 +1,0 @@
-Traceback (most recent call last):
-  File "<stdin>", line 181, in <module>
-NameError: name 'path' is not defined. Did you mean: 'Path'?

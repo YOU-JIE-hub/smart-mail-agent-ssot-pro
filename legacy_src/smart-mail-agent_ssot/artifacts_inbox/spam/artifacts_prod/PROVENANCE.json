@@ -1,0 +1,12 @@
+{
+  "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl",
+  "exists": true,
+  "generated_at": "2025-09-21T13:40:12",
+  "size_bytes": 39332648,
+  "sha256": "b16f1d7fc25a1e8cad9480c63997de7b2bc1a61c944f58a46a6835dca981a229",
+  "classes_": [
+    "0",
+    "1"
+  ],
+  "sklearn_pipeline": "Pipeline"
+}

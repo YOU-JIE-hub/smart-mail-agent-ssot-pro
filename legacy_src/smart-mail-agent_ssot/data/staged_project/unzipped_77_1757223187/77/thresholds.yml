@@ -1,0 +1,5 @@
+# token→span 置信度的平均門檻（可按需調整）
+amount: 0.50
+date_time: 0.55
+env: 0.60
+sla: 0.60

@@ -1,0 +1,4 @@
+{
+  "kie_mode": "hybrid_v4",
+  "labels": { "amount": true, "date_time": true, "env": true, "sla": false }
+}

@@ -1,4 +1,0 @@
-  File "<stdin>", line 6
-    hotfix_dir = reports/f'hotfix_backups/{time.strftime('%Y%m%dT%H%M%S')}'; hotfix_dir.mkdir(parents=True, exist_ok=True)
-                                                          ^
-SyntaxError: f-string: unmatched '('

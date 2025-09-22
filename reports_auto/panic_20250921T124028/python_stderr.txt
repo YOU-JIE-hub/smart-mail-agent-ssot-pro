@@ -1,5 +1,0 @@
-bash: line 163: warning: here-document at line 1 delimited by end-of-file (wanted `PY')
-  File "<stdin>", line 162
-    "\t@bash tools/panic.sh . .venv/bin/activate
-    ^
-SyntaxError: unterminated string literal (detected at line 162)

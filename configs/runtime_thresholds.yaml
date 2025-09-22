@@ -1,0 +1,3 @@
+inference:
+  spam:
+    threshold: 0.15

@@ -1,4 +1,0 @@
-  File "<stdin>", line 4
-    p=pathlib.Path(pkl_path).expanduser().resolve()
-    ^
-IndentationError: expected an indented block after function definition on line 3

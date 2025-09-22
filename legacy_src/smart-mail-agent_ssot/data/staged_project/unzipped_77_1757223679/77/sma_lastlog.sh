@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+source .sma_tools/env_guard.sh
+set -Eeuo pipefail
+set -o errtrace
+# 優先讀本期 shell 暴露的日誌；否則找 reports_auto/logs 最新資料夾
+if [[ -n "${SMA_LAST_LOG_DIR:-}" && -d "$SMA_LAST_LOG_DIR" ]]; then
+  L="$SMA_LAST_LOG_DIR"
+else
+  ROOT="reports_auto/logs"
+  [[ -d "$ROOT" ]] || { echo "[MISS] $ROOT"; exit 1; }
+  L="$(ls -1dt "$ROOT"/* 2>/dev/null | head -n1)"
+fi
+[[ -n "$L" ]] || { echo "[MISS] 沒有任何日誌目錄"; exit 2; }
+echo "[DIR] $L"
+echo "[LOG] $L/run.log"
+[[ -f "$L/crash.json" ]] && { echo "[CRASH] $L/crash.json"; }

@@ -1,14 +1,14 @@
 .venv/
-venv/
 __pycache__/
-node_modules/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+reports_auto/
 dist/
 build/
-artifacts*/
-models/
-weights/
-datasets/
-data/
-reports_auto/logs/
-*.pkl *.joblib *.safetensors *.pt *.bin *.onnx *.parquet
-*.gz *.zip *.xz *.7z *.tar *.npz *.npy *.h5
+*.egg-info/
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.*

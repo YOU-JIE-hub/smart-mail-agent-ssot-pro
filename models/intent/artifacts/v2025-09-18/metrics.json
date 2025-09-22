@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "error": "X has 29226 features, but LinearSVC is expecting 29233 features as input."
+}

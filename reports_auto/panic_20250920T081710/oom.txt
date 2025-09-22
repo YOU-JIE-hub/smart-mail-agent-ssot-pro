@@ -1,6 +1,0 @@
-+ echo '== dmesg tail (OOM related) =='
-== dmesg tail (OOM related) ==
-+ dmesg
-+ egrep -i 'killed process|out of memory|oom'
-+ tail -n 120
-+ true

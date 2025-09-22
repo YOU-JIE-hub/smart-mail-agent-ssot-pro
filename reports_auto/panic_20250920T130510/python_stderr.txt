@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_safe.py", line 102, in <module>
-    main()
-  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_safe.py", line 82, in main
-    rep_spam   = train_one(spam_path,   ROOT/"models/spam/artifacts/model_pipeline.pkl")
-  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/canuse_safe.py", line 51, in train_one
-    if not rows: raise RuntimeError(f"no rows parsed from {in_path}")
-RuntimeError: no rows parsed from /home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl

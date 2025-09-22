@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/forensics_20250920T172430/forensics.py", line 21, in <module>
-    OUT = Path(os.environ["OUT"])
-  File "/usr/lib/python3.10/os.py", line 680, in __getitem__
-    raise KeyError(key) from None
-KeyError: 'OUT'
