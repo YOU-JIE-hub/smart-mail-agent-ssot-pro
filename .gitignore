@@ -1,15 +1,10 @@
-# venv / caches
 .venv/
 __pycache__/
 *.pyc
-
-# local outputs
 reports_auto/
 workspace/
 tmp/
 .DS_Store
-
-# OS/editor
 *.swp
 .idea/
 .vscode/

@@ -1,25 +1,5 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail -o errtrace; umask 022
-# --- injected: safe_safe_bundle (robust zip bundler; tolerant to missing args) ---
-safe_bundle() {
-  local name="${1:-bundle}"
-  local src="${2:-}"
-  local ts="${TS:-$(date +%Y%m%dT%H%M%S)}"
-  local outdir="reports_auto/bundles"
-  local dst="${outdir}/${name}_${ts}.zip"
-  mkdir -p "${outdir}"
-  if [ -n "${src}" ] && [ -e "${src}" ]; then
-    zip -qr "${dst}" "${src}" || true
-  else
-    echo "[WARN] safe_bundle: missing source '${src}' for ${name}" >&2
-    local ph="${outdir}/.empty_${ts}_${name}"
-    : > "${ph}"
-    zip -qr "${dst}" "${ph}" || true
-    rm -f "${ph}"
-  fi
-  echo "${dst}"
-}
-# --- end injected: safe_safe_bundle ---
 cd ~/projects/smart-mail-agent-ssot-pro || exit 2
 [ -f .venv/bin/activate ] && . .venv/bin/activate || true
 export PYTHONNOUSERSITE=1 PYTHONPATH="src:${PYTHONPATH:-}"
@@ -130,8 +110,8 @@ bundle(){
     echo -n "$dest "
   fi
 }
-B1="$(safe_bundle pro_evidence reports_auto/pro/latest)"
-B2="$(safe_bundle online        "$ONLINEDIR")"
-B3="$(safe_bundle e2e           "$E2EDIR")"
-B4="$(safe_bundle actions       reports_auto/actions/latest)"
+B1="$(bundle pro_evidence reports_auto/pro/latest)"
+B2="$(bundle online        "$ONLINEDIR")"
+B3="$(bundle e2e           "$E2EDIR")"
+B4="$(bundle actions       reports_auto/actions/latest)"
 say "Bundles: $B1$B2$B3$B4"

@@ -90,3 +90,9 @@ actions-all:
 
 oneclick-all:
 	@bash tools/oneclick_all.sh
+.PHONY: run-all api-smoke
+run-all:
+	@bash tools/run_all.sh
+
+api-smoke:
+	@bash tools/api_smoke.sh
