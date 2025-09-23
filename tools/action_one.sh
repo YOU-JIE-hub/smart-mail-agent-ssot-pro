@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# tools/action_one.sh — 單一 RPA 行為一鍵執行（更穩定、防閃退、自癒）
 set -Eeuo pipefail -o errtrace; umask 022
 cd ~/projects/smart-mail-agent-ssot-pro || { echo "[FATAL] repo not found"; exit 2; }
 [ -f .venv/bin/activate ] && . .venv/bin/activate || true
@@ -16,12 +15,9 @@ LOGDIR="$ROOT/reports_auto/logs/$TS"; ERRDIR="$ROOT/reports_auto/ERR/$TS"
 ACTROOT="$ROOT/reports_auto/actions"; BUNDLEDIR="$ROOT/reports_auto/bundles"
 mkdir -p "$LOGDIR" "$ERRDIR" "$ACTROOT" "$BUNDLEDIR"
 OUTROOT="$ACTROOT/actions_${TS}_single"; mkdir -p "$OUTROOT"
-
-say(){ echo "[$(date +%F' '%T)] $*" | tee -a "$LOGDIR/action_one.log" >&2; }
-trap 'ec=$?; echo "[ERR] Exit $ec — see $ERRDIR"; exit $ec' ERR
 export OUTROOT ACTION MAIL_ID
 
-# 1) 構建輸入
+# 構建輸入
 python - <<'PY' 1>>"$LOGDIR/action_one_build.out" 2>>"$ERRDIR/action_one_build.err"
 import json, os, re
 from pathlib import Path
@@ -41,7 +37,7 @@ obj=[{"mail":mail,"intent":intent_map.get(act,"其他"),"action":act,"fields":de
 print("[OK] input prepared:", act, mail, "->", OUTROOT)
 PY
 
-# 2) 執行
+# 執行（含 RAG、PII 遮罩）
 python - <<'PY' 1>>"$LOGDIR/action_one_exec.out" 2>>"$ERRDIR/action_one_exec.err"
 import json, re, datetime, os, math
 from pathlib import Path
@@ -55,14 +51,13 @@ def to_float(x,d=0.0):
         if isinstance(x,(int,float)) and (not math.isnan(x) and not math.isinf(x)): return float(x)
         return float(str(x).replace(",","").strip())
     except Exception: return d
-def to_int(x,d=0): 
+def to_int(x,d=0):
     try: return int(round(to_float(x,d)))
     except Exception: return d
-def as_str(x): 
+def as_str(x):
     try: return str(x) if x is not None else ""
     except Exception: return ""
-def mask_phone(s):
-    return re.sub(r'(?:(?:\+?886\-?)?0?9\d{2})[\-\s]?\d{3}[\-\s]?\d{3}', lambda m: m.group(0)[:4]+"-***-***", as_str(s))
+def mask_phone(s): return re.sub(r'(?:(?:\+?886\-?)?0?9\d{2})[\-\s]?\d{3}[\-\s]?\d{3}', lambda m: m.group(0)[:4]+"-***-***", as_str(s))
 def mask_email(s):
     s=as_str(s); return re.sub(r'([A-Za-z0-9._%+-])([A-Za-z0-9._%+-]*)(@[^,\s>]+)', lambda m: (m.group(1)+"***"+m.group(3)), s)
 
@@ -104,7 +99,7 @@ for it in actions:
     try:
         if act=="make_quote_pdf":
             raw=fields.get("items") or [{"name":"企業版授權","qty":10,"unit_price":1000}]
-            items=[]; 
+            items=[]
             for r in raw if isinstance(raw,list) else [raw]:
                 items.append({"name":as_str(r.get("name","項目")),"qty":to_int(r.get("qty",1),1),"unit_price":to_float(r.get("unit_price",0),0.0)})
             tax_rate=to_float(fields.get("tax_rate",0.05),0.05); subtotal=sum(i["qty"]*i["unit_price"] for i in items); tax=round(subtotal*tax_rate,2); total=subtotal+tax
@@ -113,7 +108,7 @@ for it in actions:
 <h2>報價單 QUOTATION</h2><p>客戶：{as_str(fields.get('customer','示例客戶'))} | 日期：{now}</p>
 <table><thead><tr><th>項目</th><th>數量</th><th>單價</th><th>小計</th></tr></thead><tbody>{rows}</tbody>
 <tfoot><tr><td colspan="3">小計</td><td style='text-align:right'>{subtotal:.2f}</td></tr><tr><td colspan="3">稅額({tax_rate*100:.0f}%)</td><td style='text-align:right'>{tax:.2f}</td></tr><tr><td colspan="3"><b>總額</b></td><td style='text-align:right'><b>{total:.2f}</b></td></tr></tfoot></table>"""
-            hp=outdir/"quote.html"; hp.write_text(html,encoding="utf-8"); arts.append({"kind":"html","path":str(hp)})
+            (outdir/"quote.html").write_text(html,encoding="utf-8"); arts.append({"kind":"html","path":str(outdir/'quote.html')})
             try:
                 import importlib.util
                 if importlib.util.find_spec("weasyprint"):
@@ -161,7 +156,7 @@ ok=sum(1 for r in records if r.get("ok"))
 print("[OK] action done ->", OUTROOT, "OK:", ok, "TOTAL:", len(records))
 PY
 
-# 3) latest 指到這次，並打包
+# latest 指向本次
 python - <<'PY'
 from pathlib import Path; import shutil
 root=Path("reports_auto/actions")
@@ -176,6 +171,3 @@ if dirs:
         shutil.copytree(dirs[0], latest, dirs_exist_ok=True)
 print("[OK] latest ->", dirs[0] if dirs else "NA")
 PY
-ZIP="$BUNDLEDIR/action_${TS}_${ACTION}.zip"; zip -qr "$ZIP" "$OUTROOT" || true
-( cd "$BUNDLEDIR" && sha256sum "$(basename "$ZIP")" > "SHA256SUMS_${TS}_${ACTION}" ) || true
-say "== DONE =="; say "Artifacts: $OUTROOT"; say "Latest:    reports_auto/actions/latest"; say "Bundle:    $ZIP"

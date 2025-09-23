@@ -1,37 +1,13 @@
-# Smart Mail Agent — Minimal Ops README
+# Smart Mail Agent (SSOT Pro)
+
+> 自動化 RPA：收信 → SPAM/INTENT → KIE → 6 大動作（報價、建單、升級建議、FAQ 草稿、CRM 更新、人工轉派）。
+> 一鍵產物：reports_auto/actions/latest/** 與 bundles/**
 
 ## 快速開始
-1) 先進專案根並啟用 venv（以下指令示例已內建這一步）。
-2) 三個環境變數綁定你本機的模型路徑（Intent/Spam/KIE）。
-3) 任何指令一律用 panic 包起來，錯誤匯流到 reports_auto/panic_*。
-
-### 三個環境變數（綁定你的本機模型）
-export INTENT_PKL="$HOME/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl"
-export SPAM_PKL="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl"
-export KIE_DIR="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model"
-
-### 總評（會產生 reports_auto/summary.json）
-bash tools/panic.sh ". .venv/bin/activate; python3 scripts/eval_all.py --cfg configs/model_paths.yaml && echo --- summary --- && sed -n 1,200p reports_auto/summary.json"
-
-### API 啟動（如需）
-bash tools/panic.sh ". .venv/bin/activate; uvicorn scripts.api_meta:app --host 127.0.0.1 --port 8088"
-
-### 注意
-- Makefile 的 train-* 目前為安全占位；此專案以「外部提供模型＋ENV 綁定」為主。
-
-## API (FastAPI)
 ```bash
+python -m venv .venv
 . .venv/bin/activate
-export INTENT_PKL="$HOME/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl"
-export SPAM_PKL="$HOME/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl"
-export ABSTAIN_MIN_CONF=0.5   # 選用：低於即拒答
-make serve
-# -> POST http://localhost:8000/v1/predict
-範例請求
-bash
-Copy code
-curl -s localhost:8000/v1/predict -H 'content-type: application/json' -d '{
-  "task":"spam",
-  "text":"FREE $$$ CLICK HERE!!! http://spam",
-  "top_k":3
-}' | jq
+pip install -U pip
+pip install -r requirements.txt || true
+bash tools/actions_batch6.sh
+sed -n '1,80p' reports_auto/actions/latest/actions_summary.md
