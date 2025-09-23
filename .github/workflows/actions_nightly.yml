@@ -1,0 +1,25 @@
+name: actions-nightly
+on:
+  schedule: [{ cron: "0 17 * * *" }]
+  workflow_dispatch:
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install weasyprint || true
+      - name: Run actions-all
+        run: bash tools/actions_all.sh
+      - name: Upload bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: actions-bundle
+          path: |
+            reports_auto/bundles/*.zip
+            reports_auto/bundles/SHA256SUMS_*

@@ -75,3 +75,9 @@ serve-status:
 \tbash scripts/serve_mgr.sh status
 serve-tail:
 \tbash scripts/serve_mgr.sh tail
+.PHONY: actions-all oneclick-all
+actions-all:
+	@bash tools/actions_all.sh
+
+oneclick-all:
+	@bash tools/oneclick_all.sh
