@@ -1,6 +1,6 @@
 name: actions-nightly
 on:
-  schedule: [{ cron: "0 17 * * *" }]
+  schedule: [{ cron: "0 17 * * *" }]  # 01:00 Asia/Taipei
   workflow_dispatch:
 jobs:
   actions:
@@ -14,12 +14,13 @@ jobs:
           python -m pip install -U pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install weasyprint || true
-      - name: Run actions-all
-        run: bash tools/actions_all.sh
-      - name: Upload bundle
+      - name: Run actions-batch6
+        run: bash tools/actions_batch6.sh
+      - name: Upload bundles
         uses: actions/upload-artifact@v4
         with:
-          name: actions-bundle
+          name: rpa-bundles
           path: |
             reports_auto/bundles/*.zip
             reports_auto/bundles/SHA256SUMS_*
+          if-no-files-found: ignore
