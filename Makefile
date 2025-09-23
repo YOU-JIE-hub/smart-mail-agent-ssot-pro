@@ -81,3 +81,12 @@ actions-all:
 
 oneclick-all:
 	@bash tools/oneclick_all.sh
+.PHONY: actions-batch6 actions-all oneclick-all
+actions-batch6:
+	@bash tools/actions_batch6.sh
+
+actions-all:
+	@bash tools/actions_all.sh
+
+oneclick-all:
+	@bash tools/oneclick_all.sh

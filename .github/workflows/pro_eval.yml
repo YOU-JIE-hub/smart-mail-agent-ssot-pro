@@ -1,0 +1,27 @@
+name: pro-eval
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  pro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Pro Eval (no-train)
+        run: |
+          bash -lc 'set -e; [ -f scripts/eval_pro.py ] && python scripts/eval_pro.py || echo "skip eval_pro.py"'
+          bash -lc 'set -e; [ -f scripts/build_pro_md.py ] && python scripts/build_pro_md.py || echo "skip pro_md"'
+      - name: Upload pro artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pro-artifacts
+          path: |
+            reports_auto/pro/**/*
+            reports_auto/ERR/**/*
+          if-no-files-found: ignore

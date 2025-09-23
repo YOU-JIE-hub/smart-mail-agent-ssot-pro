@@ -1,51 +1,49 @@
 #!/usr/bin/env bash
-# tools/action_one.sh — 單一 RPA 行為一鍵執行（更穩定、防閃退、自癒）
+# tools/actions_batch6.sh — 一次性收斂 6 動作，單一 OUTROOT，避免互相覆蓋
 set -Eeuo pipefail -o errtrace; umask 022
 cd ~/projects/smart-mail-agent-ssot-pro || { echo "[FATAL] repo not found"; exit 2; }
 [ -f .venv/bin/activate ] && . .venv/bin/activate || true
 export PYTHONNOUSERSITE=1 PYTHONPATH="src:${PYTHONPATH:-}"
 
-ACTION="${1:-human_handoff}"; MAIL_ID="${2:-sample_one}"
-case "$ACTION" in
-  make_quote_pdf|create_ticket|escalation_suggestion|faq_reply_draft|crm_update|human_handoff) ;;
-  *) echo "[WARN] unknown action '$ACTION' → fallback to human_handoff"; ACTION="human_handoff";;
-esac
+TS="$(date +%Y%m%dT%H%M%S)"
+ROOT="$PWD"
+ACTROOT="$ROOT/reports_auto/actions"; mkdir -p "$ACTROOT"
+ERRDIR="$ROOT/reports_auto/ERR/$TS"; mkdir -p "$ERRDIR"
+LOGDIR="$ROOT/reports_auto/logs/$TS"; mkdir -p "$LOGDIR"
+BUNDLEDIR="$ROOT/reports_auto/bundles"; mkdir -p "$BUNDLEDIR"
 
-TS="$(date +%Y%m%dT%H%M%S)"; ROOT="$PWD"
-LOGDIR="$ROOT/reports_auto/logs/$TS"; ERRDIR="$ROOT/reports_auto/ERR/$TS"
-ACTROOT="$ROOT/reports_auto/actions"; BUNDLEDIR="$ROOT/reports_auto/bundles"
-mkdir -p "$LOGDIR" "$ERRDIR" "$ACTROOT" "$BUNDLEDIR"
-OUTROOT="$ACTROOT/actions_${TS}_single"; mkdir -p "$OUTROOT"
+OUTROOT="$ACTROOT/actions_${TS}_batch6"; mkdir -p "$OUTROOT"
+export OUTROOT
 
-say(){ echo "[$(date +%F' '%T)] $*" | tee -a "$LOGDIR/action_one.log" >&2; }
-trap 'ec=$?; echo "[ERR] Exit $ec — see $ERRDIR"; exit $ec' ERR
-export OUTROOT ACTION MAIL_ID
-
-# 1) 構建輸入
-python - <<'PY' 1>>"$LOGDIR/action_one_build.out" 2>>"$ERRDIR/action_one_build.err"
-import json, os, re
+# 1) 收斂 6 個 action
+python - <<'PY' 1>>"$LOGDIR/actions_batch6.collect.out" 2>>"$ERRDIR/actions_batch6.collect.err"
+import json, re, os
 from pathlib import Path
-OUTROOT=Path(os.getenv("OUTROOT","reports_auto/actions/tmp")); OUTROOT.mkdir(parents=True, exist_ok=True)
-act=os.getenv("ACTION","human_handoff"); mail=os.getenv("MAIL_ID","sample_one")
-def as_id(s): return re.sub(r'[^A-Za-z0-9\u4e00-\u9fff._-]+','_', (s or "").strip())[:80] or "mail"
-mail=as_id(mail)
-defaults={"make_quote_pdf":{"customer":"示例客戶","items":[{"name":"企業版授權","qty":20,"unit_price":1500}],"tax_rate":0.05},
-          "create_ticket":{"severity":"major","component":"api","has_logs":True},
-          "escalation_suggestion":{"sla":"24h","tone":"apology"},
-          "faq_reply_draft":{"topic":"refund"},
-          "crm_update":{"name":"王小明","phone":"0912-345-678","email":"user@example.com","address":"台北市中正區XXX"},
-          "human_handoff":{"summary":"一般詢問，請人工處理"}}
-intent_map={"make_quote_pdf":"報價","create_ticket":"技術支援","escalation_suggestion":"投訴","faq_reply_draft":"規則詢問","crm_update":"資料異動","human_handoff":"其他"}
-obj=[{"mail":mail,"intent":intent_map.get(act,"其他"),"action":act,"fields":defaults.get(act,{"summary":"一般詢問"})}]
-(OUTROOT/"_collected_actions.json").write_text(json.dumps(obj,ensure_ascii=False,indent=2),encoding="utf-8")
-print("[OK] input prepared:", act, mail, "->", OUTROOT)
+OUTROOT=Path(os.getenv("OUTROOT"))
+def as_id(s): return re.sub(r'[^A-Za-z0-9\u4e00-\u9fff._-]+','_', (s or "mail").strip())[:80] or "mail"
+actions=[
+  {"mail": as_id("demo_make_quote_pdf"), "intent":"報價","action":"make_quote_pdf",
+   "fields":{"customer":"示例客戶","items":[{"name":"企業版授權","qty":20,"unit_price":1500},{"name":"導入","qty":1,"unit_price":30000}], "tax_rate":0.05}},
+  {"mail": as_id("demo_create_ticket"), "intent":"技術支援","action":"create_ticket",
+   "fields":{"severity":"major","component":"api","has_logs": True}},
+  {"mail": as_id("demo_escalation_suggestion"), "intent":"投訴","action":"escalation_suggestion",
+   "fields":{"sla":"24h","tone":"apology"}},
+  {"mail": as_id("demo_faq_reply_draft"), "intent":"規則詢問","action":"faq_reply_draft",
+   "fields":{"topic":"refund"}},
+  {"mail": as_id("demo_crm_update"), "intent":"資料異動","action":"crm_update",
+   "fields":{"name":"王小明","phone":"0912-345-678","email":"user@example.com","address":"台北市中正區XXX"}},
+  {"mail": as_id("demo_human_handoff"), "intent":"其他","action":"human_handoff",
+   "fields":{"summary":"一般詢問，請人工處理"}}
+]
+(OUTROOT/"_collected_actions.json").write_text(json.dumps(actions, ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"[OK] collected {len(actions)} ->", OUTROOT)
 PY
 
-# 2) 執行
-python - <<'PY' 1>>"$LOGDIR/action_one_exec.out" 2>>"$ERRDIR/action_one_exec.err"
+# 2) 執行（沿用 action_one 的執行邏輯，批量）
+python - <<'PY' 1>>"$LOGDIR/actions_batch6.exec.out" 2>>"$ERRDIR/actions_batch6.exec.err"
 import json, re, datetime, os, math
 from pathlib import Path
-OUTROOT=Path(os.getenv("OUTROOT","reports_auto/actions/latest")); OUTROOT.mkdir(parents=True, exist_ok=True)
+OUTROOT=Path(os.getenv("OUTROOT"))
 log=(OUTROOT/"actions_detail.log").open("a", encoding="utf-8")
 
 def safe_name(s): s=str(s or "").strip(); s=re.sub(r'[^A-Za-z0-9\u4e00-\u9fff._-]+','_',s); return s[:80] or "mail"
@@ -65,7 +63,6 @@ def mask_phone(s):
     return re.sub(r'(?:(?:\+?886\-?)?0?9\d{2})[\-\s]?\d{3}[\-\s]?\d{3}', lambda m: m.group(0)[:4]+"-***-***", as_str(s))
 def mask_email(s):
     s=as_str(s); return re.sub(r'([A-Za-z0-9._%+-])([A-Za-z0-9._%+-]*)(@[^,\s>]+)', lambda m: (m.group(1)+"***"+m.group(3)), s)
-
 def rag_search(query:str,k:int=3):
     roots=[Path("policies"), Path("data/faq")]
     toks=set(re.findall(r"[A-Za-z0-9\u4e00-\u9fff]+", query or ""))
@@ -93,8 +90,7 @@ def rag_search(query:str,k:int=3):
 try:
     actions=json.loads((OUTROOT/"_collected_actions.json").read_text(encoding="utf-8"))
 except Exception as e:
-    actions=[{"mail":"sample_oth","intent":"其他","action":"human_handoff","fields":{"summary":"一般詢問"}}]
-    log.write(f"[FATAL] cannot read _collected_actions.json: {type(e).__name__}: {e}\n")
+    log.write(f"[FATAL] cannot read _collected_actions.json: {type(e).__name__}: {e}\n"); actions=[]
 
 now=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"); records=[]
 for it in actions:
@@ -113,7 +109,7 @@ for it in actions:
 <h2>報價單 QUOTATION</h2><p>客戶：{as_str(fields.get('customer','示例客戶'))} | 日期：{now}</p>
 <table><thead><tr><th>項目</th><th>數量</th><th>單價</th><th>小計</th></tr></thead><tbody>{rows}</tbody>
 <tfoot><tr><td colspan="3">小計</td><td style='text-align:right'>{subtotal:.2f}</td></tr><tr><td colspan="3">稅額({tax_rate*100:.0f}%)</td><td style='text-align:right'>{tax:.2f}</td></tr><tr><td colspan="3"><b>總額</b></td><td style='text-align:right'><b>{total:.2f}</b></td></tr></tfoot></table>"""
-            hp=outdir/"quote.html"; hp.write_text(html,encoding="utf-8"); arts.append({"kind":"html","path":str(hp)})
+            (outdir/"quote.html").write_text(html,encoding="utf-8"); arts.append({"kind":"html","path":str(outdir/'quote.html')})
             try:
                 import importlib.util
                 if importlib.util.find_spec("weasyprint"):
@@ -158,10 +154,10 @@ for it in actions:
 ok=sum(1 for r in records if r.get("ok"))
 (OUTROOT/"actions_summary.json").write_text(json.dumps(records,ensure_ascii=False,indent=2),encoding="utf-8")
 (OUTROOT/"actions_summary.md").write_text("# Actions Summary\n\n- 總數：%d\n- OK：%d\n"%(len(records),ok),encoding="utf-8")
-print("[OK] action done ->", OUTROOT, "OK:", ok, "TOTAL:", len(records))
+print("[OK] actions batch6 ->", OUTROOT, "OK:", ok, "TOTAL:", len(records))
 PY
 
-# 3) latest 指到這次，並打包
+# 3) latest 指向這批
 python - <<'PY'
 from pathlib import Path; import shutil
 root=Path("reports_auto/actions")
@@ -176,6 +172,9 @@ if dirs:
         shutil.copytree(dirs[0], latest, dirs_exist_ok=True)
 print("[OK] latest ->", dirs[0] if dirs else "NA")
 PY
-ZIP="$BUNDLEDIR/action_${TS}_${ACTION}.zip"; zip -qr "$ZIP" "$OUTROOT" || true
-( cd "$BUNDLEDIR" && sha256sum "$(basename "$ZIP")" > "SHA256SUMS_${TS}_${ACTION}" ) || true
-say "== DONE =="; say "Artifacts: $OUTROOT"; say "Latest:    reports_auto/actions/latest"; say "Bundle:    $ZIP"
+
+# 4) 打包
+ZIP="$BUNDLEDIR/actions_${TS}_batch6.zip"
+zip -qr "$ZIP" "$OUTROOT" || true
+( cd "$BUNDLEDIR" && sha256sum "$(basename "$ZIP")" > "SHA256SUMS_${TS}_batch6" ) || true
+echo "[OK] bundle -> $ZIP"
