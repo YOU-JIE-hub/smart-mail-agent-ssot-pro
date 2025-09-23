@@ -1,5 +1,9 @@
 # Smart Mail Agent (SSOT Pro)
 
+![api-smoke](https://github.com/YOU-JIE-hub/smart-mail-agent-ssot-pro/actions/workflows/api_smoke.yml/badge.svg)
+![nightly](https://github.com/YOU-JIE-hub/smart-mail-agent-ssot-pro/actions/workflows/actions_nightly.yml/badge.svg)
+![pro-eval-gate](https://github.com/YOU-JIE-hub/smart-mail-agent-ssot-pro/actions/workflows/pro_eval_gate.yml/badge.svg)
+
 > 一鍵評測與可視化產物：Pro（校準/ECE/建議閾值）、API Shim（/healthz /readyz /v1/predict/*）、RPA 六動作、審計 SQLite、Bundles。
 
 ## Quickstart
