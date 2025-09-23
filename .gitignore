@@ -1,14 +1,15 @@
+# venv / caches
 .venv/
 __pycache__/
 *.pyc
-.mypy_cache/
-.pytest_cache/
+
+# local outputs
 reports_auto/
-dist/
-build/
-*.egg-info/
+workspace/
+tmp/
+.DS_Store
+
+# OS/editor
+*.swp
 .idea/
 .vscode/
-.DS_Store
-.env
-.env.*
