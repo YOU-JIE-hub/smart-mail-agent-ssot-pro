@@ -1,92 +1,183 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from typing import Any, Dict
-import os, re
+from typing import Dict, Any, Optional, List
+import os, json, time, pathlib, traceback
 
-try:
-    import joblib  # optional
-except Exception:
-    joblib = None
+from sma.common.config import env_path, classes_fallback, sha256_file  # type: ignore
 
-SPAM_PKL   = os.getenv("SPAM_PKL",   "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl")
-INTENT_PKL = os.getenv("INTENT_PKL", "/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl")
-KIE_DIR    = os.getenv("KIE_DIR",    "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model")
-SPAM_TH    = float(os.getenv("SMA_SPAM_THRESHOLD", "0.50"))
+APP = FastAPI(title="sma-api", version="1.0")
+CRASH_ROOT = pathlib.Path("reports_auto/crash")
+CRASH_ROOT.mkdir(parents=True, exist_ok=True)
 
-def _load_model(p: str):
-    if not joblib or not p or not os.path.exists(p):
-        return None
+# ---- utilities ----
+def _now_ts() -> str: return time.strftime("%Y%m%dT%H%M%S", time.localtime())
+def _mk_run() -> pathlib.Path:
+    p = CRASH_ROOT / _now_ts()
+    p.mkdir(parents=True, exist_ok=True)
+    (CRASH_ROOT / "latest").unlink(missing_ok=True)
+    (CRASH_ROOT / "latest").symlink_to(p, target_is_directory=True)
+    return p
+
+def _dump_err(run: pathlib.Path, kind: str, info: Dict[str, Any]) -> None:
+    (run / f"{kind}_error.json").write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def _norm_proba(arr, n_samples: int):
+    import numpy as np
+    a = arr
+    if isinstance(a, list):
+        a = np.column_stack([np.ravel(x).astype(float) for x in a])  # -> (n_samples, n_classes)
+    a = np.asarray(a)
+    if a.ndim == 1:  # binary -> [1-p, p]
+        p = a.astype(float).ravel()
+        a = np.column_stack([1.0 - p, p])
+    if a.shape[0] != n_samples and a.shape[1] == n_samples:
+        a = a.T
+    return a
+
+# ---- models cache ----
+_INTENT_READY = False
+_INTENT_META: Dict[str, Any] = {}
+_INTENT_CLASSES: List[str] = []
+
+_SPAM = None
+_SPAM_PATH: Optional[str] = None
+
+_KIE = {"tok": None, "mdl": None, "dir": None}
+
+def _intent_load() -> Dict[str, Any]:
+    global _INTENT_READY, _INTENT_META, _INTENT_CLASSES
     try:
-        return joblib.load(p)
-    except Exception:
-        return None
+        from sma.common import intent_compat as ic  # type: ignore
+        from sma.common.intent_compat import load_pipeline, meta  # type: ignore
+    except Exception as e:
+        raise HTTPException(500, f"intent_compat import error: {e}")
 
-spam_model   = _load_model(SPAM_PKL)
-intent_model = _load_model(INTENT_PKL)
+    p = env_path("INTENT_PKL")
+    if not p or not p.exists():
+        raise HTTPException(500, f"INTENT_PKL not found: {p}")
 
-app = FastAPI(title="SMA Minimal API", version="0.1.1")
+    load_pipeline(str(p))
+    m = meta() or {}
+    m.setdefault("path", str(p))
+    _INTENT_META = m
+    _INTENT_CLASSES = m.get("classes_", []) or classes_fallback()
+    _INTENT_READY = True
+    return m
 
-class TextIn(BaseModel):
+def _intent_predict(text: str) -> Dict[str, Any]:
+    global _INTENT_CLASSES
+    from sma.common import intent_compat as ic  # type: ignore
+    try:
+        # 優先走 predict_proba_batch；若缺就 fallback 到 _pipe
+        try:
+            from sma.common.intent_compat import predict_proba_batch  # type: ignore
+            proba, classes = predict_proba_batch([text])  # type: ignore
+        except Exception:
+            pipe = getattr(ic, "_pipe", None)
+            if pipe is None:
+                raise RuntimeError("intent pipeline not loaded")
+            proba = pipe.predict_proba([text])
+            classes = _INTENT_CLASSES
+        P = _norm_proba(proba, 1)[0]
+        import numpy as np
+        idx = int(np.argmax(P))
+        label = (_INTENT_CLASSES or classes or [])
+        label = label[idx] if (label and 0 <= idx < len(label)) else idx
+        score = float(P[idx])
+        return {"label": label, "score": score, "meta": _INTENT_META}
+    except Exception as e:
+        run = _mk_run()
+        _dump_err(run, "intent", {"error": str(e), "traceback": traceback.format_exc(), "text": text, "meta": _INTENT_META})
+        raise HTTPException(500, f"intent error: {e}")
+
+def _spam_predict(text: str) -> Dict[str, Any]:
+    global _SPAM, _SPAM_PATH
+    try:
+        from joblib import load  # type: ignore
+        q = env_path("SPAM_PKL")
+        if not q or not q.exists(): raise HTTPException(500, f"SPAM_PKL not found: {q}")
+        if _SPAM is None or _SPAM_PATH != str(q):
+            _SPAM = load(str(q)); _SPAM_PATH = str(q)
+        proba = _SPAM.predict_proba([text])[0]
+        score = float(proba[1]) if len(proba) > 1 else float(proba[0])
+        thr = float(os.getenv("SMA_SPAM_THRESHOLD", "0.55"))
+        return {"label": int(score >= thr), "score": score, "threshold": thr, "model": _SPAM_PATH}
+    except Exception as e:
+        run = _mk_run()
+        _dump_err(run, "spam", {"error": str(e), "traceback": traceback.format_exc(), "text": text})
+        raise HTTPException(500, f"spam error: {e}")
+
+def _kie_ready() -> bool:
+    q = env_path("KIE_DIR")
+    return bool(q and q.exists() and (q / "config.json").exists())
+
+def _kie_predict(text: str) -> Dict[str, Any]:
+    try:
+        import torch  # type: ignore
+        from transformers import AutoTokenizer, AutoModelForTokenClassification  # type: ignore
+        if _KIE["tok"] is None or _KIE["mdl"] is None:
+            if not _kie_ready(): raise HTTPException(500, f"KIE_DIR invalid: {env_path('KIE_DIR')}")
+            q = env_path("KIE_DIR")
+            _KIE["tok"] = AutoTokenizer.from_pretrained(str(q), use_fast=True)
+            _KIE["mdl"] = AutoModelForTokenClassification.from_pretrained(str(q))
+            _KIE["dir"] = str(q)
+        tok, mdl = _KIE["tok"], _KIE["mdl"]
+        enc = tok(text, return_tensors="pt", truncation=True)
+        with torch.no_grad():
+            logits = mdl(**enc).logits[0]; prob = logits.softmax(-1)
+            ids = prob.argmax(-1).tolist(); conf = prob.max(-1).values.tolist()
+        toks = tok.convert_ids_to_tokens(enc["input_ids"][0].tolist())
+        return {"n_labels": int(logits.shape[-1]), "tokens": toks, "label_ids": ids, "conf": [float(x) for x in conf], "dir": _KIE["dir"]}
+    except Exception as e:
+        run = _mk_run()
+        _dump_err(run, "kie", {"error": str(e), "traceback": traceback.format_exc(), "text": text})
+        raise HTTPException(500, f"kie error: {e}")
+
+# ---- schemas ----
+class PredictReq(BaseModel):
     text: str
 
-@app.get("/healthz")
-def healthz() -> Dict[str, Any]:
-    return {"status": "ok"}
+# ---- routes ----
+@APP.get("/healthz")
+def healthz(): return {"ok": True, "ts": time.time()}
 
-@app.get("/readyz")
-def readyz() -> Dict[str, Any]:
-    return {
-        "spam_model":   bool(spam_model),
-        "intent_model": bool(intent_model),
-        "kie_dir":      os.path.isdir(KIE_DIR),
-    }
+@APP.get("/readyz")
+def readyz():
+    _intent_load()
+    return {"ok": True}
 
-@app.post("/v1/predict/spam")
-def predict_spam(inp: TextIn) -> Dict[str, Any]:
-    text = inp.text or ""
-    score = 0.5
-    if spam_model is not None:
+@APP.get("/debug/models")
+def debug_models():
+    snap = {"_service_file": __file__, "_cwd": os.getcwd()}
+    ip = env_path("INTENT_PKL"); sp = env_path("SPAM_PKL"); kd = env_path("KIE_DIR")
+    if ip and ip.exists():
         try:
-            if hasattr(spam_model, "predict_proba"):
-                score = float(spam_model.predict_proba([text])[0][1])
-            elif hasattr(spam_model, "decision_function"):
-                v = float(spam_model.decision_function([text])[0])
-                score = 1.0/(1.0+pow(2.71828,-v))
-            else:
-                score = float(getattr(spam_model, "predict", lambda x:[0])([text])[0])
+            sha = sha256_file(ip)
         except Exception:
-            pass
-    else:
-        score = 0.9 if re.search(r"free|win|prize|限時|點我|中大奖", text, re.I) else 0.1
-    label = "spam" if score >= SPAM_TH else "ham"
-    return {"label": label, "score": round(score, 4), "threshold": SPAM_TH, "model_path": SPAM_PKL}
-
-@app.post("/v1/predict/intent")
-def predict_intent(inp: TextIn) -> Dict[str, Any]:
-    text = (inp.text or "").lower()
-    label = "other"
-    if intent_model is not None:
+            sha = None
+        snap["intent_path"] = str(ip)
+        snap["intent_sha256"] = sha
         try:
-            label = str(getattr(intent_model, "predict", lambda x:["other"])([text])[0])
-        except Exception:
-            label = "other"
-    else:
-        if re.search(r"報價|quote|price|費用", text): label = "quote"
-        elif re.search(r"退款|退貨|refund|return", text): label = "refund"
-        elif re.search(r"合約|contract|agreement", text): label = "contract"
-        elif re.search(r"工單|ticket|support|bug|error", text): label = "support"
-    return {"label": label, "model_path": INTENT_PKL}
+            snap["intent_meta"] = _intent_load()
+        except Exception as e:
+            snap["intent_err"] = f"{type(e).__name__}: {e}"
+    snap["intent_classes"] = classes_fallback()
+    snap["spam_path"] = str(sp) if sp else None
+    snap["kie_dir"] = str(kd) if kd else None
+    snap["kie_ready"] = _kie_ready()
+    return snap
 
-@app.post("/v1/predict/kie")
-def predict_kie(inp: TextIn) -> Dict[str, Any]:
-    t = inp.text or ""
-    amount = None
-    m = re.search(r"(?:NT\$|\$)?\s*([0-9]{1,3}(?:,[0-9]{3})*(?:\.[0-9]+)?)\s*(?:元|dollars)?", t)
-    if m: amount = m.group(1).replace(",", "")
-    invoice = None
-    m = re.search(r"\b([A-Z]{2}-?\d{8})\b", t, re.I)
-    if m: invoice = m.group(1).upper().replace("-", "")
-    phone = None
-    m = re.search(r"(?:(?:\+?886\-?)?0?9\d{2})[\-\s]?\d{3}[\-\s]?\d{3}", t)
-    if m: phone = m.group(0)
-    return {"fields": {"amount": amount, "invoice": invoice, "phone": phone}, "kie_dir_exists": os.path.isdir(KIE_DIR), "kie_dir": KIE_DIR}
+@APP.post("/v1/predict/intent")
+def predict_intent(req: PredictReq):
+    if not _INTENT_READY: _intent_load()
+    return {"task": "intent", "text": req.text, **_intent_predict(req.text)}
+
+@APP.post("/v1/predict/spam")
+def predict_spam(req: PredictReq):
+    return {"task": "spam", "text": req.text, **_spam_predict(req.text)}
+
+@APP.post("/v1/predict/kie")
+def predict_kie(req: PredictReq):
+    if not _kie_ready(): raise HTTPException(500, f"KIE_DIR invalid or missing files: {env_path('KIE_DIR')}")
+    return {"task": "kie", "text": req.text, **_kie_predict(req.text)}

@@ -1,98 +1,38 @@
 SHELL := /bin/bash
-VENV := . .venv/bin/activate;
-PY := python3
+.ONESHELL:
+.SHELLFLAGS := -Eeuo pipefail -c
+.DEFAULT_GOAL := help
 
-.PHONY: setup fmt lint type test serve docker-build docker-run pro-robust-ab-url pro-robust-gate clean
+HOST ?= 127.0.0.1
+PORT ?= 18080
+APP  ?= sma.api.service_compat:app
 
-setup:
-	$(VENV) pre-commit install || true
+help:
+	@echo "Targets:"
+	@echo "  probe     - start/hit/stop API; always dump evidence to reports_auto/online/<TS>"
+	@echo "  last      - print latest evidence dir"
+	@echo "Usage: make probe  or  HOST=127.0.0.1 PORT=18080 make probe"
 
-fmt:
-	$(VENV) black .
-	$(VENV) ruff check --fix .
+probe:
+	HOST=$(HOST) PORT=$(PORT) APP=$(APP) bash scripts/online_probe.sh
 
-lint:
-	$(VENV) ruff check .
+last:
+	@echo -n "latest: "; readlink -f reports_auto/online/$$(ls -1t reports_auto/online 2>/dev/null | head -n1) 2>/dev/null || echo NA
 
-type:
-	$(VENV) mypy service runtime_preproc.py
+## === Online probe & API helpers ===
+API_HOST ?= 127.0.0.1
+API_PORT ?= 18080
+API_APP  ?= sma.api.service_compat:app
 
-test:
-	$(VENV) pytest -q || true
+.PHONY: probe api-up api-down
+probe:
+	HOST=$(API_HOST) PORT=$(API_PORT) APP=$(API_APP) bash scripts/online_probe.sh
 
-serve:
-	bash scripts/server.sh start
+api-up:
+	[ -f .venv/bin/activate ] && . .venv/bin/activate || true; \
+	export PYTHONNOUSERSITE=1 PYTHONPATH="src:$$PYTHONPATH"; \
+	mkdir -p reports_auto/online && \
+	uvicorn $(API_APP) --host $(API_HOST) --port $(API_PORT) --log-level warning
 
-pro-robust-ab-url:
-	@if [ -f Makefile.compat ]; then $(MAKE) -s -f Makefile.compat pro-robust-ab-url; else echo "[SKIP] pro-robust-ab-url: Makefile.compat not found"; fi
-
-pro-robust-gate:
-	@if [ -f Makefile.compat ]; then $(MAKE) -s -f Makefile.compat pro-robust-gate || true; else echo "[SKIP] pro-robust-gate: Makefile.compat not found"; fi
-
-docker-build:
-	docker build -t smart-mail-agent:latest .
-
-docker-run:
-	docker run --rm -p 8000:8000 --env PORT=8000 \
-		--env INTENT_PKL=$${INTENT_PKL} --env SPAM_PKL=$${SPAM_PKL} \
-		--env ABSTAIN_MIN_CONF=$${ABSTAIN_MIN_CONF:-0} \
-		smart-mail-agent:latest
-
-clean:
-	rm -rf .mypy_cache .pytest_cache dist build *.egg-info
-
-serve-stop:
-	bash scripts/server.sh stop
-
-serve-restart:
-	bash scripts/server.sh restart
-
-serve-status:
-	bash scripts/server.sh status
-
-serve-tail:
-	bash scripts/server.sh tail
-
-serve-diag:
-	bash scripts/serve_diag.sh diag
-serve-stop:
-	bash scripts/serve_diag.sh stop
-serve-status:
-	bash scripts/serve_diag.sh status
-serve-tail:
-	bash scripts/serve_diag.sh tail
-
-
-# ===== [panic-serve-override] do not edit below =====
-.PHONY: serve serve-stop serve-restart serve-status serve-tail
-serve:
-\tbash scripts/serve_mgr.sh start
-serve-stop:
-\tbash scripts/serve_mgr.sh stop
-serve-restart:
-\tbash scripts/serve_mgr.sh restart
-serve-status:
-\tbash scripts/serve_mgr.sh status
-serve-tail:
-\tbash scripts/serve_mgr.sh tail
-.PHONY: actions-all oneclick-all
-actions-all:
-	@bash tools/actions_all.sh
-
-oneclick-all:
-	@bash tools/oneclick_all.sh
-.PHONY: actions-batch6 actions-all oneclick-all
-actions-batch6:
-	@bash tools/actions_batch6.sh
-
-actions-all:
-	@bash tools/actions_all.sh
-
-oneclick-all:
-	@bash tools/oneclick_all.sh
-.PHONY: run-all api-smoke
-run-all:
-	@bash tools/run_all.sh
-
-api-smoke:
-	@bash tools/api_smoke.sh
+api-down:
+	- pkill -f "uvicorn .*:$(API_PORT)" 2>/dev/null || true; ( command -v fuser >/dev/null && fuser -k $(API_PORT)/tcp ) || true

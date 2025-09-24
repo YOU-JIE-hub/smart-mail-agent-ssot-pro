@@ -95,3 +95,13 @@ def predict_spam(req: PredictReq):
 @app.post("/v1/predict/kie")
 def predict_kie(req: PredictReq):
     return {"task":"kie","text":req.text, **_kie_predict(req.text)}
+
+@app.get("/v1/kie/health")
+def kie_health():
+    """Minimal KIE health: 回傳 KIE_DIR 存在與否，不觸發模型載入。"""
+    import os, pathlib
+    d = os.environ.get("KIE_DIR", "")
+    dp = pathlib.Path(d) if d else None
+    ok = bool(dp and dp.exists())
+    return {"task":"kie","ok": ok, "dir": str(dp or ""), "exists": ok}
+

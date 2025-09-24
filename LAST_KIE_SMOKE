@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "dir": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model",
+  "tokenizer": "XLMRobertaTokenizerFast",
+  "n_labels": 9,
+  "entities": [
+    {
+      "label": "date_time",
+      "start": 19,
+      "end": 27,
+      "text": "24/11/02",
+      "score": 0.8669319550196329
+    },
+    {
+      "label": "amount",
+      "start": 31,
+      "end": 40,
+      "text": "NT$12,500",
+      "score": 0.9302404880523681
+    }
+  ]
+}
