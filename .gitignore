@@ -16,3 +16,8 @@ code/_backup/**
 reports_auto/**
 bundle_*.zip
 SHA256SUMS
+
+# ---- artifacts/evidence (sidecar) ----
+reports_auto/**
+bundle_*.zip
+SHA256SUMS
