@@ -8,3 +8,11 @@ tmp/
 *.swp
 .idea/
 .vscode/
+
+# large backups (keep in repo but ignore by default)
+code/_backup/**
+
+# ---- artifacts/evidence (sidecar) ----
+reports_auto/**
+bundle_*.zip
+SHA256SUMS

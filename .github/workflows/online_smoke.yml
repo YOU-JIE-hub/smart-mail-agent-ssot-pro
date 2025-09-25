@@ -1,4 +1,4 @@
-name: pro-eval (sidecar)
+name: online-smoke (sidecar)
 on:
   workflow_dispatch: {}
 jobs:
@@ -12,14 +12,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install fastapi httpx uvicorn starlette
-      - name: Sidecar pro-eval
+      - name: Sidecar online probe
+        env:
+          APP: sma.api.app:app
         run: |
-          make pro-eval || true
-          make pro-md || true
-      - name: Upload pro artifacts
+          make online || true
+          make summary || true
+      - name: Upload online artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pro-latest
-          path: reports_auto/pro/latest/**
+          name: online-latest
+          path: reports_auto/online/**/*
           if-no-files-found: warn
