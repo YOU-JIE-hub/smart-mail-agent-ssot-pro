@@ -37,3 +37,20 @@ Actions：reports_auto/actions/latest/*
 Bundles：reports_auto/bundles/*.zip
 
 錯誤：reports_auto/ERR/<TS>/*
+
+## 5 分鐘重現（面試流程）
+
+```bash
+[ -f .venv/bin/activate ] && . .venv/bin/activate || true
+export PYTHONNOUSERSITE=1 PYTHONPATH="$PWD:$PWD/src:${PYTHONPATH:-}"
+
+make rag-build
+make rag-qa Q="理賠需要哪些文件？"      # 輸出帶 CITATIONS
+
+APP=sma.api.service_compat:app make demo # 產生 RPA 產物（ticket/CRM/FAQ/quote/handoff）
+ls -R reports_auto/actions/latest | sed -n '1,160p'
+
+make pro-all && make model-card           # 模型卡 & 指標
+sed -n '1,80p' MODEL_CARD.md
+
+make data-audit && sed -n '1,60p' reports_auto/data/profile_latest.md
