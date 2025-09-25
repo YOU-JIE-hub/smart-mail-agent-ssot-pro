@@ -1,0 +1,19 @@
+{
+  "id": "q2",
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "due_at": "2025-08-31T13:25:17+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "model_versions": {
+      "spam": "prod",
+      "intent": "pro_cal",
+      "kie": "xlmr"
+    },
+    "risk": "high",
+    "created_at": "2025-08-31T12:25:17+00:00"
+  },
+  "idempotency_key": "d29a47b02da245c524570446f862e15565722adc"
+}

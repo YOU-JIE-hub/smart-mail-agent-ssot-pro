@@ -1,0 +1,11 @@
+{
+  "case_id": "05f46f30-c8bc-44a2-80e9-f9af6ba029fc",
+  "diff": [
+    {
+      "field": "email",
+      "old": null,
+      "new": "customer@example.com"
+    }
+  ],
+  "status": "draft"
+}

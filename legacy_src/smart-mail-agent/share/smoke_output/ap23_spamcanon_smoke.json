@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "artifacts": [],
+  "steps": {
+    "nlp": {
+      "summary": "ap23-spamcanon-smoke",
+      "ts": "2025-08-25T06:34:26.740421Z"
+    }
+  }
+}

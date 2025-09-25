@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-mail-agent"
+version = "1.0.0"
+description = "AI + RPA integrated pipeline (OCR, scraping, NLP, LLM, actions) with legacy smart_mail_agent modules."
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+authors = [{ name = "youjie" }]
+dependencies = [
+  "pydantic>=2",
+  "python-dotenv>=1",
+  "PyYAML>=6",
+  "requests>=2.31",
+  "beautifulsoup4>=4.12",
+  "Pillow>=10",
+  "reportlab>=4",
+  "jinja2>=3",
+  "tqdm>=4",
+]
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "ruff", "black", "isort"]
+llm = ["openai>=1.12.0", "transformers"]
+ocr = ["pytesseract"]
+
+[project.scripts]
+ai-rpa = "ai_rpa.main:main"
+sma-spamcheck = "smart_mail_agent.cli.sma_spamcheck:main"
+sma-run = "smart_mail_agent.routing.run_action_handler:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["smart_mail_agent*", "ai_rpa*"]
+
+[tool.ruff]
+line-length = 120
+src = ["src"]
+extend-exclude = ["examples", "data", "assets", "dist", "build"]
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"

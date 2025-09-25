@@ -1,0 +1,5 @@
+input_path: data/input
+output_path: data/output/report.json
+tasks: [ocr, scrape, classify_files, nlp, actions]
+nlp:
+  model: offline-keyword

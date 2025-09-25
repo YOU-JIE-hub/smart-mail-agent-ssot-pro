@@ -1,0 +1,16 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "71103d02cab23dcf",
+  "payload": {
+    "mail_id": "3f690f1ed404f070",
+    "subject": "Change phone number",
+    "fields": [],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

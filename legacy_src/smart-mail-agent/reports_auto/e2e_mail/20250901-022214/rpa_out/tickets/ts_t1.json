@@ -1,0 +1,9 @@
+{
+  "ticket_id": "TS-t1",
+  "summary": "Tech Support for t1",
+  "severity": "P2",
+  "fields": {
+    "env": "staging"
+  },
+  "created_at": "2025-08-31T18:22:28.253566+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "policy": "canonicalize to src/smart_mail_agent/**; keep legacy shims under src/{utils,spam,patches,modules}",
+  "moves_example": [
+    ["src/utils/logger.py", "src/smart_mail_agent/utils/logger.py"],
+    ["src/spam/spam_filter_orchestrator.py", "src/smart_mail_agent/spam/spam_filter_orchestrator.py"],
+    ["src/patches/handle_safe_patch.py", "src/smart_mail_agent/patches/handle_safe_patch.py"]
+  ],
+  "shims": ["src/utils/**","src/spam/**","src/patches/**","src/modules/__init__.py"]
+}

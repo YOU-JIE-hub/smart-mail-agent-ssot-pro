@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "mail_id": "s2_invoice_zip",
+    "intent": "quarantine",
+    "action": "manual_triage",
+    "idempotency_key": "ba42b6b243d76294"
+  },
+  "fields": {}
+}

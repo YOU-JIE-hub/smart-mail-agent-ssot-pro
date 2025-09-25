@@ -1,0 +1,1 @@
+#!/usr/bin/env bash\n# TODO: export SLACK_WEBHOOK\ncurl -s -X POST "$SLACK_WEBHOOK" -H 'Content-type: application/json' --data '{"text":"[CX] 投訴升級: o2"}'\n

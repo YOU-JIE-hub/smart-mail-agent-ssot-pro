@@ -1,0 +1,42 @@
+{
+  "intent": {
+    "path": "/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl",
+    "mode_guess": "intent",
+    "n": 14921,
+    "labels": {
+      "spam": 7298,
+      "ham": 7623
+    },
+    "len_stats": {
+      "min": 10,
+      "max": 113400,
+      "avg": 1047.7610749949736
+    },
+    "mtime": 1756609488.3975391,
+    "size_bytes": 23744510,
+    "sha256_head": "0b57b3a78298aca3f4008008eb6497fdf133cb525a6b21fe573765ae017a3cc1",
+    "usable": true,
+    "reasons": [],
+    "score": 6.749588667231421
+  },
+  "spam": {
+    "path": "/home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl",
+    "mode_guess": "spam",
+    "n": 5864,
+    "labels": {
+      "ham": 3792,
+      "spam": 2072
+    },
+    "len_stats": {
+      "min": 13,
+      "max": 194850,
+      "avg": 2548.1094815825377
+    },
+    "mtime": 1757223829.5303423,
+    "size_bytes": 16562682,
+    "sha256_head": "04669f014d438282612db08e1eeb0dec1927085d1f7603fe124433da175c685d",
+    "usable": true,
+    "reasons": [],
+    "score": 6.118400993285365
+  }
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=Smart Mail Agent One-Click Run
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/projects/smart-mail-agent_ssot
+Environment=PYTHONNOUSERSITE=1
+Environment=PYTHONPATH=src
+Environment=SMA_SMTP_MODE=outbox
+Environment=SMA_LLM_PROVIDER=none
+ExecStart=%h/projects/smart-mail-agent_ssot/tools/one_click_s2s3s5.sh

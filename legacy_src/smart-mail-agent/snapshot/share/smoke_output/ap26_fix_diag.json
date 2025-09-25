@@ -1,0 +1,20 @@
+{
+  "ok_count": 102,
+  "err_count": 2,
+  "errors": [
+    {
+      "module": "smart_mail_agent.trainers.train_bert_spam_classifier",
+      "error": "SyntaxError: from __future__ imports must occur at the beginning of the file (train_bert_spam_classifier.py, line 7)",
+      "file": "<stdin>",
+      "line": 23,
+      "snippet": ""
+    },
+    {
+      "module": "smart_mail_agent.trainers.train_classifier",
+      "error": "SyntaxError: from __future__ imports must occur at the beginning of the file (train_classifier.py, line 7)",
+      "file": "<stdin>",
+      "line": 23,
+      "snippet": ""
+    }
+  ]
+}

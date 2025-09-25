@@ -1,0 +1,16 @@
+{
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "idempotency_key": "5db0ac9a45e62df9",
+  "payload": {
+    "mail_id": "e183b2ecd34c9045",
+    "subject": "Verify your account immediately",
+    "fields": {},
+    "intent": {
+      "final": "quarantine",
+      "p1": 1.0
+    },
+    "ts": 1756743054
+  }
+}

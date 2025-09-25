@@ -1,0 +1,6 @@
+{
+  "date": "2025-09-19",
+  "data_path": "/home/youjie/projects/smart-mail-agent-ssot-pro/data/intent_eval/dataset.cleaned.jsonl",
+  "n_total": 570,
+  "rules_version": "v1.0.0-fixed7"
+}

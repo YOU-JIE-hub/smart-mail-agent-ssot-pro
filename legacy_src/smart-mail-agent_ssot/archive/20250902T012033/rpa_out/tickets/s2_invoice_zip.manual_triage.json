@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "mail_id": "s2_invoice_zip",
+    "intent": "other",
+    "action": "manual_triage",
+    "ts": 1756747236,
+    "idempotency_key": "a10cf80aee1539f9",
+    "priority": "P3/Ops",
+    "queue": "P3/Ops"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 43,
+        "end": 62
+      }
+    ]
+  }
+}

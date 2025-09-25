@@ -1,0 +1,246 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+cd "$ROOT"
+
+# 1) 找 current KIE 目錄
+KIE_DIR=""
+if [[ -L artifacts/releases/kie_xlmr/current ]]; then
+  KIE_DIR="$(readlink -f artifacts/releases/kie_xlmr/current)"
+elif [[ -d artifacts/releases/kie_xlmr/kie_xlmr ]]; then
+  KIE_DIR="artifacts/releases/kie_xlmr/kie_xlmr"
+fi
+[[ -n "$KIE_DIR" && -d "$KIE_DIR" ]] || { echo "[FATAL] 找不到 KIE 模型資料夾"; exit 90; }
+
+# 必要檔
+CFG="$KIE_DIR/config.json"
+TOK="$KIE_DIR/tokenizer.json"
+TOKCFG="$KIE_DIR/tokenizer_config.json"
+SPM="$KIE_DIR/sentencepiece.bpe.model"
+PT="$KIE_DIR/pytorch_model.bin"
+SAFET="$KIE_DIR/model.safetensors"
+
+[[ -f "$CFG" ]]    || { echo "[FATAL] 缺 $CFG"; exit 91; }
+[[ -f "$TOK" ]]    || { echo "[FATAL] 缺 $TOK"; exit 92; }
+[[ -f "$TOKCFG" ]] || { echo "[FATAL] 缺 $TOKCFG"; exit 93; }
+[[ -f "$SPM" ]]    || { echo "[FATAL] 缺 $SPM"; exit 94; }
+
+WEIGHT=""
+if [[ -f "$PT" ]]; then WEIGHT="$PT"; fi
+if [[ -z "$WEIGHT" && -f "$SAFET" ]]; then WEIGHT="$SAFET"; fi
+[[ -n "$WEIGHT" ]] || { echo "[FATAL] 權重檔缺失（pytorch_model.bin 或 model.safetensors）"; exit 95; }
+
+# 2) 建 bundle 目錄
+TMP="reports_auto/_kie_bundle_tmp"
+rm -rf "$TMP"; mkdir -p "$TMP/kie"
+
+# 複製模型檔
+cp -f "$CFG" "$TOK" "$TOKCFG" "$SPM" "$TMP/kie/"
+cp -f "$WEIGHT" "$TMP/kie/"
+
+# 3) Demo：推論腳本（輸入純文字/JSONL; 輸出 tsv spans）
+cat > "$TMP/RUNME_kie_demo.py" <<'PY'
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import argparse, json, sys
+from pathlib import Path
+import torch
+from transformers import AutoTokenizer, AutoModelForTokenClassification
+import numpy as np
+
+def load_model(model_dir: Path):
+    tok = AutoTokenizer.from_pretrained(model_dir)
+    mdl = AutoModelForTokenClassification.from_pretrained(model_dir)
+    mdl.eval()
+    id2label = mdl.config.id2label if isinstance(mdl.config.id2label, dict) else {int(k):v for k,v in mdl.config.id2label.items()}
+    return tok, mdl, id2label
+
+def read_inputs(path: Path):
+    if path.suffix.lower()==".jsonl":
+        for ln in path.read_text(encoding="utf-8",errors="ignore").splitlines():
+            if not ln.strip(): continue
+            o=json.loads(ln)
+            t=o.get("text") or ((o.get("subject","")+"\n"+o.get("body","")).strip())
+            if not t: t=json.dumps(o,ensure_ascii=False)
+            yield o.get("id",""), t
+    else:
+        # 純文字檔：每行一個樣本
+        for i,ln in enumerate(path.read_text(encoding="utf-8",errors="ignore").splitlines(),1):
+            if ln.strip(): yield f"line-{i:04d}", ln.strip()
+
+def bio_decode(ids, labels, offsets, text):
+    spans=[]
+    cur=None
+    for i,lab in enumerate(labels):
+        if lab=="O" or lab is None:
+            if cur: spans.append(cur); cur=None
+            continue
+        if lab.startswith("B-"):
+            if cur: spans.append(cur)
+            tag=lab[2:]
+            st,ed = offsets[i]
+            cur={"label":tag,"start":int(st),"end":int(ed)}
+        elif lab.startswith("I-"):
+            tag=lab[2:]
+            if cur and cur["label"]==tag:
+                st,ed = offsets[i]
+                cur["end"]=int(ed)
+            else:
+                # 容錯：孤立 I- 視為 B-
+                st,ed = offsets[i]
+                cur={"label":tag,"start":int(st),"end":int(ed)}
+        else:
+            if cur: spans.append(cur); cur=None
+    if cur: spans.append(cur)
+    # SNAP-like: 去重疊（先到先得），保守輸出
+    spans_sorted=sorted(spans, key=lambda x:(x["start"], x["end"]))
+    out=[]
+    last_end=-1
+    for s in spans_sorted:
+        if s["start"]>=last_end:
+            out.append(s); last_end=s["end"]
+        # 若有重疊，保留先入（也可改成取較長）
+    return out
+
+def predict(model_dir: Path, src: Path, out_tsv: Path, max_len=512, device=None):
+    tok, mdl, id2label = load_model(model_dir)
+    device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+    mdl.to(device)
+
+    with open(out_tsv,"w",encoding="utf-8") as w:
+        w.write("id\tlabel\tstart\tend\tspan_text\n")
+        for _id, text in read_inputs(src):
+            enc = tok(text, return_offsets_mapping=True, truncation=True, max_length=max_len)
+            input_ids = torch.tensor([enc["input_ids"]], device=device)
+            attn = torch.tensor([enc["attention_mask"]], device=device)
+            with torch.no_grad():
+                logits = mdl(input_ids, attention_mask=attn).logits[0].cpu().numpy()
+            pred_ids = logits.argmax(-1)
+            labels = [id2label.get(int(i),"O") for i in pred_ids]
+            # 去掉 special tokens 的 offset (-1,-1)
+            offsets = enc["offset_mapping"]
+            labels_clean=[]; offsets_clean=[]
+            for lab,off in zip(labels, offsets):
+                st,ed = off
+                if st==ed==0 and lab!="O":  # 部分 tokenizer 會給 0,0 在 specials; 安全處理
+                    labels_clean.append("O"); offsets_clean.append((0,0))
+                else:
+                    labels_clean.append(lab); offsets_clean.append(off)
+            spans=bio_decode(enc["input_ids"], labels_clean, offsets_clean, text)
+            for s in spans:
+                frag = text[s["start"]:s["end"]].replace("\t"," ").replace("\n"," ")
+                w.write(f"{_id}\t{s['label']}\t{s['start']}\t{s['end']}\t{frag}\n")
+
+if __name__=="__main__":
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--model_dir", default="kie", help="KIE model folder")
+    ap.add_argument("--input", required=True, help="txt(each line) or jsonl(text/subject+body)")
+    ap.add_argument("--out", default="pred_kie.tsv")
+    a=ap.parse_args()
+    predict(Path(a.model_dir), Path(a.input), Path(a.out))
+    print("[OK] wrote", a.out)
+PY
+chmod +x "$TMP/RUNME_kie_demo.py"
+
+# 4) Eval：計算 strict span P/R/F1（需要金標 JSONL: text + spans[start,end,label]）
+cat > "$TMP/RUNME_kie_eval.py" <<'PY'
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import argparse, json
+from pathlib import Path
+from collections import Counter
+
+def read_gold(p: Path):
+    G=[]
+    with open(p,"r",encoding="utf-8") as f:
+        for i,ln in enumerate(f,1):
+            if not ln.strip(): continue
+            o=json.loads(ln)
+            text=o.get("text") or ((o.get("subject","")+"\n"+o.get("body","")).strip())
+            gold=o.get("spans") or []
+            rows=[]
+            for s in gold:
+                lab=s.get("label"); st=int(s.get("start",0)); ed=int(s.get("end",0))
+                rows.append((lab,st,ed))
+            G.append((o.get("id",f"ex-{i:04d}"), text, rows))
+    return G
+
+def read_pred_tsv(p: Path):
+    P=[]
+    with open(p,"r",encoding="utf-8") as f:
+        header = f.readline().strip().split("\t")
+        idx = {k:i for i,k in enumerate(header)}
+        for ln in f:
+            cols=ln.rstrip("\n").split("\t")
+            _id=cols[idx["id"]]; lab=cols[idx["label"]]
+            st=int(cols[idx["start"]]); ed=int(cols[idx["end"]])
+            P.append((_id, lab, st, ed))
+    by={}
+    for _id,lab,st,ed in P:
+        by.setdefault(_id, []).append((lab,st,ed))
+    return by
+
+def strict_prf(gold_jsonl: Path, pred_tsv: Path):
+    G=read_gold(gold_jsonl)
+    P=read_pred_tsv(pred_tsv)
+    tp=fp=fn=0
+    for _id, _text, gspans in G:
+        pspans=set(P.get(_id, []))
+        gspans=set(gspans)
+        tp += len(gspans & pspans)
+        fp += len(pspans - gspans)
+        fn += len(gspans - pspans)
+    Pp = (tp/(tp+fp)) if (tp+fp)>0 else 0.0
+    Rr = (tp/(tp+fn)) if (tp+fn)>0 else 0.0
+    F1 = (2*Pp*Rr/(Pp+Rr)) if (Pp+Rr)>0 else 0.0
+    return Pp,Rr,F1,tp,fp,fn
+
+if __name__=="__main__":
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--gold", required=True, help="gold jsonl with text+spans")
+    ap.add_argument("--pred", required=True, help="pred TSV from RUNME_kie_demo.py")
+    a=ap.parse_args()
+    P,R,F1,tp,fp,fn = strict_prf(Path(a.gold), Path(a.pred))
+    print(f"strict_span_P={P:.4f}")
+    print(f"strict_span_R={R:.4f}")
+    print(f"strict_span_F1={F1:.4f}")
+    print(f"(tp={tp}, fp={fp}, fn={fn})")
+PY
+chmod +x "$TMP/RUNME_kie_eval.py"
+
+# 5) 一鍵示範 shell
+cat > "$TMP/RUNME_kie.sh" <<'SH'
+#!/usr/bin/env bash
+set -euo pipefail
+here="$(cd "$(dirname "$0")" && pwd)"
+
+# Demo 1：對一個純文字檔（每行一封）抽取
+if [[ -f "$1" ]]; then
+  IN="$1"
+else
+  echo "用法：bash RUNME_kie.sh <text_or_jsonl_path>"
+  echo "範例：bash RUNME_kie.sh sample.jsonl"
+  exit 0
+fi
+
+python "$here/RUNME_kie_demo.py" --model_dir "$here/kie" --input "$IN" --out "$here/pred_kie.tsv"
+echo "[INFO] 預測輸出 -> $here/pred_kie.tsv"
+
+# 若同時有金標 jsonl，就順便 eval
+if [[ "${2:-}" != "" && -f "$2" ]]; then
+  python "$here/RUNME_kie_eval.py" --gold "$2" --pred "$here/pred_kie.tsv"
+fi
+SH
+chmod +x "$TMP/RUNME_kie.sh"
+
+# 6) 打包
+STAMP="$(date +%Y%m%d-%H%M)"
+ZIP="reports_auto/kie_min_bundle_${STAMP}.zip"
+(
+  cd "$TMP"
+  zip -q -r "../kie_min_bundle_${STAMP}.zip" ./*
+)
+echo "[OK] bundle -> $ZIP"
+echo "[HINT] 解壓後："
+echo "  bash RUNME_kie.sh <your_text_or_jsonl> [gold.jsonl]"

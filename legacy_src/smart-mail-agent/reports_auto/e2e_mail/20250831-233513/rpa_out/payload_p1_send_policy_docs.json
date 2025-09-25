@@ -1,0 +1,14 @@
+{
+  "id": "p1",
+  "action": "send_policy_docs",
+  "priority": "P3",
+  "queue": "Compliance",
+  "due_at": "2025-09-02T15:35:19+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T15:35:19+00:00"
+  },
+  "idempotency_key": "c05ae43ae4a449fe9578ef41ede80e7df1b68999",
+  "_note": "faq=faq_reply_p1.txt"
+}

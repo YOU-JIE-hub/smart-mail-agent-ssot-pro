@@ -1,0 +1,24 @@
+{"text": "請問 9/30 前能提供報價？25 位，預算 NT$12,500，含稅與場地嗎？", "spans": [{"start": 23, "end": 33, "label": "amount"}, {"start": 3, "end": 7, "label": "date_time"}]}
+{"text": "若 2025/09/15 前成交，可否給早鳥價 ＄9,800？", "spans": [{"start": 24, "end": 30, "label": "amount"}, {"start": 2, "end": 12, "label": "date_time"}, {"start": 7, "end": 12, "label": "date_time"}]}
+{"text": "我們預估本季採購 USD 1,200，10/5 前請出 formal quote。", "spans": [{"start": 9, "end": 21, "label": "amount"}, {"start": 19, "end": 23, "label": "date_time"}]}
+{"text": "本案上限 NT＄50,000，期望 2025-10-01 簽約。", "spans": [{"start": 7, "end": 15, "label": "amount"}, {"start": 18, "end": 28, "label": "date_time"}]}
+{"text": "請協助估算費用，9月30日前需要內簽，初步抓 $ 3,200。", "spans": [{"start": 23, "end": 30, "label": "amount"}]}
+{"text": "若含維護一年總價 US$ 2,499，可 10/31 前報價？", "spans": [{"start": 9, "end": 19, "label": "amount"}, {"start": 21, "end": 26, "label": "date_time"}]}
+{"text": "合約金額希望 2025.10.15 前定稿，現在預估 NT$ 18,000。", "spans": [{"start": 27, "end": 37, "label": "amount"}, {"start": 7, "end": 17, "label": "date_time"}]}
+{"text": "月費 ＄1,200；能否於 10/7 前出正式報價？", "spans": [{"start": 3, "end": 9, "label": "amount"}, {"start": 14, "end": 18, "label": "date_time"}]}
+{"text": "stg 環境登入報 401，自 2025/08/29 起間歇發生，請協助看 log。", "spans": [{"start": 16, "end": 26, "label": "date_time"}, {"start": 21, "end": 26, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "prod 匯入報錯，08/30 晚上 22:10 開始，影響批次單。", "spans": [{"start": 10, "end": 15, "label": "date_time"}, {"start": 0, "end": 4, "label": "env"}]}
+{"text": "UAT 今天 9/1 無法上傳附件，瀏覽器 Console 有 500。", "spans": [{"start": 7, "end": 10, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "production 近一週偶發逾時，EOW 前希望有根因報告。", "spans": [{"start": 0, "end": 10, "label": "env"}, {"start": 19, "end": 22, "label": "sla"}]}
+{"text": "dev API 金鑰異常，2025年9月2日 新 key 也不可用。", "spans": [{"start": 13, "end": 22, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}, {"start": 20, "end": 22, "label": "sla"}]}
+{"text": "test 資料庫連線 reset，09/03 03:15 觸發警報。", "spans": [{"start": 17, "end": 22, "label": "date_time"}, {"start": 0, "end": 4, "label": "env"}]}
+{"text": "staging 驗證信函延遲超過 4 小時，影響註冊流程。", "spans": [{"start": 0, "end": 7, "label": "env"}, {"start": 17, "end": 21, "label": "sla"}]}
+{"text": "prd 任務排程卡住，2025-09-05 08:00 以後都沒有跑。", "spans": [{"start": 11, "end": 21, "label": "date_time"}, {"start": 0, "end": 3, "label": "env"}]}
+{"text": "想確認客服 SLA，目前是否承諾 4 小時回覆、24 小時內解決？", "spans": [{"start": 6, "end": 9, "label": "sla"}]}
+{"text": "RTO 目標是 2 小時內？RPO 是否為 15 分鐘？", "spans": [{"start": 0, "end": 3, "label": "sla"}, {"start": 14, "end": 17, "label": "sla"}, {"start": 8, "end": 13, "label": "sla"}]}
+{"text": "請提供正式 SLA 文件，包含假日 EOD/EOW 規範。", "spans": [{"start": 6, "end": 9, "label": "sla"}, {"start": 18, "end": 21, "label": "sla"}, {"start": 22, "end": 25, "label": "sla"}]}
+{"text": "若佈署失敗，災難復原流程與 RPO 數值能否明列？", "spans": [{"start": 14, "end": 17, "label": "sla"}]}
+{"text": "想索取 SDK 與開發者指南，另需 staging 帳號流程。", "spans": [{"start": 18, "end": 25, "label": "env"}]}
+{"text": "本週四下午方便開個會議討論需求與時程嗎？", "spans": []}
+{"text": "我們對上次服務很滿意，想延長合約一年。", "spans": []}
+{"text": "請協助更新公司抬頭與統編，下週前完成即可。", "spans": []}

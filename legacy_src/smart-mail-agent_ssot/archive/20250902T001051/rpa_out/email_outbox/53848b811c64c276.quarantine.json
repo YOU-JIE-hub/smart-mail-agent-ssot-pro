@@ -1,0 +1,16 @@
+{
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "idempotency_key": "35bd41dc97d9ba4f",
+  "payload": {
+    "mail_id": "53848b811c64c276",
+    "subject": "Reset your 2FA now",
+    "fields": {},
+    "intent": {
+      "final": "quarantine",
+      "p1": 1.0
+    },
+    "ts": 1756743054
+  }
+}

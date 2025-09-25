@@ -1,0 +1,10 @@
+site_name: smart-mail-agent
+theme:
+name: material
+nav:
+
+Home: index.md
+
+CLI: cli.md
+
+Development: dev.md

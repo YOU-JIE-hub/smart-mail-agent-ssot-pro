@@ -1,0 +1,10 @@
+{
+  "path": "artifacts/releases/intent/20250830T095717Z-intent-pro",
+  "files": [
+    {
+      "file": "intent_svm_plus_split.pkl",
+      "size": 1364151,
+      "sha256": "e19731fa453503b3a541fabe52cbc24fd4d597dec2c08d127abef4cf1abbd4d4"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# FAQ reply draft
+
+- case: s2_invoice_zip
+- subject: 需要報價 2025-09-06
+
+參考答案：請見公司 FAQ 之 SLA/條款/流程章節。

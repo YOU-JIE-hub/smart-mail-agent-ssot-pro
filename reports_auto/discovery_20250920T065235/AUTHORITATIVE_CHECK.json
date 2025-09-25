@@ -1,0 +1,22 @@
+{
+  "authoritative": {
+    "INTENT_PKL": {
+      "path": "/home/youjie/projects/smart-mail-agent-ssot-pro/intent/intent/artifacts/intent_pro_cal.pkl",
+      "exists": true,
+      "is_dir": false,
+      "size": 4924369
+    },
+    "SPAM_PKL": {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/77/77/artifacts_sa/spam_rules_lr.pkl",
+      "exists": true,
+      "is_dir": false,
+      "size": 960
+    },
+    "KIE_DIR": {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model",
+      "exists": true,
+      "is_dir": true,
+      "size": null
+    }
+  }
+}

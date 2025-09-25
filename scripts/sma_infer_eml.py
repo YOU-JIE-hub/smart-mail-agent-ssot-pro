@@ -58,7 +58,9 @@ with open(a.out,"w",encoding="utf-8") as w:
             pt=1 if prob>=thr else 0
             pr=1 if s>=sigmin else 0
             pe=1 if (pt or pr) else 0
-            w.write(f"{fp}\t{prob:.6f}\t{pt}\t{s}\t{pr}\t{pe}\t{subj[:160].replace('\t',' ')}\n")
+            subj_clean = subj[:160].replace("\t", " ")
+            w.write(f"{fp}\t{prob:.6f}\t{pt}\t{s}\t{pr}\t{pe}\t{subj_clean}\n")
         except Exception as ex:
+            subj_clean = subj[:160].replace("\t", " ")
             w.write(f"{fp}\tERROR:{ex}\t\t\t\t\t\n")
 print("[OK] wrote", a.out)

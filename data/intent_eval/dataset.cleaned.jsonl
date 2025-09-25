@@ -1,0 +1,570 @@
+{"label": "投訴", "text": "客訴：出貨延遲與缺件 本週訂單多筆延遲且少寄，造成退款需求，請提供處理時程與賠償方案。"}
+{"label": "報價", "text": "政策詢問：SLA 與終止條款 想確認 SLA 等級、RPO/RTO 與合約終止條款，是否提供違約金上限與流程 SOP？"}
+{"label": "報價", "text": "詢價：40 席授權與 SOW 您好，請提供 40 seats 年費與一次性費用試算（NT$ 200,000 區間），含 SLA 與 SOW 條款。下週二前需要報價與交期。"}
+{"label": "技術支援", "text": "系統錯誤：匯入 500 上線後 API 匯入偶發 500/502，請協助排查（stacktrace 已附於連結），需要 on-call SLA。"}
+{"label": "報價", "text": "需要報價 2025-09-06 ��������������������������������������������������������������������������������������� 7 ���������������SLA������"}
+{"label": "資料異動", "text": "個資異動：發票抬頭與聯絡電話 請協助更新公司名稱與統編，聯絡電話改為 02-1234-5678，並提供異動 diff 供審核。"}
+{"label": "資料異動", "text": "中獎通知，點此領取 100000 USDT 恭喜中獎！點擊 http://malicious.example.com 立即領取，否則帳號將停用。unsubscribe here."}
+{"label": "報價", "text": "Subject: 年度授權與SLA細節\n\n您好，我們評估 Q4 導入，初期 70 席位。請提供年度授權報價、SLA 等級，以及 UAT->prod 的切換流程。若能提供 SOW 範本更好。總價請以 NT$<AMOUNT> 呈現，EOW 前回覆。"}
+{"label": "報價", "text": "Subject: 教育方案詢價（學校）\n\n我們是技職院校，想先採購 120 名學員帳號並分兩階段上線。請提供教育折扣、年費與一次性導入費用合併報價，並說明是否含線上培訓。目標總價 NT$<AMOUNT>。"}
+{"label": "報價", "text": "Subject: PoC + 正式導入報價\n\n先做 4 週 PoC（5 位座席、2 個 API 整合），通過即轉正式。請分別報價 PoC 與轉正後的年費與折扣，合計不超過 NT$<AMOUNT>。"}
+{"label": "報價", "text": "Subject: 三年期 TCO 試算\n\n請協助提供三年 TCO（含維護、升級、SLA），人數 80。並比較一次買斷與年費兩種模式，列出單價、折扣和總價（USD <AMOUNT>）。"}
+{"label": "報價", "text": "Subject: 零售專案價與 GRN 流程\n\n我們要在 8 門市導入，後續擴到 20。請提供零售專案價、PO/GRN 流程摘要，以及付款條件（30天）。請附正式報價與總額 NT$<AMOUNT>。"}
+{"label": "報價", "text": "Subject: 企業版含審計模組報價\n\n需要 Enterprise 版，含稽核與報表。首年 90 seats，含一次性導入與兩場教育訓練。請提供 SLA 層級與年費、導入費明細，總價 USD <AMOUNT>。"}
+{"label": "報價", "text": "Subject: 夥伴合作價試算\n\n我們是系統整合商，若以貴方作底層，是否有 partner discount？首案預估 35 席。請提供清單價、折扣與合約義務，並附 SOW 範本。總額 USD <AMOUNT>。"}
+{"label": "報價", "text": "Subject: API 用量級距與估價\n\n月用量約 1.5M requests，峰值 QPS 250。請提供分級價格表、跨區備援選項與三年期總額試算（USD <AMOUNT>）。需要 30 天付款條件。"}
+{"label": "報價", "text": "Subject: 政府採購流程相容性\n\n是否符合政府採購流程（GRN、發票格式、驗收文件）？人數 55，需 on-call SLA。請提供三種付款方案與總額 NT$<AMOUNT> 區間。"}
+{"label": "報價", "text": "Subject: 門市分批上線報價\n\n導入排程：10/01 首批 6 店、11/20 第二批 10 店。請提供每批導入費、教育訓練內容與折扣後總價 NT$<AMOUNT>，並標示里程碑。"}
+{"label": "報價", "text": "Subject: Pricing and SLA details\n\nWe plan to roll out in Q4 with 60 seats. Please share annual pricing, SLA tiers, and the UAT-to-prod cutover process. An SOW template would be helpful. Target total USD <AMOUNT>."}
+{"label": "報價", "text": "Subject: Quote for education program\n\nWe're a training center considering 150 learner accounts in two phases. Please provide education discounts, annual subscription, and one-time setup. Grand total NT$<AMOUNT>."}
+{"label": "報價", "text": "Subject: PoC followed by rollout\n\nWe want a 4-week PoC (10 agents, 2 integrations), then convert to production if successful. Quote PoC fee and post-conversion annual fee, with any credit policy. Cap at USD <AMOUNT>."}
+{"label": "報價", "text": "Subject: Three-year TCO comparison\n\nPlease compare perpetual vs. annual subscription for 70 users, including maintenance, upgrades, and SLA. Show unit, discount, and totals (USD <AMOUNT>)."}
+{"label": "報價", "text": "Subject: Retail project pricing with GRN steps\n\nWe will start with 10 stores and scale to 25. Kindly provide tiered pricing, PO/GRN steps, and 30-day payment terms. Include total NT$<AMOUNT>."}
+{"label": "報價", "text": "Subject: Enterprise plan with audit logs\n\nWe need Enterprise with audit/reporting. First year 80 seats plus onboarding & two training sessions. Please include SLA options and total USD <AMOUNT>."}
+{"label": "報價", "text": "Subject: Partner discount inquiry\n\nAs an SI partner, can you share partner discount tiers and obligations? First engagement ~30 seats. Please attach SOW outline and show total USD <AMOUNT>."}
+{"label": "報價", "text": "Subject: API usage-based pricing\n\nExpected 2M requests/month, peak QPS 300. Provide pricing tiers, cross-region DR add-on, and three-year total (USD <AMOUNT>). Payment terms 30 days."}
+{"label": "報價", "text": "Subject: Government procurement support\n\nWe need GRN paperwork, invoice format, and acceptance docs. 50 seats to start. Share three payment options and total USD <AMOUNT>. SLA monthly reports required."}
+{"label": "報價", "text": "Subject: Staged store rollout quote\n\nRollout plan: 5 stores in Oct, +12 in Nov. Please break down setup per batch, training topics, and net total NT$<AMOUNT> with milestones."}
+{"label": "技術支援", "text": "Subject: API 500 錯誤\n\nHi 支援，API /v1/orders 在 prod 於 10:20–10:35 間回 500，sandbox 正常。請協助查 logs 並提供修復 ETA；若需請求 ID 可回覆（票號 <ORDER_ID>）。"}
+{"label": "技術支援", "text": "Subject: 429 限流問題（夜間批次）\n\n02:10 的夜間批次在 /v2/items 觸發 429。我們已做退避但仍被擋。請確認限流上限與建議重試間隔，今晚 23:00 前需完成。"}
+{"label": "技術支援", "text": "Subject: OTP 延遲 & 無法登入\n\n同仁回報 OTP 簡訊延遲 3–5 分鐘，導致登入失敗。請協助查簡訊供應商狀態，並提供暫時 workaround。"}
+{"label": "技術支援", "text": "Subject: CORS 錯誤\n\n登入後儀表板空白，console 顯示 CORS。昨晚剛把子網加到白名單。請協助檢查設定，必要時協助 rollback。"}
+{"label": "技術支援", "text": "Subject: Webhook 驗簽失敗\n\nWebhook 簽名 header 疑似多了空白，導致驗簽失敗。請確認文件是否更新，並協助比對伺服器端 log。請求編號 <ORDER_ID>。"}
+{"label": "技術支援", "text": "Subject: TLS 憑證異常\n\n更換代理後，prod 出現 TLS 握手失敗。請確認憑證鏈，並提供重新匯入步驟。E2E 測試受影響。"}
+{"label": "技術支援", "text": "Subject: 匯出 CSV 亂碼\n\n今日匯出的 CSV 中文亂碼，疑似編碼非 UTF-8。請協助修正並提供暫時 workaround，明早 10:00 前要交週報。"}
+{"label": "技術支援", "text": "Subject: 檔案上傳限制不一致\n\nsandbox 允許 20MB，prod 僅 5MB，導致財會無法上傳 GRN PDF。能否今晚維護窗調整為一致？"}
+{"label": "技術支援", "text": "Subject: SAML 時鐘偏移\n\n透過 SSO 登入時提示時鐘不同步，已確認 NTP 正常。請提供可接受偏差與設定位置，明天早上要再測。"}
+{"label": "技術支援", "text": "Subject: 推播一度中斷\n\n昨夜 01:00–03:00 iOS 未收到推播。請協助檢查 APNs 設定並提供 RCA 與 SLA 計算影響。"}
+{"label": "技術支援", "text": "Subject: API 500 in prod\n\nHello Support, /v1/users returned 500 around 09:05–09:20 in prod; sandbox fine. Please check logs and share ETA. Ticket <ORDER_ID>."}
+{"label": "技術支援", "text": "Subject: 429 on nightly job\n\nOur 02:00 job hits 429 on /v2/items despite backoff. Please confirm rate limits and recommended retry policy; target fix tonight 23:00."}
+{"label": "技術支援", "text": "Subject: OTP delay / sign-in failure\n\nStaff cannot log in; OTP arrives 3–5 min late. Any known issue with the provider? Need a temporary workaround and ETA."}
+{"label": "技術支援", "text": "Subject: CORS after login\n\nDashboard is blank after sign-in; console shows CORS errors. We updated the allowlist last night—please advise if rollback is needed."}
+{"label": "技術支援", "text": "Subject: Webhook signature mismatch\n\nVerification fails; header seems to contain extra spaces. Please review docs and server logs for request id <ORDER_ID>."}
+{"label": "技術支援", "text": "Subject: TLS handshake failure\n\nAfter certificate rotation, prod shows TLS handshake failure. Kindly provide steps to reimport the full chain. E2E tests blocked."}
+{"label": "技術支援", "text": "Subject: CSV encoding issue\n\nExported CSV appears garbled (not UTF-8). Please patch and share a temporary workaround; weekly report due by EOD Friday."}
+{"label": "技術支援", "text": "Subject: Upload blocked in prod\n\nFinance cannot upload 8MB GRN PDF in prod; sandbox works. Please align limits and confirm MIME types before Tuesday noon."}
+{"label": "技術支援", "text": "Subject: SAML clock skew\n\nSAML assertion rejected due to clock drift. What is the acceptable skew and where do we configure it? We plan another UAT run tomorrow 10:00."}
+{"label": "技術支援", "text": "Subject: Push notification outage\n\niOS devices received no alerts between 01:00–03:00. Please investigate APNs settings and provide an RCA including SLA impact."}
+{"label": "規則詢問", "text": "Subject: 退費與發票處理\n\n若上線前取消，已開立的發票是否作廢或開折讓？請提供流程、文件清單與預估時程（需附發票號 <INVOICE_NO> 嗎？）。"}
+{"label": "規則詢問", "text": "Subject: 提前終止條款\n\n若因內部政策需提前終止，是否需按剩餘月份比例計費？SLA 未達門檻是否可無罰終止？請附正式政策連結 <URL>。"}
+{"label": "規則詢問", "text": "Subject: 資料保存與刪除\n\n合約終止後，資料幾天內刪除？審計日誌是否可應請求保留 90 天？若要延長是否需升級方案與費用（NT$<AMOUNT>）？"}
+{"label": "規則詢問", "text": "Subject: 升級/降級機制\n\n中途升級方案，差額如何計算？降級是否需等下個計費週期？是否會影響既有折扣？請提供書面說明。"}
+{"label": "規則詢問", "text": "Subject: SLA 未達補償\n\n若月度可用性低於 SLA 門檻，補償方式為展延服務或折讓發票？申請是否需提供事件編號 <ORDER_ID>？"}
+{"label": "規則詢問", "text": "Subject: 試用展延\n\n目前 14 天不敷使用，是否可展延至 30 天並保留資料？轉正可否折抵 NT$<AMOUNT>？請附流程與條款。"}
+{"label": "規則詢問", "text": "Subject: ICO / 資安合規\n\n是否提供資料處理者附錄可簽？跨境傳輸的合規聲明文件可否提供參考版本？"}
+{"label": "規則詢問", "text": "Subject: 合約移轉\n\n若專案轉移至關係企業，是否可無罰移轉合約？有無需先行通知的天數與流程？"}
+{"label": "規則詢問", "text": "Subject: 帳單爭議處理\n\n若發票金額有誤，是否支援以 credit note 修正？流程與時程需要多久？是否影響 SLA 計算？"}
+{"label": "規則詢問", "text": "Subject: 自動續約與提醒\n\n合約是否自動續約？到期前會提供幾天提醒？若不續約的資料保留政策為何？"}
+{"label": "規則詢問", "text": "Subject: Refund vs. credit note\n\nIf we cancel pre go-live, do we void or issue a credit note for invoice <INVOICE_NO>? Please share the checklist and lead time."}
+{"label": "規則詢問", "text": "Subject: Early termination fees\n\nIf we terminate early due to policy changes, are fees pro-rated? Does SLA breach allow penalty-free termination? Link to official policy <URL>."}
+{"label": "規則詢問", "text": "Subject: Data retention & deletion\n\nAfter contract termination, how many days until data deletion? Can audit logs be retained for 90 days on request? Any upgrade fees (USD <AMOUNT>)?"}
+{"label": "規則詢問", "text": "Subject: Upgrade/downgrade policy\n\nHow is the delta calculated when upgrading mid-term? For downgrade, do we wait until the next billing cycle? Any discount impact?"}
+{"label": "規則詢問", "text": "Subject: SLA shortfall remedies\n\nWhen monthly availability falls below SLA, is compensation via service extension or credit note? Do we need incident id <ORDER_ID>?"}
+{"label": "規則詢問", "text": "Subject: Trial extension\n\nCan we extend the 14-day trial to 30 days and keep data? If converted, can trial fee be offset (NT$<AMOUNT>)? Please share the steps."}
+{"label": "規則詢問", "text": "Subject: DPA / cross-border\n\nDo you provide a Data Processing Addendum for signature? Any statement on cross-border transfers we can reference internally?"}
+{"label": "規則詢問", "text": "Subject: Contract assignment\n\nIf the project is moved to an affiliate, can the contract be assigned without penalty? What notice period and process apply?"}
+{"label": "規則詢問", "text": "Subject: Billing dispute\n\nIf an invoice is incorrect, do you support correction via credit note? How long does the process take and does it affect SLA reporting?"}
+{"label": "規則詢問", "text": "Subject: Auto-renewal notice\n\nIs the contract auto-renewed? How many days before expiry do you notify? What happens to data if we choose not to renew?"}
+{"label": "資料異動", "text": "Subject: 更改帳單信箱\n\n請將帳單收件改為 <EMAIL>，並保留 <EMAIL> 在副本；下個計費週期生效。"}
+{"label": "資料異動", "text": "Subject: 發票抬頭更新\n\n公司名稱調整為 <COMPANY>，統編不變。下月開立的發票請改用新抬頭，參考 PO <ORDER_ID>。"}
+{"label": "資料異動", "text": "Subject: 新增白名單 IP\n\n請在 UAT 新增 <ADDR>、<ADDR> 兩筆 IP，prod 先不變更。預計 10/12 下午再測。"}
+{"label": "資料異動", "text": "Subject: 寄送地址異動\n\n請把紙本文件寄送地址改為 <ADDR>，收件人 <NAME>；自下週二起生效。"}
+{"label": "資料異動", "text": "Subject: 聯絡人更新\n\n專案窗口改為 <NAME>，電話 <PHONE>；請同步更新 SLA 通報名單與 UAT 通知群組。"}
+{"label": "資料異動", "text": "Subject: 帳號增減\n\n請刪除 3 個離職帳號，並新增 4 位同仁到 Sales 群組。詳見內部單號 <ORDER_ID>。"}
+{"label": "資料異動", "text": "Subject: 報表寄送排程調整\n\n請把每週一 09:00 改為每月 1 號 09:00，寄送到 <EMAIL>，抄送 <EMAIL>。"}
+{"label": "資料異動", "text": "Subject: 變更通知人清單\n\n請新增 <EMAIL> 為重大事故通知收件者，並移除舊的 <EMAIL>。"}
+{"label": "資料異動", "text": "Subject: 短信通知手機更新\n\n請把簡訊通知門號更新為 <PHONE>；生效時間設定為下個工作日。"}
+{"label": "資料異動", "text": "Subject: 實體發票寄送偏好\n\n之後的實體發票請改寄到 <ADDR>，收件人 <NAME>；電子發票仍寄 <EMAIL>。"}
+{"label": "資料異動", "text": "Subject: Change billing email\n\nPlease update the billing email to <EMAIL> and keep <EMAIL> in CC. Effective next cycle."}
+{"label": "資料異動", "text": "Subject: Update invoice header\n\nChange invoice header to <COMPANY>. Reference PO <ORDER_ID>. Apply from next month."}
+{"label": "資料異動", "text": "Subject: Add IP allowlist\n\nPlease add <ADDR> and <ADDR> to the UAT allowlist; do not change prod for now. We'll retest on 10/12 PM."}
+{"label": "資料異動", "text": "Subject: Shipping address update\n\nKindly update our address to <ADDR>, recipient <NAME>. Effective next Tuesday."}
+{"label": "資料異動", "text": "Subject: Primary contact change\n\nPlease replace the primary contact with <NAME>, phone <PHONE>, and update the incident alert list."}
+{"label": "資料異動", "text": "Subject: Adjust user accounts\n\nRemove two inactive accounts and add four new users to the Sales group. Internal ticket <ORDER_ID>."}
+{"label": "資料異動", "text": "Subject: Report schedule change\n\nSwitch weekly Monday 09:00 to monthly on the 1st at 09:00, send to <EMAIL> with CC <EMAIL>."}
+{"label": "資料異動", "text": "Subject: Incident recipients\n\nAdd <EMAIL> to the major incident list and remove the old <EMAIL>."}
+{"label": "資料異動", "text": "Subject: SMS number update\n\nPlease update the SMS alert number to <PHONE>. Effective next business day."}
+{"label": "資料異動", "text": "Subject: Paper invoice preference\n\nMail paper invoices to <ADDR>, recipient <NAME>, while e-invoices still go to <EMAIL>."}
+{"label": "投訴", "text": "Subject: 票務延宕影響上線\n\n票號 <ORDER_ID> 開了多日仍無實質更新，尖峰時段仍受影響。請提供可交代的 ETA，否則我們只能延後上線。"}
+{"label": "投訴", "text": "Subject: 系統回應過慢\n\n最近高峰時常超過 5 秒，營運端難以作業。反映多次僅得到模板回覆，請正面回應並給出改善計畫。"}
+{"label": "投訴", "text": "Subject: 教育訓練品質不佳\n\n昨日訓練內容與講義不一致，同仁反映收穫有限。請安排補課並改善教材品質。"}
+{"label": "投訴", "text": "Subject: 排程頻繁變動\n\nUAT 測試兩度臨時延期，內部資源難以調度。請提供可執行且穩定的時程，避免再度變更。"}
+{"label": "投訴", "text": "Subject: 回覆不一致\n\n同一問題不同窗口給出不同建議，造成混亂。請提供一致 SOP 與升級路徑。"}
+{"label": "投訴", "text": "Subject: 事故通報太慢\n\n近期資安通報未即時通知，風險過高。請改善通報機制並提供補救計畫。"}
+{"label": "投訴", "text": "Subject: 報表偶有漏資料\n\n已反映多次但未見根因分析。營運需要每日對帳，請盡速處理並給出避免再發的措施。"}
+{"label": "投訴", "text": "Subject: 工單僅顯示在排程\n\n票號 <ORDER_ID> 三天來只有『在排程』，無任何里程碑。旺季將至，請提出具體時程。"}
+{"label": "投訴", "text": "Subject: 交付與文件未齊\n\n上週承諾的設定文件仍未提供，導致內部無法完成稽核。請補齊並說明延遲原因。"}
+{"label": "投訴", "text": "Subject: 客服回覆時間拉長\n\n同一問題等待回覆超過兩天，嚴重拖累決策。煩請調整支援優先權或指派固定窗口。"}
+{"label": "投訴", "text": "Subject: Ticket delay affects go-live\n\nTicket <ORDER_ID> shows no actionable update for days while peak hours remain impacted. We need a realistic ETA, or we'll postpone go-live."}
+{"label": "投訴", "text": "Subject: Response time degradation\n\nDuring peak, response time often exceeds 5s. We keep receiving templated replies—please provide a concrete improvement plan."}
+{"label": "投訴", "text": "Subject: Training quality concerns\n\nSlides didn't match the demo and Q&A felt rushed. Please arrange a make-up session with clearer materials."}
+{"label": "投訴", "text": "Subject: Repeated schedule changes\n\nUAT has been rescheduled twice, causing internal friction. We need a firm plan to avoid further delays."}
+{"label": "投訴", "text": "Subject: Inconsistent guidance\n\nDifferent agents offer conflicting answers for the same issue. Please share a consistent SOP and escalation route."}
+{"label": "投訴", "text": "Subject: Slow incident communication\n\nSecurity notifications aren't timely, which is risky. Please improve the process and share corrective actions."}
+{"label": "投訴", "text": "Subject: Missing rows in reports\n\nWe still see occasional gaps in exports without a root cause provided. We need a fix and a prevention plan."}
+{"label": "投訴", "text": "Subject: Milestones missing\n\nTicket <ORDER_ID> keeps showing 'in queue' for three days with no milestones. Peak season is near; we need dates."}
+{"label": "投訴", "text": "Subject: Incomplete deliverables\n\nThe setup document promised last week has not arrived, blocking internal audit. Please send it and explain the delay."}
+{"label": "投訴", "text": "Subject: Slow support replies\n\nFollow-ups take more than two days, hurting decision speed. Please raise priority or assign a stable POC."}
+{"label": "其他", "text": "Subject: 想先了解功能與案例\n\n目前僅蒐集資訊，想要產品功能簡介與成功案例連結 <URL>，暫不需報價。"}
+{"label": "其他", "text": "Subject: 安排簡介會\n\n可否安排 30 分鐘介紹，了解常見導入時程與資源配置？我們週四下午可。"}
+{"label": "其他", "text": "Subject: 產品 Roadmap\n\n若 Q4 有新功能（報表或權限），可否分享大致時程？我們還在評估中，暫時不談價格。"}
+{"label": "其他", "text": "Subject: 多語介面與權限\n\n想確認是否支援多語與細緻權限，先看一份概覽文件即可。"}
+{"label": "其他", "text": "Subject: API 文件與 SDK\n\n可否提供最新 API 文件與 SDK 連結 <URL>？我們想先做可行性評估。"}
+{"label": "其他", "text": "Subject: 成功案例分享\n\n是否有零售與醫療領域的案例簡報可供內部參考？暫不進入採購流程。"}
+{"label": "其他", "text": "Subject: 部署方式概覽\n\n想了解雲端/自管的差異、維運責任與大致時程，先不用細節報價。"}
+{"label": "其他", "text": "Subject: 整合範例\n\n我們會與現行 CRM 整合，是否有典型整合架構圖與故事案例？先看概要即可。"}
+{"label": "其他", "text": "Subject: 短介影片\n\n有無 3–5 分鐘的產品短介影片能先讓主管了解？連結 <URL> 即可。"}
+{"label": "其他", "text": "Subject: 內部簡報素材\n\n方便提供 5–8 頁的概覽投影片，包含功能重點與上線步驟嗎？"}
+{"label": "其他", "text": "Subject: Product overview request\n\nWe're gathering information and would like a short deck outlining key features and typical rollout timelines. No pricing needed yet."}
+{"label": "其他", "text": "Subject: Intro meeting\n\nCould we schedule a 20–30 min intro this Thursday afternoon to understand capabilities and constraints first?"}
+{"label": "其他", "text": "Subject: Roadmap inquiry\n\nIf Q4 features include reporting/permissions, could you share a rough timeline? We're still evaluating and not discussing price yet."}
+{"label": "其他", "text": "Subject: Language & roles\n\nDo you support multiple languages and fine-grained roles? A brief overview doc is enough for now."}
+{"label": "其他", "text": "Subject: API docs & SDK\n\nPlease share the latest API docs and SDK link <URL>. We'd like to run a quick feasibility review."}
+{"label": "其他", "text": "Subject: Case studies\n\nDo you have case studies in retail and healthcare we can present internally? Not entering procurement yet."}
+{"label": "其他", "text": "Subject: Deployment options\n\nWe'd like a high-level comparison of cloud vs. self-hosted, ops responsibilities, and rough timelines; no pricing required."}
+{"label": "其他", "text": "Subject: Integration examples\n\nWe plan to integrate with our current CRM. Any typical architecture and example stories would help; summaries are fine."}
+{"label": "其他", "text": "Subject: Short intro video\n\nIf there's a 3–5 minute product intro video, please share the link <URL> so leadership can review."}
+{"label": "其他", "text": "Subject: Internal deck\n\nCould you provide a 5–8 slide overview covering highlights and go-live steps for internal sharing?"}
+{"label": "報價", "text": "Re: 跨區部署\\n\\n> 可否雙活？\\n我們希望跨區容災，RTO 15 分鐘、RPO 5 分鐘。請回覆額外費率與總價 NT$<AMOUNT>。若能在本月完成合約，是否提供首年維護折扣？"}
+{"label": "報價", "text": "Re: 您好,想要企業內訓 + 系統導入的整包方案：\\n1. CRM 授權 30 users\\n2. 課程 2 天（線上/實體）\\n3. 顧問時數 40h\\n請提供合併報價單與折扣後總額 NT$<AMOUNT>,最晚 by EOW. 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: Partner pricing\\n\\n> We can bring multiple deals in Q4\\nPlease send partner discount tiers, obligations, and sample SOW. First engagement: 25 agents. Quote total US$ <AMOUNT> with any multi-year incentives."}
+{"label": "報價", "text": "您好，想要企業內訓 + 系統導入的整包方案：\\n1. CRM 授權 30 users\\n2. 課程 2 天（線上/實體）\\n3. 顧問時數 40h\\n請提供合併報價與折扣後總價 NT$<AMOUNT>，最晚 by EOW。"}
+{"label": "報價", "text": "Fwd: Re: Training package + deployment\\n\\n> Could you include 2-day enablement?\\nPlease quote for 35 users + 2-day training + 20h consulting. Provide itemized quote and grand total USD <AMOUNT>. Please include discount and payment terms."}
+{"label": "報價", "text": "Subject: TCO 試算—三年期\\n\\n我們想比較一次買斷 vs 年費。請提供三年TCO（含維護、升級、SLA），人數 70。若簽多年可否優惠？請以NT$<AMOUNT> 呈現兩種方案總額並標註差異點。"}
+{"label": "報價", "text": "您好，法務要先看合約終止條件與SLA違約金，才會核准。先請提供商務條款草案與年度總價試算（US$ <AMOUNT>）。我們希望 10/12 完成內部簽核並下PO。"}
+{"label": "報價", "text": "Re: UAT 支援人力\\n\\n> 我們UAT 只有一週\\n請評估是否需加購顧問 16 小時，並於報價單內明列。另上線後首月是否提供重點支援？總價控制於 US$ <AMOUNT> 以內可否？ 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Subject: SOW 與里程碑請提供\\n\\n想了解分階段收費：\\n- 規劃：2 週\\n- UAT：1 週\\n- 上線：1 週\\n請附每階段交付與費用,總價 US$ <AMOUNT>.另外需CSM 定期SLA 報告（每月）."}
+{"label": "報價", "text": "Subject: 合作夥伴價\\n\\n我們是系統整合商，若以貴方做底層，是否有partner discount？首案估 25 seats，附加審計模組。請回覆清單價、折扣、合約義務，及NT$ <AMOUNT> 估算。"}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供NT$<AMOUNT> 的概算與交期（下週二前，EOD）。"}
+{"label": "報價", "text": "Hi, education discount request for 150 learners (staged rollout). Please provide annual subscription price, SOW, and total NT$ <AMOUNT>. Target UAT in mid-October and go-live by end of month."}
+{"label": "報價", "text": "Hi, education discount request for 150 learners (staged rollout). Please provide annual subscription price, SOW, and total USD <AMOUNT>. Target UAT in mid-October and go-live by end of month."}
+{"label": "報價", "text": "Fwd: Hi，我方財務要求以USD 結算。預估年用量 20M API calls、檔案存取 10TB。請附分級計價與三年TCO（NT$ <AMOUNT>），以及SOW 條款摘要。"}
+{"label": "報價", "text": "您好,是否可提供多人段費率？客服 20、人資 10、財會 5.需報表與發票整合.煩請回覆年費 USD <AMOUNT>、一次性 USD <AMOUNT>,以及SLA 報表範例."}
+{"label": "報價", "text": "Hi，想詢問年度Enterprise版：是否含專屬CSM？我們要 100 seats，附加模組（報表+審計）。UAT 兩週、prod 11/1 上線。可否回覆NT$ <AMOUNT> 是否含一次性費用，另提供多年合約折扣。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: 跨區部署\\n\\n> 可否雙活？\\n我們希望跨區容災，RTO 15 分鐘、RPO 5 分鐘。請回覆額外費率與總價 USD <AMOUNT>。若能在本月完成合約，是否提供首年維護折扣？"}
+{"label": "報價", "text": "Hi, retail use case: 12 stores initially, scale to 30. Need API rate limits, nightly batch, and E2E reporting. Kindly quote unit price and total (NT$ <AMOUNT>) and outline PO/GRN steps. Target by EOW. Please include discount and payment terms."}
+{"label": "報價", "text": "Hi, retail use case: 12 stores initially, scale to 30. Need API rate limits, nightly batch, and E2E reporting. Kindly quote unit price and total (USD <AMOUNT>) and outline PO/GRN steps. Target by EOW."}
+{"label": "報價", "text": "您好，醫療資料需要更嚴格，是否有HIPAA 類似控制（內規參考）？授權 40 users，需審計報表。請附SLA、RPO/RTO 與年費（USD <AMOUNT>）。若能在EOM 前簽約有沒有early bird？"}
+{"label": "報價", "text": "Re: Subject: 教育方案詢價\\n\\n我們是培訓單位，計畫採購 200 名學員帳號（分兩期上線）。可否提供學校/教育折扣、授權年限與SLA？若需簽SOW，請附模板。希望 9/25 前完成評估與PO。"}
+{"label": "報價", "text": "您好，想詢問簽約年限與違約提前終止的費用，會影響我們PO 時點。初期 35 席，含報表模組。請提供NT$<AMOUNT> 的年度總價與付款條件（30/70）。"}
+{"label": "報價", "text": "Subject: quote request for 40 seats and SOW\\n\\nHi team, we plan to roll out in Q3: sandbox (2 weeks), UAT (1 week), prod go-live on 10/28. Please share quote for 40 seats, one-time setup, and SLA options. Also include SOW milestones and total NT$<AMOUNT>."}
+{"label": "報價", "text": "Subject: 醫療院所版報價試算\\n\\n院內規範較嚴，需憑證雙因子與審計。帳號先 80 名，之後可能擴編。請提供：年費、一次性導入（含安全掃描）、教育訓練、維護。也請附SLA違約金條款與NT$<AMOUNT> 匯總。謝謝。"}
+{"label": "報價", "text": "Subject: Cross-region DR add-on quote\\n\\nWe require RTO 15m, RPO 5m across two regions. Share the uplift cost and revised annual total (USD <AMOUNT>). If we sign by month end, any early-bird discount?"}
+{"label": "報價", "text": "Subject: Cross-region DR add-on quote\\n\\nWe require RTO 15m, RPO 5m across two regions. Share the uplift cost and revised annual total (NT$ <AMOUNT>). If we sign by month end, any early-bird discount?"}
+{"label": "報價", "text": "您好，想確認是否支援政府採購流程，包含GRN、發票格式與驗收文件。人數 55，需on-call SLA。請提供三種付款方案與US$ <AMOUNT> 總額區間。"}
+{"label": "報價", "text": "您好，想了解API用量計價：每月約 1M requests，峰值 QPS 200。請提供分級價格表與跨區備援選項，並估算年度總額（NT$ <AMOUNT>）。我們內部採購流程需要三家比價，請提供正式報價單與付款條件（30天）。"}
+{"label": "報價", "text": "Subject: Government procurement support\\n\\nWe will need GRN paperwork, invoice format, and acceptance docs. 50 seats to start. Share three payment options and total USD <AMOUNT>. SLA monthly reports required."}
+{"label": "技術支援", "text": "Fwd: 列印樣板偏移\\n\\n報表列印左邊界偏 5mm，僅在Chrome 版本 1xx 再現。是否有相容性修正？我們需要在Q3 結案前解掉這個issue。 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Subject: Push notification outage\\n\\nBetween 01:00–03:00 we received no alerts on iOS. Please review APNs config and share an RCA including SLA impact and ETA to restore."}
+{"label": "技術支援", "text": "Subject: App 版本相容性\\n\\nAndroid 端 13 版點開通知就crash，iOS 正常。請確認SDK 版本需求並提供修補檔。我們要在下週二前推測試版給內測群組。"}
+{"label": "技術支援", "text": "Subject: API 文件連結 404\\n\\n開發同仁回報文件連結打不開（指向 <URL> ）。請協助修復或提供離線PDF。下週UAT 需要完整API 規格與錯誤碼表。"}
+{"label": "技術支援", "text": "Re: Fwd: API 限流問題\\n\\n批次同步在 02:00 觸發429，已經依文件放慢，但仍被擋。請確認限流策略是否有調整，並給出每分鐘允許值與建議重試間隔。我們清單量約 50k 筆。"}
+{"label": "技術支援", "text": "Subject: Attachment upload blocked in prod\\n\\nFinance cannot upload GRN PDF (8MB). Sandbox works. Please align limits and confirm MIME types. We need this fixed before Tuesday noon."}
+{"label": "技術支援", "text": "Hi Support, API /v2/items returns 429 despite backoff. Our nightly job processes ~40k rows. Please confirm rate limits and recommended retry policy. Target fix tonight 23:00."}
+{"label": "技術支援", "text": "Re: Subject: 角色權限錯置\\n\\n客服新進無法看到工單,但有管理員權限的欄位卻打得開.請協助重匯權限模版並告知預設角色矩陣；我們希望本週內修正完成（by EOW）. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Subject: Data retention 設定\\n\\n請問事件日誌保存是否可自訂 90 天？法遵要求我們在prod 拉長保存期。若需升級方案請告知費用（USD <AMOUNT>）。"}
+{"label": "技術支援", "text": "Fwd: Re: Certificate mismatch error\\n\\n> Error appeared after we rotated keys\\nProd shows TLS handshake failure. Please verify certificate chain and send steps to reimport. Impacting E2E tests."}
+{"label": "技術支援", "text": "Fwd: Exported CSV encoding issue\\n\\nThe CSV appears garbled (not UTF-8). Could you patch and share a temporary workaround? Weekly report due by EOW Friday."}
+{"label": "技術支援", "text": "Hi 支援，webhook 驗簽驗不過，簽名header 好像多了空白。請確認文件是否有更新。附上請求ID <ORDER_ID> ，煩請查核伺服器端log。"}
+{"label": "技術支援", "text": "Subject: Login failure in UAT after password reset\\n\\nTeam, users cannot log in after reset; OTP keeps timing out. We already added IPs to the allowlist. Please advise next steps and ETA before tomorrow EOW. Please share ETA and a temporary workaround."}
+{"label": "規則詢問", "text": "Subject: SLA 未達補償方式\\n\\n若月度可用性低於門檻，補償是否以服務月數延長或折讓發票？是否需提出事件編號 <ORDER_ID> 申請？請提供流程SOP。 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Re: Data retention and deletion\\n\\n> Need 90-day audit logs\\nAfter contract termination, how many days until data deletion? Can we retain audit logs for 90 days upon request? Please share the official policy PDF."}
+{"label": "規則詢問", "text": "Re: Subject: Early termination fees clarification\\n\\nPlease confirm if early termination incurs pro-rated fees and whether SLA breach enables penalty-free termination. Share a summary of the policy and process timeline. A link to the official policy <URL> would help."}
+{"label": "規則詢問", "text": "Re: Subject: Early termination fees clarification\\n\\nPlease confirm if early termination incurs pro-rated fees and whether SLA breach enables penalty-free termination. Share a summary of the policy and process timeline."}
+{"label": "規則詢問", "text": "Subject: 使用者資料保存與刪除\\n\\n若終止合約，資料會在多少天內刪除？審計日誌是否可應要求保留 90 天？請提供正式政策文件與責任歸屬說明。"}
+{"label": "規則詢問", "text": "Subject: Upgrade/downgrade policy\\n\\nIf we upgrade mid-term, how is the price difference calculated? For downgrade, must we wait until next billing cycle? Example with USD <AMOUNT> would help."}
+{"label": "規則詢問", "text": "Re: 升級與降級條款\\n\\n> 想先買較低階\\n若中途升級方案，差額如何計算？反之降級是否需等待下個計費週期？請回覆書面條款與範例（NT$<AMOUNT>）。"}
+{"label": "規則詢問", "text": "Subject: 使用者資料保存與刪除\\n\\n若提前終止,資料會在多少天內刪除？審計日誌是否可應要求保留 90 天？請提供正式條款文件與責任歸屬說明."}
+{"label": "資料異動", "text": "Re: Subject: 更新聯絡電話\\n\\n請將我們主要聯絡人電話改為 <PHONE> ,其他設定不變.若需驗證請寄到 <EMAIL> 確認.謝謝."}
+{"label": "資料異動", "text": "Hi, please change the invoice header to <COMPANY>. The reference PO is <ORDER_ID>. Send the updated invoice to <EMAIL> after 10/01."}
+{"label": "資料異動", "text": "Re: Hi, please change the invoice header to <COMPANY>. The reference PO is <ORDER_ID>. Send the updated invoice to <EMAIL> after 10/01."}
+{"label": "資料異動", "text": "您好，請將報表寄送排程從每週一改為每月1號 09:00，寄送到 <EMAIL> ，抄送 <EMAIL>。若需我們簽核請提供表單。"}
+{"label": "資料異動", "text": "Re: Subject: Change billing email\\n\\nPlease update the billing email to <EMAIL> and keep <EMAIL> in CC. Effective next billing cycle (Q4)."}
+{"label": "資料異動", "text": "Subject: 更新聯絡電話\\n\\n請將我們主要聯絡人電話改為 <PHONE> ，其他設定不變。若需驗證請寄到 <EMAIL> 確認。謝謝。"}
+{"label": "投訴", "text": "Subject: 要求每日狀態\n\n為避免資訊落差，請每日 10:00 前提供進度摘要與風險評估，直到票號 <ORDER_ID> 結案為止。"}
+{"label": "投訴", "text": "Hi，排程多次臨時更動，內部資源一直重排。這樣的協作品質無法接受，請安排單一窗口與穩定時程。"}
+{"label": "投訴", "text": "Subject: Inconsistent answers from support\\n\\nDifferent agents give different guidance for the same issue. Please provide a consistent SOP or escalation path."}
+{"label": "投訴", "text": "Fwd: 票務延宕\\n\\n票號 <ORDER_ID> 開了三天都沒動靜，僅回覆「在時程」。旺季快到了，請給我們一個可交代的時間表。"}
+{"label": "投訴", "text": "Hi，報表偶爾會漏資料，已反映多次但沒有根因。營運端每天要對帳，這樣很難交代。請重視這個問題。"}
+{"label": "投訴", "text": "Subject: 溝通品質不佳\n\n同一個議題，不同窗口給的答案互相矛盾。請提供一致的SOP與單一聯絡人，避免再出現「請再等等」的模板回覆。"}
+{"label": "投訴", "text": "Subject: 安全事件溝通太慢\\n\\n日前資安通報沒有即時通知窗口，內部要等很久才知道狀況，這樣風險太高。請改善溝通機制。"}
+{"label": "投訴", "text": "Hi,報表偶爾會漏資料,已反映多次但沒有根因.營運端每天要對帳,這樣很難交代.請重視這個問題. 若無具體計畫，我們將延後上線。"}
+{"label": "投訴", "text": "Hi team, the repeated rescheduling has caused wasted effort. Please commit to a stable plan and provide an escalation contact."}
+{"label": "投訴", "text": "Subject: 需要可信的時間表\n\n目前的期限一再變動，造成內部反彈。請提供可驗證的時間表與對應負責人清單。"}
+{"label": "其他", "text": "Hi，聽朋友說你們在零售很強，想先看看能不能解決我們門市的會員黏著問題。方便安排個 30 分鐘簡介嗎？"}
+{"label": "其他", "text": "Re: Quick intro call\\n\\nCould we schedule a 20–30 min intro this Thursday afternoon to understand capabilities and constraints first? Pricing can wait."}
+{"label": "其他", "text": "Hi，想確認是否有多語介面與基本報表客製。這階段只評估可行性，請提供 Roadmap 摘要即可。"}
+{"label": "其他", "text": "Subject: 想先聽能力簡介\n\n可否安排 20 分鐘線上簡報，重點放在介面與維運方式？先不談價格與採購。"}
+{"label": "其他", "text": "Fwd: Hi,聽朋友說你們在零售很強,想先看看能不能解決我們門市的會員黏著問題.方便安排個 30 分鐘簡介嗎？"}
+{"label": "報價", "text": "請問 9/30 前能提供報價？11 位，約 NT$1,2010。"}
+{"label": "投訴", "text": "我們對上次服務不滿，2025/08/11 已寄出投訴表，請回覆。"}
+{"label": "其他", "text": "想索取產品簡介與 SDK 下載連結，謝謝。"}
+{"label": "規則詢問", "text": "想了解 API 使用政策與資安規範，有沒有文件與 SLA 說明？"}
+{"label": "資料異動", "text": "請協助更新公司聯絡資訊與發票抬頭，本周內完成即可。"}
+{"label": "技術支援", "text": "staging 無法登入，2025/08/11 仍持續，錯誤碼 401。"}
+{"label": "報價", "text": "Subject: 導入年度授權與SLA細節\\n\\n您好，我們計畫在Q4導入你們的SaaS，初步評估 60 seats（銷售與客服各30）。請提供年度授權報價、SLA 等級（99.9%/99.95%）、含UAT到prod的切換流程與時程（預計10/12(四) 下午完成UAT簽核）。另請估算一次性導入費用與SOW範圍。\\n\\n若有批量折扣，請於報價單標示：單價、折扣、總價（NT$<AMOUNT>）。謝謝。"}
+{"label": "報價", "text": "Hi 团队，我們想做E2E客服自動化PoC。需求：\\n- chatbot 月活 5k\\n- 後台座席 20 seats\\n- sandbox 兩週、UAT 一週、prod go-live 10/30\\n請回覆試算與可用折扣（NT$<AMOUNT> ~ NT$<AMOUNT> 區間）。"}
+{"label": "報價", "text": "Subject: 教育方案詢價\\n\\n我們是培訓單位，計畫採購 200 名學員帳號（分兩期上線）。可否提供學校/教育折扣、授權年限與SLA？若需簽SOW，請附模板。希望 9/25 前完成評估與PO。"}
+{"label": "報價", "text": "您好，想了解API用量計價：每月約 1M requests，峰值 QPS 200。請提供分級價格表與跨區備援選項，並估算年度總價（USD <AMOUNT>）。我們內部採購流程需要三家比價，請提供正式報價與付款條件（30天）。"}
+{"label": "報價", "text": "Re: 物流追蹤模組導入\\n\\n> 上週您提到可於Q3末完成\\n我們想把門市到倉的追蹤改版，第一階段 8 個站點，之後擴到 25 站。請列出：模組授權費、安裝、教育訓練與維護，並提供GRN對接的SOW。請附時程甘特與NT$<AMOUNT> 總預算帶。"}
+{"label": "報價", "text": "Hi，零售同業分享你們報價不錯。我們要 50 seats（線上客服），需白名單IP與SLA 99.9%。請回覆：首年NT$<AMOUNT> 是否含上線服務？UAT 目標在 11/05 前。若可分期請載明。"}
+{"label": "報價", "text": "Fwd: 報價需求\\n\\n同事轉來你們方案，我們想把門店POS與會員系統串接。需求：API 限流 500 rpm、夜間批次、每日對帳。請估 12 個月總價（NT$<AMOUNT>），並列出里程碑與付款節點（20/40/40）。"}
+{"label": "報價", "text": "Subject: 合作提案—跨境物流SaaS\\n\\n我們在評估跨境退貨解決方案，初期台灣/香港雙站，預估日單 800。請提出分級費率與GRN 對接。另需SOW：資料留存、SLA、異常處理SOP。期望10/20 之前完成條款談判與PO。"}
+{"label": "報價", "text": "Hi，想詢問年度Enterprise版：是否含專屬CSM？我們要 100 seats，附加模組（報表+審計）。UAT 兩週、prod 11/1 上線。可否回覆USD <AMOUNT> 是否含一次性費用，另提供多年合約折扣。"}
+{"label": "報價", "text": "Re: 招標文件需求\\n\\n> 需提供近三年實績\\n請協助準備投標必備資料與估價單，我們採購數量初步 120 licenses。標案需SLA與資安聲明，請附。報價請列：單價、總價、維護年費（NT$<AMOUNT>）。"}
+{"label": "報價", "text": "Subject: Sandbox PoC 報價請求\\n\\n想先在sandbox 驗證：單一店別、5 users、兩個API整合。請提供PoC 4 週方案與費用（NT$<AMOUNT>），若轉正可抵扣。預計下週二開會評估，請附簡要SOW。"}
+{"label": "報價", "text": "您好，法務要先看合約終止條件與SLA違約金，才會核准。先請提供商務條款草案與年度總價試算（USD <AMOUNT>）。我們希望 10/12 完成內部簽核並下PO。"}
+{"label": "報價", "text": "Hi，零售旺季在Q4，需於11/15 前確定方案。需求：會員分群、優惠券、POS整合，月MAU 約 80k。請提供三個階梯方案與可選模組，並附折扣後NT$<AMOUNT> 試算。"}
+{"label": "報價", "text": "Fwd: 友商導入經驗\\n\\n同業建議你們客服系統。請回覆：上手時間、教育訓練時程、是否提供SOW 樣板。起始 25 seats，黑色星期五前要上線。請給正式報價（NT$<AMOUNT>）。"}
+{"label": "報價", "text": "Subject: SOW 與里程碑請提供\\n\\n想了解分階段收費：\\n- 規劃：2 週\\n- UAT：1 週\\n- 上線：1 週\\n請附每階段交付與費用，總價 NT$<AMOUNT>。另外需CSM 定期SLA 報告（每月）。"}
+{"label": "報價", "text": "Hi 團隊，我們要把電商與WMS 打通，初期 3 倉、日訂單 3k。請給API 價格與限制，並估專案費。若能在10/05 開始UAT 最好。報價含維運一年（NT$<AMOUNT>）嗎？"}
+{"label": "報價", "text": "Subject: 方案比較請提供\\n\\n請把Standard/Pro/Enterprise 三檔的功能差異、SLA、是否含白名單/憑證管理列表化，並提供 45 users 的試算總價（USD <AMOUNT>）。我們內部會議在週五 EOD 前要資料。"}
+{"label": "報價", "text": "Hi，我方財務要求以USD 結算。預估年用量 20M API calls、檔案存取 10TB。請附分級計價與三年TCO（USD <AMOUNT>），以及SOW 條款摘要。"}
+{"label": "報價", "text": "Subject: 門市導入排程與費用\\n\\n我們要逐店導入：10/01 第一批 5 店、11/15 第二批 10 店。請提供每批導入費與折扣後總價 NT$<AMOUNT>，並列教育訓練場次與內容大綱。"}
+{"label": "報價", "text": "您好，是否可提供多人段費率？客服 20、人資 10、財會 5。需報表與發票整合。煩請回覆年費 NT$<AMOUNT>、一次性 NT$<AMOUNT>，以及SLA 報表範例。"}
+{"label": "報價", "text": "Re: UAT 支援人力\\n\\n> 我們UAT 只有一週\\n請評估是否需加購顧問 16 小時，並於報價內明列。另上線後首月是否提供重點支援？總價控制於 NT$<AMOUNT> 以內可否？"}
+{"label": "報價", "text": "Subject: 合作夥伴價\\n\\n我們是系統整合商，若以貴方做底層，是否有partner discount？首案估 25 seats，附加審計模組。請回覆清單價、折扣、合約義務，及USD <AMOUNT> 試算。"}
+{"label": "報價", "text": "您好，想確認是否支援政府採購流程，包含GRN、發票格式與驗收文件。人數 55，需on-call SLA。請提供三種付款方案與NT$<AMOUNT> 總額區間。"}
+{"label": "報價", "text": "Subject: Pricing request for 40 seats and SOW\\n\\nHi team, we plan to roll out in Q3: sandbox (2 weeks), UAT (1 week), prod go-live on 10/28. Please share pricing for 40 seats, one-time setup, and SLA options. Also include SOW milestones and total USD <AMOUNT>."}
+{"label": "報價", "text": "Re: Enterprise plan with audit logs\\n\\n> Can you include whitelisting and certificate management?\\nPlease provide Enterprise quote for 75 users, with audit, IP allowlist, and OTP. Include SLA 99.9% and three-year TCO (USD <AMOUNT>)."}
+{"label": "報價", "text": "Subject: PoC quotation request\\n\\nWe need a 4-week PoC: 10 agents, 2 integrations, basic reports. Please share itemized costs and whether the PoC fee is deductible upon go-live. Total not exceeding USD <AMOUNT>."}
+{"label": "報價", "text": "Hi team, please propose Standard/Pro/Enterprise comparison with SLA tiers. We expect 90k MAU and 60 seats. Include discount policy and total annual fee USD <AMOUNT>. UAT sign-off planned next Tuesday EOD."}
+{"label": "報價", "text": "Fwd: Reference deal\\n\\nA partner mentioned your pricing is flexible. For 20 licenses + 30 read-only, please send a bundled quote, SOW outline, and payment terms (30/70). Total target USD <AMOUNT>."}
+{"label": "報價", "text": "Hi, legal needs termination clauses and SLA penalties before PO. Please send the commercial terms draft, one-time implementation fee, and total USD <AMOUNT>. Timeline: sign by 10/12."}
+{"label": "報價", "text": "Re: Training package + deployment\\n\\n> Could you include 2-day enablement?\\nPlease quote for 35 users + 2-day training + 20h consulting. Provide itemized pricing and grand total USD <AMOUNT>."}
+{"label": "報價", "text": "Re: Partner pricing\\n\\n> We can bring multiple deals in Q4\\nPlease send partner discount tiers, obligations, and sample SOW. First engagement: 25 agents. Quote total USD <AMOUNT> with any multi-year incentives."}
+{"label": "技術支援", "text": "Subject: 登入異常（UAT環境）\\n\\n您好，今早UAT登入失敗，錯誤訊息顯示 OTP 驗證逾時。已確認白名單IP 正確。請協助排查並告知是否需要重設憑證，預計今天下午 3:00 再測。"}
+{"label": "技術支援", "text": "Hi 支援，API /v1/orders 在 prod 回 500，sandbox 正常。時段約 10:20~~10:35。請查logs 並提供修復ETA，客戶端有重試但仍失敗，E2E 測試卡住。"}
+{"label": "技術支援", "text": "Re: 檔案上傳失敗\\n\\n> 附件大小 8MB\\n財會同仁上傳發票PDF 失敗，顯示檔案格式不支援。請確認MIME 設定，是否僅允許部分副檔名？我們需要在明天 EOD 前完成GRN 附檔。"}
+{"label": "技術支援", "text": "Subject: 密碼重設連結壞掉\\n\\n同事收不到重設信，或連結點了顯示已過期。是否有寄送頻率限制？請協助手動重發到 <EMAIL>，我們要在 10/01 前完成新員工開通。"}
+{"label": "技術支援", "text": "Hi，今天登入後儀表板空白，console 有 CORS 錯誤。昨晚剛把子網加到白名單，可能設定有誤？請協助檢查，若需我們提供憑證fingerprint 可回覆。"}
+{"label": "技術支援", "text": "Fwd: API 限流問題\\n\\n批次同步在 02:00 觸發429，已經依文件放慢，但仍被擋。請確認限流策略是否有調整，並給出每分鐘允許值與建議重試間隔。我們清單量約 50k 筆。"}
+{"label": "技術支援", "text": "Subject: 憑證過期警示\\n\\n本機房代理的TLS 憑證快到期，但系統仍顯示有效期錯誤（登錄後跳提示）。請提供更新步驟與是否會影響UAT/ prod。"}
+{"label": "技術支援", "text": "Subject: 角色權限錯置\\n\\n客服新進無法看到工單，但有管理員權限的欄位卻打得開。請協助重匯權限模版並告知預設角色矩陣；我們希望本週內修正完成（by EOW）。"}
+{"label": "技術支援", "text": "Re: 匯入工具錯誤\\n\\n> 逗號分隔CSV\\n嘗試匯入 5,000 筆客戶資料，系統回傳欄位格式不符。可否提供範例檔與欄位對照表？我們周五要投產，麻煩幫忙。"}
+{"label": "技術支援", "text": "Subject: OTP 驗證碼延遲\\n\\n近一小時OTP 到手機延遲 3~~5 分鐘，導致多數登入失敗。是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA。"}
+{"label": "技術支援", "text": "Fwd: sandbox 與prod 設定不一致\\n\\nsandbox 允許附件 20MB，prod 只有 5MB。請確認是否有可調參數，並於今晚 23:00 維護窗調整。財會要上傳發票影像（GRN 附檔）。"}
+{"label": "技術支援", "text": "Hi，批次寄信功能今天一度停擺 20 分鐘，請提供事故報告（含SLA 計算與根因）。若需我們提供郵件ID 可再補。"}
+{"label": "技術支援", "text": "Subject: 匯出報表亂碼\\n\\n今日匯出的CSV 中文亂碼，編碼似乎不是UTF-8。請協助修正並提供暫時workaround。我們要在明早 10:00 前交週報。"}
+{"label": "技術支援", "text": "Re: iOS 推播不穩\\n\\n> 夜間無推送\\n昨晚 01:00~03:00 無任何通知。請協助比對APNs 設定並提供偵錯建議。我們的prod 憑證前週才更新過。"}
+{"label": "技術支援", "text": "Subject: SSO 整合問題\\n\\n透過SAML 登入時提示時鐘不同步，已確認NTP 正常。請協助提供允收誤差設定與debug 步驟。預計明天再測一次E2E。"}
+{"label": "技術支援", "text": "Fwd: 列印樣板偏移\\n\\n報表列印左邊界偏 5mm，僅在Chrome 版本 1xx 再現。是否有相容性修正？我們需要在Q3 結案前解掉這個issue。"}
+{"label": "技術支援", "text": "Subject: Data retention 設定\\n\\n請問事件日誌保存是否可自訂 90 天？法遵要求我們在prod 拉長保存期。若需升級方案請告知費用（NT$<AMOUNT>）。"}
+{"label": "技術支援", "text": "Hi，今天中午開始 webhook 重複送達，造成重複建立工單。請協助去重；事件ID：<ORDER_ID> 。能否先在UAT 驗證修補後今晚佈署prod？"}
+{"label": "技術支援", "text": "Subject: Login failure in UAT after password reset\\n\\nTeam, users cannot log in after reset; OTP keeps timing out. We already added IPs to the allowlist. Please advise next steps and ETA before tomorrow EOD."}
+{"label": "技術支援", "text": "Re: Certificate mismatch error\\n\\n> Error appeared after we rotated keys\\nProd shows TLS handshake failure. Please verify certificate chain and send steps to reimport. Impacting E2E tests."}
+{"label": "技術支援", "text": "Hi, webhook signature fails; header seems to include extra spaces. Please check docs and logs for request id <ORDER_ID>. Provide a workaround for now, thanks."}
+{"label": "技術支援", "text": "Subject: SSO clock skew configuration\\n\\nOur SAML assertion is rejected due to time drift. What is the acceptable skew and where to configure it? We plan another UAT run tomorrow morning 10:00."}
+{"label": "技術支援", "text": "Fwd: Exported CSV encoding issue\\n\\nThe CSV appears garbled (not UTF-8). Could you patch and share a temporary workaround? Weekly report due by EOD Friday."}
+{"label": "技術支援", "text": "Hi Support, dashboard blank after login; console shows CORS error. Allowlist was updated last night. Please check and confirm if a rollback is needed before prod peak hours."}
+{"label": "規則詢問", "text": "Subject: 退款申請條件詢問\\n\\n上週購買年度授權，但因內部政策無法上線，想了解退費機制與手續費。若需提供發票號 <INVOICE_NO> 或PO 證明，請告知。希望在10/12 前完成。"}
+{"label": "規則詢問", "text": "Hi，若提前終止合約，是否需支付剩餘月份比例費？SLA 未達成是否可無罰中止？請提供條款摘要與流程，法務在Q3 結束前要定案。"}
+{"label": "規則詢問", "text": "Re: 試用限制\\n\\n> 可否延長試用？\\n目前 14 天不太夠完成UAT，是否可延長至 30 天並保留資料？若轉正可否折抵 NT$<AMOUNT>？請提供書面條款。"}
+{"label": "規則詢問", "text": "Subject: 開立發票與退費流程\\n\\n若我們在上線前取消，已開立的發票是否需作廢或折讓？請提供步驟與需附文件清單（PO、GRN 等）。"}
+{"label": "規則詢問", "text": "您好，保固條款想再確認：若系統於月度內連續出現P1 事故兩次，是否可要求延長服務期？此條件是否寫在SOW 或主合約？"}
+{"label": "規則詢問", "text": "Subject: SLA 未達補償方式\\n\\n若月度可用性低於門檻，補償是否以服務月數延長或折讓發票？是否需提出事件編號 <ORDER_ID> 申請？請提供流程SOP。"}
+{"label": "規則詢問", "text": "Hi，想確認跨境資料傳輸是否合法遵循（內規參考），是否有資料處理者附錄可簽？若沒有，我們可能無法在Q4 上線。"}
+{"label": "規則詢問", "text": "Subject: 退款 vs 展延\\n\\n若因外部專案延遲導致無法如期上線，可否先展延授權而非退款？兩者對發票與PO 的影響請一併說明。"}
+{"label": "規則詢問", "text": "Subject: Early termination fees clarification\\n\\nPlease confirm if early termination incurs pro-rated fees and whether SLA breach enables penalty-free termination. Share a summary of the policy and process timeline."}
+{"label": "規則詢問", "text": "Hi, for refunds before go-live, do we need to void or issue a credit note for invoice <INVOICE_NO>? Kindly provide the document checklist (PO/GRN) and expected lead time."}
+{"label": "資料異動", "text": "您好，請把客服通知的寄送地址更新為 <EMAIL> ，原本信箱保留在副本即可。我們預計下週二測試通知流程。"}
+{"label": "資料異動", "text": "Subject: 發票抬頭變更\\n\\n公司名稱調整為 <COMPANY> ，統編不變。請於下月開立發票改用新抬頭，並標示專案代碼 <ORDER_ID> 以利核銷。"}
+{"label": "資料異動", "text": "Hi，請協助更換收件地址為 <ADDR> ，收件人 <NAME>。此變更需於 10/01 生效，以免月結發票寄錯。"}
+{"label": "資料異動", "text": "Subject: 主要聯絡人更新\\n\\n專案窗口改為 <NAME> ，電話 <PHONE>。請在SLA 通報名單與UAT 通知群組一起更新，謝謝！"}
+{"label": "資料異動", "text": "Subject: 帳號數量調整\\n\\n請先刪除 3 個已離職帳號，並將 5 個新帳號加入銷售群組。名單已附在內部表單對應 <ORDER_ID>。"}
+{"label": "資料異動", "text": "Hi，請把白名單IP 新增兩筆：<ADDR> 與 <ADDR>。此變更僅 UAT，prod 先不動。預計10/12(四) 下午再開測。"}
+{"label": "資料異動", "text": "Subject: Change billing email\\n\\nPlease update the billing email to <EMAIL> and keep <EMAIL> in CC. Effective next billing cycle (Q4)."}
+{"label": "資料異動", "text": "Subject: Update shipping address\\n\\nKindly update our address to <ADDR> and recipient <NAME>. This applies to physical statements only, starting next Tuesday."}
+{"label": "資料異動", "text": "Hi Support, please remove two inactive accounts and add four new users to the Sales group. Details attached internally under ticket <ORDER_ID>."}
+{"label": "投訴", "text": "Subject: 真的等太久了\\n\\n我們上週回報的票號 <ORDER_ID> 到現在都沒更新，影響門市結帳。承諾的EOD 修復沒有達成。請至少給明確ETA，否則我們只能延後上線。"}
+{"label": "投訴", "text": "Hi，最近系統反應變慢，早上尖峰常超過 5 秒，SLA 應該不只這樣吧？客服也一直叫我們等等，真的很困擾。請正面回應。"}
+{"label": "投訴", "text": "Re: 教育訓練品質不佳\\n\\n> 講師臨時更換\\n昨天的訓練內容和講義對不起來，同仁反映收穫不大。請安排補課說明，並改善講義品質。"}
+{"label": "投訴", "text": "Subject: 安排了又取消\\n\\n兩次約好的UAT 測試臨時延期，內部資源很難再喬。請協助確定一次能走完的時程，不要再臨時變動了。"}
+{"label": "投訴", "text": "Subject: 客服回覆不一致\\n\\n同一問題，不同人給的答案不同，讓我們無所適從。能否提供一致的SOP？否則我們無法推廣到更多門市。"}
+{"label": "投訴", "text": "Fwd: 票務延宕\\n\\n票號 <ORDER_ID> 開了三天都沒動靜，僅回覆「在排程」。旺季快到了，請給我們一個可交代的時間表。"}
+{"label": "投訴", "text": "Subject: Response time concerns\\n\\nWe raised ticket <ORDER_ID> last week; still no actionable update. Our stores are impacted during peak hours. Please provide a realistic ETA, not just templated replies."}
+{"label": "投訴", "text": "Hi, training quality was subpar. Slides didn’t match the demo, and Q&A was rushed. Please arrange a make-up session with clearer materials."}
+{"label": "投訴", "text": "Re: Scheduling changes again\\n\\n> UAT moved twice\\nFrequent reschedules create internal friction. We need a firm plan to avoid further delays."}
+{"label": "其他", "text": "Subject: 想了解你們產品大概功能\\n\\n我們剛接手專案，先想看看功能列表與成功案例，暫時不需報價。方便給個簡介連結（用 <URL> 占位即可）？"}
+{"label": "其他", "text": "Subject: 先聊聊導入前的考量\\n\\n目前我們內部還在蒐集資訊，想先了解資料權限與部署方式，之後再談採購。"}
+{"label": "其他", "text": "Re: 是否適合中小型團隊\\n\\n> 目前人數 20\\n我們規模不大，想先知道入門版限制有哪些，之後再決定是否擴充。"}
+{"label": "其他", "text": "Subject: 想了解Roadmap\\n\\n若Q4 有新功能（報表或權限），可否分享大致時程？我們還在評估中，不急著決定價格。"}
+{"label": "其他", "text": "Hi，想先看一下你們的API 文件與成功案例，有沒有簡短說明可以寄來？目前還沒到採購階段。"}
+{"label": "其他", "text": "Subject: 方案初步了解\\n\\n目前只想知道有沒有多語介面、報表是否可自訂，下週二再討論細節。"}
+{"label": "其他", "text": "Subject: Product overview request\\n\\nWe’re gathering information and would like a short deck outlining key features and typical rollout timelines. No pricing needed yet."}
+{"label": "其他", "text": "Hi team, do you have case studies for retail/education we can share internally? We’re exploring feasibility before procurement."}
+{"label": "投訴", "text": "Subject: 進度嚴重延宕，請提供具體ETA\n\n票號 <ORDER_ID> 已逾期一週，多次承諾 EOD 未達成。請在今日 17:00 前提供可核對的ETA與責任人。"}
+{"label": "投訴", "text": "Subject: 沒有實質更新\n\n回覆多為制式語句，缺少可執行的下一步。請列出三項具體動作與預期完成時間。"}
+{"label": "投訴", "text": "Subject: Escalation for ongoing delays\n\nTicket <ORDER_ID> has slipped multiple times. We need a credible ETA and a single owner by EOD, otherwise we’ll put the rollout on hold."}
+{"label": "投訴", "text": "Subject: 溝通效率偏低\n\n相同問題需要多次追問才得到回覆，影響內部決策。請改善回覆時效並提供每日更新。"}
+{"label": "投訴", "text": "Subject: 期待明確可量化的指標\n\n尖峰時段效能不穩，對門市營運造成壓力。請提出改善計畫與量化KPI，並標註達成時間。"}
+{"label": "投訴", "text": "Subject: Unsatisfactory communication quality\n\nAnswers from different contacts conflict. Please provide a consistent SOP and a single escalation path."}
+{"label": "投訴", "text": "Re: 長期未結案\n\n票號 <ORDER_ID> 多日僅回覆「持續處理」，沒有里程碑。請提供里程碑與每一項的完成日期。"}
+{"label": "投訴", "text": "Hi, templated responses without next steps aren’t helpful. Share three concrete actions and when they will be done."}
+{"label": "投訴", "text": "Hi，長期沒有實質回應，已影響上線準備。若本週內無法提供可信時程，將延後專案。"}
+{"label": "投訴", "text": "Subject: Quality concerns\n\nPeak-hour performance remains inconsistent and support answers vary. Please propose a recovery plan with measurable targets."}
+{"label": "投訴", "text": "Subject: 要求升級處理\n\n多次提醒後仍無進展，請直接升級至管理層協助排除障礙，並回覆預計完成時間。"}
+{"label": "投訴", "text": "Hi, we need accountable ownership. Please name the DRI and share the timeline with checkpoints."}
+{"label": "投訴", "text": "Re: 期望補救措施\n\n因延誤已產生額外成本，請在改善計畫中納入補救措施與追蹤機制。"}
+{"label": "投訴", "text": "Subject: Request for daily updates\n\nUntil ticket <ORDER_ID> is closed, please send a daily status update with risks and next steps."}
+{"label": "投訴", "text": "Subject: 票號 <ORDER_ID> 進度嚴重落後\n\n我們已經等超過一週，兩次承諾的 EOD 都沒有兌現。這影響門市交班，請提供可被核對的 ETA，並說明目前卡關原因。"}
+{"label": "投訴", "text": "Hi，這不是第一次延期了。內部已排好 UAT 人力，但你們臨時改期，造成反覆重工。請給一個不再變動的時程，否則我們很難交代。"}
+{"label": "投訴", "text": "Subject: Escalation requested for ticket <ORDER_ID>\n\nWe’ve received templated replies for days with no actionable update. Please escalate and provide a realistic ETA. Peak hours are being impacted."}
+{"label": "投訴", "text": "Hi team, frequent reschedules have created internal friction. We need a firm plan and a single owner. Without a credible timeline by EOD, we’ll pause our rollout."}
+{"label": "投訴", "text": "Subject: 服務品質回饋\n\n尖峰時段反應時間常>5秒，客服回覆也不一致。請提出改善計畫與量化指標，下週二前需要明確時程。"}
+{"label": "其他", "text": "Subject: 先了解功能，不急著報價\n\n我們目前僅在蒐集資訊，想要一份簡短簡介與成功案例列表。暫不需要價格或合約相關內容。"}
+{"label": "其他", "text": "Subject: Product overview request (no pricing yet)\n\nWe’re gathering information only. Could you share a 1–2 page overview and typical rollout timelines? We’re not discussing pricing at this stage."}
+{"label": "其他", "text": "Hi team, do you have case studies in retail/education? A short deck would help internal alignment. Procurement is not in scope yet."}
+{"label": "其他", "text": "Re: 初步評估\n\n我們想看 PoC 範圍與成功案例摘要，但暫不啟動報價與合約流程。請先寄介紹文件即可。"}
+{"label": "資料異動", "text": "Subject: 發票寄送信箱更新\n\n請將發票寄送信箱改為 <EMAIL> ，並保留 <EMAIL> 為副本。變更請從下個計費週期生效。"}
+{"label": "資料異動", "text": "您好，主要聯絡人改為 <NAME> ，電話 <PHONE>。請同步更新 SLA 通報清單及通知群組。"}
+{"label": "資料異動", "text": "Subject: Change invoice header\n\nPlease update our invoice header to <COMPANY>. Reference PO: <ORDER_ID>. Send the updated invoice to <EMAIL> next month."}
+{"label": "資料異動", "text": "Hi, please add two IPs to the allowlist for UAT only: <ADDR> and <ADDR>. No change to prod. Effective immediately."}
+{"label": "資料異動", "text": "Subject: 收件地址變更\n\n請將紙本文件寄送地址更新為 <ADDR> ，收件人 <NAME>，下週二起生效。"}
+{"label": "資料異動", "text": "Hi，請刪除 2 個離職帳號，並新增 3 位到銷售群組。名單已記錄於內部單號 <ORDER_ID>。"}
+{"label": "規則詢問", "text": "Subject: 退費與提前終止條款\n\n若在 go-live 前取消，是否可退費？提前終止是否按比例計算？請提供條款摘要與申請作業天數。"}
+{"label": "規則詢問", "text": "您好，合約終止後資料刪除時程為何？審計日誌是否可保留 90 天？請提供正式政策文件。"}
+{"label": "規則詢問", "text": "Subject: Refund process before go-live\n\nIf we cancel prior to production, do we need to void invoice <INVOICE_NO> or issue a credit note? Please share the document checklist and lead time."}
+{"label": "規則詢問", "text": "Hi, does SLA breach allow penalty-free termination? Kindly share the relevant clause and the request workflow."}
+{"label": "規則詢問", "text": "Subject: 升降級與計費\n\n中途升級如何計價？若降級是否需等下一個計費週期？請附上以 NT$<AMOUNT> 為例的計算方式。"}
+{"label": "規則詢問", "text": "Re: 發票處理\n\n若退費，已開立的發票是否需要作廢或折讓？流程中是否需要提供 GRN 或 PO 證明？請列出步驟。"}
+{"label": "報價", "text": "Fwd: Subject: 導入年度授權與SLA細節\\n\\n您好，我們計畫在Q4導入你們的SaaS，初步評估 60 seats（銷售與客服各30）。請提供年度授權報價、SLA 等級（99.9%/99.95%）、含UAT到prod的切換流程與時程（預計10/12(四) 下午完成UAT簽核）。另請估算一次性導入費用與SOW範圍。\\n\\n若有批量折扣，請於報價單標示：單價、折扣、總價（US$ <AMOUNT>）。謝謝。"}
+{"label": "報價", "text": "Subject: 導入年度授權與SLA細節\\n\\n您好，我們計畫在Q4導入你們的SaaS，初步評估 60 seats（銷售與客服各30）。請提供年度授權報價、SLA 等級（99.9%/99.95%）、含UAT到prod的切換流程與時程（預計10/12(四) 下午完成UAT簽核）。另請估算一次性導入費用與SOW範圍。\\n\\n若有批量折扣，請於報價單標示：單價、折扣、總額（USD <AMOUNT>）。謝謝。"}
+{"label": "報價", "text": "Subject: 導入年度授權與SLA細節\\n\\n您好，我們計畫在Q4導入你們的SaaS，初步評估 60 seats（銷售與客服各30）。請提供年度授權報價單、SLA 等級（99.9%/99.95%）、含UAT到prod的切換流程與時程（預計10/12(四) 下午完成UAT簽核）。另請估算一次性導入費用與SOW範圍。\\n\\n若有批量折扣，請於報價單單標示：單價、折扣、總額（US$ <AMOUNT>）。謝謝。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Fwd: 您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供NT$<AMOUNT> 的概算與交期（下週二前，EOD）。"}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供USD <AMOUNT> 的概算與交期（下週二前，EOD）。"}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供NT$<AMOUNT> 的概算與交期（下週二前，EOD）。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Fwd: Hi 团队，我們想做E2E客服自動化PoC。需求：\\n- chatbot 月活 5k\\n- 後台座席 20 seats\\n- sandbox 兩週、UAT 一週、prod go-live 10/30\\n請回覆試算與可用折扣（NT$ <AMOUNT> ~ NT$ <AMOUNT> 區間）。"}
+{"label": "報價", "text": "Subject: 教育方案報價單\\n\\n我們是培訓單位，計畫採購 200 名學員帳號（分兩期上線）。可否提供學校/教育折扣、授權年限與SLA？若需簽SOW，請附模板。希望 9/25 前完成評估與PO。"}
+{"label": "報價", "text": "Re: 您好，想了解API用量計價：每月約 1M requests，峰值 QPS 200。請提供分級價格表與跨區備援選項，並估算年度總價（NT$ <AMOUNT>）。我們內部採購流程需要三家比價，請提供正式報價與付款條件（30天）。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "您好，想了解API用量計價：每月約 1M requests，峰值 QPS 200。請提供分級價格表與跨區備援選項，並試算年度總額（USD <AMOUNT>）。我們內部採購流程需要三家比價，請提供正式報價單與付款條件（30天）。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: 物流追蹤模組導入\\n\\n> 上週您提到可於Q3末完成\\n我們想把門市到倉的追蹤改版，第一階段 8 個站點，之後擴到 25 站。請列出：模組授權費、安裝、教育訓練與維護，並提供GRN對接的SOW。請附時程甘特與USD <AMOUNT> 總預算帶。"}
+{"label": "報價", "text": "Hi,零售同業分享你們報價單不錯.我們要 50 seats（線上客服）,需白名單IP與SLA 99.9%.請回覆：首年NT$<AMOUNT> 是否含上線服務？UAT 目標在 11/05 前.若可分期請載明."}
+{"label": "報價", "text": "Fwd: Hi,零售同業分享你們報價單不錯.我們要 50 seats（線上客服）,需白名單IP與SLA 99.9%.請回覆：首年NT$<AMOUNT> 是否含上線服務？UAT 目標在 11/05 前.若可分期請載明."}
+{"label": "報價", "text": "Re: Subject: 醫療院所版報價試算\\n\\n院內規範較嚴,需憑證雙因子與審計.帳號先 80 名,之後可能擴編.請提供：年度授權、一次性導入（含安全掃描）、教育訓練、維護.也請附SLA違約金條款與NT$<AMOUNT> 匯總.謝謝."}
+{"label": "報價", "text": "Re: Subject: 醫療院所版報價單試算\\n\\n院內規範較嚴，需憑證雙因子與審計。帳號先 80 名，之後可能擴編。請提供：年費、一次性導入（含安全掃描）、教育訓練、維護。也請附SLA違約金條款與US$ <AMOUNT> 匯總。謝謝。"}
+{"label": "報價", "text": "Subject: 醫療院所版報價試算\\n\\n院內規範較嚴，需憑證雙因子與審計。帳號先 80 名，之後可能擴編。請提供：年度授權、一次性導入（含安全掃描）、教育訓練、維護。也請附SLA違約金條款與USD <AMOUNT> 匯總。謝謝。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Fwd: 報價需求\\n\\n同事轉來你們方案，我們想把門店POS與會員系統串接。需求：API 限流 500 rpm、夜間批次、每日對帳。請估 12 個月總價（US$ <AMOUNT>），並列出里程碑與付款節點（20/40/40）。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: Fwd: 報價單需求\\n\\n同事轉來你們方案,我們想把門店POS與會員系統串接.需求：API 限流 500 rpm、夜間批次、每日對帳.請估 12 個月總額（US$ <AMOUNT>）,並列出里程碑與付款節點（20/40/40）."}
+{"label": "報價", "text": "Re: Fwd: 報價需求\\n\\n同事轉來你們方案,我們想把門店POS與會員系統串接.需求：API 限流 500 rpm、夜間批次、每日對帳.請估 12 個月總價（USD <AMOUNT>）,並列出里程碑與付款節點（20/40/40）."}
+{"label": "報價", "text": "Fwd: 您好，想要企業內訓 + 系統導入的整包方案：\\n1. CRM 授權 30 users\\n2. 課程 2 天（線上/實體）\\n3. 顧問時數 40h\\n請提供合併報價與折扣後總額 NT$<AMOUNT>，最晚 by EOW。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Fwd: Subject: 合作提案—跨境物流SaaS\\n\\n我們在評估跨境退貨解決方案，初期台灣/香港雙站，預估日單 800。請提出分級費率與GRN 對接。另需SOW：資料留存、SLA、異常處理SOP。期望10/20 之前完成條款談判與PO。"}
+{"label": "報價", "text": "Hi,想詢問年度Enterprise版：是否含專屬CSM？我們要 100 seats,附加模組（報表+審計）.UAT 兩週、prod 11/1 上線.可否回覆US$ <AMOUNT> 是否含一次性費用,另提供多年合約折扣."}
+{"label": "報價", "text": "Re: 招標文件需求\\n\\n> 需提供近三年實績\\n請協助準備投標必備資料與估價單,我們採購數量初步 120 licenses.標案需SLA與資安聲明,請附.報價請列：單價、總額、維護年費（US$ <AMOUNT>）."}
+{"label": "報價", "text": "Re: 招標文件需求\\n\\n> 需提供近三年實績\\n請協助準備投標必備資料與估價單，我們採購數量初步 120 licenses。標案需SLA與資安聲明，請附。報價單請列：單價、總價、維護年費（NT$ <AMOUNT>）。"}
+{"label": "報價", "text": "Re: 招標文件需求\\n\\n> 需提供近三年實績\\n請協助準備投標必備資料與估價單，我們採購數量初步 120 licenses。標案需SLA與資安聲明，請附。報價請列：單價、總額、維護年度授權（US$ <AMOUNT>）。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Subject: Sandbox PoC 報價單請求\\n\\n想先在sandbox 驗證：單一店別、5 users、兩個API整合。請提供PoC 4 週方案與費用（NT$<AMOUNT>），若轉正可抵扣。預計下週二開會評估，請附簡要SOW。"}
+{"label": "報價", "text": "Fwd: Subject: Sandbox PoC 報價請求\\n\\n想先在sandbox 驗證：單一店別、5 users、兩個API整合。請提供PoC 4 週方案與費用（NT$<AMOUNT>），若轉正可抵扣。預計下週二開會評估，請附簡要SOW。"}
+{"label": "報價", "text": "您好，法務要先看合約終止條件與SLA違約金，才會核准。先請提供商務條款草案與年度總價估算（USD <AMOUNT>）。我們希望 10/12 完成內部簽核並下PO。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Fwd: 您好,法務要先看合約終止條件與SLA違約金,才會核准.先請提供商務條款草案與年度總額試算（NT$<AMOUNT>）.我們希望 10/12 完成內部簽核並下PO. 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: Hi，零售旺季在Q4，需於11/15 前確定方案。需求：會員分群、優惠券、POS整合，月MAU 約 80k。請提供三個階梯方案與可選模組，並附折扣後USD <AMOUNT> 試算。"}
+{"label": "報價", "text": "Subject: TCO 估算—三年期\\n\\n我們想比較一次買斷 vs 年度授權.請提供三年TCO（含維護、升級、SLA）,人數 70.若簽多年可否優惠？請以US$ <AMOUNT> 呈現兩種方案總額並標註差異點."}
+{"label": "報價", "text": "Re: Subject: TCO 試算—三年期\\n\\n我們想比較一次買斷 vs 年度授權.請提供三年TCO（含維護、升級、SLA）,人數 70.若簽多年可否優惠？請以NT$<AMOUNT> 呈現兩種方案總額並標註差異點."}
+{"label": "報價", "text": "Fwd: 友商導入經驗\\n\\n同業建議你們客服系統。請回覆：上手時間、教育訓練時程、是否提供SOW 樣板。起始 25 seats，黑色星期五前要上線。請給正式報價（US$ <AMOUNT>）。"}
+{"label": "報價", "text": "Fwd: 友商導入經驗\\n\\n同業建議你們客服系統。請回覆：上手時間、教育訓練時程、是否提供SOW 樣板。起始 25 seats，黑色星期五前要上線。請給正式報價單（US$ <AMOUNT>）。"}
+{"label": "報價", "text": "您好,醫療資料需要更嚴格,是否有HIPAA 類似控制（內規參考）？授權 40 users,需審計報表.請附SLA、RPO/RTO 與年度授權（USD <AMOUNT>）.若能在EOM 前簽約有沒有early bird？ 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: 您好，醫療資料需要更嚴格，是否有HIPAA 類似控制（內規參考）？授權 40 users，需審計報表。請附SLA、RPO/RTO 與年費（NT$ <AMOUNT>）。若能在EOM 前簽約有沒有early bird？"}
+{"label": "報價", "text": "您好,醫療資料需要更嚴格,是否有HIPAA 類似控制（內規參考）？授權 40 users,需審計報表.請附SLA、RPO/RTO 與年費（NT$<AMOUNT>）.若能在EOM 前簽約有沒有early bird？ 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Subject: SOW 與里程碑請提供\\n\\n想了解分階段收費：\\n- 規劃：2 週\\n- UAT：1 週\\n- 上線：1 週\\n請附每階段交付與費用，總額 NT$<AMOUNT>。另外需CSM 定期SLA 報告（每月）。"}
+{"label": "報價", "text": "Subject: SOW 與里程碑請提供\\n\\n想了解分階段收費：\\n- 規劃：2 週\\n- UAT：1 週\\n- 上線：1 週\\n請附每階段交付與費用，總價 USD <AMOUNT>。另外需CSM 定期SLA 報告（每月）。"}
+{"label": "報價", "text": "Hi 團隊，我們要把電商與WMS 打通，初期 3 倉、日訂單 3k。請給API 價格與限制，並估專案費。若能在10/05 開始UAT 最好。報價含維運一年（NT$<AMOUNT>）嗎？ 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Hi 團隊，我們要把電商與WMS 打通，初期 3 倉、日訂單 3k。請給API 價格與限制，並估專案費。若能在10/05 開始UAT 最好。報價單含維運一年（USD <AMOUNT>）嗎？ 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "您好，想詢問簽約年限與違約提前終止的費用，會影響我們PO 時點。初期 35 席，含報表模組。請提供NT$<AMOUNT> 的年度總額與付款條件（30/70）。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "您好,想詢問簽約年限與違約提前終止的費用,會影響我們PO 時點.初期 35 席,含報表模組.請提供USD <AMOUNT> 的年度總額與付款條件（30/70）."}
+{"label": "報價", "text": "Subject: 方案比較請提供\\n\\n請把Standard/Pro/Enterprise 三檔的功能差異、SLA、是否含白名單/憑證管理列表化，並提供 45 users 的試算總額（US$ <AMOUNT>）。我們內部會議在週五 EOD 前要資料。"}
+{"label": "報價", "text": "Subject: 方案比較請提供\\n\\n請把Standard/Pro/Enterprise 三檔的功能差異、SLA、是否含白名單/憑證管理列表化，並提供 45 users 的估算總額（NT$ <AMOUNT>）。我們內部會議在週五 EOD 前要資料。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Subject: 方案比較請提供\\n\\n請把Standard/Pro/Enterprise 三檔的功能差異、SLA、是否含白名單/憑證管理列表化，並提供 45 users 的估算總額（USD <AMOUNT>）。我們內部會議在週五 EOD 前要資料。"}
+{"label": "報價", "text": "Re: 跨區部署\\n\\n> 可否雙活？\\n我們希望跨區容災，RTO 15 分鐘、RPO 5 分鐘。請回覆額外費率與總額 NT$<AMOUNT>。若能在本月完成合約，是否提供首年維護折扣？ 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Hi，我方財務要求以USD 結算。預估年用量 20M API calls、檔案存取 10TB。請附分級計價與三年TCO（NT$<AMOUNT>），以及SOW 條款摘要。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Re: Subject: 門市導入排程與費用\\n\\n我們要逐店導入：10/01 第一批 5 店、11/15 第二批 10 店。請提供每批導入費與折扣後總價 USD <AMOUNT>，並列教育訓練場次與內容大綱。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Subject: 門市導入排程與費用\\n\\n我們要逐店導入：10/01 第一批 5 店、11/15 第二批 10 店。請提供每批導入費與折扣後總價 US$ <AMOUNT>，並列教育訓練場次與內容大綱。 請一併提供折扣後總額與付款條件。"}
+{"label": "報價", "text": "Fwd: 您好，是否可提供多人段費率？客服 20、人資 10、財會 5。需報表與發票整合。煩請回覆年度授權 US$ <AMOUNT>、一次性 US$ <AMOUNT>，以及SLA 報表範例。"}
+{"label": "報價", "text": "您好，是否可提供多人段費率？客服 20、人資 10、財會 5。需報表與發票整合。煩請回覆年費 US$ <AMOUNT>、一次性 US$ <AMOUNT>，以及SLA 報表範例。"}
+{"label": "報價", "text": "Re: UAT 支援人力\\n\\n> 我們UAT 只有一週\\n請評估是否需加購顧問 16 小時，並於報價內明列。另上線後首月是否提供重點支援？總額控制於 NT$ <AMOUNT> 以內可否？"}
+{"label": "報價", "text": "Subject: 合作夥伴價\\n\\n我們是系統整合商，若以貴方做底層，是否有partner discount？首案估 25 seats，附加審計模組。請回覆清單價、折扣、合約義務，及US$ <AMOUNT> 試算。"}
+{"label": "報價", "text": "Fwd: 您好,想確認是否支援政府採購流程,包含GRN、發票格式與驗收文件.人數 55,需on-call SLA.請提供三種付款方案與USD <AMOUNT> 總額區間."}
+{"label": "報價", "text": "Fwd: Hi, retail use case: 12 stores initially, scale to 30. Need API rate limits, nightly batch, and E2E reporting. Kindly quote unit price and total (USD <AMOUNT>) and outline PO/GRN steps. Target by EOW."}
+{"label": "報價", "text": "Hi, retail use case: 12 stores initially, scale to 30. Need API rate limits, nightly batch, and E2E reporting. Kindly quote unit price and total (US$ <AMOUNT>) and outline PO/GRN steps. Target by EOW."}
+{"label": "報價", "text": "Fwd: Re: Enterprise plan with audit logs\\n\\n> Can you include whitelisting and certificate management?\\nPlease provide Enterprise quote for 75 users, with audit, IP allowlist, and OTP. Include SLA 99.9% and three-year TCO (USD <AMOUNT>)."}
+{"label": "報價", "text": "Fwd: Subject: PoC quotation request\\n\\nWe need a 4-week PoC: 10 agents, 2 integrations, basic reports. Please share itemized costs and whether the PoC fee is deductible upon go-live. Total not exceeding USD <AMOUNT>."}
+{"label": "報價", "text": "Subject: PoC quotation request\\n\\nWe need a 4-week PoC: 10 agents, 2 integrations, basic reports. Please share itemized costs and whether the PoC fee is deductible upon go-live. Total not exceeding USD <AMOUNT>. Please include discount and payment terms."}
+{"label": "報價", "text": "Subject: PoC quotation request\\n\\nWe need a 4-week PoC: 10 agents, 2 integrations, basic reports. Please share itemized costs and whether the PoC fee is deductible upon go-live. Total not exceeding NT$<AMOUNT>."}
+{"label": "報價", "text": "Re: Hi team, please propose Standard/Pro/Enterprise comparison with SLA tiers. We expect 90k MAU and 60 seats. Include discount policy and total annual fee USD <AMOUNT>. UAT sign-off planned next Tuesday EOD."}
+{"label": "報價", "text": "Re: Hi team, please propose Standard/Pro/Enterprise comparison with SLA tiers. We expect 90k MAU and 60 seats. Include discount policy and total annual fee US$ <AMOUNT>. UAT sign-off planned next Tuesday EOD."}
+{"label": "報價", "text": "Re: Hi team, please propose Standard/Pro/Enterprise comparison with SLA tiers. We expect 90k MAU and 60 seats. Include discount policy and total annual fee USD <AMOUNT>. UAT sign-off planned next Tuesday EOD. Please include discount and payment terms."}
+{"label": "報價", "text": "Fwd: Reference deal\\n\\nA partner mentioned your quote is flexible. For 20 licenses + 30 read-only, please send a bundled quote, SOW outline, and payment terms (30/70). Total target USD <AMOUNT>."}
+{"label": "報價", "text": "Fwd: Reference deal\\n\\nA partner mentioned your pricing is flexible. For 20 licenses + 30 read-only, please send a bundled quote, SOW outline, and payment terms (30/70). Total target US$ <AMOUNT>."}
+{"label": "報價", "text": "Re: Subject: Cross-region DR add-on quote\\n\\nWe require RTO 15m, RPO 5m across two regions. Share the uplift cost and revised annual total (USD <AMOUNT>). If we sign by month end, any early-bird discount?"}
+{"label": "報價", "text": "Hi, legal needs termination clauses and SLA penalties before PO. Please send the commercial terms draft, one-time implementation fee, and total US$ <AMOUNT>. Timeline: sign by 10/12."}
+{"label": "報價", "text": "Hi, legal needs termination clauses and SLA penalties before PO. Please send the commercial terms draft, one-time implementation fee, and total NT$<AMOUNT>. Timeline: sign by 10/12. Please include discount and payment terms."}
+{"label": "報價", "text": "Re: Training package + deployment\\n\\n> Could you include 2-day enablement?\\nPlease quote for 35 users + 2-day training + 20h consulting. Provide itemized quote and grand total US$ <AMOUNT>."}
+{"label": "報價", "text": "Re: Training package + deployment\\n\\n> Could you include 2-day enablement?\\nPlease quote for 35 users + 2-day training + 20h consulting. Provide itemized quote and grand total USD <AMOUNT>."}
+{"label": "報價", "text": "Subject: Government procurement support\\n\\nWe will need GRN paperwork, invoice format, and acceptance docs. 50 seats to start. Share three payment options and total USD <AMOUNT>. SLA monthly reports required. Please include discount and payment terms."}
+{"label": "報價", "text": "Subject: Government procurement support\\n\\nWe will need GRN paperwork, invoice format, and acceptance docs. 50 seats to start. Share three payment options and total NT$ <AMOUNT>. SLA monthly reports required. Please include discount and payment terms."}
+{"label": "報價", "text": "Fwd: Re: Partner quote\\n\\n> We can bring multiple deals in Q4\\nPlease send partner discount tiers, obligations, and sample SOW. First engagement: 25 agents. quote total US$ <AMOUNT> with any multi-year incentives."}
+{"label": "報價", "text": "Re: Partner quote\\n\\n> We can bring multiple deals in Q4\\nPlease send partner discount tiers, obligations, and sample SOW. First engagement: 25 agents. quote total NT$<AMOUNT> with any multi-year incentives."}
+{"label": "技術支援", "text": "Re: Subject: 登入異常（UAT環境）\\n\\n您好，今早UAT登入失敗，錯誤訊息顯示 OTP 驗證逾時。已確認白名單IP 正確。請協助排查並告知是否需要重設憑證，預計今天下午 3:00 再測。"}
+{"label": "技術支援", "text": "Subject: 登入異常（UAT環境）\\n\\n您好,今早UAT登入失敗,錯誤訊息顯示 OTP 驗證逾時.已確認白名單IP 正確.請協助排查並告知是否需要重設憑證,預計今天下午 3:00 再測. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Hi 支援,API /v1/orders 在 prod 回 500,sandbox 正常.時段約 10:20~~10:35.請查logs 並提供修復ETA,客戶端有重試但仍失敗,E2E 測試卡住. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Fwd: Subject: 密碼重設連結壞掉\\n\\n同事收不到重設信，或連結點了顯示已過期。是否有寄送頻率限制？請協助手動重發到 <EMAIL>，我們要在 10/01 前完成新員工開通。"}
+{"label": "技術支援", "text": "Re: Hi，今天登入後儀表板空白，console 有 CORS 錯誤。昨晚剛把子網加到白名單，可能設定有誤？請協助檢查，若需我們提供憑證fingerprint 可回覆。"}
+{"label": "技術支援", "text": "Subject: App 版本相容性\\n\\nAndroid 端 13 版點開通知就crash，iOS 正常。請確認SDK 版本需求並提供修補檔。我們要在下週二前推測試版給內測群組。 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Re: Subject: App 版本相容性\\n\\nAndroid 端 13 版點開通知就crash，iOS 正常。請確認SDK 版本需求並提供修補檔。我們要在下週二前推測試版給內測群組。"}
+{"label": "技術支援", "text": "Fwd: Subject: 憑證過期警示\\n\\n本機房代理的TLS 憑證快到期,但系統仍顯示有效期錯誤（登錄後跳提示）.請提供更新步驟與是否會影響UAT/ prod."}
+{"label": "技術支援", "text": "Fwd: Subject: 憑證過期警示\\n\\n本機房代理的TLS 憑證快到期，但系統仍顯示有效期錯誤（登錄後跳提示）。請提供更新步驟與是否會影響UAT/ prod。 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Hi 支援，webhook 驗簽驗不過，簽名header 好像多了空白。請確認文件是否有更新。附上請求ID <ORDER_ID> ，煩請查核伺服器端log。 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Subject: 角色權限錯置\\n\\n客服新進無法看到工單,但有管理員權限的欄位卻打得開.請協助重匯權限模版並告知預設角色矩陣；我們希望本週內修正完成（by EOW）. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Re: 匯入工具錯誤\\n\\n> 逗號分隔CSV\\n嘗試匯入 5,000 筆客戶資料,系統回傳欄位格式不符.可否提供範例檔與欄位對照表？我們周五要投產,麻煩幫忙. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Fwd: Subject: OTP 驗證碼延遲\\n\\n近一小時OTP 到手機延遲 3~~5 分鐘,導致多數登入失敗.是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Fwd: Subject: OTP 驗證碼延遲\\n\\n近一小時OTP 到手機延遲 3~~5 分鐘,導致多數登入失敗.是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA."}
+{"label": "技術支援", "text": "Fwd: sandbox 與prod 設定不一致\\n\\nsandbox 允許附件 20MB,prod 只有 5MB.請確認是否有可調參數,並於今晚 23:00 維護窗調整.財會要上傳發票影像（GRN 附檔）. 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Re: Fwd: sandbox 與prod 設定不一致\\n\\nsandbox 允許附件 20MB，prod 只有 5MB。請確認是否有可調參數，並於今晚 23:00 維護窗調整。財會要上傳發票影像（GRN 附檔）。"}
+{"label": "技術支援", "text": "Re: Subject: 匯出報表亂碼\\n\\n今日匯出的CSV 中文亂碼，編碼似乎不是UTF-8。請協助修正並提供暫時workaround。我們要在明早 10:00 前交週報。"}
+{"label": "技術支援", "text": "Fwd: Subject: SSO 整合問題\\n\\n透過SSO 登入時提示時鐘不同步，已確認NTP 正常。請協助提供允收誤差設定與debug 步驟。預計明天再測一次E2E。"}
+{"label": "技術支援", "text": "Subject: Data retention 設定\\n\\n請問事件日誌保存是否可自訂 90 天？法遵要求我們在prod 拉長保存期。若需升級方案請告知費用（NT$<AMOUNT>）。 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Fwd: Hi，今天中午開始 webhook 重複送達，造成重複建立工單。請協助去重；事件ID：<ORDER_ID> 。能否先在UAT 驗證修補後今晚佈署prod？"}
+{"label": "技術支援", "text": "Re: Hi，今天中午開始 webhook 重複送達，造成重複建立工單。請協助去重；事件ID：<ORDER_ID> 。能否先在UAT 驗證修補後今晚佈署prod？ 請提供修復 ETA 與 workaround。"}
+{"label": "技術支援", "text": "Fwd: Subject: Login failure in UAT after password reset\\n\\nTeam, users cannot log in after reset; OTP keeps timing out. We already added IPs to the allowlist. Please advise next steps and ETA before tomorrow EOD."}
+{"label": "技術支援", "text": "Fwd: Hi Support, API /v2/items returns 429 despite backoff. Our nightly job processes ~40k rows. Please confirm rate limits and recommended retry policy. Target fix tonight 23:00."}
+{"label": "技術支援", "text": "Re: Certificate mismatch error\\n\\n> Error appeared after we rotated keys\\nProd shows TLS handshake failure. Please verify certificate chain and send steps to reimport. Impacting E2E tests. Please share ETA and a temporary workaround."}
+{"label": "技術支援", "text": "Fwd: Subject: Attachment upload blocked in prod\\n\\nFinance cannot upload GRN PDF (8MB). Sandbox works. Please align limits and confirm MIME types. We need this fixed before Tuesday noon."}
+{"label": "技術支援", "text": "Subject: SSO clock skew configuration\\n\\nOur SSO assertion is rejected due to time drift. What is the acceptable skew and where to configure it? We plan another UAT run tomorrow morning 10:00."}
+{"label": "技術支援", "text": "Re: Subject: SSO clock skew configuration\\n\\nOur SAML assertion is rejected due to time drift. What is the acceptable skew and where to configure it? We plan another UAT run tomorrow morning 10:00."}
+{"label": "技術支援", "text": "Subject: Push notification outage\\n\\nBetween 01:00–03:00 we received no alerts on iOS. Please review APNs config and share an RCA including SLA impact and ETA to restore. Please share ETA and a temporary workaround."}
+{"label": "技術支援", "text": "Hi Support, dashboard blank after login; console shows CORS error. Allowlist was updated last night. Please check and confirm if a rollback is needed before prod peak hours. Please share ETA and a temporary workaround."}
+{"label": "技術支援", "text": "Re: Hi Support, dashboard blank after login; console shows CORS error. Allowlist was updated last night. Please check and confirm if a rollback is needed before prod peak hours."}
+{"label": "規則詢問", "text": "Fwd: Subject: 退費申請條件詢問\\n\\n上週購買年度授權，但因內部政策無法上線，想了解退費機制與手續費。若需提供發票號 <INVOICE_NO> 或PO 證明，請告知。希望在10/12 前完成。"}
+{"label": "規則詢問", "text": "Subject: 退費申請條件詢問\\n\\n上週購買年度授權，但因內部條款無法上線，想了解退費機制與手續費。若需提供發票號 <INVOICE_NO> 或PO 證明，請告知。希望在10/12 前完成。"}
+{"label": "規則詢問", "text": "Re: Subject: 退款申請條件詢問\\n\\n上週購買年度授權,但因內部政策無法上線,想了解退費機制與手續費.若需提供發票號 <INVOICE_NO> 或PO 證明,請告知.希望在10/12 前完成. 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Hi，若提前終止合約，是否需支付剩餘月份比例費？SLA 未達成是否可無罰中止？請提供條款摘要與流程，法務在Q3 結束前要定案。 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Fwd: Hi，若提前終止合約，是否需支付剩餘月份比例費？SLA 未達成是否可無罰中止？請提供條款摘要與流程，法務在Q3 結束前要定案。"}
+{"label": "規則詢問", "text": "Re: 試用限制\\n\\n> 可否延長試用？\\n目前 14 天不太夠完成UAT，是否可延長至 30 天並保留資料？若轉正可否折抵 US$ <AMOUNT>？請提供書面條款。"}
+{"label": "規則詢問", "text": "Re: 試用限制\\n\\n> 可否延長試用？\\n目前 14 天不太夠完成UAT，是否可延長至 30 天並保留資料？若轉正可否折抵 NT$<AMOUNT>？請提供書面條款。 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Fwd: Re: 試用限制\\n\\n> 可否延長試用？\\n目前 14 天不太夠完成UAT，是否可延長至 30 天並保留資料？若轉正可否折抵 US$ <AMOUNT>？請提供書面條款。"}
+{"label": "規則詢問", "text": "Subject: 開立發票與退費流程\\n\\n若我們在上線前取消，已開立的發票是否需作廢或折讓？請提供步驟與需附文件清單（PO、GRN 等）。 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Re: 您好,保固條款想再確認：若系統於月度內連續出現P1 事故兩次,是否可要求延長服務期？此條件是否寫在SOW 或主合約？"}
+{"label": "規則詢問", "text": "Fwd: 您好,保固條款想再確認：若系統於月度內連續出現P1 事故兩次,是否可要求延長服務期？此條件是否寫在SOW 或主合約？"}
+{"label": "規則詢問", "text": "Subject: 使用者資料保存與刪除\\n\\n若提前終止,資料會在多少天內刪除？審計日誌是否可應要求保留 90 天？請提供正式政策文件與責任歸屬說明."}
+{"label": "規則詢問", "text": "Re: 升級與降級條款\\n\\n> 想先買較低階\\n若中途升級方案，差額如何計算？反之降級是否需等待下個計費週期？請回覆書面條款與範例（USD <AMOUNT>）。"}
+{"label": "規則詢問", "text": "Re: Subject: SLA 未達補償方式\\n\\n若月度可用性低於門檻，補償是否以服務月數延長或折讓發票？是否需提出事件編號 <ORDER_ID> 申請？請提供流程SOP。 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Re: Subject: 退費 vs 展延\\n\\n若因外部專案延遲導致無法如期上線,可否先展延授權而非退費？兩者對發票與PO 的影響請一併說明. 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Subject: 退款 vs 展延\\n\\n若因外部專案延遲導致無法如期上線,可否先展延授權而非退款？兩者對發票與PO 的影響請一併說明. 也請附上正式政策文件連結 <URL>。"}
+{"label": "規則詢問", "text": "Re: Hi, for refunds before go-live, do we need to void or issue a credit note for invoice <INVOICE_NO>? Kindly provide the document checklist (PO/GRN) and expected lead time. A link to the official policy <URL> would help."}
+{"label": "資料異動", "text": "Subject: 更新聯絡電話\\n\\n請將我們主要聯絡人電話改為 <PHONE> ，其他設定不變。若需驗證請寄到 <EMAIL> 確認。謝謝。 生效時間為下個計費週期。"}
+{"label": "資料異動", "text": "Re: 您好，請把客服通知的寄送地址更新為 <EMAIL> ，原本信箱保留在副本即可。我們預計下週二測試通知流程。"}
+{"label": "資料異動", "text": "Subject: 發票抬頭更新\\n\\n公司名稱調整為 <COMPANY> ，統編不變。請於下月開立發票改用新抬頭，並標示專案代碼 <ORDER_ID> 以利核銷。"}
+{"label": "資料異動", "text": "Re: Subject: 發票抬頭更新\\n\\n公司名稱調整為 <COMPANY> ,統編不變.請於下月開立發票改用新抬頭,並標示專案代碼 <ORDER_ID> 以利核銷."}
+{"label": "資料異動", "text": "Hi,請協助更換寄送地址為 <ADDR> ,收件人 <NAME>.此變更需於 10/01 生效,以免月結發票寄錯. 生效時間為下個計費週期。"}
+{"label": "資料異動", "text": "Re: 您好，請將報表寄送排程從每週一改為每月1號 09:00，寄送到 <EMAIL> ，抄送 <EMAIL>。若需我們簽核請提供表單。"}
+{"label": "資料異動", "text": "Hi，請把白名單IP 新增兩筆：<ADDR> 與 <ADDR>。此更新僅 UAT，prod 先不動。預計10/12(四) 下午再開測。"}
+{"label": "資料異動", "text": "Hi,請把白名單IP 新增兩筆：<ADDR> 與 <ADDR>.此更新僅 UAT,prod 先不動.預計10/12(四) 下午再開測. 生效時間為下個計費週期。"}
+{"label": "資料異動", "text": "Subject: Change billing email\\n\\nPlease update the billing email to <EMAIL> and keep <EMAIL> in CC. Effective next billing cycle (Q4). Effective next billing cycle."}
+{"label": "資料異動", "text": "Subject: Update shipping address\\n\\nKindly update our address to <ADDR> and recipient <NAME>. This applies to physical statements only, starting next Tuesday. Effective next billing cycle."}
+{"label": "資料異動", "text": "Fwd: Hi Support, please remove two inactive accounts and add four new users to the Sales group. Details attached internally under ticket <ORDER_ID>."}
+{"label": "資料異動", "text": "Re: Hi Support, please remove two inactive accounts and add four new users to the Sales group. Details attached internally under ticket <ORDER_ID>. Effective next billing cycle."}
+{"label": "投訴", "text": "Re: Subject: 真的等太久了\\n\\n我們上週回報的票號 <ORDER_ID> 到現在都沒更新，影響門市結帳。承諾的EOD 修復沒有達成。請至少給明確ETA，否則我們只能延後上線。"}
+{"label": "投訴", "text": "Re: Hi,最近系統反應變慢,早上尖峰常超過 5 秒,SLA 應該不只這樣吧？客服也一直叫我們等等,真的很困擾.請正面回應."}
+{"label": "投訴", "text": "Fwd: Subject: 安排了又取消\\n\\n兩次約好的UAT 測試臨時延宕，內部資源很難再喬。請協助確定一次能走完的時程，不要再臨時變動了。"}
+{"label": "投訴", "text": "Subject: 安排了又取消\\n\\n兩次約好的UAT 測試臨時延宕，內部資源很難再喬。請協助確定一次能走完的時程，不要再臨時變動了。"}
+{"label": "投訴", "text": "Subject: 安排了又取消\\n\\n兩次約好的UAT 測試臨時延期,內部資源很難再喬.請協助確定一次能走完的時程,不要再臨時變動了. 若無具體計畫，我們將延後上線。"}
+{"label": "投訴", "text": "Re: Subject: 客服回覆不一致\\n\\n同一問題,不同人給的答案不同,讓我們無所適從.能否提供一致的SOP？否則我們無法推廣到更多門市."}
+{"label": "投訴", "text": "Subject: 安全事件溝通太慢\\n\\n日前資安通報沒有即時通知窗口，內部要等很久才知道狀況，這樣風險太高。請改善溝通機制。 若無具體計畫，我們將延後上線。"}
+{"label": "投訴", "text": "Fwd: Subject: 安全事件溝通太慢\\n\\n日前資安通報沒有即時通知窗口,內部要等很久才知道狀況,這樣風險太高.請改善溝通機制."}
+{"label": "投訴", "text": "Subject: Response time concerns\\n\\nWe raised ticket <ORDER_ID> last week; still no actionable update. Our stores are impacted during peak hours. Please provide a realistic ETA, not just templated replies. We may postpone go-live without a concrete plan."}
+{"label": "投訴", "text": "Re: Hi, training quality was subpar. Slides didn’t match the demo, and Q&A was rushed. Please arrange a make-up session with clearer materials."}
+{"label": "投訴", "text": "Fwd: Hi, training quality was subpar. Slides didn’t match the demo, and Q&A was rushed. Please arrange a make-up session with clearer materials."}
+{"label": "投訴", "text": "Re: Scheduling changes again\\n\\n> UAT moved twice\\nFrequent reschedules create internal friction. We need a firm plan to avoid further delays. We may postpone go-live without a concrete plan."}
+{"label": "投訴", "text": "Subject: Inconsistent answers from support\\n\\nDifferent agents give different guidance for the same issue. Please provide a consistent SOP or escalation path. We may postpone go-live without a concrete plan."}
+{"label": "其他", "text": "Subject: 想了解你們產品大概功能\\n\\n我們剛接手專案，先想看看功能列表與成功案例，暫時不需報價。方便給個簡介連結（用 <URL> 占位即可）？ 目前只需功能概覽與案例。"}
+{"label": "其他", "text": "Re: 是否適合中小型團隊\\n\\n> 目前人數 20\\n我們規模不大，想先知道入門版限制有哪些，之後再決定是否擴充。 目前只需功能概覽與案例。"}
+{"label": "其他", "text": "Re: Subject: 想了解Roadmap\\n\\n若Q4 有新功能（報表或權限），可否分享大致時程？我們還在評估中，不急著決定價格。"}
+{"label": "其他", "text": "Fwd: Hi，想先看一下你們的API 文件與成功案例，有沒有簡短說明可以寄來？目前還沒到採購階段。"}
+{"label": "其他", "text": "Re: Hi，想先看一下你們的API 文件與成功案例，有沒有簡短說明可以寄來？目前還沒到採購階段。"}
+{"label": "其他", "text": "Fwd: Subject: 方案初步了解\\n\\n目前只想知道有沒有多語介面、報表是否可自訂，下週二再討論細節。"}
+{"label": "其他", "text": "Subject: Product overview request\\n\\nWe’re gathering information and would like a short deck outlining key features and typical rollout timelines. No pricing needed yet. Only a brief overview and case studies for now."}
+{"label": "其他", "text": "Hi team, do you have case studies for retail/education we can share internally? We’re exploring feasibility before procurement. Only a brief overview and case studies for now."}
+{"label": "其他", "text": "Re: Hi team, do you have case studies for retail/education we can share internally? We’re exploring feasibility before procurement. Only a brief overview and case studies for now."}
+{"label": "報價", "text": "請問 ９月３０日 前能提供報價？３９ 位，約 NT＄１，２２９０。"}
+{"label": "報價", "text": "請問 9．88月30日 前能提供報價？17 位，約 NT＄1，2070。"}
+{"label": "投訴", "text": "我們對上次服務不滿，2025．88月08日/33 已寄出投訴表，請回覆。"}
+{"label": "投訴", "text": "我們對上次服務不滿，2025年08月28日 已寄出投訴表，請回覆。"}
+{"label": "技術支援", "text": "stg 無法登入，2025．70月08日/47 仍持續，錯誤碼 401。"}
+{"label": "技術支援", "text": "stg 無法登入，２０２５年０８月４８日 仍持續，錯誤碼 ４０１。"}
+{"label": "技術支援", "text": "stg 無法登入，2025.08.38 仍持續，錯誤碼 401。"}
+{"label": "技術支援", "text": "staging 無法登入，2025/08/29 仍持續，請協助。"}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供US$ <AMOUNT> 的概算與交期（下週二前，EOD）。 Please reply."}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供US$ <AMOUNT> 的概算與交期（下週二前，EOD）。 報價"}
+{"label": "報價", "text": "Fwd: 您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供US$ <AMOUNT> 的概算與交期（下週二前，EOD）。 試算 Please advise."}
+{"label": "報價", "text": "Re: 您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供NT$ <AMOUNT> 的概算與交期（下週二前，EOD）。 報價 煩請確認。"}
+{"label": "報價", "text": "您好,想請教貴方方案：我們門市需要 15 台收銀端,外加雲端帳號 30 個.能否提供「零售業」專案價與PO流程？若須GRN 配合,也請附流程說明.請一併提供US$ <AMOUNT> 的概算與交期（下週二前,EOD）. SOW Kindly confirm."}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供USD <AMOUNT> 的概算與交期（下週二前，EOD）。 USD <AMOUNT>"}
+{"label": "技術支援", "text": "Fwd: Subject: 一次性密碼 驗證碼延遲\\n\\n近一小時一次性密碼 到手機延遲 3~~5 分鐘,導致多數登入失敗.是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA. Kindly confirm."}
+{"label": "技術支援", "text": "Fwd: Subject: 一次性密碼 驗證碼延遲\\n\\n近一小時一次性密碼 到手機延遲 3~~5 分鐘，導致多數登入失敗。是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA。"}
+{"label": "技術支援", "text": "Fwd: Subject: 一次性密碼 驗證碼延遲\\n\\n近一小時一次性密碼 到手機延遲 3~~5 分鐘，導致多數登入失敗。是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA。 SSO"}
+{"label": "技術支援", "text": "Re: Fwd: Subject: 一次性密碼 驗證碼延遲\\n\\n近一小時一次性密碼 到手機延遲 3~~5 分鐘，導致多數登入失敗。是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA。 /v1/"}
+{"label": "技術支援", "text": "Re: Fwd: Subject: 一次性密碼 驗證碼延遲\\n\\n近一小時一次性密碼 到手機延遲 3~~5 分鐘，導致多數登入失敗。是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA。 webhook"}
+{"label": "技術支援", "text": "Fwd: Subject: 一次性密碼 驗證碼延遲\\n\\n近一小時一次性密碼 到手機延遲 3~~5 分鐘，導致多數登入失敗。是否發生簡訊供應商擁塞？請提供暫時繞過方案與ETA。 prod Kindly confirm."}
+{"label": "報價", "text": "Fwd: 您好，想要企業內訓 + 系統導入的整包方案：\\n1. CRM 授權 30 users\\n2. 課程 2 天（線上/實體）\\n3. 顧問時數 40h\\n請提供合併試算與優惠後總額 US$ <AMOUNT>，最晚 by EOW。"}
+{"label": "報價", "text": "Hi, retail use case: 12 stores initially, scale to 30. Need API rate limits, nightly batch, and E2E reporting. Kindly pricing unit price and total (USD <AMOUNT>) and outline PO/GRN steps. Target by EOW. EOD"}
+{"label": "報價", "text": "您好，想請教貴方方案：我們門市需要 15 台收銀端，外加雲端帳號 30 個。能否提供「零售業」專案價與PO流程？若須GRN 配合，也請附流程說明。請一併提供US$ <AMOUNT> 的概算與交期（下週二前，EOD）。"}
+{"label": "報價", "text": "Re: Subject: 合作夥伴價\\n\\n我們是系統整合商，若以貴方做底層，是否有partner discount？首案估 25 seats，附加審計模組。請回覆清單價、優惠、合約義務，及USD <AMOUNT> 試算。 EOW 煩請確認。"}
+{"label": "報價", "text": "Hi，想詢問年度Enterprise版：是否含專屬CSM？我們要 100 seats，附加模組（報表+審計）。UAT 兩週、prod 11/1 上線。可否回覆USD <AMOUNT> 是否含一次性費用，另提供多年合約優惠。 麻煩回覆。"}
+{"label": "報價", "text": "Re: 招標文件需求\\n\\n> 需提供近三年實績\\n請協助準備投標必備資料與估價單，我們採購數量初步 120 licenses。標案需SLA與資安聲明，請附。試算請列：單價、總額、維護年費（US$ <AMOUNT>）。 今晚"}
+{"label": "報價", "text": "Fwd: Reference deal\\n\\nA partner mentioned your pricing is flexible. For 20 licenses + 30 read-only, please send a bundled quote, 工作說明 outline, and payment terms (30/70). Total target US$ <AMOUNT>."}
+{"label": "報價", "text": "Subject: TCO 試算—三年期\\n\\n我們想比較一次買斷 vs 年度授權.請提供三年TCO（含維護、升級、SLA）,人數 70.若簽多年可否優惠？請以US$ <AMOUNT> 呈現兩種方案總額並標註差異點."}
+{"label": "報價", "text": "Hi,零售旺季在Q4,需於11/15 前確定方案.需求：會員分群、優惠券、POS整合,月MAU 約 80k.請提供三個階梯方案與可選模組,並附優惠後NT$ <AMOUNT> 試算."}
+{"label": "報價", "text": "Re: Enterprise plan with audit logs\\n\\n> Can you include whitelisting and certificate management?\\nPlease provide Enterprise pricing for 75 users, with audit, IP allowlist, and OTP. Include SLA 99.9% and three-year TCO (US$ <AMOUNT>)."}
+{"label": "技術支援", "text": "Subject: 介面 文件連結 404\\n\\n開發同仁回報文件連結打不開（指向 <URL> ）。請協助修復或提供離線PDF。下週UAT 需要完整API 規格與錯誤碼表。 敬請回覆。"}
+{"label": "技術支援", "text": "Fwd: Subject: SSO clock skew configuration\\n\\nOur SAML assertion is rejected due to time drift. What is the acceptable skew and where to configure it? We plan another UAT run tomorrow morning 10:00. EOD"}
+{"label": "技術支援", "text": "Re: Hi，今天登入後儀表板空白，console 有 跨域 錯誤。昨晚剛把子網加到白名單，可能設定有誤？請協助檢查，若需我們提供憑證fingerprint 可回覆。"}
+{"label": "技術支援", "text": "Re: Subject: Data retention 設定\\n\\n請問事件日誌保存是否可自訂 90 天？法遵要求我們在prod 拉長保存期。若需升級方案請告知費用（US$ <AMOUNT>）。"}
+{"label": "技術支援", "text": "Hi Support, dashboard blank after login; console shows CORS error. Allowlist was updated last night. Please check and confirm if a rollback is needed before prod peak hours. EOW Please share details."}
+{"label": "技術支援", "text": "Fwd: 介面 限流問題\\n\\n批次同步在 02:00 觸發429,已經依文件放慢,但仍被擋.請確認限流策略是否有調整,並給出每分鐘允許值與建議重試間隔.我們清單量約 50k 筆. EOD"}
+{"label": "技術支援", "text": "Re: Certificate mismatch error\\n\\n> Error appeared after we rotated keys\\nProd shows TLS handshake failure. Please verify certificate chain and send steps to reimport. Impacting E2E tests. Thanks."}
+{"label": "技術支援", "text": "Fwd: Subject: 角色權限錯置\\n\\n客服新進無法看到工單，但有管理員權限的欄位卻打得開。請協助重匯權限模版並告知預設角色矩陣；我們希望本週內修正完成（by EOW）。 請協助回覆。"}
+{"label": "技術支援", "text": "Fwd: 列印樣板偏移\\n\\n報表列印左邊界偏 5mm，僅在Chrome 版本 1xx 再現。是否有相容性修正？我們需要在Q3 結案前解掉這個issue。 麻煩回覆。"}
+{"label": "規則詢問", "text": "Subject: 退款申請條件詢問\\n\\n上週購買年度授權，但因內部政策無法上線，想了解退款機制與手續費。若需提供發票號 <INVOICE_NO> 或PO 證明，請告知。希望在10/12 前完成。"}
+{"label": "規則詢問", "text": "Subject: Early termination fees clarification\\n\\nPlease confirm if early termination incurs pro-rated fees and whether 服務等級 breach enables penalty-free termination. Share a summary of the policy and process timeline."}
+{"label": "規則詢問", "text": "Subject: Upgrade/downgrade policy\\n\\nIf we upgrade mid-term, how is the price difference calculated? For downgrade, must we wait until next billing cycle? Example with USD <AMOUNT> would help. next week"}
+{"label": "規則詢問", "text": "Re: 發票處理 若退款，已開立的發票是否需要作廢或折讓單？流程中是否需要提供 GRN 或 PO 證明？請列出步驟。"}
+{"label": "規則詢問", "text": "Fwd: Subject: 退費與提前終止政策\n\n若在 go-live 前取消，是否可退費？提前終止是否按比例計算？請提供政策摘要與申請作業天數。 敬請回覆。"}
+{"label": "規則詢問", "text": "Subject: SLA 未達補償方式\\n\\n若月度可用性低於門檻，補償是否以服務月數延長或折讓單發票？是否需提出事件編號 <ORDER_ID> 申請？請提供流程SOP。"}
+{"label": "規則詢問", "text": "Fwd: Hi，想確認跨境資料傳輸是否合法遵循（內規參考），是否有資料處理者附錄可簽？若沒有，我們可能無法在Q4 上線。 麻煩回覆。"}
+{"label": "規則詢問", "text": "您好，保固政策想再確認：若系統於月度內連續出現P1 事故兩次，是否可要求延長服務期？此條件是否寫在SOW 或主合約？"}
+{"label": "規則詢問", "text": "Re: Subject: 退款 vs 展延\\n\\n若因外部專案延遲導致無法如期上線,可否先展延授權而非退款？兩者對發票與PO 的影響請一併說明. 下週"}
+{"label": "規則詢問", "text": "Re: 升級與降級條款\\n\\n> 想先買較低階\\n若中途升級方案，差額如何計算？反之降級是否需等待下個計費週期？請回覆書面條款與範例（NT$ <AMOUNT>）。 EOD"}
+{"label": "資料異動", "text": "Hi Support, please remove two inactive accounts and add four new users to the Sales group. Details attached internally under ticket <ORDER_ID>. ETA"}
+{"label": "資料異動", "text": "Subject: 調整聯絡電話\\n\\n請將我們主要聯絡人電話改為 <PHONE> ，其他設定不變。若需驗證請寄到 <EMAIL> 確認。謝謝。 麻煩回覆。"}
+{"label": "資料異動", "text": "Subject: Update shipping address\\n\\nKindly update our address to <ADDR> and recipient <NAME>. This applies to physical statements only, starting next Tuesday. ETA Please share details."}
+{"label": "資料異動", "text": "Hi, please change the invoice header to <COMPANY>. The reference PO is <ORDER_ID>. Send the updated invoice to <EMAIL> after 10/01. Thanks."}
+{"label": "資料異動", "text": "Hi，請刪除 2 個離職帳號，並加上 3 位到銷售群組。名單已記錄於內部單號 <ORDER_ID>。 EOD 麻煩回覆。"}
+{"label": "資料異動", "text": "Fwd: Subject: Change 帳務 email\\n\\nPlease update the 帳務 email to <EMAIL> and keep <EMAIL> in CC. Effective next 帳務 cycle (Q4). EOW"}
+{"label": "資料異動", "text": "Hi, please add two IPs to the allowlist for UAT only: <ADDR> and <ADDR>. No change to prod. Effective immediately. EOD"}
+{"label": "資料異動", "text": "Fwd: Subject: 收件地址變更 請將紙本文件收件地址更新為 <ADDR> ,收件人 <NAME>,下週二起生效."}
+{"label": "資料異動", "text": "您好，請將報表寄送排程從每週一改為每月1號 09:00，寄送到 <EMAIL> ，抄送 <EMAIL>。若需我們簽核請提供表單。 今晚"}
+{"label": "資料異動", "text": "Subject: 抬頭變更\\n\\n公司名稱調整為 <COMPANY> ,統編不變.請於下月開立發票改用新抬頭,並標示專案代碼 <ORDER_ID> 以利核銷. 今晚 煩請確認。"}
+{"label": "投訴", "text": "Fwd: Hi team, frequent reschedules have created internal friction. We need a firm plan and a single owner. Without a credible timeline by EOD, we’ll pause our rollout."}
+{"label": "投訴", "text": "Re: Subject: Inconsistent answers from support\\n\\nDifferent agents give different guidance for the same issue. Please provide a consistent SOP or escalation path."}
+{"label": "投訴", "text": "Fwd: 票務延遲\\n\\n票號 <ORDER_ID> 開了三天都沒動靜，僅回覆「在排程」。旺季快到了，請給我們一個可交代的時間表。"}
+{"label": "投訴", "text": "Re: Subject: 票號 <ORDER_ID> 進度嚴重落後\n\n我們已經等超過一週,兩次承諾的 EOD 都沒有兌現.這影響門市交班,請提供可被核對的 ETA,並說明目前卡關原因."}
+{"label": "投訴", "text": "Subject: Quality concerns\n\nPeak-hour performance remains inconsistent and support answers vary. Please propose a recovery plan with measurable targets. Please share details."}
+{"label": "投訴", "text": "Re: Subject: Escalation for ongoing delays Ticket <ORDER_ID> has slipped multiple times. We need a credible ETA and a single owner by EOD, otherwise we’ll put the rollout on hold."}
+{"label": "投訴", "text": "Subject: 溝通效率偏低 相同問題需要多次追問才得到回覆，影響內部決策。請改善回覆時效並提供每日更新。 煩請確認。"}
+{"label": "投訴", "text": "Re: 長期未結案 票號 <ORDER_ID> 多日僅回覆「持續處理」，沒有里程碑。請提供里程碑與每一項的完成日期。 本週 麻煩回覆。"}
+{"label": "投訴", "text": "Subject: 安排了又取消\\n\\n兩次約好的UAT 測試臨時延遲，內部資源很難再喬。請協助確定一次能走完的時程，不要再臨時變動了。 敬請回覆。"}
+{"label": "投訴", "text": "Subject: 進度嚴重延遲，請提供具體ETA 票號 <ORDER_ID> 已逾期一週，多次承諾 EOD 未達成。請在今日 17:00 前提供可核對的ETA與責任人。 EOW 煩請確認。"}
+{"label": "其他", "text": "Subject: 想了解你們產品大概功能\\n\\n我們剛接手專案，先想看看功能列表與案例，暫時不需報價。方便給個簡介連結（用 <URL> 占位即可）？ 下週 麻煩回覆。"}
+{"label": "其他", "text": "Fwd: Subject: 想先聽能力概覽\n\n可否安排 20 分鐘線上簡報,重點放在介面與維運方式？先不談價格與採購. EOW"}
+{"label": "其他", "text": "Hi，聽朋友說你們在零售很強，想先看看能不能解決我們門市的會員黏著問題。方便安排個 30 分鐘概覽嗎？ 下週 煩請確認。"}
+{"label": "其他", "text": "Re: 初步評估 我們想看 PoC 範圍與成功案例摘要，但暫不啟動報價與合約流程。請先寄介紹文件即可。 EOW"}
+{"label": "其他", "text": "Re: Hi，想確認是否有多語介面與基本報表客製。這階段只評估可行性，請提供 Roadmap 摘要即可。 麻煩回覆。"}
+{"label": "其他", "text": "Re: Subject: Product overview request (no pricing yet) We’re gathering information only. Could you share a 1–2 page overview and typical rollout timelines? We’re not discussing pricing at this stage. Kindly confirm."}
+{"label": "其他", "text": "Re: Subject: 先了解功能，暫不需要價格\n\n我們目前僅在蒐集資訊，想要一份簡短概覽與案例列表。暫不需要價格或合約相關內容。"}
+{"label": "其他", "text": "Hi，想先看一下你們的API 文件與案例，有沒有簡短說明可以寄來？目前還沒到採購階段。 煩請確認。"}
+{"label": "其他", "text": "Re: Hi team, do you have case studies for retail/education we can share internally? We’re exploring feasibility before procurement. EOW"}
+{"label": "其他", "text": "Subject: Product overview request\\n\\nWe’re gathering information and would like a short deck outlining key features and typical rollout timelines. No pricing needed yet. Please share details."}
+{"label": "報價", "text": "Hi 团队，我們想做E2E客服自動化PoC。需求：\\n- chatbot 月活 5k\\n- 後台座席 20 seats\\n- sandbox 兩週、UAT 一週、prod go-live 10/30\\n請回覆試算與可用折扣（NT$ <AMOUNT> ~ NT$ <AMOUNT> 區間）。"}
+{"label": "報價", "text": "Subject: 門市導入排程與費用\\n\\n我們要逐店導入：10/01 第一批 5 店、11/15 第二批 10 店。請提供每批導入費與折扣後總價 NT$ <AMOUNT>，並列教育訓練場次與內容大綱。"}
+{"label": "報價", "text": "Subject: Cross-region DR add-on quote\\n\\nWe require RTO 15m, RPO 5m across two regions. Share the uplift cost and revised annual total (NT$<AMOUNT>). If we sign by month end, any early-bird discount?"}
+{"label": "報價", "text": "Hi, education discount request for 150 learners (staged rollout). Please provide annual subscription price, SOW, and total NT$<AMOUNT>. Target UAT in mid-October and go-live by end of month."}
+{"label": "資料異動", "text": "Hi,請把白名單 IP 新增兩筆：<ADDR> 與 <ADDR>.此更新僅 UAT,prod 先不動.預計10/12(四) 下午再開測."}

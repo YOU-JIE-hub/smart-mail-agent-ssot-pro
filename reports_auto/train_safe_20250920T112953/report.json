@@ -1,0 +1,15 @@
+{
+  "when": "2025-09-20T11:29:54.276566",
+  "picked": {
+    "intent": {
+      "path": "/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl",
+      "n": 14921,
+      "labels": {
+        "spam": 7298,
+        "ham": 7623
+      }
+    }
+  },
+  "results": [],
+  "error": "could_not_pick_both_datasets"
+}

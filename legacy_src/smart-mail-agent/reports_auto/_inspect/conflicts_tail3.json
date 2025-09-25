@@ -1,0 +1,1855 @@
+[
+  {
+    "group_key": "tail3",
+    "key": "src/spam/rules.py",
+    "items": [
+      {
+        "path": "Archive/ap23_spamcanon_20250825143426/src/spam/rules.py",
+        "size": 271,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "8b6798e22d7b8e928cdd771dbc1cebac8eb78340",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "src/spam/rules.py",
+        "module_guess": "Archive.ap23_spamcanon_20250825143426.src.spam.rules"
+      },
+      {
+        "path": "examples/legacy_lowcov/src/spam/rules.py",
+        "size": 256,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "597c5e34db7ff84d98557cfec37960bcba803cd5",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "src/spam/rules.py",
+        "module_guess": "examples.legacy_lowcov.src.spam.rules"
+      },
+      {
+        "path": "snapshot/Archive/ap23_spamcanon_20250825143426/src/spam/rules.py",
+        "size": 271,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "8b6798e22d7b8e928cdd771dbc1cebac8eb78340",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "src/spam/rules.py",
+        "module_guess": "snapshot.Archive.ap23_spamcanon_20250825143426.src.spam.rules"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/spam/rules.py",
+        "size": 256,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "597c5e34db7ff84d98557cfec37960bcba803cd5",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "src/spam/rules.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.spam.rules"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/cli/spamcheck.py",
+    "items": [
+      {
+        "path": "smart_mail_agent/cli/spamcheck.py",
+        "size": 406,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "a6dfbdf2cb2f0f6a75e3540183152f51724e13f0",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "cli/spamcheck.py",
+        "tail3": "smart_mail_agent/cli/spamcheck.py",
+        "module_guess": "smart_mail_agent.cli.spamcheck"
+      },
+      {
+        "path": "src/smart_mail_agent/cli/spamcheck.py",
+        "size": 517,
+        "mtime": "2025-08-25T17:55:40Z",
+        "sha1": "86244de81f3c6dc30957dcf8bdef9eb72fc2a4fb",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "cli/spamcheck.py",
+        "tail3": "smart_mail_agent/cli/spamcheck.py",
+        "module_guess": "src.smart_mail_agent.cli.spamcheck"
+      },
+      {
+        "path": "snapshot/smart_mail_agent/cli/spamcheck.py",
+        "size": 406,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "a6dfbdf2cb2f0f6a75e3540183152f51724e13f0",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "cli/spamcheck.py",
+        "tail3": "smart_mail_agent/cli/spamcheck.py",
+        "module_guess": "snapshot.smart_mail_agent.cli.spamcheck"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/cli/spamcheck.py",
+        "size": 517,
+        "mtime": "2025-08-25T17:55:40Z",
+        "sha1": "86244de81f3c6dc30957dcf8bdef9eb72fc2a4fb",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "cli/spamcheck.py",
+        "tail3": "smart_mail_agent/cli/spamcheck.py",
+        "module_guess": "snapshot.src.smart_mail_agent.cli.spamcheck"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/__init__.py",
+    "items": [
+      {
+        "path": "smart_mail_agent/utils/__init__.py",
+        "size": 1682,
+        "mtime": "2025-08-31T18:12:23Z",
+        "sha1": "5d4ef8867e045813bc567ee794aed4198f14aa20",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/__init__.py",
+        "tail3": "smart_mail_agent/utils/__init__.py",
+        "module_guess": "smart_mail_agent.utils.__init__"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/__init__.py",
+        "size": 267,
+        "mtime": "2025-08-25T15:08:57Z",
+        "sha1": "57d52f0598ee6efc390597b4f5c0542b518ee5ef",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/__init__.py",
+        "tail3": "smart_mail_agent/utils/__init__.py",
+        "module_guess": "src.smart_mail_agent.utils.__init__"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/__init__.py",
+        "size": 267,
+        "mtime": "2025-08-25T15:08:57Z",
+        "sha1": "57d52f0598ee6efc390597b4f5c0542b518ee5ef",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/__init__.py",
+        "tail3": "smart_mail_agent/utils/__init__.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.__init__"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/logger.py",
+    "items": [
+      {
+        "path": "smart_mail_agent/utils/logger.py",
+        "size": 1503,
+        "mtime": "2025-08-31T18:12:23Z",
+        "sha1": "22b6953f5a6fe3db4b9bba71686448f59ed8ea47",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/logger.py",
+        "tail3": "smart_mail_agent/utils/logger.py",
+        "module_guess": "smart_mail_agent.utils.logger"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/logger.py",
+        "size": 744,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "adc21041700e4ce0772fa7c979b66f2449158b26",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/logger.py",
+        "tail3": "smart_mail_agent/utils/logger.py",
+        "module_guess": "src.smart_mail_agent.utils.logger"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/logger.py",
+        "size": 744,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "adc21041700e4ce0772fa7c979b66f2449158b26",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/logger.py",
+        "tail3": "smart_mail_agent/utils/logger.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.logger"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/pdf_safe.py",
+    "items": [
+      {
+        "path": "smart_mail_agent/utils/pdf_safe.py",
+        "size": 1495,
+        "mtime": "2025-08-31T18:20:08Z",
+        "sha1": "cd6a27b531c8b5b2cd53e94ecd3fad9e9d337ea6",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/pdf_safe.py",
+        "tail3": "smart_mail_agent/utils/pdf_safe.py",
+        "module_guess": "smart_mail_agent.utils.pdf_safe"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/pdf_safe.py",
+        "size": 4023,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "1bba81bd61303f2dc6adb5a511243e126be1bce6",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/pdf_safe.py",
+        "tail3": "smart_mail_agent/utils/pdf_safe.py",
+        "module_guess": "src.smart_mail_agent.utils.pdf_safe"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/pdf_safe.py",
+        "size": 4023,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "1bba81bd61303f2dc6adb5a511243e126be1bce6",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/pdf_safe.py",
+        "tail3": "smart_mail_agent/utils/pdf_safe.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.pdf_safe"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/observability/log_writer.py",
+    "items": [
+      {
+        "path": "smart_mail_agent/observability/log_writer.py",
+        "size": 2157,
+        "mtime": "2025-08-31T18:07:49Z",
+        "sha1": "e76c71402b6288768945e00b1861f5c522368c23",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "observability/log_writer.py",
+        "tail3": "smart_mail_agent/observability/log_writer.py",
+        "module_guess": "smart_mail_agent.observability.log_writer"
+      },
+      {
+        "path": "src/smart_mail_agent/observability/log_writer.py",
+        "size": 2333,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "0022bd4ea17e9691e74d660e0431ca1ad2ee41fd",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "observability/log_writer.py",
+        "tail3": "smart_mail_agent/observability/log_writer.py",
+        "module_guess": "src.smart_mail_agent.observability.log_writer"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/observability/log_writer.py",
+        "size": 2333,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "0022bd4ea17e9691e74d660e0431ca1ad2ee41fd",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "observability/log_writer.py",
+        "tail3": "smart_mail_agent/observability/log_writer.py",
+        "module_guess": "snapshot.src.smart_mail_agent.observability.log_writer"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/smart_mail_agent/__main__.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+        "size": 434,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "300530d90d42b8f7b4f783a9695c29c01d610553",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/__main__.py",
+        "tail3": "src/smart_mail_agent/__main__.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.__main__"
+      },
+      {
+        "path": "src/smart_mail_agent/__main__.py",
+        "size": 159,
+        "mtime": "2025-08-17T19:31:42Z",
+        "sha1": "6fcb16c416569b94297fc6808a1cf638fbe587d7",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/__main__.py",
+        "tail3": "src/smart_mail_agent/__main__.py",
+        "module_guess": "src.smart_mail_agent.__main__"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+        "size": 434,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "300530d90d42b8f7b4f783a9695c29c01d610553",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/__main__.py",
+        "tail3": "src/smart_mail_agent/__main__.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.__main__"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/__main__.py",
+        "size": 159,
+        "mtime": "2025-08-17T19:31:42Z",
+        "sha1": "6fcb16c416569b94297fc6808a1cf638fbe587d7",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/__main__.py",
+        "tail3": "src/smart_mail_agent/__main__.py",
+        "module_guess": "snapshot.src.smart_mail_agent.__main__"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/smart_mail_agent/cli_spamcheck.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+        "size": 1957,
+        "mtime": "2025-08-17T08:56:15Z",
+        "sha1": "1eb07d12483a4b188fd01963ac4b0a47facb7dae",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/cli_spamcheck.py",
+        "tail3": "src/smart_mail_agent/cli_spamcheck.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.cli_spamcheck"
+      },
+      {
+        "path": "src/smart_mail_agent/cli_spamcheck.py",
+        "size": 285,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "29005d0b4708479813918b56512f1dd046404367",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/cli_spamcheck.py",
+        "tail3": "src/smart_mail_agent/cli_spamcheck.py",
+        "module_guess": "src.smart_mail_agent.cli_spamcheck"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+        "size": 1957,
+        "mtime": "2025-08-17T08:56:15Z",
+        "sha1": "1eb07d12483a4b188fd01963ac4b0a47facb7dae",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/cli_spamcheck.py",
+        "tail3": "src/smart_mail_agent/cli_spamcheck.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.cli_spamcheck"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/cli_spamcheck.py",
+        "size": 285,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "29005d0b4708479813918b56512f1dd046404367",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "smart_mail_agent/cli_spamcheck.py",
+        "tail3": "src/smart_mail_agent/cli_spamcheck.py",
+        "module_guess": "snapshot.src.smart_mail_agent.cli_spamcheck"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/pipeline.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/pipeline.py",
+        "size": 503,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "7abd9e0941524ea704a95a1443cfcc6ac2a072af",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/pipeline.py",
+        "tail3": "smart_mail_agent/spam/pipeline.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.spam.pipeline"
+      },
+      {
+        "path": "src/smart_mail_agent/spam/pipeline.py",
+        "size": 446,
+        "mtime": "2025-08-18T05:10:45Z",
+        "sha1": "3ab8c2c8d55393f580714055ecb54446ea3e039c",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/pipeline.py",
+        "tail3": "smart_mail_agent/spam/pipeline.py",
+        "module_guess": "src.smart_mail_agent.spam.pipeline"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/pipeline.py",
+        "size": 503,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "7abd9e0941524ea704a95a1443cfcc6ac2a072af",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/pipeline.py",
+        "tail3": "smart_mail_agent/spam/pipeline.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.spam.pipeline"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/pipeline.py",
+        "size": 446,
+        "mtime": "2025-08-18T05:10:45Z",
+        "sha1": "3ab8c2c8d55393f580714055ecb54446ea3e039c",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/pipeline.py",
+        "tail3": "smart_mail_agent/spam/pipeline.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.pipeline"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/rule_filter.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/rule_filter.py",
+        "size": 2660,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "968aca964108edf9cc916f69ca82e3d751267802",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/rule_filter.py",
+        "tail3": "smart_mail_agent/spam/rule_filter.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.spam.rule_filter"
+      },
+      {
+        "path": "src/smart_mail_agent/spam/rule_filter.py",
+        "size": 2696,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "338f9cbf3a9f4c269eea3de672dbafcfbc02b0b9",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/rule_filter.py",
+        "tail3": "smart_mail_agent/spam/rule_filter.py",
+        "module_guess": "src.smart_mail_agent.spam.rule_filter"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/rule_filter.py",
+        "size": 2660,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "968aca964108edf9cc916f69ca82e3d751267802",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rule_filter.py",
+        "tail3": "smart_mail_agent/spam/rule_filter.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.spam.rule_filter"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/rule_filter.py",
+        "size": 2696,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "338f9cbf3a9f4c269eea3de672dbafcfbc02b0b9",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rule_filter.py",
+        "tail3": "smart_mail_agent/spam/rule_filter.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.rule_filter"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/ml_spam_classifier.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/ml_spam_classifier.py",
+        "size": 2546,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "bda012ea4b2d5ac68adb9c69769b83009f6e870b",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/ml_spam_classifier.py",
+        "tail3": "smart_mail_agent/spam/ml_spam_classifier.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.spam.ml_spam_classifier"
+      },
+      {
+        "path": "src/smart_mail_agent/spam/ml_spam_classifier.py",
+        "size": 462,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "d2ef491b56f5ca5ce72341a9a56a2b745d427479",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/ml_spam_classifier.py",
+        "tail3": "smart_mail_agent/spam/ml_spam_classifier.py",
+        "module_guess": "src.smart_mail_agent.spam.ml_spam_classifier"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/ml_spam_classifier.py",
+        "size": 2546,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "bda012ea4b2d5ac68adb9c69769b83009f6e870b",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/ml_spam_classifier.py",
+        "tail3": "smart_mail_agent/spam/ml_spam_classifier.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.spam.ml_spam_classifier"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/ml_spam_classifier.py",
+        "size": 462,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "d2ef491b56f5ca5ce72341a9a56a2b745d427479",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/ml_spam_classifier.py",
+        "tail3": "smart_mail_agent/spam/ml_spam_classifier.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.ml_spam_classifier"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/spam_llm_filter.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/spam_llm_filter.py",
+        "size": 2198,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "b71b04c7e252557a9926322e244a5881e9d0a9e1",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/spam_llm_filter.py",
+        "tail3": "smart_mail_agent/spam/spam_llm_filter.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.spam.spam_llm_filter"
+      },
+      {
+        "path": "src/smart_mail_agent/spam/spam_llm_filter.py",
+        "size": 1926,
+        "mtime": "2025-08-25T15:08:57Z",
+        "sha1": "ea0fb295c25bcf89fe317c9a46e07b232a6d3985",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/spam_llm_filter.py",
+        "tail3": "smart_mail_agent/spam/spam_llm_filter.py",
+        "module_guess": "src.smart_mail_agent.spam.spam_llm_filter"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/spam_llm_filter.py",
+        "size": 2198,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "b71b04c7e252557a9926322e244a5881e9d0a9e1",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/spam_llm_filter.py",
+        "tail3": "smart_mail_agent/spam/spam_llm_filter.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.spam.spam_llm_filter"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/spam_llm_filter.py",
+        "size": 1926,
+        "mtime": "2025-08-25T15:08:57Z",
+        "sha1": "ea0fb295c25bcf89fe317c9a46e07b232a6d3985",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/spam_llm_filter.py",
+        "tail3": "smart_mail_agent/spam/spam_llm_filter.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.spam_llm_filter"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/rules.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/rules.py",
+        "size": 4365,
+        "mtime": "2025-08-25T11:57:04Z",
+        "sha1": "44a5944e86393460f5a119e2f03a425c5a246eb2",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "smart_mail_agent/spam/rules.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.spam.rules"
+      },
+      {
+        "path": "src/smart_mail_agent/spam/rules.py",
+        "size": 13080,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "78f11299637c676961843ca055973722635a506d",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "smart_mail_agent/spam/rules.py",
+        "module_guess": "src.smart_mail_agent.spam.rules"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/rules.py",
+        "size": 4365,
+        "mtime": "2025-08-25T11:57:04Z",
+        "sha1": "44a5944e86393460f5a119e2f03a425c5a246eb2",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "smart_mail_agent/spam/rules.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.spam.rules"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/rules.py",
+        "size": 13080,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "78f11299637c676961843ca055973722635a506d",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/rules.py",
+        "tail3": "smart_mail_agent/spam/rules.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.rules"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/feature_extractor.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/feature_extractor.py",
+        "size": 1218,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "20c76bbfb2dfb2b152d40eb6a509028594543ec5",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/feature_extractor.py",
+        "tail3": "smart_mail_agent/spam/feature_extractor.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.spam.feature_extractor"
+      },
+      {
+        "path": "src/smart_mail_agent/spam/feature_extractor.py",
+        "size": 556,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "2dcb9638ea6beef2d5a0ace2681a793242168fdb",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/feature_extractor.py",
+        "tail3": "smart_mail_agent/spam/feature_extractor.py",
+        "module_guess": "src.smart_mail_agent.spam.feature_extractor"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/feature_extractor.py",
+        "size": 1218,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "20c76bbfb2dfb2b152d40eb6a509028594543ec5",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/feature_extractor.py",
+        "tail3": "smart_mail_agent/spam/feature_extractor.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.spam.feature_extractor"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/feature_extractor.py",
+        "size": 556,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "2dcb9638ea6beef2d5a0ace2681a793242168fdb",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/feature_extractor.py",
+        "tail3": "smart_mail_agent/spam/feature_extractor.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.feature_extractor"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/actions/sales_inquiry.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/actions/sales_inquiry.py",
+        "size": 6383,
+        "mtime": "2025-08-25T11:57:04Z",
+        "sha1": "4c59dec45853bb140a0565cc59b791053cfbe634",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "actions/sales_inquiry.py",
+        "tail3": "smart_mail_agent/actions/sales_inquiry.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.actions.sales_inquiry"
+      },
+      {
+        "path": "src/smart_mail_agent/actions/sales_inquiry.py",
+        "size": 6388,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "044e2146695556288cfe866e77af31301e96e54d",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "actions/sales_inquiry.py",
+        "tail3": "smart_mail_agent/actions/sales_inquiry.py",
+        "module_guess": "src.smart_mail_agent.actions.sales_inquiry"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/actions/sales_inquiry.py",
+        "size": 6383,
+        "mtime": "2025-08-25T11:57:04Z",
+        "sha1": "4c59dec45853bb140a0565cc59b791053cfbe634",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "actions/sales_inquiry.py",
+        "tail3": "smart_mail_agent/actions/sales_inquiry.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.actions.sales_inquiry"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/actions/sales_inquiry.py",
+        "size": 6388,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "044e2146695556288cfe866e77af31301e96e54d",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "actions/sales_inquiry.py",
+        "tail3": "smart_mail_agent/actions/sales_inquiry.py",
+        "module_guess": "snapshot.src.smart_mail_agent.actions.sales_inquiry"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/pdf_generator.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/pdf_generator.py",
+        "size": 2741,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "c6c496216687d1d0aa87f4b9dc04a214f7d332f0",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/pdf_generator.py",
+        "tail3": "smart_mail_agent/utils/pdf_generator.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.pdf_generator"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/pdf_generator.py",
+        "size": 2802,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "c91dfa32b922d239d849ae9f1493bb534d8b392e",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/pdf_generator.py",
+        "tail3": "smart_mail_agent/utils/pdf_generator.py",
+        "module_guess": "src.smart_mail_agent.utils.pdf_generator"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/pdf_generator.py",
+        "size": 2741,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "c6c496216687d1d0aa87f4b9dc04a214f7d332f0",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/pdf_generator.py",
+        "tail3": "smart_mail_agent/utils/pdf_generator.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.pdf_generator"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/pdf_generator.py",
+        "size": 2802,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "c91dfa32b922d239d849ae9f1493bb534d8b392e",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/pdf_generator.py",
+        "tail3": "smart_mail_agent/utils/pdf_generator.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.pdf_generator"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/jsonlog.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/jsonlog.py",
+        "size": 2737,
+        "mtime": "2025-08-25T11:57:03Z",
+        "sha1": "81202cdf0f0608b89abb8d9163e65a34277462b0",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/jsonlog.py",
+        "tail3": "smart_mail_agent/utils/jsonlog.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.jsonlog"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/jsonlog.py",
+        "size": 845,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "4d10cf54436775ab4d524f0b57a8b5c1474ae3ee",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/jsonlog.py",
+        "tail3": "smart_mail_agent/utils/jsonlog.py",
+        "module_guess": "src.smart_mail_agent.utils.jsonlog"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/jsonlog.py",
+        "size": 2737,
+        "mtime": "2025-08-25T11:57:03Z",
+        "sha1": "81202cdf0f0608b89abb8d9163e65a34277462b0",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/jsonlog.py",
+        "tail3": "smart_mail_agent/utils/jsonlog.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.jsonlog"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/jsonlog.py",
+        "size": 845,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "4d10cf54436775ab4d524f0b57a8b5c1474ae3ee",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/jsonlog.py",
+        "tail3": "smart_mail_agent/utils/jsonlog.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.jsonlog"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/db_tools.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/db_tools.py",
+        "size": 2370,
+        "mtime": "2025-08-25T11:57:03Z",
+        "sha1": "1cdb268babde41d5bf39283b6db9ff9fea675d8b",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/db_tools.py",
+        "tail3": "smart_mail_agent/utils/db_tools.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.db_tools"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/db_tools.py",
+        "size": 2501,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "d36e8870dc7fe3a6a77c1cabb213bb6f74d30b32",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/db_tools.py",
+        "tail3": "smart_mail_agent/utils/db_tools.py",
+        "module_guess": "src.smart_mail_agent.utils.db_tools"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/db_tools.py",
+        "size": 2370,
+        "mtime": "2025-08-25T11:57:03Z",
+        "sha1": "1cdb268babde41d5bf39283b6db9ff9fea675d8b",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/db_tools.py",
+        "tail3": "smart_mail_agent/utils/db_tools.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.db_tools"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/db_tools.py",
+        "size": 2501,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "d36e8870dc7fe3a6a77c1cabb213bb6f74d30b32",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/db_tools.py",
+        "tail3": "smart_mail_agent/utils/db_tools.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.db_tools"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/priority_evaluator.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/priority_evaluator.py",
+        "size": 2503,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "efc7a0b8c25f44b6d54ecf44b4929c393d62dc8f",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/priority_evaluator.py",
+        "tail3": "smart_mail_agent/utils/priority_evaluator.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.priority_evaluator"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/priority_evaluator.py",
+        "size": 2510,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "b24b97d626563f334c0eb20b7743d77ac723e57f",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/priority_evaluator.py",
+        "tail3": "smart_mail_agent/utils/priority_evaluator.py",
+        "module_guess": "src.smart_mail_agent.utils.priority_evaluator"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/priority_evaluator.py",
+        "size": 2503,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "efc7a0b8c25f44b6d54ecf44b4929c393d62dc8f",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/priority_evaluator.py",
+        "tail3": "smart_mail_agent/utils/priority_evaluator.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.priority_evaluator"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/priority_evaluator.py",
+        "size": 2510,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "b24b97d626563f334c0eb20b7743d77ac723e57f",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/priority_evaluator.py",
+        "tail3": "smart_mail_agent/utils/priority_evaluator.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.priority_evaluator"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/log_writer.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/log_writer.py",
+        "size": 267,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "00e8d4d8df7c8acda30d7e8dab2ed6eb9bc3f5fe",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/log_writer.py",
+        "tail3": "smart_mail_agent/utils/log_writer.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.log_writer"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/log_writer.py",
+        "size": 3419,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "13dea619398ce5a5b46f345ce5ea5debe059e14b",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/log_writer.py",
+        "tail3": "smart_mail_agent/utils/log_writer.py",
+        "module_guess": "src.smart_mail_agent.utils.log_writer"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/log_writer.py",
+        "size": 267,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "00e8d4d8df7c8acda30d7e8dab2ed6eb9bc3f5fe",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/log_writer.py",
+        "tail3": "smart_mail_agent/utils/log_writer.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.log_writer"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/log_writer.py",
+        "size": 3419,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "13dea619398ce5a5b46f345ce5ea5debe059e14b",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/log_writer.py",
+        "tail3": "smart_mail_agent/utils/log_writer.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.log_writer"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/imap_folder_detector.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/imap_folder_detector.py",
+        "size": 2450,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "28faae2bb60465f5af49ab0a7c6738be0407b6a9",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/imap_folder_detector.py",
+        "tail3": "smart_mail_agent/utils/imap_folder_detector.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.imap_folder_detector"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/imap_folder_detector.py",
+        "size": 2505,
+        "mtime": "2025-08-17T19:31:42Z",
+        "sha1": "22a2fad4c58246ad83e6f7f5fcd12449197f6c5c",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/imap_folder_detector.py",
+        "tail3": "smart_mail_agent/utils/imap_folder_detector.py",
+        "module_guess": "src.smart_mail_agent.utils.imap_folder_detector"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/imap_folder_detector.py",
+        "size": 2450,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "28faae2bb60465f5af49ab0a7c6738be0407b6a9",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/imap_folder_detector.py",
+        "tail3": "smart_mail_agent/utils/imap_folder_detector.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.imap_folder_detector"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/imap_folder_detector.py",
+        "size": 2505,
+        "mtime": "2025-08-17T19:31:42Z",
+        "sha1": "22a2fad4c58246ad83e6f7f5fcd12449197f6c5c",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/imap_folder_detector.py",
+        "tail3": "smart_mail_agent/utils/imap_folder_detector.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.imap_folder_detector"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/rag_reply.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/rag_reply.py",
+        "size": 2401,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "ec69e6afb734afef714ff93674864d294a616b35",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/rag_reply.py",
+        "tail3": "smart_mail_agent/utils/rag_reply.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.rag_reply"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/rag_reply.py",
+        "size": 2824,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "a59d5c0c3b5f5bb94c9c2c6f34f1ee094be280ee",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/rag_reply.py",
+        "tail3": "smart_mail_agent/utils/rag_reply.py",
+        "module_guess": "src.smart_mail_agent.utils.rag_reply"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/rag_reply.py",
+        "size": 2401,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "ec69e6afb734afef714ff93674864d294a616b35",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/rag_reply.py",
+        "tail3": "smart_mail_agent/utils/rag_reply.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.rag_reply"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/rag_reply.py",
+        "size": 2824,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "a59d5c0c3b5f5bb94c9c2c6f34f1ee094be280ee",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/rag_reply.py",
+        "tail3": "smart_mail_agent/utils/rag_reply.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.rag_reply"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/utils/templater.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/templater.py",
+        "size": 1128,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "12969162cb5c2a3d3018b4f1ad6ce7ff48d5e3ac",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/templater.py",
+        "tail3": "smart_mail_agent/utils/templater.py",
+        "module_guess": "examples.legacy_lowcov.src.smart_mail_agent.utils.templater"
+      },
+      {
+        "path": "src/smart_mail_agent/utils/templater.py",
+        "size": 1175,
+        "mtime": "2025-08-17T19:28:23Z",
+        "sha1": "371d96e6ec7100195fb5d6866eec0bd296572ef0",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/templater.py",
+        "tail3": "smart_mail_agent/utils/templater.py",
+        "module_guess": "src.smart_mail_agent.utils.templater"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/templater.py",
+        "size": 1128,
+        "mtime": "2025-08-16T06:07:57Z",
+        "sha1": "12969162cb5c2a3d3018b4f1ad6ce7ff48d5e3ac",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/templater.py",
+        "tail3": "smart_mail_agent/utils/templater.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.smart_mail_agent.utils.templater"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/utils/templater.py",
+        "size": 1175,
+        "mtime": "2025-08-17T19:28:23Z",
+        "sha1": "371d96e6ec7100195fb5d6866eec0bd296572ef0",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/templater.py",
+        "tail3": "smart_mail_agent/utils/templater.py",
+        "module_guess": "snapshot.src.smart_mail_agent.utils.templater"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/patches/handle_safe_patch.py",
+    "items": [
+      {
+        "path": "examples/legacy_lowcov/src/patches/handle_safe_patch.py",
+        "size": 1560,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "003e875be2f904977d9b97f931102986b7f97fb3",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "patches/handle_safe_patch.py",
+        "tail3": "src/patches/handle_safe_patch.py",
+        "module_guess": "examples.legacy_lowcov.src.patches.handle_safe_patch"
+      },
+      {
+        "path": "src/patches/handle_safe_patch.py",
+        "size": 76,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "55b96bf69617eb419bda54eb3e71f96710496806",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "patches/handle_safe_patch.py",
+        "tail3": "src/patches/handle_safe_patch.py",
+        "module_guess": "src.patches.handle_safe_patch"
+      },
+      {
+        "path": "snapshot/examples/legacy_lowcov/src/patches/handle_safe_patch.py",
+        "size": 1560,
+        "mtime": "2025-08-24T22:38:06Z",
+        "sha1": "003e875be2f904977d9b97f931102986b7f97fb3",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "patches/handle_safe_patch.py",
+        "tail3": "src/patches/handle_safe_patch.py",
+        "module_guess": "snapshot.examples.legacy_lowcov.src.patches.handle_safe_patch"
+      },
+      {
+        "path": "snapshot/src/patches/handle_safe_patch.py",
+        "size": 76,
+        "mtime": "2025-08-24T22:38:05Z",
+        "sha1": "55b96bf69617eb419bda54eb3e71f96710496806",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "patches/handle_safe_patch.py",
+        "tail3": "src/patches/handle_safe_patch.py",
+        "module_guess": "snapshot.src.patches.handle_safe_patch"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "smart_mail_agent/spam/inference_classifier.py",
+    "items": [
+      {
+        "path": "src/smart_mail_agent/spam/inference_classifier.py",
+        "size": 379,
+        "mtime": "2025-08-26T21:50:33Z",
+        "sha1": "f9d17f11f74258482f857a0b7f69376cd9983700",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "spam/inference_classifier.py",
+        "tail3": "smart_mail_agent/spam/inference_classifier.py",
+        "module_guess": "src.smart_mail_agent.spam.inference_classifier"
+      },
+      {
+        "path": "snapshot/src/smart_mail_agent/spam/inference_classifier.py",
+        "size": 383,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "7f28de4b9dcc7c4db952849c88f5c0b1bbf2489c",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "spam/inference_classifier.py",
+        "tail3": "smart_mail_agent/spam/inference_classifier.py",
+        "module_guess": "snapshot.src.smart_mail_agent.spam.inference_classifier"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/ocr.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/ocr.py",
+        "size": 872,
+        "mtime": "2025-08-28T01:01:53Z",
+        "sha1": "94ca5483788f4667213113b6d8b5734665d2b479",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/ocr.py",
+        "tail3": "src/ai_rpa/ocr.py",
+        "module_guess": "src.ai_rpa.ocr"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/ocr.py",
+        "size": 1273,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "58c6741df00d3d571b0c58b42a5eb90388707681",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/ocr.py",
+        "tail3": "src/ai_rpa/ocr.py",
+        "module_guess": "snapshot.src.ai_rpa.ocr"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/file_classifier.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/file_classifier.py",
+        "size": 5025,
+        "mtime": "2025-08-28T01:19:35Z",
+        "sha1": "c3be2bcc538a0ac4c357298cc0f7bfb130feddd0",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/file_classifier.py",
+        "tail3": "src/ai_rpa/file_classifier.py",
+        "module_guess": "src.ai_rpa.file_classifier"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/file_classifier.py",
+        "size": 1072,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "12f58b8a3a40572714e64454601ce65127d6cc97",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/file_classifier.py",
+        "tail3": "src/ai_rpa/file_classifier.py",
+        "module_guess": "snapshot.src.ai_rpa.file_classifier"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/intent_map.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/intent_map.py",
+        "size": 1328,
+        "mtime": "2025-08-27T09:03:58Z",
+        "sha1": "96cc8863f951c104bc68ec0fb0ae52eeff0be0ca",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/intent_map.py",
+        "tail3": "src/ai_rpa/intent_map.py",
+        "module_guess": "src.ai_rpa.intent_map"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/intent_map.py",
+        "size": 1477,
+        "mtime": "2025-08-26T05:26:04Z",
+        "sha1": "2f16eac4e4351488837f3e31d3b71493445c3ac6",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/intent_map.py",
+        "tail3": "src/ai_rpa/intent_map.py",
+        "module_guess": "snapshot.src.ai_rpa.intent_map"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/spam_adapter.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/spam_adapter.py",
+        "size": 1675,
+        "mtime": "2025-08-28T03:06:59Z",
+        "sha1": "445942ec3ea2a3e7c1d138c2d6a31cd931bf3dc6",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/spam_adapter.py",
+        "tail3": "src/ai_rpa/spam_adapter.py",
+        "module_guess": "src.ai_rpa.spam_adapter"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/spam_adapter.py",
+        "size": 727,
+        "mtime": "2025-08-26T05:58:32Z",
+        "sha1": "5788ff3c564f04638a6e215f8242e3d37fa7c2e9",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/spam_adapter.py",
+        "tail3": "src/ai_rpa/spam_adapter.py",
+        "module_guess": "snapshot.src.ai_rpa.spam_adapter"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/nlp.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/nlp.py",
+        "size": 2567,
+        "mtime": "2025-08-28T03:03:48Z",
+        "sha1": "665d1332cc0683ad2b9855641e7e6c42b1baedc6",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/nlp.py",
+        "tail3": "src/ai_rpa/nlp.py",
+        "module_guess": "src.ai_rpa.nlp"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/nlp.py",
+        "size": 4444,
+        "mtime": "2025-08-26T03:08:15Z",
+        "sha1": "e1ab0381a4db594b8af00ce82b18dba6fcff6ccc",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/nlp.py",
+        "tail3": "src/ai_rpa/nlp.py",
+        "module_guess": "snapshot.src.ai_rpa.nlp"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/scraper.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/scraper.py",
+        "size": 304,
+        "mtime": "2025-08-27T08:35:03Z",
+        "sha1": "2f58675f8ed29dd9ce800ee53611d386b2fd3c27",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/scraper.py",
+        "tail3": "src/ai_rpa/scraper.py",
+        "module_guess": "src.ai_rpa.scraper"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/scraper.py",
+        "size": 1053,
+        "mtime": "2025-08-26T06:06:01Z",
+        "sha1": "b513c6dea2920da53b27b8c386f30bcf6afacb7a",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/scraper.py",
+        "tail3": "src/ai_rpa/scraper.py",
+        "module_guess": "snapshot.src.ai_rpa.scraper"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/main.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/main.py",
+        "size": 4131,
+        "mtime": "2025-08-27T08:50:16Z",
+        "sha1": "caca5e5dc5c6f160c3c34779f38108235754477f",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/main.py",
+        "tail3": "src/ai_rpa/main.py",
+        "module_guess": "src.ai_rpa.main"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/main.py",
+        "size": 12973,
+        "mtime": "2025-08-26T09:49:24Z",
+        "sha1": "d040dc8538730318527ad61bfc03a7061af8dcf5",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/main.py",
+        "tail3": "src/ai_rpa/main.py",
+        "module_guess": "snapshot.src.ai_rpa.main"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/actions.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/actions.py",
+        "size": 359,
+        "mtime": "2025-08-27T08:35:03Z",
+        "sha1": "6c6a911a1214e9128c550560ba8117e7894267b3",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/actions.py",
+        "tail3": "src/ai_rpa/actions.py",
+        "module_guess": "src.ai_rpa.actions"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/actions.py",
+        "size": 1294,
+        "mtime": "2025-08-26T00:37:04Z",
+        "sha1": "606f7d373e402a7da1aa0a426c36f73322cb3d4f",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/actions.py",
+        "tail3": "src/ai_rpa/actions.py",
+        "module_guess": "snapshot.src.ai_rpa.actions"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/actions_playbook.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/actions_playbook.py",
+        "size": 3488,
+        "mtime": "2025-08-27T08:50:16Z",
+        "sha1": "c0db54715bdaa4920be79c235c536d81265ca8a3",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/actions_playbook.py",
+        "tail3": "src/ai_rpa/actions_playbook.py",
+        "module_guess": "src.ai_rpa.actions_playbook"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/actions_playbook.py",
+        "size": 1422,
+        "mtime": "2025-08-26T09:49:24Z",
+        "sha1": "e6bcd7ad3b75a5a5612c4931d5a0f48ac61c6511",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/actions_playbook.py",
+        "tail3": "src/ai_rpa/actions_playbook.py",
+        "module_guess": "snapshot.src.ai_rpa.actions_playbook"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/actions_router.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/actions_router.py",
+        "size": 2461,
+        "mtime": "2025-08-27T08:50:16Z",
+        "sha1": "36fd576ef92e6902777c89d8761719697b93f9f3",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/actions_router.py",
+        "tail3": "src/ai_rpa/actions_router.py",
+        "module_guess": "src.ai_rpa.actions_router"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/actions_router.py",
+        "size": 1201,
+        "mtime": "2025-08-26T05:26:04Z",
+        "sha1": "d1e10dbb59956f65c43bfb04a8b331133d272ec0",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/actions_router.py",
+        "tail3": "src/ai_rpa/actions_router.py",
+        "module_guess": "snapshot.src.ai_rpa.actions_router"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "src/ai_rpa/nlp_llm.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/nlp_llm.py",
+        "size": 867,
+        "mtime": "2025-08-28T01:04:53Z",
+        "sha1": "96701a60676b7b0aa06fd34068640ca6b8d24bc3",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "ai_rpa/nlp_llm.py",
+        "tail3": "src/ai_rpa/nlp_llm.py",
+        "module_guess": "src.ai_rpa.nlp_llm"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/nlp_llm.py",
+        "size": 1438,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "79dd72ac321cd7bbbc45bba97efe517562486990",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "ai_rpa/nlp_llm.py",
+        "tail3": "src/ai_rpa/nlp_llm.py",
+        "module_guess": "snapshot.src.ai_rpa.nlp_llm"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/utils/__init__.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/utils/__init__.py",
+        "size": 165,
+        "mtime": "2025-08-25T15:08:57Z",
+        "sha1": "7081a8e1bc95396f960b98bc6a8c499132cbf407",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/__init__.py",
+        "tail3": "ai_rpa/utils/__init__.py",
+        "module_guess": "src.ai_rpa.utils.__init__"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/utils/__init__.py",
+        "size": 165,
+        "mtime": "2025-08-25T15:08:57Z",
+        "sha1": "7081a8e1bc95396f960b98bc6a8c499132cbf407",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/__init__.py",
+        "tail3": "ai_rpa/utils/__init__.py",
+        "module_guess": "snapshot.src.ai_rpa.utils.__init__"
+      },
+      {
+        "path": "ai_rpa/utils/__init__.py",
+        "size": 13,
+        "mtime": "2025-08-31T18:31:39Z",
+        "sha1": "5a5bd317876bdc969dda2d39a9a7984b830dfaec",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/__init__.py",
+        "tail3": "ai_rpa/utils/__init__.py",
+        "module_guess": "ai_rpa.utils.__init__"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/utils/config_loader.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/utils/config_loader.py",
+        "size": 156,
+        "mtime": "2025-08-27T03:54:58Z",
+        "sha1": "ded02b65a1f2a2d9440a2d053a50b002d65c31d9",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/config_loader.py",
+        "tail3": "ai_rpa/utils/config_loader.py",
+        "module_guess": "src.ai_rpa.utils.config_loader"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/utils/config_loader.py",
+        "size": 1102,
+        "mtime": "2025-08-24T22:38:08Z",
+        "sha1": "f022a90de67eb9912ee835f2a742700687fe82d0",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/config_loader.py",
+        "tail3": "ai_rpa/utils/config_loader.py",
+        "module_guess": "snapshot.src.ai_rpa.utils.config_loader"
+      },
+      {
+        "path": "ai_rpa/utils/config_loader.py",
+        "size": 511,
+        "mtime": "2025-08-31T18:38:17Z",
+        "sha1": "962be62daef8b49c983b4b5d767bb630d9f7258e",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/config_loader.py",
+        "tail3": "ai_rpa/utils/config_loader.py",
+        "module_guess": "ai_rpa.utils.config_loader"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/utils/json_safe.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/utils/json_safe.py",
+        "size": 2454,
+        "mtime": "2025-08-28T01:29:47Z",
+        "sha1": "25b58240e386d9783c197bd95f8eafd654dadf42",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/json_safe.py",
+        "tail3": "ai_rpa/utils/json_safe.py",
+        "module_guess": "src.ai_rpa.utils.json_safe"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/utils/json_safe.py",
+        "size": 842,
+        "mtime": "2025-08-26T00:20:55Z",
+        "sha1": "30034d6d892ff48c69e58640e7f2bc94f7b27426",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/json_safe.py",
+        "tail3": "ai_rpa/utils/json_safe.py",
+        "module_guess": "snapshot.src.ai_rpa.utils.json_safe"
+      },
+      {
+        "path": "ai_rpa/utils/json_safe.py",
+        "size": 1155,
+        "mtime": "2025-08-31T18:38:12Z",
+        "sha1": "150ff8a670adae8b63bf4f5895c6f38871c51926",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/json_safe.py",
+        "tail3": "ai_rpa/utils/json_safe.py",
+        "module_guess": "ai_rpa.utils.json_safe"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/utils/db.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/utils/db.py",
+        "size": 198,
+        "mtime": "2025-08-27T03:54:58Z",
+        "sha1": "0a903953d1db9feb5f0b907744a854ca16d0dc04",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/db.py",
+        "tail3": "ai_rpa/utils/db.py",
+        "module_guess": "src.ai_rpa.utils.db"
+      },
+      {
+        "path": "ai_rpa/utils/db.py",
+        "size": 805,
+        "mtime": "2025-08-31T18:38:17Z",
+        "sha1": "4d2a3cbf827feec4fae75c4a60b12fe58d960ab7",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/db.py",
+        "tail3": "ai_rpa/utils/db.py",
+        "module_guess": "ai_rpa.utils.db"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/utils/logger.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/utils/logger.py",
+        "size": 77,
+        "mtime": "2025-08-27T03:54:58Z",
+        "sha1": "bce2754ef81a41273c70f684426746ec2d35075e",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "utils/logger.py",
+        "tail3": "ai_rpa/utils/logger.py",
+        "module_guess": "src.ai_rpa.utils.logger"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/utils/logger.py",
+        "size": 76,
+        "mtime": "2025-08-25T12:39:37Z",
+        "sha1": "f37c194b3396b5b0dabc6dbcca3c16e090a450f3",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "utils/logger.py",
+        "tail3": "ai_rpa/utils/logger.py",
+        "module_guess": "snapshot.src.ai_rpa.utils.logger"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/mailguard/__init__.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/mailguard/__init__.py",
+        "size": 131,
+        "mtime": "2025-08-27T08:35:03Z",
+        "sha1": "5e658239f6dd6e3ca55d6d883724df3fd55a13eb",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "mailguard/__init__.py",
+        "tail3": "ai_rpa/mailguard/__init__.py",
+        "module_guess": "src.ai_rpa.mailguard.__init__"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/mailguard/__init__.py",
+        "size": 74,
+        "mtime": "2025-08-26T07:34:14Z",
+        "sha1": "5754664d5f3d05f149b00bfab71533ea41fd9e97",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "mailguard/__init__.py",
+        "tail3": "ai_rpa/mailguard/__init__.py",
+        "module_guess": "snapshot.src.ai_rpa.mailguard.__init__"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "ai_rpa/mailguard/detector.py",
+    "items": [
+      {
+        "path": "src/ai_rpa/mailguard/detector.py",
+        "size": 2759,
+        "mtime": "2025-08-27T08:35:03Z",
+        "sha1": "d8dc15fcb36b880154d99bfd3c04941459a0c983",
+        "category": "source",
+        "ext": ".py",
+        "tail2": "mailguard/detector.py",
+        "tail3": "ai_rpa/mailguard/detector.py",
+        "module_guess": "src.ai_rpa.mailguard.detector"
+      },
+      {
+        "path": "snapshot/src/ai_rpa/mailguard/detector.py",
+        "size": 3333,
+        "mtime": "2025-08-26T07:34:14Z",
+        "sha1": "42e9b4731a44f3f92e8b891f12ee2a8f3b63f4db",
+        "category": "legacy",
+        "ext": ".py",
+        "tail2": "mailguard/detector.py",
+        "tail3": "ai_rpa/mailguard/detector.py",
+        "module_guess": "snapshot.src.ai_rpa.mailguard.detector"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "rpa_out/tickets/ts_t2.json",
+    "items": [
+      {
+        "path": "reports_auto/e2e_mail/20250901-012210/rpa_out/tickets/ts_t2.json",
+        "size": 170,
+        "mtime": "2025-08-31T17:22:22Z",
+        "sha1": "5d7b7f602f8153e5dc1333fbdea81d66f8df54d4",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t2.json",
+        "tail3": "rpa_out/tickets/ts_t2.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-233502/rpa_out/tickets/ts_t2.json",
+        "size": 170,
+        "mtime": "2025-08-31T15:35:13Z",
+        "sha1": "6ae0c94e4fcc459c384ef477d563de924f72a060",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t2.json",
+        "tail3": "rpa_out/tickets/ts_t2.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-233513/rpa_out/tickets/ts_t2.json",
+        "size": 170,
+        "mtime": "2025-08-31T15:35:20Z",
+        "sha1": "9e4397eb63c2c12d2ca04caece824f47392a0ab3",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t2.json",
+        "tail3": "rpa_out/tickets/ts_t2.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-232035/rpa_out/tickets/ts_t2.json",
+        "size": 170,
+        "mtime": "2025-08-31T15:20:46Z",
+        "sha1": "b08ba2e9c0fff0b1158916146effa3ad521899c1",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t2.json",
+        "tail3": "rpa_out/tickets/ts_t2.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250901-022214/rpa_out/tickets/ts_t2.json",
+        "size": 170,
+        "mtime": "2025-08-31T18:22:28Z",
+        "sha1": "06288675cd1426bc9079fa4244c2848463b10e60",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t2.json",
+        "tail3": "rpa_out/tickets/ts_t2.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-211848/rpa_out/tickets/ts_t2.json",
+        "size": 170,
+        "mtime": "2025-08-31T13:19:02Z",
+        "sha1": "7c09a2ca041a2720117563fc1f0878ba28d56b86",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t2.json",
+        "tail3": "rpa_out/tickets/ts_t2.json"
+      }
+    ]
+  },
+  {
+    "group_key": "tail3",
+    "key": "rpa_out/tickets/ts_t1.json",
+    "items": [
+      {
+        "path": "reports_auto/e2e_mail/20250901-012210/rpa_out/tickets/ts_t1.json",
+        "size": 174,
+        "mtime": "2025-08-31T17:22:22Z",
+        "sha1": "93e4600cd791ddf7becf5c9fc5ca19f6cc47bee8",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t1.json",
+        "tail3": "rpa_out/tickets/ts_t1.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-233502/rpa_out/tickets/ts_t1.json",
+        "size": 174,
+        "mtime": "2025-08-31T15:35:13Z",
+        "sha1": "0a9aa4d3d5f6dec22dfe6060bcae916536e5cbe1",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t1.json",
+        "tail3": "rpa_out/tickets/ts_t1.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-233513/rpa_out/tickets/ts_t1.json",
+        "size": 174,
+        "mtime": "2025-08-31T15:35:20Z",
+        "sha1": "473ca59029f3e91ad1a51e19ed316cd26b0e940e",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t1.json",
+        "tail3": "rpa_out/tickets/ts_t1.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-232035/rpa_out/tickets/ts_t1.json",
+        "size": 174,
+        "mtime": "2025-08-31T15:20:46Z",
+        "sha1": "a6c04e82b80394b5ef919a0f6b57a11a163a9392",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t1.json",
+        "tail3": "rpa_out/tickets/ts_t1.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250901-022214/rpa_out/tickets/ts_t1.json",
+        "size": 174,
+        "mtime": "2025-08-31T18:22:28Z",
+        "sha1": "54496ef4929b555bbebb80655aeb7ebda3ed48be",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t1.json",
+        "tail3": "rpa_out/tickets/ts_t1.json"
+      },
+      {
+        "path": "reports_auto/e2e_mail/20250831-211848/rpa_out/tickets/ts_t1.json",
+        "size": 174,
+        "mtime": "2025-08-31T13:19:02Z",
+        "sha1": "bd55cb52275dfb0f82deadbd29d39050e335d891",
+        "category": "legacy",
+        "ext": ".json",
+        "tail2": "tickets/ts_t1.json",
+        "tail3": "rpa_out/tickets/ts_t1.json"
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+rank	path	n	labels	size_mb	overlap_intent	overlap_spam	sha256_head
+1	/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl	14921	{"spam": 7298, "ham": 7623}	22.64	0.1537	0.0577	0b57b3a78298aca3
+2	/home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+3	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+4	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+5	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+6	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+7	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T012142/stage/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+8	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T014311/bundle/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+9	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T005124/stage/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+10	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/reports_auto/export/20250916T050438/stage/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+11	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/pack_stage/20250916T051048/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+12	/home/youjie/projects/smart-mail-agent-ssot-pro/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+13	/home/youjie/projects/smart-mail-agent-ssot-pro/data/spam_eval/dataset.jsonl	5864	{"ham": 3792, "spam": 2072}	15.80	0.1467	0.0576	04669f014d438282
+14	/home/youjie/projects/smart-mail-agent/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3
+15	/home/youjie/projects/smart-mail-agent/data/benchmarks/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3
+16	/home/youjie/projects/smart-mail-agent_ssot/data/benchmarks/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3
+17	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T012142/stage/data/benchmarks/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3
+18	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T014311/bundle/data/benchmarks/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3
+19	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T005124/stage/data/benchmarks/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3
+20	/home/youjie/projects/smart-mail-agent-ssot-pro/reports_auto/export/20250916T050438/stage/data/benchmarks/spamassassin.jsonl	4198	{"ham": 2801, "spam": 1397}	15.65	0.1408	0.0556	5bc222326b0425b3

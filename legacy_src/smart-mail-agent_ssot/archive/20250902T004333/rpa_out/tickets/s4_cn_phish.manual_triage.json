@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "mail_id": "s4_cn_phish",
+    "intent": "quarantine",
+    "action": "manual_triage",
+    "idempotency_key": "d298309b9aa04500"
+  },
+  "fields": {}
+}

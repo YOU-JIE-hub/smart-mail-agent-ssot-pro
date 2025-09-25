@@ -1,0 +1,36 @@
+blacklist_senders:
+  - scam@bad.com
+  - noreply@fraud.biz
+blacklist_domains:
+  - bad.com
+  - fraud.biz
+keywords:
+  - 驗證帳號
+  - 重設密碼
+  - 限時
+  - 中獎
+  - 匯款
+  - 投資
+  - verification
+  - reset your password
+  - urgent
+  - lottery
+  - wire transfer
+suspicious_tld:
+  - zip
+  - xyz
+  - top
+  - click
+attachment_risky_ext:
+  - zip
+  - exe
+  - scr
+  - bat
+  - js
+weights_hint:
+  keyword_hits: 1.0
+  url_ratio: 1.0
+  risky_tld_hits: 1.0
+  attachment_risky_hits: 1.0
+  money_symbols: 0.8
+  non_ascii_ratio: 0.2

@@ -1,0 +1,43 @@
+name: local-smoke
+on:
+  push:
+  pull_request:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install minimal deps
+        run: |
+          python -m pip install -U pip
+          pip install joblib==1.4.2 scikit-learn==1.7.1 "numpy<2.0.0" "pandas>=2" pyyaml>=6
+      - name: Generate minimal eval sets
+        run: |
+          python - <<'PY'
+import json, pathlib
+root=pathlib.Path(".")
+(root/"data/intent_eval").mkdir(parents=True, exist_ok=True)
+(root/"data/spam_eval").mkdir(parents=True, exist_ok=True)
+intent=[{"text":"請提供合約報價與付款方式","label":"報價"},
+        {"text":"APP 登入錯誤，請協助處理","label":"技術支援"},
+        {"text":"我要投訴上次的客服態度","label":"投訴"},
+        {"text":"如何申請退款？流程是什麼","label":"規則詢問"},
+        {"text":"我需要修改聯絡電話與地址","label":"資料異動"},
+        {"text":"你好，想了解一般資訊","label":"其他"}]
+spam=[{"text":"Hello team, this is a normal inquiry about pricing.","label":0},
+      {"text":"FREE $$$ CLICK HERE!!! limited offer http://spam","label":1}]
+with (root/"data/intent_eval/test.jsonl").open("w",encoding="utf-8") as f:
+    for r in intent: f.write(json.dumps(r, ensure_ascii=False)+"\n")
+with (root/"data/spam_eval/test.jsonl").open("w",encoding="utf-8") as f:
+    for r in spam: f.write(json.dumps(r, ensure_ascii=False)+"\n")
+PY
+      - name: Soft smoke (skip if models absent)
+        run: |
+          if [ -z "${INTENT_PKL}" ] || [ -z "${SPAM_PKL}" ] || [ -z "${KIE_DIR}" ]; then
+            echo "Models not provided in CI env. Skipping heavy checks."; exit 0; 
+          fi
+          python scripts/eval_all_compat.py --out reports_auto/summary.json
+          test -f reports_auto/summary.json

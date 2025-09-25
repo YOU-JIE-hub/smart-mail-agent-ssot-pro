@@ -1,0 +1,43 @@
+name: SMTP Integration (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      to:
+        description: "收件者 email（建議你的私人信箱）"
+        required: true
+      confirm:
+        description: "輸入 yes 確認要寄信"
+        required: true
+        default: "yes"
+
+jobs:
+  smtp:
+    if: ${{ github.event.inputs.confirm == 'yes' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m pip install -U pip pytest
+      - name: 檢查必要機密（缺少就中止）
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          for v in SMTP_HOST SMTP_USER SMTP_PASS; do
+            if [ -z "${!v:-}" ]; then
+              echo "::error ::Missing secret: $v"; exit 1
+            fi
+          done
+      - name: 執行 SMTP 冒煙測試（會真的寄出一封信）
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          SMTP_TO:   ${{ github.event.inputs.to }}
+        run: |
+          OFFLINE=0 PYTHONPATH=".:src" pytest -q tests/online -m smtp -k smtp_send_smoke

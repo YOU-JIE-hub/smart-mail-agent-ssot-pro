@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "mail_id": "o1",
+    "intent": "quarantine",
+    "action": "manual_triage",
+    "idempotency_key": "9767c92df7e04d35"
+  },
+  "fields": {}
+}

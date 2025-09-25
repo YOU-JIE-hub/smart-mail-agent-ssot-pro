@@ -1,0 +1,1332 @@
+{
+  "scanned": 9282,
+  "conflicts": [
+    {
+      "tail": "src/spam/rules.py",
+      "items": [
+        {
+          "path": "Archive/ap23_spamcanon_20250825143426/src/spam/rules.py",
+          "size": 271,
+          "sha1": "8b6798e22d7b8e928cdd771dbc1cebac8eb78340",
+          "category": "legacy",
+          "tail": "src/spam/rules.py"
+        },
+        {
+          "path": "examples/legacy_lowcov/src/spam/rules.py",
+          "size": 256,
+          "sha1": "597c5e34db7ff84d98557cfec37960bcba803cd5",
+          "category": "candidate",
+          "tail": "src/spam/rules.py"
+        },
+        {
+          "path": "snapshot/Archive/ap23_spamcanon_20250825143426/src/spam/rules.py",
+          "size": 271,
+          "sha1": "8b6798e22d7b8e928cdd771dbc1cebac8eb78340",
+          "category": "legacy",
+          "tail": "src/spam/rules.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/spam/rules.py",
+          "size": 256,
+          "sha1": "597c5e34db7ff84d98557cfec37960bcba803cd5",
+          "category": "legacy",
+          "tail": "src/spam/rules.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/cli/spamcheck.py",
+      "items": [
+        {
+          "path": "smart_mail_agent/cli/spamcheck.py",
+          "size": 406,
+          "sha1": "a6dfbdf2cb2f0f6a75e3540183152f51724e13f0",
+          "category": "candidate",
+          "tail": "smart_mail_agent/cli/spamcheck.py"
+        },
+        {
+          "path": "src/smart_mail_agent/cli/spamcheck.py",
+          "size": 517,
+          "sha1": "86244de81f3c6dc30957dcf8bdef9eb72fc2a4fb",
+          "category": "candidate",
+          "tail": "smart_mail_agent/cli/spamcheck.py"
+        },
+        {
+          "path": "snapshot/smart_mail_agent/cli/spamcheck.py",
+          "size": 406,
+          "sha1": "a6dfbdf2cb2f0f6a75e3540183152f51724e13f0",
+          "category": "legacy",
+          "tail": "smart_mail_agent/cli/spamcheck.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/cli/spamcheck.py",
+          "size": 517,
+          "sha1": "86244de81f3c6dc30957dcf8bdef9eb72fc2a4fb",
+          "category": "legacy",
+          "tail": "smart_mail_agent/cli/spamcheck.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/__init__.py",
+      "items": [
+        {
+          "path": "smart_mail_agent/utils/__init__.py",
+          "size": 1682,
+          "sha1": "5d4ef8867e045813bc567ee794aed4198f14aa20",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/__init__.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/__init__.py",
+          "size": 267,
+          "sha1": "57d52f0598ee6efc390597b4f5c0542b518ee5ef",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/__init__.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/__init__.py",
+          "size": 267,
+          "sha1": "57d52f0598ee6efc390597b4f5c0542b518ee5ef",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/__init__.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/logger.py",
+      "items": [
+        {
+          "path": "smart_mail_agent/utils/logger.py",
+          "size": 1503,
+          "sha1": "22b6953f5a6fe3db4b9bba71686448f59ed8ea47",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/logger.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/logger.py",
+          "size": 744,
+          "sha1": "adc21041700e4ce0772fa7c979b66f2449158b26",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/logger.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/logger.py",
+          "size": 744,
+          "sha1": "adc21041700e4ce0772fa7c979b66f2449158b26",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/logger.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/pdf_safe.py",
+      "items": [
+        {
+          "path": "smart_mail_agent/utils/pdf_safe.py",
+          "size": 1495,
+          "sha1": "cd6a27b531c8b5b2cd53e94ecd3fad9e9d337ea6",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/pdf_safe.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/pdf_safe.py",
+          "size": 4023,
+          "sha1": "1bba81bd61303f2dc6adb5a511243e126be1bce6",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/pdf_safe.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/pdf_safe.py",
+          "size": 4023,
+          "sha1": "1bba81bd61303f2dc6adb5a511243e126be1bce6",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/pdf_safe.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/observability/log_writer.py",
+      "items": [
+        {
+          "path": "smart_mail_agent/observability/log_writer.py",
+          "size": 2157,
+          "sha1": "e76c71402b6288768945e00b1861f5c522368c23",
+          "category": "candidate",
+          "tail": "smart_mail_agent/observability/log_writer.py"
+        },
+        {
+          "path": "src/smart_mail_agent/observability/log_writer.py",
+          "size": 2333,
+          "sha1": "0022bd4ea17e9691e74d660e0431ca1ad2ee41fd",
+          "category": "candidate",
+          "tail": "smart_mail_agent/observability/log_writer.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/observability/log_writer.py",
+          "size": 2333,
+          "sha1": "0022bd4ea17e9691e74d660e0431ca1ad2ee41fd",
+          "category": "legacy",
+          "tail": "smart_mail_agent/observability/log_writer.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/smart_mail_agent/__main__.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+          "size": 434,
+          "sha1": "300530d90d42b8f7b4f783a9695c29c01d610553",
+          "category": "candidate",
+          "tail": "src/smart_mail_agent/__main__.py"
+        },
+        {
+          "path": "src/smart_mail_agent/__main__.py",
+          "size": 159,
+          "sha1": "6fcb16c416569b94297fc6808a1cf638fbe587d7",
+          "category": "candidate",
+          "tail": "src/smart_mail_agent/__main__.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+          "size": 434,
+          "sha1": "300530d90d42b8f7b4f783a9695c29c01d610553",
+          "category": "legacy",
+          "tail": "src/smart_mail_agent/__main__.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/__main__.py",
+          "size": 159,
+          "sha1": "6fcb16c416569b94297fc6808a1cf638fbe587d7",
+          "category": "legacy",
+          "tail": "src/smart_mail_agent/__main__.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/smart_mail_agent/cli_spamcheck.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+          "size": 1957,
+          "sha1": "1eb07d12483a4b188fd01963ac4b0a47facb7dae",
+          "category": "candidate",
+          "tail": "src/smart_mail_agent/cli_spamcheck.py"
+        },
+        {
+          "path": "src/smart_mail_agent/cli_spamcheck.py",
+          "size": 285,
+          "sha1": "29005d0b4708479813918b56512f1dd046404367",
+          "category": "candidate",
+          "tail": "src/smart_mail_agent/cli_spamcheck.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+          "size": 1957,
+          "sha1": "1eb07d12483a4b188fd01963ac4b0a47facb7dae",
+          "category": "legacy",
+          "tail": "src/smart_mail_agent/cli_spamcheck.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/cli_spamcheck.py",
+          "size": 285,
+          "sha1": "29005d0b4708479813918b56512f1dd046404367",
+          "category": "legacy",
+          "tail": "src/smart_mail_agent/cli_spamcheck.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/pipeline.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/pipeline.py",
+          "size": 503,
+          "sha1": "7abd9e0941524ea704a95a1443cfcc6ac2a072af",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/pipeline.py"
+        },
+        {
+          "path": "src/smart_mail_agent/spam/pipeline.py",
+          "size": 446,
+          "sha1": "3ab8c2c8d55393f580714055ecb54446ea3e039c",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/pipeline.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/pipeline.py",
+          "size": 503,
+          "sha1": "7abd9e0941524ea704a95a1443cfcc6ac2a072af",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/pipeline.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/pipeline.py",
+          "size": 446,
+          "sha1": "3ab8c2c8d55393f580714055ecb54446ea3e039c",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/pipeline.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/rule_filter.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/rule_filter.py",
+          "size": 2660,
+          "sha1": "968aca964108edf9cc916f69ca82e3d751267802",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/rule_filter.py"
+        },
+        {
+          "path": "src/smart_mail_agent/spam/rule_filter.py",
+          "size": 2696,
+          "sha1": "338f9cbf3a9f4c269eea3de672dbafcfbc02b0b9",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/rule_filter.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/rule_filter.py",
+          "size": 2660,
+          "sha1": "968aca964108edf9cc916f69ca82e3d751267802",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/rule_filter.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/rule_filter.py",
+          "size": 2696,
+          "sha1": "338f9cbf3a9f4c269eea3de672dbafcfbc02b0b9",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/rule_filter.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/ml_spam_classifier.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/ml_spam_classifier.py",
+          "size": 2546,
+          "sha1": "bda012ea4b2d5ac68adb9c69769b83009f6e870b",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/ml_spam_classifier.py"
+        },
+        {
+          "path": "src/smart_mail_agent/spam/ml_spam_classifier.py",
+          "size": 462,
+          "sha1": "d2ef491b56f5ca5ce72341a9a56a2b745d427479",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/ml_spam_classifier.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/ml_spam_classifier.py",
+          "size": 2546,
+          "sha1": "bda012ea4b2d5ac68adb9c69769b83009f6e870b",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/ml_spam_classifier.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/ml_spam_classifier.py",
+          "size": 462,
+          "sha1": "d2ef491b56f5ca5ce72341a9a56a2b745d427479",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/ml_spam_classifier.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/spam_llm_filter.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/spam_llm_filter.py",
+          "size": 2198,
+          "sha1": "b71b04c7e252557a9926322e244a5881e9d0a9e1",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/spam_llm_filter.py"
+        },
+        {
+          "path": "src/smart_mail_agent/spam/spam_llm_filter.py",
+          "size": 1926,
+          "sha1": "ea0fb295c25bcf89fe317c9a46e07b232a6d3985",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/spam_llm_filter.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/spam_llm_filter.py",
+          "size": 2198,
+          "sha1": "b71b04c7e252557a9926322e244a5881e9d0a9e1",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/spam_llm_filter.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/spam_llm_filter.py",
+          "size": 1926,
+          "sha1": "ea0fb295c25bcf89fe317c9a46e07b232a6d3985",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/spam_llm_filter.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/rules.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/rules.py",
+          "size": 4365,
+          "sha1": "44a5944e86393460f5a119e2f03a425c5a246eb2",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/rules.py"
+        },
+        {
+          "path": "src/smart_mail_agent/spam/rules.py",
+          "size": 13080,
+          "sha1": "78f11299637c676961843ca055973722635a506d",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/rules.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/rules.py",
+          "size": 4365,
+          "sha1": "44a5944e86393460f5a119e2f03a425c5a246eb2",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/rules.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/rules.py",
+          "size": 13080,
+          "sha1": "78f11299637c676961843ca055973722635a506d",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/rules.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/feature_extractor.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/spam/feature_extractor.py",
+          "size": 1218,
+          "sha1": "20c76bbfb2dfb2b152d40eb6a509028594543ec5",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/feature_extractor.py"
+        },
+        {
+          "path": "src/smart_mail_agent/spam/feature_extractor.py",
+          "size": 556,
+          "sha1": "2dcb9638ea6beef2d5a0ace2681a793242168fdb",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/feature_extractor.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/feature_extractor.py",
+          "size": 1218,
+          "sha1": "20c76bbfb2dfb2b152d40eb6a509028594543ec5",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/feature_extractor.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/feature_extractor.py",
+          "size": 556,
+          "sha1": "2dcb9638ea6beef2d5a0ace2681a793242168fdb",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/feature_extractor.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/actions/sales_inquiry.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/actions/sales_inquiry.py",
+          "size": 6383,
+          "sha1": "4c59dec45853bb140a0565cc59b791053cfbe634",
+          "category": "candidate",
+          "tail": "smart_mail_agent/actions/sales_inquiry.py"
+        },
+        {
+          "path": "src/smart_mail_agent/actions/sales_inquiry.py",
+          "size": 6388,
+          "sha1": "044e2146695556288cfe866e77af31301e96e54d",
+          "category": "candidate",
+          "tail": "smart_mail_agent/actions/sales_inquiry.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/actions/sales_inquiry.py",
+          "size": 6383,
+          "sha1": "4c59dec45853bb140a0565cc59b791053cfbe634",
+          "category": "legacy",
+          "tail": "smart_mail_agent/actions/sales_inquiry.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/actions/sales_inquiry.py",
+          "size": 6388,
+          "sha1": "044e2146695556288cfe866e77af31301e96e54d",
+          "category": "legacy",
+          "tail": "smart_mail_agent/actions/sales_inquiry.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/pdf_generator.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/pdf_generator.py",
+          "size": 2741,
+          "sha1": "c6c496216687d1d0aa87f4b9dc04a214f7d332f0",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/pdf_generator.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/pdf_generator.py",
+          "size": 2802,
+          "sha1": "c91dfa32b922d239d849ae9f1493bb534d8b392e",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/pdf_generator.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/pdf_generator.py",
+          "size": 2741,
+          "sha1": "c6c496216687d1d0aa87f4b9dc04a214f7d332f0",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/pdf_generator.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/pdf_generator.py",
+          "size": 2802,
+          "sha1": "c91dfa32b922d239d849ae9f1493bb534d8b392e",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/pdf_generator.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/jsonlog.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/jsonlog.py",
+          "size": 2737,
+          "sha1": "81202cdf0f0608b89abb8d9163e65a34277462b0",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/jsonlog.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/jsonlog.py",
+          "size": 845,
+          "sha1": "4d10cf54436775ab4d524f0b57a8b5c1474ae3ee",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/jsonlog.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/jsonlog.py",
+          "size": 2737,
+          "sha1": "81202cdf0f0608b89abb8d9163e65a34277462b0",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/jsonlog.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/jsonlog.py",
+          "size": 845,
+          "sha1": "4d10cf54436775ab4d524f0b57a8b5c1474ae3ee",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/jsonlog.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/db_tools.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/db_tools.py",
+          "size": 2370,
+          "sha1": "1cdb268babde41d5bf39283b6db9ff9fea675d8b",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/db_tools.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/db_tools.py",
+          "size": 2501,
+          "sha1": "d36e8870dc7fe3a6a77c1cabb213bb6f74d30b32",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/db_tools.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/db_tools.py",
+          "size": 2370,
+          "sha1": "1cdb268babde41d5bf39283b6db9ff9fea675d8b",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/db_tools.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/db_tools.py",
+          "size": 2501,
+          "sha1": "d36e8870dc7fe3a6a77c1cabb213bb6f74d30b32",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/db_tools.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/priority_evaluator.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/priority_evaluator.py",
+          "size": 2503,
+          "sha1": "efc7a0b8c25f44b6d54ecf44b4929c393d62dc8f",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/priority_evaluator.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/priority_evaluator.py",
+          "size": 2510,
+          "sha1": "b24b97d626563f334c0eb20b7743d77ac723e57f",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/priority_evaluator.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/priority_evaluator.py",
+          "size": 2503,
+          "sha1": "efc7a0b8c25f44b6d54ecf44b4929c393d62dc8f",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/priority_evaluator.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/priority_evaluator.py",
+          "size": 2510,
+          "sha1": "b24b97d626563f334c0eb20b7743d77ac723e57f",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/priority_evaluator.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/log_writer.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/log_writer.py",
+          "size": 267,
+          "sha1": "00e8d4d8df7c8acda30d7e8dab2ed6eb9bc3f5fe",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/log_writer.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/log_writer.py",
+          "size": 3419,
+          "sha1": "13dea619398ce5a5b46f345ce5ea5debe059e14b",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/log_writer.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/log_writer.py",
+          "size": 267,
+          "sha1": "00e8d4d8df7c8acda30d7e8dab2ed6eb9bc3f5fe",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/log_writer.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/log_writer.py",
+          "size": 3419,
+          "sha1": "13dea619398ce5a5b46f345ce5ea5debe059e14b",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/log_writer.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/imap_folder_detector.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/imap_folder_detector.py",
+          "size": 2450,
+          "sha1": "28faae2bb60465f5af49ab0a7c6738be0407b6a9",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/imap_folder_detector.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/imap_folder_detector.py",
+          "size": 2505,
+          "sha1": "22a2fad4c58246ad83e6f7f5fcd12449197f6c5c",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/imap_folder_detector.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/imap_folder_detector.py",
+          "size": 2450,
+          "sha1": "28faae2bb60465f5af49ab0a7c6738be0407b6a9",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/imap_folder_detector.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/imap_folder_detector.py",
+          "size": 2505,
+          "sha1": "22a2fad4c58246ad83e6f7f5fcd12449197f6c5c",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/imap_folder_detector.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/rag_reply.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/rag_reply.py",
+          "size": 2401,
+          "sha1": "ec69e6afb734afef714ff93674864d294a616b35",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/rag_reply.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/rag_reply.py",
+          "size": 2824,
+          "sha1": "a59d5c0c3b5f5bb94c9c2c6f34f1ee094be280ee",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/rag_reply.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/rag_reply.py",
+          "size": 2401,
+          "sha1": "ec69e6afb734afef714ff93674864d294a616b35",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/rag_reply.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/rag_reply.py",
+          "size": 2824,
+          "sha1": "a59d5c0c3b5f5bb94c9c2c6f34f1ee094be280ee",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/rag_reply.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/utils/templater.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/smart_mail_agent/utils/templater.py",
+          "size": 1128,
+          "sha1": "12969162cb5c2a3d3018b4f1ad6ce7ff48d5e3ac",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/templater.py"
+        },
+        {
+          "path": "src/smart_mail_agent/utils/templater.py",
+          "size": 1175,
+          "sha1": "371d96e6ec7100195fb5d6866eec0bd296572ef0",
+          "category": "candidate",
+          "tail": "smart_mail_agent/utils/templater.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/templater.py",
+          "size": 1128,
+          "sha1": "12969162cb5c2a3d3018b4f1ad6ce7ff48d5e3ac",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/templater.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/utils/templater.py",
+          "size": 1175,
+          "sha1": "371d96e6ec7100195fb5d6866eec0bd296572ef0",
+          "category": "legacy",
+          "tail": "smart_mail_agent/utils/templater.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/patches/handle_safe_patch.py",
+      "items": [
+        {
+          "path": "examples/legacy_lowcov/src/patches/handle_safe_patch.py",
+          "size": 1560,
+          "sha1": "003e875be2f904977d9b97f931102986b7f97fb3",
+          "category": "candidate",
+          "tail": "src/patches/handle_safe_patch.py"
+        },
+        {
+          "path": "src/patches/handle_safe_patch.py",
+          "size": 76,
+          "sha1": "55b96bf69617eb419bda54eb3e71f96710496806",
+          "category": "candidate",
+          "tail": "src/patches/handle_safe_patch.py"
+        },
+        {
+          "path": "snapshot/examples/legacy_lowcov/src/patches/handle_safe_patch.py",
+          "size": 1560,
+          "sha1": "003e875be2f904977d9b97f931102986b7f97fb3",
+          "category": "legacy",
+          "tail": "src/patches/handle_safe_patch.py"
+        },
+        {
+          "path": "snapshot/src/patches/handle_safe_patch.py",
+          "size": 76,
+          "sha1": "55b96bf69617eb419bda54eb3e71f96710496806",
+          "category": "legacy",
+          "tail": "src/patches/handle_safe_patch.py"
+        }
+      ]
+    },
+    {
+      "tail": "smart_mail_agent/spam/inference_classifier.py",
+      "items": [
+        {
+          "path": "src/smart_mail_agent/spam/inference_classifier.py",
+          "size": 379,
+          "sha1": "f9d17f11f74258482f857a0b7f69376cd9983700",
+          "category": "candidate",
+          "tail": "smart_mail_agent/spam/inference_classifier.py"
+        },
+        {
+          "path": "snapshot/src/smart_mail_agent/spam/inference_classifier.py",
+          "size": 383,
+          "sha1": "7f28de4b9dcc7c4db952849c88f5c0b1bbf2489c",
+          "category": "legacy",
+          "tail": "smart_mail_agent/spam/inference_classifier.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/ocr.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/ocr.py",
+          "size": 872,
+          "sha1": "94ca5483788f4667213113b6d8b5734665d2b479",
+          "category": "candidate",
+          "tail": "src/ai_rpa/ocr.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/ocr.py",
+          "size": 1273,
+          "sha1": "58c6741df00d3d571b0c58b42a5eb90388707681",
+          "category": "legacy",
+          "tail": "src/ai_rpa/ocr.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/file_classifier.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/file_classifier.py",
+          "size": 5025,
+          "sha1": "c3be2bcc538a0ac4c357298cc0f7bfb130feddd0",
+          "category": "candidate",
+          "tail": "src/ai_rpa/file_classifier.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/file_classifier.py",
+          "size": 1072,
+          "sha1": "12f58b8a3a40572714e64454601ce65127d6cc97",
+          "category": "legacy",
+          "tail": "src/ai_rpa/file_classifier.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/intent_map.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/intent_map.py",
+          "size": 1328,
+          "sha1": "96cc8863f951c104bc68ec0fb0ae52eeff0be0ca",
+          "category": "candidate",
+          "tail": "src/ai_rpa/intent_map.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/intent_map.py",
+          "size": 1477,
+          "sha1": "2f16eac4e4351488837f3e31d3b71493445c3ac6",
+          "category": "legacy",
+          "tail": "src/ai_rpa/intent_map.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/spam_adapter.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/spam_adapter.py",
+          "size": 1675,
+          "sha1": "445942ec3ea2a3e7c1d138c2d6a31cd931bf3dc6",
+          "category": "candidate",
+          "tail": "src/ai_rpa/spam_adapter.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/spam_adapter.py",
+          "size": 727,
+          "sha1": "5788ff3c564f04638a6e215f8242e3d37fa7c2e9",
+          "category": "legacy",
+          "tail": "src/ai_rpa/spam_adapter.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/nlp.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/nlp.py",
+          "size": 2567,
+          "sha1": "665d1332cc0683ad2b9855641e7e6c42b1baedc6",
+          "category": "candidate",
+          "tail": "src/ai_rpa/nlp.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/nlp.py",
+          "size": 4444,
+          "sha1": "e1ab0381a4db594b8af00ce82b18dba6fcff6ccc",
+          "category": "legacy",
+          "tail": "src/ai_rpa/nlp.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/scraper.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/scraper.py",
+          "size": 304,
+          "sha1": "2f58675f8ed29dd9ce800ee53611d386b2fd3c27",
+          "category": "candidate",
+          "tail": "src/ai_rpa/scraper.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/scraper.py",
+          "size": 1053,
+          "sha1": "b513c6dea2920da53b27b8c386f30bcf6afacb7a",
+          "category": "legacy",
+          "tail": "src/ai_rpa/scraper.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/main.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/main.py",
+          "size": 4131,
+          "sha1": "caca5e5dc5c6f160c3c34779f38108235754477f",
+          "category": "candidate",
+          "tail": "src/ai_rpa/main.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/main.py",
+          "size": 12973,
+          "sha1": "d040dc8538730318527ad61bfc03a7061af8dcf5",
+          "category": "legacy",
+          "tail": "src/ai_rpa/main.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/actions.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/actions.py",
+          "size": 359,
+          "sha1": "6c6a911a1214e9128c550560ba8117e7894267b3",
+          "category": "candidate",
+          "tail": "src/ai_rpa/actions.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/actions.py",
+          "size": 1294,
+          "sha1": "606f7d373e402a7da1aa0a426c36f73322cb3d4f",
+          "category": "legacy",
+          "tail": "src/ai_rpa/actions.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/actions_playbook.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/actions_playbook.py",
+          "size": 3488,
+          "sha1": "c0db54715bdaa4920be79c235c536d81265ca8a3",
+          "category": "candidate",
+          "tail": "src/ai_rpa/actions_playbook.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/actions_playbook.py",
+          "size": 1422,
+          "sha1": "e6bcd7ad3b75a5a5612c4931d5a0f48ac61c6511",
+          "category": "legacy",
+          "tail": "src/ai_rpa/actions_playbook.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/actions_router.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/actions_router.py",
+          "size": 2461,
+          "sha1": "36fd576ef92e6902777c89d8761719697b93f9f3",
+          "category": "candidate",
+          "tail": "src/ai_rpa/actions_router.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/actions_router.py",
+          "size": 1201,
+          "sha1": "d1e10dbb59956f65c43bfb04a8b331133d272ec0",
+          "category": "legacy",
+          "tail": "src/ai_rpa/actions_router.py"
+        }
+      ]
+    },
+    {
+      "tail": "src/ai_rpa/nlp_llm.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/nlp_llm.py",
+          "size": 867,
+          "sha1": "96701a60676b7b0aa06fd34068640ca6b8d24bc3",
+          "category": "candidate",
+          "tail": "src/ai_rpa/nlp_llm.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/nlp_llm.py",
+          "size": 1438,
+          "sha1": "79dd72ac321cd7bbbc45bba97efe517562486990",
+          "category": "legacy",
+          "tail": "src/ai_rpa/nlp_llm.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/utils/__init__.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/utils/__init__.py",
+          "size": 165,
+          "sha1": "7081a8e1bc95396f960b98bc6a8c499132cbf407",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/__init__.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/utils/__init__.py",
+          "size": 165,
+          "sha1": "7081a8e1bc95396f960b98bc6a8c499132cbf407",
+          "category": "legacy",
+          "tail": "ai_rpa/utils/__init__.py"
+        },
+        {
+          "path": "ai_rpa/utils/__init__.py",
+          "size": 13,
+          "sha1": "5a5bd317876bdc969dda2d39a9a7984b830dfaec",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/__init__.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/utils/config_loader.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/utils/config_loader.py",
+          "size": 156,
+          "sha1": "ded02b65a1f2a2d9440a2d053a50b002d65c31d9",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/config_loader.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/utils/config_loader.py",
+          "size": 1102,
+          "sha1": "f022a90de67eb9912ee835f2a742700687fe82d0",
+          "category": "legacy",
+          "tail": "ai_rpa/utils/config_loader.py"
+        },
+        {
+          "path": "ai_rpa/utils/config_loader.py",
+          "size": 511,
+          "sha1": "962be62daef8b49c983b4b5d767bb630d9f7258e",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/config_loader.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/utils/json_safe.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/utils/json_safe.py",
+          "size": 2454,
+          "sha1": "25b58240e386d9783c197bd95f8eafd654dadf42",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/json_safe.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/utils/json_safe.py",
+          "size": 842,
+          "sha1": "30034d6d892ff48c69e58640e7f2bc94f7b27426",
+          "category": "legacy",
+          "tail": "ai_rpa/utils/json_safe.py"
+        },
+        {
+          "path": "ai_rpa/utils/json_safe.py",
+          "size": 1155,
+          "sha1": "150ff8a670adae8b63bf4f5895c6f38871c51926",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/json_safe.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/utils/db.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/utils/db.py",
+          "size": 198,
+          "sha1": "0a903953d1db9feb5f0b907744a854ca16d0dc04",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/db.py"
+        },
+        {
+          "path": "ai_rpa/utils/db.py",
+          "size": 805,
+          "sha1": "4d2a3cbf827feec4fae75c4a60b12fe58d960ab7",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/db.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/utils/logger.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/utils/logger.py",
+          "size": 77,
+          "sha1": "bce2754ef81a41273c70f684426746ec2d35075e",
+          "category": "candidate",
+          "tail": "ai_rpa/utils/logger.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/utils/logger.py",
+          "size": 76,
+          "sha1": "f37c194b3396b5b0dabc6dbcca3c16e090a450f3",
+          "category": "legacy",
+          "tail": "ai_rpa/utils/logger.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/mailguard/__init__.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/mailguard/__init__.py",
+          "size": 131,
+          "sha1": "5e658239f6dd6e3ca55d6d883724df3fd55a13eb",
+          "category": "candidate",
+          "tail": "ai_rpa/mailguard/__init__.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/mailguard/__init__.py",
+          "size": 74,
+          "sha1": "5754664d5f3d05f149b00bfab71533ea41fd9e97",
+          "category": "legacy",
+          "tail": "ai_rpa/mailguard/__init__.py"
+        }
+      ]
+    },
+    {
+      "tail": "ai_rpa/mailguard/detector.py",
+      "items": [
+        {
+          "path": "src/ai_rpa/mailguard/detector.py",
+          "size": 2759,
+          "sha1": "d8dc15fcb36b880154d99bfd3c04941459a0c983",
+          "category": "candidate",
+          "tail": "ai_rpa/mailguard/detector.py"
+        },
+        {
+          "path": "snapshot/src/ai_rpa/mailguard/detector.py",
+          "size": 3333,
+          "sha1": "42e9b4731a44f3f92e8b891f12ee2a8f3b63f4db",
+          "category": "legacy",
+          "tail": "ai_rpa/mailguard/detector.py"
+        }
+      ]
+    },
+    {
+      "tail": "rpa_out/tickets/ts_t2.json",
+      "items": [
+        {
+          "path": "reports_auto/e2e_mail/20250901-012210/rpa_out/tickets/ts_t2.json",
+          "size": 170,
+          "sha1": "5d7b7f602f8153e5dc1333fbdea81d66f8df54d4",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t2.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-233502/rpa_out/tickets/ts_t2.json",
+          "size": 170,
+          "sha1": "6ae0c94e4fcc459c384ef477d563de924f72a060",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t2.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-233513/rpa_out/tickets/ts_t2.json",
+          "size": 170,
+          "sha1": "9e4397eb63c2c12d2ca04caece824f47392a0ab3",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t2.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-232035/rpa_out/tickets/ts_t2.json",
+          "size": 170,
+          "sha1": "b08ba2e9c0fff0b1158916146effa3ad521899c1",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t2.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250901-022214/rpa_out/tickets/ts_t2.json",
+          "size": 170,
+          "sha1": "06288675cd1426bc9079fa4244c2848463b10e60",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t2.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-211848/rpa_out/tickets/ts_t2.json",
+          "size": 170,
+          "sha1": "7c09a2ca041a2720117563fc1f0878ba28d56b86",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t2.json"
+        }
+      ]
+    },
+    {
+      "tail": "rpa_out/tickets/ts_t1.json",
+      "items": [
+        {
+          "path": "reports_auto/e2e_mail/20250901-012210/rpa_out/tickets/ts_t1.json",
+          "size": 174,
+          "sha1": "93e4600cd791ddf7becf5c9fc5ca19f6cc47bee8",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t1.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-233502/rpa_out/tickets/ts_t1.json",
+          "size": 174,
+          "sha1": "0a9aa4d3d5f6dec22dfe6060bcae916536e5cbe1",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t1.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-233513/rpa_out/tickets/ts_t1.json",
+          "size": 174,
+          "sha1": "473ca59029f3e91ad1a51e19ed316cd26b0e940e",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t1.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-232035/rpa_out/tickets/ts_t1.json",
+          "size": 174,
+          "sha1": "a6c04e82b80394b5ef919a0f6b57a11a163a9392",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t1.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250901-022214/rpa_out/tickets/ts_t1.json",
+          "size": 174,
+          "sha1": "54496ef4929b555bbebb80655aeb7ebda3ed48be",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t1.json"
+        },
+        {
+          "path": "reports_auto/e2e_mail/20250831-211848/rpa_out/tickets/ts_t1.json",
+          "size": 174,
+          "sha1": "bd55cb52275dfb0f82deadbd29d39050e335d891",
+          "category": "legacy",
+          "tail": "rpa_out/tickets/ts_t1.json"
+        }
+      ]
+    }
+  ],
+  "missing_modules": [],
+  "missing_symbols": [
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/pro/test_end2end_categories.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/pro/test_actions_router_more.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan_from_categories",
+      "file": "tests/pro/test_router_fallback_and_context.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/pro/test_actions_executor_enterprise_more.py"
+    },
+    {
+      "module": "ai_rpa.actions_executor",
+      "symbol": "Executor",
+      "file": "tests/pro/test_actions_executor_enterprise_more.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/pro/test_actions_playbook_plan.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan_from_categories",
+      "file": "tests/pro/test_actions_playbook_plan.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/pro/test_profile_update_diff_both.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/pro/test_router_categories_enterprise_more.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/models/conftest.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan_from_categories",
+      "file": "tests/models/conftest.py"
+    },
+    {
+      "module": "ai_rpa.actions_executor",
+      "symbol": "Executor",
+      "file": "tests/models/conftest.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/custom/test_playbook_router_end2end.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan_from_categories",
+      "file": "tests/ai_rpa_unit/test_actions_router.py"
+    },
+    {
+      "module": "ai_rpa.actions_router",
+      "symbol": "plan",
+      "file": "tests/ai_rpa_unit/test_actions_router.py"
+    }
+  ],
+  "summary": {
+    "candidates": 7646,
+    "legacy": 1636,
+    "conflict_groups": 45,
+    "import_demands": 138,
+    "missing_mod_count": 0,
+    "missing_sym_count": 15
+  },
+  "timestamp": "2025-08-31T19:22:36Z"
+}

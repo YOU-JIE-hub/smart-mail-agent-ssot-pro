@@ -1,0 +1,16 @@
+{
+  "ts": "20250901T005407",
+  "root": "/home/youjie/projects/smart-mail-agent",
+  "python": "Python 3.10.12",
+  "missing_dirs": [],
+  "missing_files": [],
+  "kie_ready": true,
+  "logs": {
+    "run_log": "/tmp/sma_ro_diag_ultra_20250901T005407.log",
+    "report_md": "reports_auto/diagnostics/diag_20250901T005407.md",
+    "imports": "reports_auto/diagnostics/imports_20250901T005407.txt",
+    "pytest_collect": "reports_auto/diagnostics/pytest_collect_20250901T005407.txt",
+    "tree": "reports_auto/diagnostics/tree_20250901T005407.txt",
+    "shadows": "reports_auto/diagnostics/shadows_20250901T005407.txt"
+  }
+}

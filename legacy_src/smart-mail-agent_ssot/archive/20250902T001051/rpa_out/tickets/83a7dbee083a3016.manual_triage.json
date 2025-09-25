@@ -1,0 +1,32 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "c07cf7df50c542d5",
+  "payload": {
+    "mail_id": "83a7dbee083a3016",
+    "subject": "Request for quotation",
+    "fields": [
+      {
+        "label": "date_time",
+        "start": 48,
+        "end": 58
+      },
+      {
+        "label": "amount",
+        "start": 13,
+        "end": 23
+      },
+      {
+        "label": "env",
+        "start": 72,
+        "end": 76
+      }
+    ],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

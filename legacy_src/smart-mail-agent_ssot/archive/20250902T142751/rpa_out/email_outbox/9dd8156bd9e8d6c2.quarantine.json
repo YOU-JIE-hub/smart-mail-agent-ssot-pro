@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "mail_id": "s3_reset_2fa",
+    "intent": "quarantine",
+    "action": "quarantine",
+    "ts": 1756794474,
+    "idempotency_key": "9dd8156bd9e8d6c2",
+    "priority": "P1/Security",
+    "queue": "P1/Security"
+  },
+  "mail_to": "security-queue@example.com",
+  "subject": "[Quarantine] mail:s3_reset_2fa",
+  "body": "ENS=1 quarantined."
+}

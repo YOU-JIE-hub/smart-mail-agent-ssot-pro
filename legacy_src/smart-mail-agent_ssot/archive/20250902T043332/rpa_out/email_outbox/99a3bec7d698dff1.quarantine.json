@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "mail_id": "s2_invoice_zip",
+    "intent": "quarantine",
+    "action": "quarantine",
+    "ts": 1756758816,
+    "idempotency_key": "99a3bec7d698dff1",
+    "priority": "P1/Security",
+    "queue": "P1/Security"
+  },
+  "mail_to": "security-queue@example.com",
+  "subject": "[Quarantine] mail:s2_invoice_zip",
+  "body": "ENS=1 quarantined."
+}

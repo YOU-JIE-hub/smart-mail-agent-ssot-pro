@@ -1,0 +1,17 @@
+{
+  "ok": false,
+  "results": [
+    {
+      "module": "smart_mail_agent.trainers.train_bert_spam_classifier",
+      "ok": false,
+      "error": "ModuleNotFoundError: No module named 'datasets'",
+      "trace": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nModuleNotFoundError: No module named 'datasets'\n"
+    },
+    {
+      "module": "smart_mail_agent.trainers.train_classifier",
+      "ok": false,
+      "error": "ModuleNotFoundError: No module named 'datasets'",
+      "trace": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nModuleNotFoundError: No module named 'datasets'\n"
+    }
+  ]
+}

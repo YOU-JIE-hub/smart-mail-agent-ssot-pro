@@ -1,0 +1,16 @@
+{
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "idempotency_key": "68e74124b59e9153",
+  "payload": {
+    "mail_id": "c6ffcc294d7d6697",
+    "subject": "Need price and lead time",
+    "fields": {},
+    "intent": {
+      "final": "quarantine",
+      "p1": 1.0
+    },
+    "ts": 1756743054
+  }
+}

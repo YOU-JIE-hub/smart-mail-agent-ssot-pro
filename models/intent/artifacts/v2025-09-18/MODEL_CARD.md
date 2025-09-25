@@ -1,0 +1,6 @@
+# Model Card — intent (v2025-09-18)
+- Trained: (fill)
+- Data: (fill)
+- Key Metrics: (fill)
+- Thresholds: (fill)
+- Hashes: (fill)

@@ -1,0 +1,11 @@
+name: Feature Request
+description: 新功能或改進
+labels: [type/feat]
+body:
+  - type: textarea
+    id: why
+    attributes: { label: 背景與動機, placeholder: 為什麼需要？ }
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes: { label: 方案草案, placeholder: 預計修改檔案 / 介面 / 風險 }

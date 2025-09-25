@@ -1,0 +1,15 @@
+{
+  "ok": false,
+  "results": [
+    {
+      "module": "smart_mail_agent.trainers.train_bert_spam_classifier",
+      "ok": true
+    },
+    {
+      "module": "smart_mail_agent.trainers.train_classifier",
+      "ok": false,
+      "error": "IndentationError: expected an indented block after 'try' statement on line 28 (train_classifier.py, line 29)",
+      "trace": "Traceback (most recent call last):\n  File \"<stdin>\", line 11, in <module>\n  File \"/usr/lib/python3.10/importlib/__init__.py\", line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"<frozen importlib._bootstrap>\", line 1050, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1027, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1006, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 688, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 879, in exec_module\n  File \"<frozen importlib._bootstrap_external>\", line 1017, in get_code\n  File \"<frozen importlib._bootstrap_external>\", line 947, in source_to_code\n  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n  File \"/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/trainers/train_classifier.py\", line 29\n    try:\n    ^^^\nIndentationError: expected an indented block after 'try' statement on line 28\n"
+    }
+  ]
+}

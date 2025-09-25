@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -uo pipefail; set -o errtrace; shopt -s nullglob dotglob
+TS="$(date +%Y%m%dT%H%M%S)"; LOG_DIR="reports_auto/logs"; STATUS_DIR="reports_auto/status"
+mkdir -p "$LOG_DIR" "$STATUS_DIR"
+SUMMARY_JSONL="$LOG_DIR/diag_status_${TS}.jsonl"; SUMMARY_MD="$STATUS_DIR/DIAG_${TS}.md"; SUMMARY_JSON="$STATUS_DIR/diag_${TS}.json"; MASTER_ERR="$LOG_DIR/diag_error_${TS}.log"
+overall_rc=0
+emit(){ printf '{"ts":"%s","section":"%s","status":"%s","log":"%s","rc":%s}\n' "$TS" "$1" "$2" "$3" "$4" >> "$SUMMARY_JSONL"; }
+runsh(){ local n="$1"; shift; local l="$LOG_DIR/diag_${n}_${TS}.log"; local t="$(mktemp)"; cat >"$t"; if bash -Eeuo pipefail "$t" >"$l" 2>&1; then emit "$n" ok "$l" 0; else overall_rc=1; emit "$n" error "$l" $?; fi; rm -f "$t"; }
+runpy(){ local n="$1"; shift; local l="$LOG_DIR/diag_${n}_${TS}.log"; local t="$(mktemp)"; cat >"$t"; local py="python3"; command -v python >/dev/null && py="python"; if "$py" "$t" >"$l" 2>&1; then emit "$n" ok "$l" 0; else overall_rc=1; emit "$n" error "$l" $?; fi; rm -f "$t"; }
+bash -Eeuo pipefail -c '. ".sma_tools/env_guard.sh"' >/dev/null 2>&1 || true
+runsh env <<'SH'
+set -Eeuo pipefail; echo "ROOT=$(pwd)"; echo "PYTHONPATH=${PYTHONPATH:-}"; command -v python3 >/dev/null && python3 -V || true

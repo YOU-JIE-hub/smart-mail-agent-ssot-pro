@@ -1,0 +1,16 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "6ab9f2c93d2277ac",
+  "payload": {
+    "mail_id": "f5051c68d3fe4f8a",
+    "subject": "Thanks",
+    "fields": [],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

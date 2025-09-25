@@ -1,0 +1,105 @@
+{
+  "intent": {
+    "candidate": {
+      "path": "/home/youjie/projects/smart-mail-agent/data/prod_merged/train.jsonl",
+      "mode_guess": "intent",
+      "n": 14921,
+      "labels": {
+        "spam": 7298,
+        "ham": 7623
+      },
+      "len_stats": {
+        "min": 10,
+        "max": 113400,
+        "avg": 1047.7610749949736
+      },
+      "mtime": 1756609488.3975391,
+      "size_bytes": 23744510,
+      "sha256_head": "0b57b3a78298aca3f4008008eb6497fdf133cb525a6b21fe573765ae017a3cc1",
+      "usable": true,
+      "reasons": [],
+      "score": 6.749588667231421
+    },
+    "can_use": true,
+    "trained_out": "models/intent/artifacts/model_pipeline.pkl",
+    "report": {
+      "ham": {
+        "precision": 0.8136419001218027,
+        "recall": 0.8760655737704918,
+        "f1-score": 0.843700663088096,
+        "support": 1525.0
+      },
+      "spam": {
+        "precision": 0.8592702903946389,
+        "recall": 0.7904109589041096,
+        "f1-score": 0.8234034962540135,
+        "support": 1460.0
+      },
+      "accuracy": 0.8341708542713567,
+      "macro avg": {
+        "precision": 0.8364560952582207,
+        "recall": 0.8332382663373007,
+        "f1-score": 0.8335520796710547,
+        "support": 2985.0
+      },
+      "weighted avg": {
+        "precision": 0.8359593037393372,
+        "recall": 0.8341708542713567,
+        "f1-score": 0.833773070599734,
+        "support": 2985.0
+      }
+    }
+  },
+  "spam": {
+    "candidate": {
+      "path": "/home/youjie/projects/smart-mail-agent_ssot/data/spam_eval/dataset.jsonl",
+      "mode_guess": "spam",
+      "n": 5864,
+      "labels": {
+        "ham": 3792,
+        "spam": 2072
+      },
+      "len_stats": {
+        "min": 13,
+        "max": 194850,
+        "avg": 2548.1094815825377
+      },
+      "mtime": 1757223829.5303423,
+      "size_bytes": 16562682,
+      "sha256_head": "04669f014d438282612db08e1eeb0dec1927085d1f7603fe124433da175c685d",
+      "usable": true,
+      "reasons": [],
+      "score": 6.118400993285365
+    },
+    "can_use": true,
+    "trained_out": "models/spam/artifacts/model_pipeline.pkl",
+    "report": {
+      "ham": {
+        "precision": 0.951715374841169,
+        "recall": 0.9868247694334651,
+        "f1-score": 0.9689521345407504,
+        "support": 759.0
+      },
+      "spam": {
+        "precision": 0.9740932642487047,
+        "recall": 0.9082125603864735,
+        "f1-score": 0.94,
+        "support": 414.0
+      },
+      "accuracy": 0.959079283887468,
+      "macro avg": {
+        "precision": 0.9629043195449368,
+        "recall": 0.9475186649099693,
+        "f1-score": 0.9544760672703752,
+        "support": 1173.0
+      },
+      "weighted avg": {
+        "precision": 0.9596134534555933,
+        "recall": 0.959079283887468,
+        "f1-score": 0.958733734114603,
+        "support": 1173.0
+      }
+    }
+  },
+  "notes": []
+}

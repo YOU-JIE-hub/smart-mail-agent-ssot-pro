@@ -17,3 +17,4 @@ INFO:     127.0.0.1:41736 - "GET /debug/model_meta HTTP/1.1" 200 OK
 INFO:     127.0.0.1:35726 - "GET /debug/model_meta HTTP/1.1" 200 OK
 INFO:     127.0.0.1:48360 - "GET /debug/model_meta HTTP/1.1" 200 OK
 INFO:     127.0.0.1:34184 - "GET /debug/model_meta HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40488 - "GET /healthz HTTP/1.1" 404 Not Found

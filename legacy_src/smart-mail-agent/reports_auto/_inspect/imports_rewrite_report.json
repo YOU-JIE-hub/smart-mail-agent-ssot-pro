@@ -1,0 +1,3450 @@
+[
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/send_with_attachment.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/RUNME_kie_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/apply_patch_r9.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/_spam_common.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/send_with_attachment_shim.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/online_check_shadow_root.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/RUNME_kie_demo.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/cli.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/init_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/run_spam_eval_ensemble.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/model_doctor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/spam_sweep_thresholds.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/run_spam_train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/run_spam_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_data_factory_chat_v7.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sweep_any_py.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/run_spam_eval_text.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/run_spam_drift.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_merge_prod.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/_spam_common.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/eval_text_baseline_sa.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_e2e_run.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/export_intent_model.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/predict_intent.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_data_factory.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/mail_transport.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_quick_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/train_text_baseline_sa.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_ingest_eml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_data_factory_chat_v6.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/_sma_rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_actions_exec.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/zip2jsonl_trec06c.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/spam_train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_eval_jsonl_prod.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_prod_train_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_make_prod_dataset.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_post_audit.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_infer_eml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sa_split.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_make_prod_report.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_data_factory_chat_v5.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/rag_faq.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/bench_thr_sweep_sa_py.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_data_factory_chat_v8.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/cov_focus_modules.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/online_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/_sma_common.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/scripts/sma_train_prod_text.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_file_classifier_empty.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_file_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_file_classifier_nested_dir.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_main_error_paths.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_ocr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_main_all_success.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_scraper.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_main_ocr_empty_text.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_actions.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_nlp_fallback.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_main_nlp_only_no_texts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_cli_main.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_scraper_empty_headings.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_main_actions_dryrun.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_config_loader.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_cli_actions.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_ocr_raise_in_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_nlp.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_main_no_tasks_cfg_empty.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/ai_rpa/test_ocr_edges.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/legacy_tests/internal_smoke/test_import_all_internal.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/sma_types/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/cli/spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/types/normalize.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/types/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/utils/pdf_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/core/utils.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/core/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/observability/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/observability/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/sma_core/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/smart_mail_agent/sma_core/jsonlog_extras.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/send_with_attachment.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/inference_classifier.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/email_processor.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/train_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/support_ticket.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/spam/rule_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/spam/ml_spam_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/spam/rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/spam/feature_extractor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/spam/pipeline.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/spam/rule_filter.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/spam/ml_spam_classifier.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/spam/spam_llm_filter.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/spam/rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/spam/feature_extractor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/actions/complaint.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/actions/sales_inquiry.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/font_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/errors.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/pdf_generator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/env.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/config.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/imap_login.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/logging_setup.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/db_tools.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/priority_evaluator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/imap_folder_detector.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/fonts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/validators.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/rag_reply.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/tracing.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/smart_mail_agent/utils/templater.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/actions/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/modules/leads_logger.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/patches/handle_router_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/examples/legacy_lowcov/src/patches/handle_safe_patch.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/merge_train_boost.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/generate_silver_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/predict_full.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/train_from_split.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/eval_only.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/grid_search_train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/train_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/export_intent_model.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/priority_rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/predict_intent.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/calibrate_and_card.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/_tune_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/normalize_utils.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/predict_batch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/gen_boundary_boost.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/tune_thresholds.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/eval_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/extract_fields.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/pro_fallback_threshold.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/grid_opt.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/train_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/inference_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/errminer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/make_holdout.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/auto_augment_train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/train_pro_tuneC.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/route_predict.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/tune_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/.sma_tools.bak.2025-08-29_182213/make_real_test.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/artifacts/releases/release_code_20250830T095709Z/_eval_occ.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/artifacts/releases/release_code_20250830T095709Z/pos_oversample.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/artifacts/releases/release_code_20250830T095709Z/_train_xlmr_quick.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/artifacts/releases/release_code_20250830T095709Z/ensemble_regex_model.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/artifacts/releases/release_code_20250830T095709Z/_pred_xlmr_snap.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/stats_collector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/send_with_attachment.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/sitecustomize.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/send_with_attachment_shim.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/email_processor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/cli.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/cli_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/log_writer_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/init_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/scripts/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/scripts/online_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/spam/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/spam/spam_filter_orchestrator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/__version__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/email_processor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/sma_types.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/__main__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/cli_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/inference/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/pipeline.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/rule_filter.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/llm_scorer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/spam_filter_orchestrator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/ml_spam_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/spam_llm_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/orchestrator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/feature_extractor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/train/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/train/drift_report.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/train/features.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/train/evaluator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/train/rule_trainer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/orchestrator_offline/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/orchestrator_offline/deprecated.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/offline_orchestrator/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/spam/offline_orchestrator/deprecated.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/ingestion/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/ingestion/email_processor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/ingestion/init_db.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/ingestion/integrations/send_with_attachment.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/ingestion/integrations/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/cli/sma_run.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/cli/sma.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/cli/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/cli/sma_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/cli/spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/actions/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/actions/complaint.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/actions/sales_inquiry.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/font_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/errors.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/pdf_generator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/env.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/config.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/imap_login.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/logging_setup.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/db_tools.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/priority_evaluator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/imap_folder_detector.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/fonts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/validators.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/rag_reply.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/tracing.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/templater.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/utils/pdf_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/routing/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/routing/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/routing/action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/sma_types.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/core/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/observability/stats_collector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/observability/sitecustomize.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/observability/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/observability/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/observability/tracing.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/trainers/train_bert_spam_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/trainers/train_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/patches/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/patches/handle_router_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/patches/handle_safe_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/leads_logger.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/quote_logger.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/support/support_ticket.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/sales/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/smart_mail_agent/features/modules_legacy/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/ocr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/file_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/intent_map.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/spam_adapter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/nlp.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/actions_executor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/mail_io.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/scraper.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/main.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/actions.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/actions_playbook.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/actions_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/nlp_llm.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/utils/config_loader.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/utils/json_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/utils/db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/mailguard/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/ai_rpa/mailguard/detector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/sma/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/sma/features_apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/patches/handle_safe_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/features/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/src/features/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests_smoke/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests_smoke/test_pipeline_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests_smoke/test_e2e_mail_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests_smoke/test_imports_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/send_with_attachment.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/apply_patch_r9.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/send_with_attachment_shim.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/online_check_shadow_root.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/cli.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/init_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/scripts/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/scripts/cov_focus_modules.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/scripts/online_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_file_classifier_empty.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_file_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_file_classifier_nested_dir.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_main_error_paths.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_ocr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_main_all_success.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_scraper.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_main_ocr_empty_text.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_actions.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_nlp_fallback.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_main_nlp_only_no_texts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_cli_main.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_scraper_empty_headings.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_main_actions_dryrun.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_config_loader.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_cli_actions.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_ocr_raise_in_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_nlp.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_main_no_tasks_cfg_empty.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/ai_rpa/test_ocr_edges.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/legacy_tests/internal_smoke/test_import_all_internal.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/smart_mail_agent/cli/spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/smart_mail_agent/core/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/send_with_attachment.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/inference_classifier.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/email_processor.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/train_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/support_ticket.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/spam/rule_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/spam/ml_spam_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/spam/rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/spam/feature_extractor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/__main__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/cli_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/pipeline.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/rule_filter.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/ml_spam_classifier.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/spam_llm_filter.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/spam/feature_extractor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/actions/complaint.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/actions/sales_inquiry.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/font_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/errors.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/pdf_generator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/env.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/config.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/imap_login.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/logging_setup.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/db_tools.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/priority_evaluator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/imap_folder_detector.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/fonts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/validators.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/rag_reply.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/tracing.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/smart_mail_agent/utils/templater.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/actions/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/modules/leads_logger.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/patches/handle_router_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/examples/legacy_lowcov/src/patches/handle_safe_patch.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/stats_collector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/send_with_attachment.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/sitecustomize.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/send_with_attachment_shim.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/email_processor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/cli.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/cli_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/log_writer_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/init_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/scripts/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/scripts/online_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/spam/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/spam/spam_filter_orchestrator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/__version__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/email_processor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/sma_types.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/__main__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/cli_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/inference/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/pipeline.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/rule_filter.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/spam_filter_orchestrator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/ml_spam_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/spam_llm_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/orchestrator.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/feature_extractor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/orchestrator_offline/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/orchestrator_offline/deprecated.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/offline_orchestrator/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/spam/offline_orchestrator/deprecated.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/ingestion/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/ingestion/email_processor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/ingestion/init_db.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/ingestion/integrations/send_with_attachment.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/ingestion/integrations/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/cli/sma_run.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/cli/sma.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/cli/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/cli/sma_spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/cli/spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/actions/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/actions/complaint.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/actions/sales_inquiry.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/font_check.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/errors.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/pdf_generator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/env.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/config.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/imap_login.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/logging_setup.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/db_tools.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/priority_evaluator.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/imap_folder_detector.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/fonts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/validators.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/rag_reply.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/tracing.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/templater.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/utils/pdf_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/routing/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/routing/run_action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/routing/action_handler.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/sma_types.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/policy_engine.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/utils/jsonlog.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/core/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/observability/stats_collector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/observability/sitecustomize.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/observability/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/observability/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/observability/tracing.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/trainers/train_bert_spam_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/trainers/train_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/patches/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/patches/handle_router_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/patches/handle_safe_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/leads_logger.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/quote_logger.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/support/support_ticket.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/sales/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/smart_mail_agent/features/modules_legacy/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/ocr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/file_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/intent_map.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/spam_adapter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/nlp.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/scraper.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/main.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/actions.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/actions_playbook.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/actions_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/nlp_llm.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/utils/config_loader.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/utils/json_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/mailguard/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/ai_rpa/mailguard/detector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/sma/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/sma/features_apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/patches/handle_safe_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/features/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/src/features/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests_smoke/test_pipeline_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests_smoke/test_imports_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/utils/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/modules/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/modules/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tools/run_actions_matrix.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tools/dump_repo_into_10parts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tools/safe_refactor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tools/fix_all_lints.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tools/fix_all_lints_v2.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules_20250822T112711/quote_logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules_20250822T112711/sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules_20250822T112711/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules_20250822T112711/apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules_20250822T112711/quotation.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/quote_logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/_spam_core.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/spam.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/intent_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/features_sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/pdf_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/log_writer_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/archive/legacy_modules/spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/patches/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/patches/handle_router_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/patches/handle_safe_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_ai_rpa_main_stdout_and_bad_inputs.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_ai_rpa_main_more_stdout.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_core_jsonlog_edges.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_nlp_llm_import_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_ai_rpa_main_more_paths.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_actions_unit_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_actions_branches.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/coverage/test_nlp_llm_env_paths.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_actions_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_mailguard_gating_and_alias.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_intent_map_categories.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_nlp_rules_configurable.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_main_classify_stdout.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_nlp_rules_golden.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_json_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_nlp_rules_direct.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_actions_write_json.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_spam_task_via_main.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_nlp_rules_synonyms.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_main_steps_and_unknown.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_main_contracts_generic.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_json_safe_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_actions_direct.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/ai_rpa_unit/test_mailguard_detector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/boost/test_cli_help.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/boost/test_reflective_execution.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/boost/test_importlib_sanity.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/boost/test_core_shims_and_utils.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/unit/test_logger_utils_smoke.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/unit/test_pdf_safe_extra.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/unit/test_log_writer_db_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/unit/test_sma_types_normalize_extra.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/tests/sma_core/test_jsonlog_extras.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/features/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/snapshot/features/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/spam/train_ml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/spam/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/spam/serving_ml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/spam/train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/spam/serving.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/rag/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/rag/serving.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/rag/build.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/common/jsonl.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/common/text.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/common/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/intent/train_ml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/intent/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/intent/serving_ml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/intent/train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/models/intent/serving.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/scripts/model_doctor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/scripts/sma_quick_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/scripts/sma_infer_eml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/spam/scripts/_sma_common.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/_kie_bundle_tmp/RUNME_kie_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/_kie_bundle_tmp/RUNME_kie_demo.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/intent/.sma_tools/train_pro_fresh.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/intent/.sma_tools/runtime_threshold_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/intent/.sma_tools/tune_thresholds.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/intent/.sma_tools/eval_with_threshold.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/scripts/_eval_occ.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/scripts/_train_xlmr_quick.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/support_bundle_20250830T091452Z/scripts/_pred_xlmr_snap.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/kie/RUNME_kie_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/kie/RUNME_kie_demo.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/reports_auto/bundle_tmp/sma_infer_eml.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/ocr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/pdf.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/file_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/intent_map.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/spam_adapter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/nlp.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/config_loader.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/actions_executor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/mail_io.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/scraper.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/rag.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/main.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/actions.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/actions_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/nlp_llm.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/mailguard.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/utils/config_loader.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/utils/json_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/ai_rpa/utils/db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/utils/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/utils/log_writer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/utils/mailer.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/utils/logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/modules/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/modules/quotation.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tools/run_actions_matrix.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tools/fix_validate_split.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tools/dump_repo_into_10parts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tools/safe_refactor.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tools/fix_all_lints.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tools/fix_all_lints_v2.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules_20250822T112711/quote_logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules_20250822T112711/sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules_20250822T112711/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules_20250822T112711/apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules_20250822T112711/quotation.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/inference_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/quote_logger.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/_spam_core.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/spam.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/apply_diff.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/spam_filter.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/intent_classifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/features_sales_notifier.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/pdf_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/log_writer_db.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/archive/legacy_modules/spamcheck.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_eval_by_text.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/train_intent_calibrated.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_eval_occ.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/redact_text.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_pred_xlmr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/generate_silver_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/make_model_card.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_eval_strict_occ_v2.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/train_pro_fresh.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_eval_full.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/train_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/eval_intent_standalone.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/generate_mail_dataset.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_eval_occ_min.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/runtime_threshold_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/calibrate_and_card.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/make_real_data.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/eval_fields_min.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/augment_intent_texts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/tune_thresholds.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_pred_xlmr_snap_conf.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/pos_oversample.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/eval_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_eval_strict_occ.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_robust_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/compare_systems.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/dataset_manifest.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/eval_with_threshold.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/gen_silver_from_rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/predict_spans_xlmr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/rules_features.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_error_buckets.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/pro_fallback_threshold.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/kie_eval_ci.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_ci_bootstrap_min.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/make_dev_split.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/prepare_label_queue.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/train_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/sk_zero_pad.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/inference_kie.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_train_xlmr_quick.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/ensemble_regex_model.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/auto_augment_train.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/silver_from_rules.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/rebuild_intent_model.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/split_by_hash.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/train_xlmr_from_silver.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/_pred_xlmr_snap.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/train_kie_xlmr.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/sma_tools/eval_fields.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/patches/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/patches/handle_router_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/patches/handle_safe_patch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_cli_help.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_intent_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_spam_quick_eval.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_e2e_pipeline_fake.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_rpa_outputs.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_actions_schema.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_kie_compat.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_actions_exec_and_audit.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_spam_thresholds.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_db_schema.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/conftest.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_kie_eval_strict.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/test_intent_model_load.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_nlp_llm_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_scraper_offline_branch.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_cli_allow_online_no_tasks.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_stdout_contract.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_json_safe_cover.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_ai_rpa_main_stdout_and_bad_inputs.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_ai_rpa_main_more_stdout.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_core_jsonlog_edges.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_nlp_llm_import_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_ai_rpa_main_more_paths.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_dry_run_write_guard.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_actions_unit_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_main_ocr_file_ok.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_actions_branches.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_main_spamcheck_only.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/coverage/test_nlp_llm_env_paths.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_end2end_categories.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_end2end.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_ocr_smoke_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_json_safe_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_main_unknown_stdout.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_main_contracts.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_router_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_nlp_llm_smoke_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_cov_pad_more.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_main_gating_enterprise_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_router_gating.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_json_safe.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_router_fallback_and_context.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_executor_enterprise_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_write_json_path.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_playbook_plan.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_mailguard_enterprise_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_config_loader_smoke_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_file_classifier_smoke_pro.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_main_allow_online_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_mailguard_layers.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_main_cli_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_write_json_more2.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_profile_update_diff_both.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_actions_write_json_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_main_contracts_pro.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_router_categories_enterprise_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_mail_io_unit.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_mailguard_variants.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_mailguard_gating.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/pro/test_scraper_offline.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/test_cov_boost_ml.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/test_cov_pad.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/test_spam_training_serving.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/test_rag_build_and_query.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/conftest.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/models/test_intent_training_serving.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/test_spam_task_steps.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/test_scraper_offline_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/test_dry_run_write_guard_custom.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/test_mailguard_gating_cli_custom.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/test_unknown_tasks_contract.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/custom/test_playbook_router_end2end.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/smoke/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/smoke/test_e2e_offline.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_actions_router.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_mailguard_gating_and_alias.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_intent_map_categories.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_nlp_rules_configurable.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_main_classify_stdout.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_nlp_rules_golden.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_actions_matrix_via_main.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_json_safe.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_nlp_rules_direct.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_actions_write_json.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_spam_task_via_main.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_cov_ocr_scraper_spam_misc.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_nlp_rules_synonyms.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_main_steps_and_unknown.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_main_contracts_generic.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_json_safe_more.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_actions_direct.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/ai_rpa_unit/test_mailguard_detector.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/integration/test_mail_online.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/integration/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/boost/test_cli_help.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/boost/test_reflective_execution.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/boost/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/boost/test_importlib_sanity.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/boost/test_core_shims_and_utils.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/unit/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/unit/test_logger_utils_smoke.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/unit/test_pdf_safe_extra.py",
+    "changed": true
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/unit/test_log_writer_db_smoke.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/unit/test_sma_types_normalize_extra.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/sma_core/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/tests/sma_core/test_jsonlog_extras.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/features/__init__.py",
+    "changed": false
+  },
+  {
+    "file": "/home/youjie/projects/smart-mail-agent/features/quotation.py",
+    "changed": false
+  }
+]

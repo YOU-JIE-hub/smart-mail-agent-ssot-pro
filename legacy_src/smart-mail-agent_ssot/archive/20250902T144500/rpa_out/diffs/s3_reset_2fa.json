@@ -1,0 +1,11 @@
+{
+  "case_id": "s3_reset_2fa",
+  "diff": [
+    {
+      "field": "email",
+      "old": null,
+      "new": "customer@example.com"
+    }
+  ],
+  "status": "draft"
+}

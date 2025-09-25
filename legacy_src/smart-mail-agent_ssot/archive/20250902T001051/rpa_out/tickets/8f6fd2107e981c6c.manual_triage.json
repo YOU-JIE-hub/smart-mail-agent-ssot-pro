@@ -1,0 +1,22 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "78a3063842767860",
+  "payload": {
+    "mail_id": "8f6fd2107e981c6c",
+    "subject": "Cannot login to staging",
+    "fields": [
+      {
+        "label": "env",
+        "start": 21,
+        "end": 28
+      }
+    ],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

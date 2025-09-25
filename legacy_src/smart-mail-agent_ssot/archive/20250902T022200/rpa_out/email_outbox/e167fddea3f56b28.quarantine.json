@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "mail_id": "p1",
+    "intent": "quarantine",
+    "action": "quarantine",
+    "ts": 1756750924,
+    "idempotency_key": "e167fddea3f56b28",
+    "priority": "P1/Security",
+    "queue": "P1/Security"
+  },
+  "mail_to": "security-queue@example.com",
+  "subject": "[Quarantine] mail:p1",
+  "body": "ENS=1 quarantined."
+}

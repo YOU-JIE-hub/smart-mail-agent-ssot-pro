@@ -1,0 +1,47 @@
+name: unit-and-coverage
+on:
+  push: { branches: ['**'] }
+  pull_request:
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.10' }
+      - name: Setup venv & install deps
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+          pip install pytest pytest-timeout pytest-cov genbadge[coverage]
+      - name: Run tests (offline-friendly)
+        env:
+          PYTHONPATH: .:src
+          PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+        run: |
+          . .venv/bin/activate
+          pytest -q -k 'not online' -p pytest_cov --maxfail=1 \
+            --cov=src --cov-branch \
+            --cov-report=xml:coverage.xml \
+            --cov-report=term-missing:skip-covered || true
+      - name: Generate coverage badge
+        run: |
+          . .venv/bin/activate
+          mkdir -p badges
+          if [ -f coverage.xml ]; then
+            genbadge coverage -i coverage.xml -o badges/coverage.svg
+          else
+            echo '<svg xmlns="http://www.w3.org/2000/svg"/>' > badges/coverage.svg
+          fi
+      - name: Commit coverage badge back
+        if: ${{ github.event_name != 'pull_request' }}
+        run: |
+          git config user.name  "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add badges/coverage.svg || true
+          git commit -m "chore(badge): update coverage.svg [skip ci]" || echo "no changes"
+          git push || true

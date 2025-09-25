@@ -1,0 +1,16 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "3ec83ddd903a902d",
+  "payload": {
+    "mail_id": "731cc998a7960225",
+    "subject": "Invoice attached - urgent",
+    "fields": [],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

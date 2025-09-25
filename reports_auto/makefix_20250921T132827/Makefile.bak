@@ -1,0 +1,30 @@
+.PHONY: env api train-intent train-spam train-kie eval-intent eval-spam eval-kie eval-all package
+
+env:
+\tpython -m venv .venv && . .venv/bin/activate && pip install -U pip && pip install -r requirements.txt
+
+api:
+\t. .venv/bin/activate && uvicorn scripts.api_meta:app --host 127.0.0.1 --port 8088
+
+train-intent:
+\t. .venv/bin/activate && python intent/intent/train.py --outdir models/intent/artifacts/v1
+
+train-spam:
+\t. .venv/bin/activate && python spam/spam/train.py   --outdir models/spam/artifacts/v1
+
+train-kie:
+\t. .venv/bin/activate && python kie/kie/train.py    --outdir models/kie/artifacts/v1
+
+eval-intent:
+\t. .venv/bin/activate && python scripts/eval_intent.py --cfg configs/model_paths.yaml
+
+eval-spam:
+\t. .venv/bin/activate && python scripts/eval_spam.py   --cfg configs/model_paths.yaml
+
+eval-kie:
+\t. .venv/bin/activate && python scripts/eval_kie.py    --cfg configs/model_paths.yaml
+
+eval-all:
+\t. .venv/bin/activate && python scripts/eval_all.py
+
+-include Makefile.compat

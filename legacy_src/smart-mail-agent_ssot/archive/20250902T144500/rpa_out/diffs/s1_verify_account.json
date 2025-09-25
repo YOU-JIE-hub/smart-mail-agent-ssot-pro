@@ -1,0 +1,11 @@
+{
+  "case_id": "s1_verify_account",
+  "diff": [
+    {
+      "field": "email",
+      "old": null,
+      "new": "customer@example.com"
+    }
+  ],
+  "status": "draft"
+}

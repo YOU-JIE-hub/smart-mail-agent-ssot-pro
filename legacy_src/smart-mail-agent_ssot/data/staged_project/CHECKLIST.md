@@ -1,0 +1,39 @@
+# Staged Project Checklist
+- spam_eval rows: 3893
+- intent_eval rows: 0
+- copied files: 35
+- artifacts_prod/model_pipeline.pkl
+- artifacts_prod/ens_thresholds.json
+- artifacts_prod/model_meta.json
+- artifacts_prod/spam_rules.json
+- artifacts_prod/spam_thresholds.json
+- artifacts_prod/spam_temp_scaling.json
+- artifacts/extra/text_lr_platt.pkl
+- artifacts/extra/spam_rules_lr.pkl
+- artifacts/intent_pro_cal.pkl
+- artifacts/extra/intent_pipeline_fixed.pkl
+- artifacts/extra/intent_clf.pkl
+- artifacts/extra/intent_clf_raw.pkl
+- artifacts/extra/intent_svm_plus.pkl
+- artifacts/extra/intent_svm_plus_auto.pkl
+- artifacts/extra/intent_svm_plus_auto_cal.pkl
+- artifacts/extra/intent_svm_plus_boost.pkl
+- artifacts/extra/intent_svm_plus_split.pkl
+- artifacts_inbox/4.zip
+- reports_auto/intent_thresholds.json
+- reports_auto/LATEST_DIRS.env
+- reports_auto/eval/uploaded/metrics.json
+- reports_auto/eval/uploaded/metrics.md
+- reports_auto/eval/uploaded/metrics_after_threshold.md
+- reports_auto/eval/uploaded/threshold_sweep.md
+- reports_auto/eval/uploaded/risk_coverage.csv
+- reports_auto/eval/uploaded/eval_pred.jsonl
+- reports_auto/e2e_mail/uploaded/cases.jsonl
+- reports_auto/e2e_mail/uploaded/cases.jsonl.bak_20250907T042347
+- reports_auto/e2e_mail/uploaded/cases.jsonl.bak_20250907T042351
+- reports_auto/e2e_mail/uploaded/intent_reroute_audit.csv
+- reports_auto/e2e_mail/uploaded/intent_reroute_suggestion.ndjson
+- reports_auto/e2e_mail/uploaded/intent_reroute_summary.md
+- reports_auto/e2e_mail/uploaded/RPA_PLACEHOLDER_SUMMARY.md
+- reports_auto/e2e_mail/uploaded/TEXT_ENRICH_SUMMARY.md
+- reports_auto/e2e_mail/uploaded/SUMMARY.md

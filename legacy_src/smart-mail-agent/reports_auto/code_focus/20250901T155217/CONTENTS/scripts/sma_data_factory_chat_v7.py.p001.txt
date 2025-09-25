@@ -1,0 +1,16 @@
+for e in lst: f.write(json.dumps(e, ensure_ascii=False)+"\n")
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--outdir", default="data/spam")
+    ap.add_argument("--total", type=int, default=1000)
+    ap.add_argument("--spam", type=float, default=0.55)
+    ap.add_argument("--zh",   type=float, default=0.50)
+    ap.add_argument("--multi", type=float, default=0.28)
+    ap.add_argument("--seed",  type=int, default=20250830)
+    a=ap.parse_args()
+    es=build(total=a.total, spam_ratio=a.spam, zh_ratio=a.zh, multi_ratio=a.multi, seed=a.seed)
+    split_and_save(es, Path(a.outdir))
+
+if __name__=="__main__":
+    main()

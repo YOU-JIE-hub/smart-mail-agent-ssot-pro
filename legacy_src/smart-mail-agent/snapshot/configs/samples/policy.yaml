@@ -1,0 +1,29 @@
+rules:
+  - name: faq_low_confidence_review
+    when:
+      label: reply_faq
+      max_confidence: 0.6
+    effect:
+      require_review: true
+
+  - name: complaint_high_severity_escalation
+    when:
+      label: complaint
+      severity: high
+    effect:
+      cc: ["qa@company.example","ops@company.example"]
+      require_review: true
+
+  - name: attachments_over_limit_review
+    when:
+      attachments_total_size_gt: 5242880  # 5 MiB
+    effect:
+      require_review: true
+      cc: ["support@company.example"]
+
+  - name: sender_domain_whitelist
+    when:
+      from_domain_in: ["trusted.example","partner.biz"]
+    effect:
+      set_meta:
+        whitelisted: true

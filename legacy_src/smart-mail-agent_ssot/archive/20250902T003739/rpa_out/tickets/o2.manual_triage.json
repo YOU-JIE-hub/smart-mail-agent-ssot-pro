@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "mail_id": "o2",
+    "intent": "other",
+    "action": "manual_triage",
+    "idempotency_key": "9b0b2d4749fb6199"
+  },
+  "fields": {
+    "spans": [
+      {
+        "label": "amount",
+        "start": 32,
+        "end": 51
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "35870f87d7e4f01d",
+  "payload": {
+    "mail_id": "ee99a26d59daa6dc",
+    "subject": "Question about refund policy",
+    "fields": [],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

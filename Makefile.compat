@@ -1,0 +1,76 @@
+.PHONY: pro-eval pro-md pro-all
+
+\
+pro-eval:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/eval_pro.py'
+
+\
+pro-md:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/build_pro_md.py'
+
+\
+pro-all:
+	@$(MAKE) pro-eval
+	@$(MAKE) pro-md
+
+\
+pro-bootstrap:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/eval_bootstrap.py'
+
+\
+pro-shift:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/eval_shift.py'
+
+\
+pro-thresholds:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/publish_thresholds.py'
+
+\
+pro-gate:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/acceptance_gate.py'
+
+\
+pro-suite:
+	@$(MAKE) -s pro-eval
+	@$(MAKE) -s pro-md
+	@$(MAKE) -s pro-bootstrap
+	@$(MAKE) -s pro-shift
+	@$(MAKE) -s pro-thresholds
+	@$(MAKE) -s pro-gate
+
+\
+pro-errors:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/pro_errors.py'
+
+\
+pro-viz:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/pro_viz.py'
+
+\
+pro-robust-gate:
+	@bash tools/panic.sh '. .venv/bin/activate; ROBUST_USE_PREPROC_SPAM=1 python3 scripts/accept_robust_gate.py'
+
+\
+pro-suite+:
+	@$(MAKE) -s pro-suite
+	@$(MAKE) -s pro-errors
+	@$(MAKE) -s pro-viz
+	@$(MAKE) -s pro-robust-gate
+
+\
+pro-panel:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/pro_panel.py'
+\
+pro-review:
+	@echo \"=== review ===\"; sed -n \"1,15p\" reports_auto/pro/latest/errors_intent.tsv; echo; sed -n \"1,15p\" reports_auto/pro/latest/errors_spam.tsv; echo; ls -1 reports_auto/pro/latest/*.png 2>/dev/null || true
+
+\
+pro-review-safe:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/pro_review.py'
+
+\
+pro-ab-preproc:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/pro_ab_preproc.py'
+
+pro-robust-ab-url:
+	@bash tools/panic.sh '. .venv/bin/activate; python3 scripts/pro_robust_ab_url.py && sed -n "1,160p" reports_auto/pro/latest/robust_ab_url.json'

@@ -1,0 +1,14 @@
+{
+  "id": "s4_cn_phish",
+  "action": "escalate_to_CX",
+  "priority": "P2",
+  "queue": "Support",
+  "due_at": "2025-09-01T15:20:46+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T15:20:46+00:00"
+  },
+  "idempotency_key": "6beec23d9d8c4629c663a1c36970ec8c7dd7fbdf",
+  "_note": "notify=notify_slack_s4_cn_phish.sh"
+}

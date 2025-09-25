@@ -1,0 +1,14 @@
+{
+  "id": "u2",
+  "action": "update_profile",
+  "priority": "P3",
+  "queue": "CRM",
+  "due_at": "2025-09-02T17:22:22+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T17:22:22+00:00"
+  },
+  "idempotency_key": "cdd69ef163f85f1b74dadc1977de7748ad69735b",
+  "_note": "diff=profile_diff_u2.json"
+}

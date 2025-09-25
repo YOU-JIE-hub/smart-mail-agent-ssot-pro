@@ -1,0 +1,9 @@
+{
+  "p1": 0.52,
+  "margin": 0.15,
+  "policy_lock": true,
+  "tuned_on": "data/intent/external_realistic_test.clean.jsonl",
+  "n": 120,
+  "accuracy": 0.9167,
+  "macroF1": 0.9156
+}

@@ -1,0 +1,14 @@
+{
+  "dir": "/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model",
+  "generated_at": "2025-09-21T13:40:14",
+  "files": {
+    "config.json": true,
+    "tokenizer.json": true,
+    "model.safetensors": true
+  },
+  "files_sha256": {
+    "config.json": "aab9e1aa0994fcf7ed043cc998d3ec02801ab3430ee286118f72e81915ae81d1",
+    "tokenizer.json": "c64b175d67ecd8c9eb34e4c8f299b2e0017a03bfbb425586e62ee79a8653cded",
+    "model.safetensors": "34d00d9df1096b801ca5f7494baf4ee1a9389a72820ef5e3c1b0f9b902e3c2ed"
+  }
+}

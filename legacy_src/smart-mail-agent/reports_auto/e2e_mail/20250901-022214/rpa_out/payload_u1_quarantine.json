@@ -1,0 +1,14 @@
+{
+  "id": "u1",
+  "action": "quarantine",
+  "priority": "P1",
+  "queue": "Security",
+  "due_at": "2025-08-31T19:22:28+00:00",
+  "fields": {},
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T18:22:28+00:00"
+  },
+  "idempotency_key": "48ea860e4b1d69aa81b1ac9acd95f216e3ddfd66",
+  "_note": ""
+}

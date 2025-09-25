@@ -1,0 +1,16 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "9ad7adb0d294bbd3",
+  "payload": {
+    "mail_id": "84321592e2548e20",
+    "subject": "重要：帳戶驗證通知",
+    "fields": [],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

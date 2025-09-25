@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "error": "'dict' object has no attribute 'predict'"
+}

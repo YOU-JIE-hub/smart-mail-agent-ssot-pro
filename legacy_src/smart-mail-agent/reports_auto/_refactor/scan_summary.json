@@ -1,0 +1,11 @@
+{
+  "ts": 1756719009,
+  "root": "/home/youjie/projects/smart-mail-agent",
+  "counts": {
+    "total_files": 1589,
+    "entry_conflicts": 14,
+    "same_content_groups": 352,
+    "diff_content_groups": 70,
+    "errors": 3
+  }
+}

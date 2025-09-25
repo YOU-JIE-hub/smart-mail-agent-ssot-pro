@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+trap 'echo "❌ 失敗於第 $LINENO 行（exit=$?）" >&2' ERR
+
+# 0) venv & tools
+if [ ! -x ".venv/bin/python" ]; then python3 -m venv .venv; fi
+. .venv/bin/activate
+python -m pip -q install -U pip wheel >/dev/null
+python -m pip -q install -U ruff pytest >/dev/null
+
+# 1) 用新版語法重寫 ruff.toml；exclude 用頂層的 "exclude"（不是 extend-exclude）
+cat > ruff.toml <<'TOML'
+line-length = 100
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "I"]
+ignore = [
+  "E701",  # 同行多語句（:）
+  "E702",  # 同行多語句（;）
+  "E402",  # imports 不在頂部
+  "E741",  # 模糊變數名，如 l
+  "F403",  # wildcard import
+  "F811",  # 重複定義
+  "E501",  # 行過長（暫時忽略，之後再收斂）
+]
+
+# 路徑排除（新版用 exclude）
+exclude = [
+  ".venv", "build", "dist",
+  ".z_legacy_*", ".backup_conflicts_*", ".release_stage",
+  "legacy_tests", "tests/internal_smoke", "tests/ai_rpa"
+]
+TOML
+
+# 2) pytest 設定（補齊結尾標記，避免中斷）
+cat > pytest.ini <<'INI'
+[pytest]
+addopts = -q
+testpaths = tests
+INI
+
+# 3) 最小測試
+mkdir -p tests
+cat > tests/test_cli_version.py <<'PY'
+from __future__ import annotations
+import smart_mail_agent as pkg
+from smart_mail_agent.cli.sma import main
+
+def test_cli_prints_version(capsys):
+    rc = main(["--version"])
+    out = capsys.readouterr().out.strip()
+    assert pkg.__version__ in out
+    assert rc == 0
+PY
+
+# 4) 重新安裝 editable
+python -m pip -q install -e . >/dev/null
+
+# 5) Lint（使用 ruff.toml）
+echo "— Ruff（src/）—"
+ruff check src --fix
+
+# 6) 測試
+echo "— Pytest —"
+pytest
+
+# 7) CLI sanity
+echo "— CLI sanity —"
+python -S -m smart_mail_agent.cli.sma --version

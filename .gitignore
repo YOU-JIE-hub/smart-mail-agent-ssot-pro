@@ -1,14 +1,23 @@
 .venv/
-venv/
 __pycache__/
-node_modules/
-dist/
-build/
-artifacts*/
-models/
-weights/
-datasets/
-data/
-reports_auto/logs/
-*.pkl *.joblib *.safetensors *.pt *.bin *.onnx *.parquet
-*.gz *.zip *.xz *.7z *.tar *.npz *.npy *.h5
+*.pyc
+reports_auto/
+workspace/
+tmp/
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# large backups (keep in repo but ignore by default)
+code/_backup/**
+
+# ---- artifacts/evidence (sidecar) ----
+reports_auto/**
+bundle_*.zip
+SHA256SUMS
+
+# ---- artifacts/evidence (sidecar) ----
+reports_auto/**
+bundle_*.zip
+SHA256SUMS

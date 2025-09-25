@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/forensic_select.py", line 219, in <module>
+    if __name__=="__main__": main()
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/forensic_select.py", line 176, in main
+    res = score_model_on_dataset(pkl, ds_path) if ds_path else {"ok": False, "err":"no_dataset"}
+  File "/home/youjie/projects/smart-mail-agent-ssot-pro/scripts/forensic_select.py", line 88, in score_model_on_dataset
+    rep = classification_report(ys, yp, output_dict=True, zero_division=0)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 2951, in classification_report
+    labels = unique_labels(y_true, y_pred)
+  File "/home/youjie/lib/python3.10/site-packages/sklearn/utils/multiclass.py", line 117, in unique_labels
+    raise ValueError("Mix of label input types (string and number)")
+ValueError: Mix of label input types (string and number)

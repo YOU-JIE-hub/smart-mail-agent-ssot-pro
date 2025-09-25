@@ -1,0 +1,14 @@
+name: Bug Report
+description: 回報錯誤或異常
+labels: [type/bug]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: 發生了什麼, placeholder: 重現步驟 / 期望 / 實際 }
+    validations: { required: true }
+  - type: input
+    id: sha
+    attributes: { label: Commit/Tag, placeholder: e.g. v0.1.0-rc... 或 SHA }
+  - type: textarea
+    id: logs
+    attributes: { label: 相關日誌/證據, placeholder: 貼上 reports_auto/... 的重點 }

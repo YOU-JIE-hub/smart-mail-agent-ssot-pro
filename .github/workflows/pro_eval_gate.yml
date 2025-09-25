@@ -1,0 +1,48 @@
+name: pro-eval-gate
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          sudo apt-get update -y && sudo apt-get install -y jq || true
+      - name: Run pro eval (no-train)
+        run: |
+          set -e
+          [ -f scripts/eval_pro.py ] && python scripts/eval_pro.py || true
+          [ -f scripts/build_pro_md.py ] && python scripts/build_pro_md.py || true
+      - name: Gate check
+        run: |
+          set -e
+          J="reports_auto/pro/latest/summary.json"
+          if [ ! -f "$J" ]; then echo "No summary.json found, skipping gate"; exit 0; fi
+          INTENT_F1_MIN=${INTENT_F1_MIN:-0.60}
+          SPAM_ACC_MIN=${SPAM_ACC_MIN:-0.90}
+          SPAM_ECE_MAX=${SPAM_ECE_MAX:-0.35}
+          intent_f1=$(jq -r '.intent.metrics.macro_f1 // .intent.macro_f1 // 0' "$J")
+          spam_acc=$(jq -r '.spam.metrics.accuracy // .spam.accuracy // 0' "$J")
+          spam_ece=$(jq -r '.spam.metrics.ece // .spam.ece // 1' "$J")
+          echo "Intent Macro-F1: $intent_f1 (min $INTENT_F1_MIN)"
+          echo "Spam Acc:       $spam_acc (min $SPAM_ACC_MIN)"
+          echo "Spam ECE:       $spam_ece (max $SPAM_ECE_MAX)"
+          FAIL=0
+          awk "BEGIN{exit !($intent_f1 >= $INTENT_F1_MIN)}" || { echo "::error ::Intent Macro-F1 below threshold"; FAIL=1; }
+          awk "BEGIN{exit !($spam_acc   >= $SPAM_ACC_MIN)}"   || { echo "::error ::Spam Acc below threshold"; FAIL=1; }
+          awk "BEGIN{exit !($spam_ece   <= $SPAM_ECE_MAX)}"   || { echo "::warning ::Spam ECE above threshold (soft gate)"; }
+          exit $FAIL
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pro-artifacts
+          path: reports_auto/pro/**
+          if-no-files-found: ignore

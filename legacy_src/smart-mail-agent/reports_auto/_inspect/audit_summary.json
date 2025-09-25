@@ -1,0 +1,12 @@
+{
+  "files_scanned": 9288,
+  "source_files": 7648,
+  "legacy_files": 1640,
+  "conflicts_tail2": 121,
+  "conflicts_tail3": 45,
+  "conflicts_module_guess": 0,
+  "import_demands": 138,
+  "missing_modules": 1,
+  "missing_symbols": 3,
+  "timestamp": "2025-09-01T03:27:00Z"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "unscorable",
+  "reason": "asset_missing_vectorizer_or_pipeline",
+  "keys": [
+    "model",
+    "sk"
+  ]
+}

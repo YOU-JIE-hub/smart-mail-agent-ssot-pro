@@ -1,0 +1,8 @@
+{
+  "biz_quote": 0.5,
+  "complaint": 0.3,
+  "other": 0.3,
+  "policy_qa": 0.3,
+  "profile_update": 0.3,
+  "tech_support": 0.55
+}

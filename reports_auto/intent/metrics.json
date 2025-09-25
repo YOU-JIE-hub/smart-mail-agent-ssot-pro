@@ -1,0 +1,8 @@
+{
+  "intent": {
+    "task": "intent",
+    "path": null,
+    "status": "error",
+    "error": "path_missing"
+  }
+}

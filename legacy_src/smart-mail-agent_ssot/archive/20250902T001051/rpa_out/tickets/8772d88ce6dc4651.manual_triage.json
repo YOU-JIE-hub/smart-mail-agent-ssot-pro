@@ -1,0 +1,16 @@
+{
+  "action": "manual_triage",
+  "priority": "P3",
+  "queue": "Ops",
+  "idempotency_key": "9a78fae35b5cb586",
+  "payload": {
+    "mail_id": "8772d88ce6dc4651",
+    "subject": "FYI newsletter",
+    "fields": [],
+    "intent": {
+      "final": "other",
+      "p1": 0.0
+    },
+    "ts": 1756743054
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "built_via": "rebuild(vect+cal)",
+  "sklearn": "1.7.1",
+  "threshold": 0.44
+}

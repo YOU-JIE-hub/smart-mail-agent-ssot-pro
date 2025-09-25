@@ -1,0 +1,14 @@
+name: Bug report
+description: 回報錯誤
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: 問題描述, description: 請提供重現步驟與期望行為 }
+    validations: { required: true }
+  - type: input
+    id: env
+    attributes: { label: 環境, description: OS/Python/commit/branch }
+  - type: textarea
+    id: logs
+    attributes: { label: 日誌與擷圖 }

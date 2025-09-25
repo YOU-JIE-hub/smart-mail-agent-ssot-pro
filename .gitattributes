@@ -13,3 +13,4 @@
 *.npz binary
 *.npy binary
 *.h5 binary
+code/_backup/** export-ignore

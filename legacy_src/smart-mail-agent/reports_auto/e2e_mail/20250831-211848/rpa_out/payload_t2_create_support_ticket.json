@@ -1,0 +1,16 @@
+{
+  "id": "t2",
+  "action": "create_support_ticket",
+  "priority": "P2",
+  "queue": "Support",
+  "due_at": "2025-08-31T21:19:02+00:00",
+  "fields": {
+    "sla": "SLA"
+  },
+  "audit": {
+    "source": "sma_actions_exec",
+    "created_at": "2025-08-31T13:19:02+00:00"
+  },
+  "idempotency_key": "e8999c84740444e0168cc7e9d3d9e6ef1f8a5d13",
+  "_note": "ticket=ts_t2.json"
+}

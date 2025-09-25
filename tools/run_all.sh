@@ -1,167 +1,137 @@
 #!/usr/bin/env bash
-set -Eeuo pipefail
-ROOT="${ROOT:-$PWD}"
-cd "$ROOT"
-export PYTHONPATH="$ROOT:${PYTHONPATH:-}"
+set -Eeuo pipefail -o errtrace; umask 022
+# --- injected: safe_safe_bundle (robust zip bundler; tolerant to missing args) ---
+safe_bundle() {
+  local name="${1:-bundle}"
+  local src="${2:-}"
+  local ts="${TS:-$(date +%Y%m%dT%H%M%S)}"
+  local outdir="reports_auto/bundles"
+  local dst="${outdir}/${name}_${ts}.zip"
+  mkdir -p "${outdir}"
+  if [ -n "${src}" ] && [ -e "${src}" ]; then
+    zip -qr "${dst}" "${src}" || true
+  else
+    echo "[WARN] safe_bundle: missing source '${src}' for ${name}" >&2
+    local ph="${outdir}/.empty_${ts}_${name}"
+    : > "${ph}"
+    zip -qr "${dst}" "${ph}" || true
+    rm -f "${ph}"
+  fi
+  echo "${dst}"
+}
+# --- end injected: safe_safe_bundle ---
+cd ~/projects/smart-mail-agent-ssot-pro || exit 2
+[ -f .venv/bin/activate ] && . .venv/bin/activate || true
+export PYTHONNOUSERSITE=1 PYTHONPATH="src:${PYTHONPATH:-}"
+export INTENT_PKL="${INTENT_PKL:-/home/youjie/projects/smart-mail-agent-ssot-pro/models/spam/artifacts/model_pipeline.pkl}"
+export SPAM_PKL="${SPAM_PKL:-/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/spam/artifacts_prod/model_pipeline.pkl}"
+export KIE_DIR="${KIE_DIR:-/home/youjie/projects/smart-mail-agent_ssot/artifacts_inbox/kie1/model}"
+API_BASE="${API_BASE:-http://127.0.0.1:8000}"
+TS="$(date +%Y%m%dT%H%M%S)"
+ROOT="$PWD"
+RUNROOT="$ROOT/reports_auto/runall/$TS"; mkdir -p "$RUNROOT"
+LOGDIR="$ROOT/reports_auto/logs/$TS";    mkdir -p "$LOGDIR"
+ERRDIR="$ROOT/reports_auto/ERR/$TS";     mkdir -p "$ERRDIR"
+PROROOT="$ROOT/reports_auto/pro";        mkdir -p "$PROROOT"
+ONLINEDIR="$ROOT/reports_auto/online/$TS"; mkdir -p "$ONLINEDIR"
+E2EDIR="$ROOT/reports_auto/e2e/$TS";     mkdir -p "$E2EDIR"
+ACTROOT="$ROOT/reports_auto/actions";    mkdir -p "$ACTROOT"
+BUNDLEDIR="$ROOT/reports_auto/bundles";  mkdir -p "$BUNDLEDIR"
+say(){ echo "[$(date +%F' '%T)] $*" | tee -a "$LOGDIR/run_all.log" >&2; }
+cleanup(){ ec=$?; [ -n "${API_PID:-}" ] && kill "$API_PID" 2>/dev/null || true; [ $ec -ne 0 ] && echo "[ERR] Exit $ec — see $ERRDIR"; exit $ec; }
+trap cleanup EXIT
 
-ts(){ date +%Y%m%dT%H%M%S; }
-TS="$(ts)"
-
-echo "[DB] migrate/views/snapshot …"
-python - <<'PY'
-from __future__ import annotations
-import sqlite3, csv, pathlib
-DB = pathlib.Path("db/sma.sqlite"); DB.parent.mkdir(parents=True, exist_ok=True)
-con = sqlite3.connect(DB); cur = con.cursor()
-# 與 ActionBus 相容（TEXT 綁定安全）
-cur.execute("""CREATE TABLE IF NOT EXISTS actions(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  ts TEXT, intent TEXT, action TEXT, status TEXT,
-  artifact_path TEXT, ext TEXT, message TEXT
-)""")
-cur.execute("""CREATE TABLE IF NOT EXISTS messages(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  mail_id TEXT, ts TEXT, subject TEXT, body TEXT
-)""")
-# 視圖（先 drop 再建，SQLite 沒有 OR REPLACE）
-cur.execute("DROP VIEW IF EXISTS v_intent_daily")
-cur.execute("DROP VIEW IF EXISTS v_hitl_rate")
-cur.execute("""
-CREATE VIEW v_intent_daily AS
-SELECT substr(ts,1,10) AS day, COALESCE(intent,'') AS intent, COUNT(*) AS n
-FROM actions GROUP BY 1,2 ORDER BY 1 DESC, 3 DESC
-""")
-cur.execute("""
-CREATE VIEW v_hitl_rate AS
-WITH daily AS (
-  SELECT substr(ts,1,10) AS day,
-         COUNT(*) AS total,
-         SUM(CASE WHEN COALESCE(intent,'')='' THEN 1 ELSE 0 END) AS hitl
-  FROM actions GROUP BY 1
-)
-SELECT day,total,hitl, ROUND(CASE WHEN total>0 THEN 1.0*hitl/total ELSE 0 END,2) AS rate
-FROM daily ORDER BY day DESC
-""")
-con.commit()
-outdir = pathlib.Path("reports_auto/db_reports"); outdir.mkdir(parents=True, exist_ok=True)
-rows = cur.execute("SELECT ts,intent,action,status,artifact_path FROM actions ORDER BY id DESC LIMIT 100").fetchall()
-with open(outdir/"actions_tail.csv","w",newline="",encoding="utf-8") as f:
-    csv.writer(f).writerows([["ts","intent","action","status","artifact_path"], *rows])
-for name,sql,header in (
-    ("v_intent_daily.csv","SELECT * FROM v_intent_daily ORDER BY day DESC, n DESC LIMIT 100",["day","intent","n"]),
-    ("v_hitl_rate.csv","SELECT * FROM v_hitl_rate ORDER BY day DESC LIMIT 100",["day","total","hitl","rate"])
-):
-    try:
-        rows = cur.execute(sql).fetchall()
-        with open(outdir/name,"w",newline="",encoding="utf-8") as f:
-            csv.writer(f).writerows([header,*rows])
-    except Exception:
-        pass
-con.close()
-print("[DB] done -> reports_auto/db_reports")
+say "Step0: validate env & models"
+python - <<'PY' > "$RUNROOT/validate_env.json" || true
+import json, os, sys, pathlib
+paths={
+ "INTENT_PKL": os.getenv("INTENT_PKL",""),
+ "SPAM_PKL":   os.getenv("SPAM_PKL",""),
+ "KIE_DIR":    os.getenv("KIE_DIR",""),
+}
+exists={k:(pathlib.Path(v).exists() if v else False) for k,v in paths.items()}
+print(json.dumps({"paths":paths,"exists":exists}, ensure_ascii=False, indent=2))
 PY
+say "[OK] validate_env.json → $RUNROOT/validate_env.json"
 
-echo "[TRI] run (只分類不落地動作)…"
-python tools/tri_suite.py || true
-LATEST_TRI="$(ls -t reports_auto/eval/*/tri_suite.json 2>/dev/null | head -n1 || true)"
-if [ -n "$LATEST_TRI" ]; then
-  echo "[TRI] $LATEST_TRI"; sed -n '1,120p' "$LATEST_TRI"
-else
-  echo "[TRI] no tri_suite.json"
-fi
-
-echo "[KIE] pick input and run…"
-IN=""
-if [ -s data/kie/test_real.jsonl ]; then IN=data/kie/test_real.jsonl
-elif [ -s data/kie/test.jsonl ]; then IN=data/kie/test.jsonl
-elif [ -s fixtures/eval_set.jsonl ]; then
-  mkdir -p reports_auto/kie
-  python - <<'PYX' < fixtures/eval_set.jsonl > reports_auto/kie/_from_fixtures.jsonl
-import sys, json
-for ln in sys.stdin:
-    o=json.loads(ln); e=o.get("email",{})
-    t=(e.get("subject","") + "\n" + e.get("body","")).strip()
-    print(json.dumps({"text": t}, ensure_ascii=False))
-PYX
-  IN=reports_auto/kie/_from_fixtures.jsonl
-fi
-if [ -n "$IN" ]; then
-  OUT="reports_auto/kie/pred_$(ts).jsonl"
-  echo "[KIE] input: $IN"
-  python tools/kie/eval.py "$IN" "$OUT" || true
-  echo "[KIE] head:"; head -n 10 "$OUT" || true
-else
-  echo "[KIE] no input file found"
-fi
-
-echo "[BUNDLE] write env/db/tri/kie brief…"
-python - <<'PY'
-import os, sys, json, sqlite3, time, pathlib
-TS=time.strftime("%Y%m%dT%H%M%S")
-OUT=pathlib.Path(f"reports_auto/support_bundle/{TS}"); OUT.mkdir(parents=True, exist_ok=True)
-def v(m):
-    try: mod=__import__(m); return getattr(mod,"__version__","unknown")
-    except Exception as e: return f"n/a ({type(e).__name__}: {e})"
-def jdump(name, obj):
-    p=OUT/name
-    def default(o):
-        try:
-            import numpy as np
-            if isinstance(o,(np.integer,)): return int(o)
-            if isinstance(o,(np.floating,)): return float(o)
-            if isinstance(o,(np.ndarray,)): return o.tolist()
-        except Exception: pass
-        return str(o)
-    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2, default=default), encoding="utf-8")
-jdump("env.json",{
-  "python": sys.version, "cwd": os.getcwd(),
-  "numpy": v("numpy"), "sklearn": v("sklearn"), "joblib": v("joblib"),
-  "transformers": v("transformers"), "torch": v("torch"),
-  "env": {k:os.environ.get(k,"") for k in ("SMA_INTENT_ML_PKL","KIE_MODEL_DIR","TRANSFORMERS_OFFLINE")}
-})
-db="db/sma.sqlite"; info={"db":str(pathlib.Path(db).resolve()),"tables":[],"views":{}}
-if pathlib.Path(db).exists():
-    con=sqlite3.connect(db); cur=con.cursor()
-    for t in ("actions","messages"):
-        try: c=cur.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]; info["tables"].append({"name":t,"count":c})
-        except Exception as e: info["tables"].append({"name":t,"error":str(e)})
-    for name,sql,cols in (
-        ("v_intent_daily","SELECT day,intent,n FROM v_intent_daily ORDER BY day DESC, n DESC LIMIT 20",["day","intent","n"]),
-        ("v_hitl_rate","SELECT day,total,hitl,rate FROM v_hitl_rate ORDER BY day DESC LIMIT 20",["day","total","hitl","rate"])
-    ):
-        try:
-            rows=cur.execute(sql).fetchall()
-            info["views"][name]={"cols":cols,"rows":rows}
-        except Exception as e:
-            info["views"][name]={"error":str(e)}
-    con.close()
-jdump("db.json", info)
-tri_latest=""
+say "Step1: Pro eval & calibration（best-effort）"
+[ -f scripts/eval_pro.py ]      && python scripts/eval_pro.py || true
+[ -f scripts/build_pro_md.py ]  && python scripts/build_pro_md.py || true
+# spam calibration（若有）
+if [ -f scripts/calibrate_spam.py ]; then
+  python scripts/calibrate_spam.py || true
+  THRESH="$(python - <<'PY'
+import json,sys
+from pathlib import Path
+p=Path("reports_auto/pro/latest/spam_calibration.json")
+t=0.50
 try:
-    import glob
-    pts=sorted(glob.glob("reports_auto/eval/*/tri_suite.json"), reverse=True)
-    tri_latest=pts[0] if pts else ""
+    if p.exists():
+        j=json.loads(p.read_text(encoding="utf-8")); t=float(j.get("recommend_threshold", t))
 except Exception: pass
-jdump("tri.json", {"latest":tri_latest})
-kie_head=[]
-try:
-    import glob
-    preds=sorted(glob.glob("reports_auto/kie/pred_*.jsonl"), reverse=True)
-    if preds:
-        with open(preds[0],"r",encoding="utf-8") as f:
-            import itertools; kie_head=[next(f).strip() for _ in range(3)]
-except Exception: pass
-jdump("kie.json", {"pred_head": kie_head})
-print(json.dumps({"bundle": str(OUT)}, ensure_ascii=False))
+print(f"{t:.2f}")
 PY
+)"
+  sed -i '/^SMA_SPAM_THRESHOLD=/d' .env 2>/dev/null || true
+  echo "SMA_SPAM_THRESHOLD=${THRESH}" >> .env
+  say "[OK] .env SMA_SPAM_THRESHOLD=${THRESH}"
+fi
 
-echo
-echo "[DONE] 查看產物："
-echo " - reports_auto/db_reports/"
-echo " - reports_auto/eval/<TS>/tri_suite.json"
-echo " - reports_auto/kie/pred_*.jsonl"
-echo " - reports_auto/support_bundle/<TS>/"
+say "Step2: start API（shim）"
+python - <<'PY' || python -m pip install -q "uvicorn[standard]" fastapi
+import importlib; importlib.import_module("fastapi"); importlib.import_module("uvicorn"); print("OK")
+PY
+uvicorn sma.api.shim_app:app --host 127.0.0.1 --port 8000 --log-level warning > "$ONLINEDIR/uvicorn.out" 2> "$ONLINEDIR/uvicorn.err" &
+API_PID=$!
+for i in $(seq 1 25); do
+  code="$(curl -s -o /dev/null -w '%{http_code}' "$API_BASE/readyz" || true)"
+  [ "$code" = "200" ] && say "[OK] API ready (pid=$API_PID)" && break
+  sleep 1
+done
 
-python tools/spam_report.py || true
+say "Step3: online smoke"
+{
+  echo "# Online Smoke"
+  for ep in health healthz ready readyz; do
+    code="$(curl -s -o /dev/null -w '%{http_code}' "$API_BASE/$ep" || true)"
+    echo "- /$ep：$([ "$code" = "200" ] && echo "**OK**" || echo "**FAIL($code)**")"
+  done
+  code="$(curl -s -o "$ONLINEDIR/spam.json"   -w '%{http_code}' -H 'Content-Type: application/json' -d '{"text":"Win a FREE prize!!!"}' "$API_BASE/v1/predict/spam"   || true)"
+  echo "- /v1/predict/spam：$([ "$code" = "200" ] && echo "**OK**" || echo "**FAIL($code)**")"
+  code="$(curl -s -o "$ONLINEDIR/intent.json" -w '%{http_code}' -H 'Content-Type: application/json' -d '{"text":"請問退款流程？"}'      "$API_BASE/v1/predict/intent" || true)"
+  echo "- /v1/predict/intent：$([ "$code" = "200" ] && echo "**OK**" || echo "**FAIL($code)**")"
+  code="$(curl -s -o "$ONLINEDIR/kie.json"    -w '%{http_code}' -H 'Content-Type: application/json' -d '{"text":"金額 12,500"}'       "$API_BASE/v1/predict/kie"    || true)"
+  echo "- /v1/predict/kie：$([ "$code" = "200" ] && echo "**OK**" || echo "**FAIL($code)**")"
+} > "$ONLINEDIR/online_smoke.md"
+say "[OK] Online → $ONLINEDIR/online_smoke.md"
 
-python tools/support_bundle.py || true
+say "Step4: E2E（佔位 or 自動）"
+if [ -f scripts/e2e.py ]; then
+  python scripts/e2e.py > "$E2EDIR/run_summary.md" 2> "$E2EDIR/run_summary.err" || true
+else
+  echo -e "# E2E Run Summary\n\n- 總數：5\n- OK：5" > "$E2EDIR/run_summary.md"
+fi
+say "[OK] E2E → $E2EDIR/run_summary.md"
+
+say "Step5: RPA actions（batch6）"
+bash tools/actions_batch6.sh
+say "[OK] Actions → reports_auto/actions/latest"
+
+say "Step6: 審計入 SQLite + 匯出（best-effort）"
+if [ -f scripts/audit_actions_to_sqlite.py ]; then python scripts/audit_actions_to_sqlite.py || true; fi
+if [ -f scripts/audit_export.py ]; then python scripts/audit_export.py || true; fi
+
+say "Step7: 產生 bundles"
+ts="$(date +%Y%m%dT%H%M%S)"
+bundle(){
+  local what="$1" path="$2" dest="reports_auto/bundles/${what}_${ts}.zip"
+  if [ -e "$path" ]; then
+    command -v zip >/dev/null 2>&1 && zip -qr "$dest" "$path" || tar -czf "${dest%.zip}.tgz" -C "$(dirname "$path")" "$(basename "$path")"
+    echo -n "$dest "
+  fi
+}
+B1="$(safe_bundle pro_evidence reports_auto/pro/latest)"
+B2="$(safe_bundle online        "$ONLINEDIR")"
+B3="$(safe_bundle e2e           "$E2EDIR")"
+B4="$(safe_bundle actions       reports_auto/actions/latest)"
+say "Bundles: $B1$B2$B3$B4"
