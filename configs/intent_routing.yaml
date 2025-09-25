@@ -1,0 +1,6 @@
+biz_quote:       [gen_quote, post_webhook]
+complaint:       [llm_summarize, create_ticket]
+policy_qa:       [rag_answer]
+profile_update:  [crm_update]
+tech_support:    [create_issue]
+other:           [handoff_human]
